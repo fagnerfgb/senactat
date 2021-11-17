@@ -1,0 +1,43 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 17/11/2021
+#Data de atualização: 17/11/2021
+#Versão: 0.01
+******************************************************************************************
+Clonezilla
+******************************************************************************************
+Restaurar Snapshot da aula anterior
+Criar um novo HD de 70GB no VirtualBox
+Em Executar, digitar diskmgmt.msc
+Inicializar o novo disco
+Ativar o novo HD com suporte ao MBR
+Selecionar a partição C:\ clicar com o botão direito do mouse e selecionar "Diminuir Volume"
+Diminuir 20000 MB
+Criar partição com o nome: Arquivos
+Particionar e Formatar o HD de 70GB e inserir o nome: BKP
+******************************************************************************************
+Fazer a clonagem da Partição: Arquivos para BKP
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-device
+Modo Iniciante
+Clonagem de partição local para partição local
+origem:sda5
+destino:sdb1
+-sfsck Ignorar verificação/correção de sistema de arquivos de origem
+-p poweroff Desligar
+Enter
+Y
+Y
+******************************************************************************************
+Inicializar o Windows e remover a partição Arquivos
+Ativar o disco de 70GB. Os dados salvos na partição Arquivos aparecerão
+Excluir a partição estendida do disco 0
+Clique com o Botão direito do mouse na partição C:\ e selecione a opção estender volume e
+utilize todo o espaço disponível
+******************************************************************************************
+Instalar o GNU/Linux Mint (Debian, 4096MB, 50GB, Rede Bridge)
+Atualizar o sistema e instalar o aplicativo Gparted
+Tirar Snapshot
