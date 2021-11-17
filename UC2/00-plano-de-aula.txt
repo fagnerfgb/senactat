@@ -1,0 +1,33 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 03/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+Cronograma de aulas:
+#01_ Virtualização (Máquina Virtual)
+	a_ Criação da VM
+	b_ Configuração da VM
+	c_ Trabalho com Snapshot
+	e_ Configuração de Rede
+	Instalar Mozilla Firefox, Visual Studio Code, CPU-z
+	d_ Adicionando Hard Disk
+	Formatar NTFS (Gerenciamento de Disco)
+******************************************************************************************
+#02_ Sistema Operacional Desktop Microsoft (Win10/11)
+	#03_ Sistema Operacional Desktop GNU/Linux (Linux Mint)
+	#04_ Particionamento de Disco e Sistema de Arquivos (NTFS / Ext4)
+	#05_ Clonagem de Sistema Operacional (Win / Linux)
+	#06_ Backup de Arquivos/Diretórios e Sistema Operacional (Win / Linux)
+	#07_ Segurança Básica e Proteção contra Software Maliciosos (Antivírus)
+	#08_ Rede Workgroup (Grupo de Trabalho - Win / Linux)
+	#09_ Endereçamento IPv4 (Dinâmico/Estático / IP, Máscara, Gateway, DNS)
+	#10_ Compartilhamento de Pastas e Impressoras
+	#11_ Criação de Usuário e Grupos (Win / Linux)
+******************************************************************************************
+Extra (se de tempo ainda esse ano, projeto final, previsão para Dezembro)
+	#12_ Configuração de Rede Sem-Fio (Router SOHO, Notebook, Desktop)
+	#13_ Versionamento de Arquivos (Git e Github)
+	#14_ Projeto Retrô Games GNU/Linux Batocera
+	
+	
+	

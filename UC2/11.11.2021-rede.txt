@@ -1,0 +1,53 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 11/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+Primeira etapa: Iniciar o Windows 10
+******************************************************************************************
+Segunda etapa.: Verificar as conexões de Rede
+		(Teste básico com os comandos aprendidos)
+******************************************************************************************
+Terceira etapa: Trabalhar com Switches em Grupo (7 Grupos)
+******************************************************************************************
+Quarta etapa..: Configurações do Windows 10 (Rede)
+			Hostname: Nome do Computador
+			Workgroup: Grupo de Trabalho
+			Endereço IPv4 Estático: 
+			Endereço IPv4 Dinânico: DHCP Dinânico
+			Gateway: Dinânico
+			Servidores DNS: Dinânico
+			Testes de Conexão:
+******************************************************************************************
+Quinta etapa: Procedimentos no GNU/Linux Mint
+******************************************************************************************	
+Grupo-01:	Grupo de Trabalho: GRUPO-01
+			Endereço IPv4....: Estático
+				IPv4: 192.168.1.XXX
+				Mask: 255.255.255.0
+******************************************************************************************				
+Grupo-02:	Grupo de Trabalho: GRUPO-02
+			Endereço IPv4....: Estático
+				IPv4: 192.168.2.XXX
+				Mask: 255.255.255.0
+******************************************************************************************
+Grupo-03:	Grupo de Trabalho: GRUPO-03
+			Endereço IPv4....: Estático
+				IPv4: 192.168.3.XXX
+				Mask: 255.255.255.0
+******************************************************************************************				
+Grupo-04:	Grupo de Trabalho: GRUPO-04
+			Endereço IPv4....: Estático
+				IPv4: 192.168.4.XXX
+				Mask: 255.255.255.0
+******************************************************************************************				
+Grupo-05:	Grupo de Trabalho: GRUPO-05
+			Endereço IPv4....: Estático
+				IPv4: 192.168.5.XXX
+				Mask: 255.255.255.0
+******************************************************************************************				
+Grupo-06:	Grupo de Trabalho: GRUPO-06
+			Endereço IPv4....: Estático
+				IPv4: 192.168.6.XXX
+				Mask: 255.255.255.0
+******************************************************************************************

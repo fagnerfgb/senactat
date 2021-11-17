@@ -1,0 +1,28 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 09/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+Instalação Notebook Itautec
+Usuário padrão (Windows e Linux): senac - Senha padrão: 123@senac
+******************************************************************************************
+Primeira etapa: Instalar o Windows 10
+******************************************************************************************
+Segunda etapa: Instalar os Drivers Windows 10
+Slim Driver, Driver Easy, Zero Install, DriverPack, DriverUpdate, DriverMax, 
+Driver Toolkit, Driver Turbo
+******************************************************************************************
+Terceira etapa: Instalar os aplicativos básicos
+Visual Studio Code, Firefox, Chrome, Edge, VirtualBOX
+******************************************************************************************
+Quarta etapa: Instalar o Linux Mint lado a lado com o Windows 10
+******************************************************************************************
+Quinta etapa:	Atualizar o Linux Mint (utilizar o MintUpdate)
+******************************************************************************************
+Sexta etapa: Instalar os aplicativos básicos
+Visual Studio Code, Firefox, Chrome, Edge, VirtualBOX
+******************************************************************************************
+Sexta etapa: Instalar os pacotes via Apt:
+sudo apt update
+sudo apt install git vim
+******************************************************************************************

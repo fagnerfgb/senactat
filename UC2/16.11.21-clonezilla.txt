@@ -1,0 +1,27 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 16/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+Clonezilla
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-device
+Modo Iniciante
+Clonagem de disco local para disco local
+Disco de Origem: 50GB
+Disco de Destino: 60GB
+-sfsck Ignorar verificação/correção de sistema de arquivos de origem
+-p poweroff Desligar
+Enter
+Y
+Y
+******************************************************************************************
+No VirtualBox, alterar a porta SATA do disco de 60GB com um número menor do que o disco de 50GB
+Inicializar o Windows
+Se o procedimento deu certo, o Windows funcionará sem problemas
+******************************************************************************************

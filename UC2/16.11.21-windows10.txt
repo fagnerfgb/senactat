@@ -1,0 +1,60 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 16/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+TEMPLATE-W10
+Windows 10 Pro 21H1
+RAM: 4GB
+HD: 50GB - VDI
+******************************************************************************************
+Guia Geral
+Avançado
+Área de Transferência Compartilhada: Bi-direcional
+Arrastar e Soltar: Bi-direcional
+******************************************************************************************
+Guia Sistema
+Placa-Mãe: Habilitar EFI
+Processador: 
+    2 CPUs
+    Habilitar PAE/NX
+    Habilitar VT-x/AMD-V Aninhado
+******************************************************************************************    
+Guia Armazenamento
+Disco Rígido SATA 0 - Drive de estado sólido
+Drive Óptico - Apontar caminho da ISO do Windows 10
+******************************************************************************************
+Guia Áudio
+Desmarcar opção Habilitar Áudio
+******************************************************************************************
+Guia Rede
+Adaptador 1 - Rede Interna
+******************************************************************************************
+Instalar Windows 10 Pro
+Instalação Personalizada
+Cria uma partição com o tamanho total do disco
+Usuário: senac
+Senha: 123@senac
+******************************************************************************************
+Adicionais para Convidado do VirtualBox
+Instalar CD dos Adicionais para Convidado do VirtualBox
+Reiniciar o computador
+******************************************************************************************
+UAC
+Nunca notificar
+******************************************************************************************
+Propriedades do Sistema (Windows Pause + Break)
+Guia Avançado, Desempenho - Ajustar para obter um melhor desempenho
+Guia Proteção do Sistema - Ativar e alocar 10% do disco
+Guia Remoto
+    Desabilitar Assistência Remota
+    Marcar Permitir conexões remotas com este computador
+******************************************************************************************
+Nome do Computador: WS-FGB
+Adicionar HD de 60GB
+Iniciar o Windows
+Digitar Tecla do Windows + R
+diskmgmt.msc
+Inicializar disco
+Selecionar Disco 1
+MBR

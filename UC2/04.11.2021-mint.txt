@@ -1,0 +1,22 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 04/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.01
+******************************************************************************************
+Primeira etapa: Conhecendo os Conceitos Básicos de GNU/Linux
+(Apresentação do Slide: InstallFast-v2.pdf)
+******************************************************************************************
+Segunda etapa: Criando a Máquina Virtual do GNU/Linux Mint
+******************************************************************************************
+Terceira etapa: Instalando o GNU/Linux Mint
+******************************************************************************************
+Quarta etapa: Configuração Básica do GNU/Linux Mint
+(Tela Bem-Vindo e Relatório do Sistema)
+******************************************************************************************
+Quinta etapa: Atualizando o GNU/Linux Mint 
+(MintUpdate - Modo Gráfico)
+******************************************************************************************
+Sexta etapa: Instalação dos Convidados do VirtualBOX
+******************************************************************************************
+Sétima etapa: Criação do Snapshot da Máquina Virtual
+******************************************************************************************
