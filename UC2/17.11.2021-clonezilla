@@ -38,6 +38,14 @@ Excluir a partição estendida do disco 0
 Clique com o Botão direito do mouse na partição C:\ e selecione a opção estender volume e
 utilize todo o espaço disponível
 ******************************************************************************************
-Instalar o GNU/Linux Mint (Debian, 4096MB, 50GB, Rede Bridge)
-Atualizar o sistema e instalar o aplicativo Gparted
+Instalar o aplicativo Gparted
+sudo apt update 
+sudo apt upgrade
+sudo apt dist-upgrade
+sudo apt full-upgrade
+sudo apt autoremove
+sudo apt autoclean
+sudo apt clean
+sudo apt install gparted -y
+******************************************************************************************
 Tirar Snapshot
