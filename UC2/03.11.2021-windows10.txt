@@ -87,11 +87,8 @@ Em opções de Desligamento escolher a opção Desligar
 Alterar placa de rede da VM para rede interna
 Exportar máquina virtual para futuros laboratórios
 ******************************************************************************************
-Importar VM
-Dar um duplo clique no arquivo de extensão ova para importar a VM para o VirtualBox
 Iniciar VM
 ******************************************************************************************
-Windows
 Criar Usuário
 Usuário: senac
 Senha: 123@senac
