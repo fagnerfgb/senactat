@@ -3,22 +3,42 @@
 #Data de atualização: 16/11/2021
 #Versão: 0.01
 ******************************************************************************************
-Primeira etapa
-Iniciar o Linux Mint
+Configurações do VSCode
+Atualizar para o idioma Português
+Escolher Tema Escuro
 ******************************************************************************************
-Segunda etapa
-Finalizar as atividades da última aula
+Instalar as Extensões
+Brazilian Portuguese-Code Spell Checker
+bats
+bash beautify
+shell-format
+shellcheck
+Cisco IOS Systax
+Cisco IOS-XR Systax
+Cisco Config Highlight
+Pylance
+Python
 ******************************************************************************************
-Terceiro etapa
-Trabalhar com: Visual Studio Code (conf)
-Github (site)
-Git (configuração)
+Configuração do Brazilian Portuguese-Code Spell Checker
+Brazilian Portuguese - Code Spell Checker (Corretor Ortográfico de Código)
+F1
+Show Spell Checker Configuration Info
+Language
+	English (en_us)
+	Portuguese (pt_br)
+	Portuguese - Brazil (pt-br)
+File Types and Programming Languages
+	shellscript, bat, powershell
+
+Gerenciar
+Configurações
+Code Spell Checker
+	C Spell: Enabled Language Ids: shellscript
+	C Spell: Language: en,pt,pt-BR
+	C Spell: Max Duplicate Problems: 5000
+	C Spell: Max Number Of Problems: 100000
+Editor
+	Editor: Tab Size: 4
+	Editor: Detect Indentation: False
+	Editor: Insert Spaces: False
 ******************************************************************************************
-Quarta etapa 
-Trabalhar com documentação: Texto (TXT)
-Markdown (MD)
-Html
-******************************************************************************************
-Quinta etapa 
-Se logar no Firefox no Linux Mint com sua conta do Github para fazer a integração com o
-Visual Studio Code, Git e Github

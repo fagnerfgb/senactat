@@ -53,10 +53,7 @@ Solicitar minha senha para entrar
 ******************************************************************************************
 Quarta etapa: Configuração Básica do GNU/Linux Mint
 (Tela Bem-Vindo e Relatório do Sistema)
-******************************************************************************************
 Desmarcar Mostre esta tela de boas-vindas ao iniciar o Linux Mint
-Primeiros Passos - Modo Noturno
-Leiaute Moderno
 ******************************************************************************************
 Quinta etapa: Instalação dos Convidados do VirtualBOX
 ******************************************************************************************
@@ -70,21 +67,15 @@ Sexta etapa: Atualizando o GNU/Linux Mint
 ******************************************************************************************
 Mover Painel para parte de cima da tela
 ******************************************************************************************
-Sétima etapa: Instalação dos Convidados do VirtualBOX
-******************************************************************************************
-Adicionais para Convidado do VirtualBox
-Instalar CD dos Adicionais para Convidado do VirtualBox
-Remover CD dos Adicionais para Convidado do VirtualBox
-Reiniciar o computador
-******************************************************************************************
 Aplicativos
 Instalação por linha de comando
-sudo apt install cairo-dock vim kolourpaint notepadqq vlc -y
+sudo apt install cairo-dock vim kolourpaint notepadqq vlc git -y
 Cairo-Dock
 KolourPaint
 Vim
 NotepadQQ
 VLC
+Git
 ******************************************************************************************
 Baixar Pacotes .Deb no site dos criadores
 Google Chrome
@@ -92,11 +83,14 @@ Microsoft Edge
 Teams
 Visual Studio Code
 Free Office
+VirtualBox
+Extension Pack
 ******************************************************************************************
 Gerenciador de Aplicativos
 Instalar Ttf-mscorefonts-installer
 Marcar Do you accept the EULA license terms?
 ******************************************************************************************
+sudo apt update && apt upgrade -y
 sudo apt clean 
 sudo apt autoclean
 sudo apt autoremove
@@ -104,6 +98,7 @@ sudo apt autoremove
 Cairo-Dock
 Lembrar esta escolha
 Yes
+Visibilidade: Sempre abaixo
 ******************************************************************************************
 Aplicativos na Inicialização
 Cairo-Dock
@@ -115,6 +110,7 @@ Texto Puro = VSCode
 Música = VLC
 Vídeo = VLC
 Código Fonte = VSCode
+Instalação do Tema Adapta-Nokto
 ******************************************************************************************
 Oitava etapa: Criação do Snapshot da Máquina Virtual
 ******************************************************************************************
