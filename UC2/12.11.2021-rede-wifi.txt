@@ -3,7 +3,7 @@
 #Data de atualização: 16/11/2021
 #Versão: 0.01
 ******************************************************************************************
-Primeira etapa: Montar o cenário do seu Grupo (switch)9
+Primeira etapa: Montar o cenário do seu Grupo (switch)
 ******************************************************************************************
 Segunda etapa.: Iniciar o Microsoft Windows 10
 ******************************************************************************************
