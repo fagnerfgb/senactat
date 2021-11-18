@@ -1,0 +1,85 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 18/11/2021
+#Data de atualização: 18/11/2021
+#Versão: 0.01
+******************************************************************************************
+Clonezilla - Clonagem de disco para imagem
+******************************************************************************************
+Adicionar um HD de 70GB no Linux Mint
+Iniciar o Linux Mint
+Utilizar o software Gparted
+Selecionar o disco sdb
+Em Dispositivo, clique em "Criar tabela de partições"
+Selecionar msdos e clicar em aplicar
+Clicar em novo
+Criar partição primária com o tamanho total do disco, sistema de arquivos ext4 e rótulo "Arquivos"
+Aplicar todas as operações
+Aplicar
+Fechar
+Abrir o aplicativo Discos, formatar a partição e montar
+Criar a pasta IMG
+******************************************************************************************
+Clonagem do disco inteiro para uma imagem
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-image
+local_dev
+Enter
+Ctrl-C
+Disco de 70GB
+no-fsck
+IMG Done
+Enter
+Modo Iniciante
+savedisk
+linux-mint-img
+sda
+OK
+-z1p
+-sfsck
+-scs
+-senc
+-p poweroff Desligar
+Enter
+y
+Enter
+******************************************************************************************
+Verificar se a Imagem foi criada na partição Arquivos
+******************************************************************************************
+Adicionar um novo HD de 80GB
+******************************************************************************************
+Remover o HD com o sistema do Linux Mint
+******************************************************************************************
+Restauração da imagem no novo Hard Disk
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-image
+local_dev
+Enter
+Ctrl-C
+sda1
+no-fsck
+IMG
+linux-mint-img
+Done
+Enter
+Modo Iniciante
+restoredisk
+linux-mint-img
+sdb 80(GB)
+-scr
+-p poweroff Desligar
+Enter
+Enter
+y
+y
+Enter
+******************************************************************************************
