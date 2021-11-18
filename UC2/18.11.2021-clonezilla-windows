@@ -1,0 +1,75 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 18/11/2021
+#Data de atualização: 18/11/2021
+#Versão: 0.01
+******************************************************************************************
+Clonezilla - Clonagem de disco para imagem
+******************************************************************************************
+Iniciar o Windows 10
+Criar uma pasta com o nome "IMG" no disco com nome "Arquivos"
+Desligar o computador
+******************************************************************************************
+Clonagem do disco inteiro para uma imagem
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-image
+local_dev
+Enter
+Ctrl-C
+sdb1
+no-fsck
+IMG Done
+Enter
+Modo Iniciante
+savedisk
+W10-21H2
+sda
+OK
+-z1
+-sfsck
+-scs
+-senc
+-p poweroff Desligar
+Enter
+y
+Enter
+******************************************************************************************
+Verificar se a Imagem foi criada na partição Windows
+******************************************************************************************
+Adicionar um novo HD de 80GB
+******************************************************************************************
+Remover o HD de 50GB do Windows
+******************************************************************************************
+Restauração da imagem no novo Hard Disk
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Other modes to Clonezilla live (VGA 1024x768)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-image
+local_dev
+Enter
+Ctrl-C
+sda1
+no-fsck
+IMG
+W10-21H2
+Done
+Enter
+Modo Iniciante
+restoredisk
+W10-21H2
+sdb 80(GB)
+-scr
+-p poweroff Desligar
+Enter
+Enter
+y
+y
+Enter
+******************************************************************************************
