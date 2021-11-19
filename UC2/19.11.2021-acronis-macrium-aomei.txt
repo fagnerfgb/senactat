@@ -1,0 +1,66 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 19/11/2021
+#Data de atualização: 19/11/2021
+#Versão: 0.01
+******************************************************************************************
+Criando Imagem com o Acronis, Macrium e AOMEI
+******************************************************************************************
+Criar um disco de 90GB no VirtualBox
+Inicializar o Windows
+Digitar Windows + R
+Digitar diskmgmt.msc
+Abrir Gerenciamento de Discos
+Inicializar Disco 1 como MBR
+Tirar um snapshot
+Desligar o Windows
+******************************************************************************************
+Acronis
+******************************************************************************************
+Bootar o computador com a ISO do Acronis
+Selecionar Acronis True Image (64-Bit)
+Clicar Tools & Utilities
+Clicar em Clone Disk
+Automatic
+Next
+Proceed
+Shutdown the computer when the operation is completed
+******************************************************************************************
+No VirtualBox, inverter as prioridades do SATA 
+Iniciar o Windows para testar se o novo HD foi clonado corretamente
+Desligar o computador
+******************************************************************************************
+Restaurar o snapshot
+******************************************************************************************
+Macrium
+******************************************************************************************
+Bootar o computador com a ISO do Macrium
+Clicar em Clone This Disk
+Local - Selecione o Disco com o Windows instalado
+Destination - Select a disk to clone to...
+Selecione o Disco 2 - 90GB
+Clique em Next
+Clique em Finish
+After Clone: Shutdown
+******************************************************************************************
+No VirtualBox, inverter as prioridades do SATA 
+Iniciar o Windows para testar se o novo HD foi clonado corretamente
+Desligar o computador
+******************************************************************************************
+Restaurar o snapshot
+******************************************************************************************
+AOMEI
+******************************************************************************************
+Bootar o computador com a ISO do AOMEI
+Clicar em Clone
+Disk Clone
+Selecionar o Disco de Origem
+Selecionar o Disco de Destino
+OK
+Start Clone
+Após finalizar o processo, clique em Finish
+Desligue o computador
+******************************************************************************************
+No VirtualBox, inverter as prioridades do SATA 
+Iniciar o Windows para testar se o novo HD foi clonado corretamente
+Desligar o computador
+******************************************************************************************
