@@ -1,0 +1,8 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 22/11/2021
+#Data de atualização: 22/11/2021
+#Versão: 0.01
+******************************************************************************************
+Material para Consulta
+https://ss64.com/
+https://www.webmundi.com/sistema-operacional/windows-7/221-comandos-executar-do-windows-run-commands/
