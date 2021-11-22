@@ -22,5 +22,23 @@ A - 10.0.0.0    - 10.255.255.255  Máscara - 255.0.0.0     CIDR /8
 B - 172.16.0.0  - 172.31.255.255  Máscara - 255.255.0.0   CIDR /16  
 C - 192.168.0.0 - 192.168.255.255 Máscara - 255.255.255.0 CIDR /24
 ******************************************************************************************
+Winkey + R
+sysdm.cpl
+Nome do PC: fagner-14
+Grupo: SENACTAT
+******************************************************************************************
+Usuário: senac
+Senha: 123@senac
+******************************************************************************************
+Winkey + R
+ncpa.cpl
+Botão direito do mouse, Propriedades
+Protocolo IP versão 4 (TCP/IPv4)
+Propriedades
+IP: 192.168.0.14
+Máscara: 255.255.255.0
+Alterar placa de rede para o modo Bridge no VirtualBox
+
+
 
 
