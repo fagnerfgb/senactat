@@ -1,0 +1,19 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 23/11/2021
+#Data de atualização: 23/11/2021
+#Versão: 0.01
+******************************************************************************************
+Nome do computador: fagner-14
+Gurpo de Trabalho: SENACTAT
+Usuário: senac
+Senha: 123@senac
+IP: 192.168.3.14
+Máscara: 255.255.255.0
+******************************************************************************************
+Em Windows Defender com Segurança Avançada
+Habilitar Solicitação de Eco - ICMPv4 (Domínio e Particular) nas Regras de Entrada e de Saída
+Realizar ping nas estações 
+Giovanna - 192.168.3.12
+Heder	 - 192.168.3.13
+Karen	 - 192.168.3.15
+******************************************************************************************
