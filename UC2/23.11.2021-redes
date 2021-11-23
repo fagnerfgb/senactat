@@ -12,8 +12,25 @@ Máscara: 255.255.255.0
 ******************************************************************************************
 Em Windows Defender com Segurança Avançada
 Habilitar Solicitação de Eco - ICMPv4 (Domínio e Particular) nas Regras de Entrada e de Saída
-Realizar ping nas estações 
-Giovanna - 192.168.3.12
-Heder	 - 192.168.3.13
-Karen	 - 192.168.3.15
 ******************************************************************************************
+Realizar ping nas estações pelo IP e pelo nome
+Giovanna - 192.168.3.12 - giovanna-12
+Heder	 - 192.168.3.13 - heder-13
+Karen	 - 192.168.3.15 - karen-15
+******************************************************************************************
+Clicar tecla do Windows + E
+Clicar com o direito em Este Computador e clicar em Gerenciar
+Clicar em Usuários e Grupos Locais e depois clicar em Usuários
+Nome de usuário: tatuape
+Nome Completo: Senac Tatuapé
+Descrição: Usuário de Teste
+Senha: 123@mudar
+O usuário deve alterar a senha no próximo logon
+Criar
+******************************************************************************************
+Logar com a conta Tatuapé
+Inserir a senha 123@mudar
+Trocar a senha para 123@senac
+Será criado o perfil do usuário no computador
+******************************************************************************************
+
