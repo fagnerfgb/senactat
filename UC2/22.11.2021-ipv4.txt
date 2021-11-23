@@ -30,6 +30,7 @@ Grupo: SENACTAT
 Usuário: senac
 Senha: 123@senac
 ******************************************************************************************
+Grupo 3
 Winkey + R
 ncpa.cpl
 Botão direito do mouse, Propriedades
@@ -38,6 +39,8 @@ Propriedades
 IP: 192.168.0.14
 Máscara: 255.255.255.0
 Alterar placa de rede para o modo Bridge no VirtualBox
+******************************************************************************************
+
 
 
 
