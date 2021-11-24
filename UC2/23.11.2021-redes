@@ -49,5 +49,18 @@ Criar as pastas
 Sistema, Departamentos, Fagner e dar as permissões de Compartilhamento da mesma forma que nos passos anteriores
 Acessar os compartilhamentos criados nos outros hosts
 ******************************************************************************************
+Ligar o computador do Senac com o Cabo de rede no Switch
+Abrir o VirtualBox, colocar a VM do Mint como Bridge
+Iniciar a VM
+Colocar o endereço
+IP: 192.168.3.14
+Máscara: 255.255.255.0
+******************************************************************************************
+Pingar os seguintes IPs (tanto da VM como do Notebook)
+192.168.3.14
+192.168.3.114
+192.168.3.15
+192.168.3.115
+******************************************************************************************
 
 
