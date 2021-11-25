@@ -1,0 +1,44 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 25/11/2021
+#Data de atualização: 25/11/2021
+#Versão: 0.01
+******************************************************************************************
+Equipamentos Utilizados:
+1 Switch 3COM 4400
+4 Notebooks Infoway Itautec n8645
+4 Computadores Dell 7040
+1 Roteador Dlink DIR-819
+10 patch cords
+******************************************************************************************
+Notebook Giovanna 192.168.3.12 giovanna-12
+PC Giovanna 192.168.3.112
+Notebook Heder 192.168.3.13 heder-13
+PC Heder 192.168.3.113
+Notebook Fagner 192.168.3.14 fagner-14
+PC Fagner 192.168.3.114
+Notebook Karen 192.168.3.15 karen-15
+PC Karen 192.168.3.115
+Roteador 192.168.3.254
+******************************************************************************************
+Ligar switch na energia e conectar os patch cords do switches nos notebooks e desktops do grupo
+Conectar uma ponta do patch cord na porta WAN do roteador e a outra ponta no ponto de rede do senac
+Conectar uma ponta do patch cord na porta LAN do roteador e a outra ponta numa porta do switch
+Ligar o roteador na energia
+Ligar o notebook e iniciar o Windows 10 e o desktop com a máquina virtual no Linux Mint
+Realizar os testes de ping e de acesso aos notebooks e desktops de todos os membros do grupo
+******************************************************************************************
+Conectar no roteador
+Habilitar o DHCP Server do Roteador
+Faixa inicial: 192.168.3.100
+Faixa final: 192.168.3.200
+DNS1: 8.8.8.8
+DNS2: 8.8.4.4
+Inserir os DNS do Google no roteador
+Configurar o Wifi no roteador
+SSID: grupo-03
+Senha: 123@senac
+******************************************************************************************
+Alterar as configurações de rede do computador e do notebook para DHCP
+Conectar o notebook e o celular no Wifi
+Testar a conectividade de todos os dispositivos
+******************************************************************************************
