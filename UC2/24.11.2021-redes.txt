@@ -1,3 +1,75 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 25/11/2021
+#Data de atualização: 25/11/2021
+#Versão: 0.02
+******************************************************************************************
+Equipamentos Utilizados:
+1 Switch 3COM 4400
+4 Notebooks Infoway Itautec n8645
+4 Computadores Dell 7040
+1 Roteador Dlink DIR-819
+10 patch cords
+******************************************************************************************
+Notebook Giovanna 192.168.3.12 giovanna-12
+PC Giovanna 192.168.3.112
+Notebook Heder 192.168.3.13 heder-13
+PC Heder 192.168.3.113
+Notebook Fagner 192.168.3.14 fagner-14
+PC Fagner 192.168.3.114
+Notebook Karen 192.168.3.15 karen-15
+PC Karen 192.168.3.115
+Roteador 192.168.3.254
+******************************************************************************************
+Ligar switch na energia e conectar os patch cords do switches nos notebooks do grupo
+Ligar o notebook e iniciar o Windows 10
+Realizar os testes de ping e de acesso aos notebooks de todos os membros do grupo
+******************************************************************************************
+Pegar um Roteador SOHO
+Conectar o equipamento na tomada
+Resetar o equipamento
+Conectar uma ponta do patch cord no notebook e a outra na porta LAN do roteador
+Inserir o IP 192.168.0.1
+Usuário: admin
+Senha: em branco
+Trocar o IP do roteador para 192.168.3.254
+Desabilitar o DHCP Server do Roteador
+Inserir os DNS do Google no roteador
+Desconectar a ponta do patch cord no notebook e conectar no switch
+Conectar uma ponta do patch cord na porta wan do roteador e a outra no ponto de rede do Senac
+******************************************************************************************
+Conectar uma ponta do patch cord no notebook e outra no switch
+Pressionar as teclas Windows + R e digitar ncpa.cpl
+Inserir o gateway 192.168.3.254
+Inserir o DNS primário 192.168.3.254
+******************************************************************************************
+Realizar testes de ping 
+Gateway: 192.168.3.254
+8.8.8.8
+8.8.4.4
+208.67.222.222
+208.67.220.220
+208.67.222.123
+208.67.220.123
+1.1.1.1
+1.0.0.1
+1.1.1.3
+1.0.0.3
+200.204.0.10 
+200.204.0.138
+******************************************************************************************
+Inserir os DNS abaixo nas configurações da placa de rede e testar
+DNS Preferencial e Alternativo testar os endereços:
+					DNS Google..............: Pref: 8.8.8.8 		- Alt: 8.8.4.4
+					OpenDNS Cisco...........: Pref: 208.67.222.222	- Alt: 208.67.220.220
+					OpenDNS FamilyShield....: Pref: 208.67.222.123	- Alt: 208.67.220.123
+					CloudFlare..............: Pref: 1.1.1.1 		- Alt: 1.0.0.1
+					CloudFlare FamilyShield.: Pref: 1.1.1.3 		- Alt: 1.0.0.3
+					Vivo....................: 200.204.0.10 200.204.0.138
+******************************************************************************************
+Ligar o computador Dell 7040
+Conectar uma ponta do patch cord na placa de rede offboard do computador (Broadcom) e a outra ponta no switch
+Abrir o VirtualBox
+Alterar as configurações de rede da máquina virtual Linux Mint
 Colocar em Modo Bridge e escolher a placa de rede Offboard (Broadcom)
 Iniciar o Linux Mint
 ******************************************************************************************
