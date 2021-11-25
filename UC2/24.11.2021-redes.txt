@@ -1,0 +1,30 @@
+Colocar em Modo Bridge e escolher a placa de rede Offboard (Broadcom)
+Iniciar o Linux Mint
+******************************************************************************************
+Desativar a placa de rede
+Colocar configurações de IP relacionadas ao seu PC
+Gateway: 192.168.3.254
+DNS: 8.8.8.8
+DNS: 8.8.4.4
+Ativar a placa de rede
+******************************************************************************************
+Realizar os testes de ping e de acesso aos notebooks de todos os membros do grupo e ao gateway
+******************************************************************************************
+Instalar o aplicativo samba
+sudo aplt install samba -y
+******************************************************************************************
+Baixar e instalar o Aplicativo Cobian Backup 11 Gravity no Windows 10 do Site Oficial
+Baixar a instalar Aplicativos de Cloud (OneDrive, Google Drive, Mega.nz, Dropbox, PCloud, iCloud)
+******************************************************************************************
+Ao tentar mexer nas partições do notebook pelo Gerenciamento de Discos, o Grub foi corrompido 
+e o nem o Windows nem o Linux inicializavam
+Procedimento para correção do problema
+Inicializar o computador com um pendrive ou cd do Mint
+Abrir o terminal
+Digitar o comando
+sudo fdisk -l
+verificar em qual partição o Linux está instalado. (No meu caso estava da /dev/sda5
+sudo mount -t ext4 /dev/sda5 /mnt
+sudo grub-install --root-directory=/mnt /dev/sda
+Reiniciar o computador
+******************************************************************************************
