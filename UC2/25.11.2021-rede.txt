@@ -42,3 +42,42 @@ Alterar as configurações de rede do computador e do notebook para DHCP
 Conectar o notebook e o celular no Wifi
 Testar a conectividade de todos os dispositivos
 ******************************************************************************************
+Criar uma conta no pCloud
+Baixar e instalar o software pCloud no Windows
+Após a instalação será criada a unidade P: no computador.
+Copiar algum arquivo para a pasta P:
+******************************************************************************************
+Criar pasta com o nome Backup em C:\
+Inserir arquivos na pasta C:\Backup para que estes arquivos sejam "backupeados"
+Abrir o software de Backup Cobian
+Criar uma nova tarefa
+Nome da Tarefa: Meu Backup
+Tipo: Completo
+Diretório de origem: C:\Backup
+Diretório de destino: P:\
+Agendamento: Única vez
+Data: 26/11/2021
+Hora: 20:00
+Executar backup manualmente
+O backup deverá ser sincronizado no pCloud
+******************************************************************************************
+Iniciar o Linux Mint
+Baixar o pCloud
+Depois de baixá-lo, clicar com o botão direito do mouse no arquivo e clicar em Propriedades
+Clicar na guia Permissões
+Marcar a opção "Permitir execução do arquivo como um programa"
+Logar no programa
+Na bandeja do sistema, clicar com o botão direito no pCloud e clicar em Open Drive
+Verificar que tanto o arquivo criado quanto o Backup feito com o Cobian no Windows aparecem no Linux Mint
+******************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
