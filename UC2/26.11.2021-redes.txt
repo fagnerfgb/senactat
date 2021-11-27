@@ -1,0 +1,45 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 26/11/2021
+#Data de atualização: 26/11/2021
+#Versão: 0.01
+******************************************************************************************
+Equipamentos Utilizados:
+1 Switch 3COM 4400
+4 Notebooks Infoway Itautec n8645
+4 Computadores Dell 7040
+1 Roteador Dlink DIR-819
+10 patch cords
+******************************************************************************************
+Ligar switch na energia e conectar os patch cords do switches nos notebooks e desktops do grupo
+Conectar uma ponta do patch cord na porta WAN do roteador e a outra ponta no ponto de rede do senac
+Conectar uma ponta do patch cord na porta LAN do roteador e a outra ponta numa porta do switch
+Ligar o roteador na energia
+Ligar o notebook e iniciar o Windows 10 e o desktop com a máquina virtual no Linux Mint
+Realizar os testes de ping e de acesso aos notebooks e desktops de todos os membros do grupo
+******************************************************************************************
+Falha do Cobian: Configurar o serviço
+Usuário: senac
+Senha: 123@senac
+Desabilitar cópia de sombra ao realizar o backup
+******************************************************************************************
+Usuários
+Pressionar as teclas Winkey + R
+Digitar compmgmt.msc
+Em usuários e Grupos Locais, clique com o botão direito em Usuários e depois em Novo usuário
+Criar usuário fagnerfgb
+Logar com este usuário e tentar instalar um programa com ele
+******************************************************************************************
+Grupos
+Pressionar as teclas Winkey + R
+Digitar compmgmt.msc
+Em usuários e Grupos Locais, clique com o botão direito em Grupos e depois em Novo grupo
+Adicionar usuário fagnerfgb ao grupo administradores
+Logar com este usuário e tentar instalar um programa com ele
+******************************************************************************************
+Antivírus
+Baixar e instalar o Kaspersky Security Cloud Free
+Atualizar o antivírus
+******************************************************************************************
+EICAR
+Baixar arquivos do site eicar.org e verificar se antivírus irá detectá-lo e bloqueá-lo
+******************************************************************************************
