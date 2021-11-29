@@ -12,4 +12,69 @@ Instalar o Git, Vim e Python (Ctrl+Alt+T)
 sudo apt update
 sudo apt install git vim vim-common python
 Autenticar no site do Github	
-******************************************************************************************	
+******************************************************************************************
+Criar repositório do GitHub
+******************************************************************************************
+Terminal
+pwd - diretório corrente
+ls - listagem de arquivos e diretórios
+cd - acessar um diretório
+clear ou ctrl + L - limpa a tela
+git clone https://github.com/fagnerfgb/devops.git
+ls -lha 
+l - listagem longa
+h - humana (mais fácil para ler arquivos)
+a - arquivos e diretório ocultos
+******************************************************************************************
+GitHub
+Dentro do repositório criar o arquivo HELP
+#Autor: Fagner Geraldes Braga
+#Site: www.fagnerfgb.com.br
+#Facebook: facebook.com/fagnerfgb
+#Linkedin: https://www.linkedin.com/in/fagnerfgb/
+#Data de criação: 29/11/2021
+#Data de atualização: 29/11/2021
+#Versão: 0.01
+==========================================================================================
+
+Help file for this repository
+******************************************************************************************
+Terminal
+git status
+git pull https://github.com/fagnerfgb/devops.git
+
+criar uma pasta chamada teste em Documentos
+mkdir teste
+******************************************************************************************
+Copiar o Arquivo README.md da pasta devops para a pasta teste
+cp /home/senac/Documentos/devops/README.md /home/senac/Documentos/teste/
+******************************************************************************************
+Enviar pasta teste para dentro do repositório devops
+******************************************************************************************
+git pull https://github.com/fagnerfgb/devops.git
+******************************************************************************************
+No Visual Studio
+Pressione ctrl + k
+Pressione ctrl + o
+Selecione Documentos, devops e pressione OK
+Confiar
+Sim, confio
+******************************************************************************************
+No arquivo HELP
+Inserir o texto abaixo:
+#01. How to clone this project: In the terminal type the command 
+git clone https://github.com/fagnerfgb/devops.git
+******************************************************************************************
+ctrl + s para salvar
+ctrl + j vai para o terminal
+git status
+git add HELP
+git add * ou . adiciona todos os arquivos
+git commit -m "Atualizacao"
+git config --global user.name "Fagner Geraldes Braga"
+git config --global user.email fagner.fgb@gmail.com
+git config --list
+git status
+git commit -m "Atualizacao"
+git push https://github.com/fagnerfgb/devops.git
+******************************************************************************************
