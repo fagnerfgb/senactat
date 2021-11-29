@@ -1,0 +1,15 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 29/11/2021
+#Data de atualização: 29/11/2021
+#Versão: 0.01
+******************************************************************************************
+Git e GitHub
+******************************************************************************************
+Inicializar o Linux Mint
+Placa de rede está em modo Bridge
+Instalar o Visual Studio Code for Linux do site oficial
+Instalar o Git, Vim e Python (Ctrl+Alt+T)
+sudo apt update
+sudo apt install git vim vim-common python
+Autenticar no site do Github	
+******************************************************************************************	
