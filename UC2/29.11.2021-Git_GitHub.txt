@@ -86,3 +86,8 @@ ctrl + j para abrir o terminal
 Clicar em +
 Selecionar a pasta que você deseja trabalhar
 Salvar o Workspace
+******************************************************************************************
+Levar diretório GitHub e seus arquivos para dentro do repositório devops no GitHub
+No terminal do Visual Studio, executar o comando git pull
+******************************************************************************************
+
