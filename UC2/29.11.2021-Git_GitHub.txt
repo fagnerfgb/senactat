@@ -78,3 +78,11 @@ git status
 git commit -m "Atualizacao"
 git push https://github.com/fagnerfgb/devops.git
 ******************************************************************************************
+Adicionar outras pastas no Visual Studio
+Criar a pasta no seu gerenciador de arquivos
+Arrastar a pasta para o Visual Studio
+Adicionar como Workspace
+ctrl + j para abrir o terminal
+Clicar em +
+Selecionar a pasta que você deseja trabalhar
+Salvar o Workspace
