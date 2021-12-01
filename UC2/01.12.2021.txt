@@ -1,0 +1,52 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 01/12/2021
+#Data de atualização: 01/12/2021
+#Versão: 0.01
+******************************************************************************************
+history - histórico dos comandos gravados
+echo $HISTSIZE - quantidade de comandos guardados na memória para o comando history
+echo $HISTFILESIZE - quantidade de comandos guardados em disco para o comando history
+--help - ajuda
+man - manual dos comandos
+mkdir - cria diretório
+mkdir -v (verbose) - modo detalhado
+touch teste01.txt teste02.txt teste03.txt - cria 3 arquivos em branco
+cp -v teste03.txt teste04.txt - copia o arquivo teste03.txt com o nome de teste04.txt
+mv -v teste04.txt teste05.txt - renomeia o arquivo teste04.txt para senac04.txt
+rm -v senac04.txt - remove o arquivo
+mv -v *.txt ../SENAC/ - move os arquivos com final .txt da pasta SESC para a SENAC
+rmdir -v SESC/ - remove o diretório SESC (o diretório precisa estar vazio)
+mkdir scripts 
+cd scripts
+vim upgrade.sh
+	#!/bin/bash
+
+#Atualizando o source list do apt
+sudo apt update
+
+#Atualizando todos os aplicativos (sistema)
+sudo apt upgrade -y
+sudo apt full-upgrade
+sudo apt dist-upgrade
+
+#Limpando todos os caches de aplicativos(sistema)
+sudo apt autoremove
+sudo apt autoclean
+
+#Limpando todos os source list
+sudo apt clean
+
+#Hora do café
+#sudo shutdown -h now
+
+bash upgrade.sh - executa o script bash
+ctrl + alt + f1 - abre o terminal
+ctrl + alt + f7 - volta para o modo gráfico
+
+
+
+
+
+
+
+
