@@ -1,0 +1,66 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 30/11/2021
+#Data de atualização: 30/11/2021
+#Versão: 0.01
+******************************************************************************************
+Vim
+******************************************************************************************
+esc - modo
+insert - modo de inserção
+insert novamente - modo de substituição
+:q - sair
+:q! força sair sem gravar
+touch - cria arquivo zerado
+:x - salva o arquivo e sai
+:w - grava o arquivo
+:wq - salvar e sair
+:wq! - forçar salvar e sair
+esc shift zz - salva e sai
+:set number - mostra o número das linhas
+dd - recorta a linha onde está o cursor
+u - desfaz alteração
+******************************************************************************************
+echo
+echo Fagner Geraldes Braga
+echo Fagner Geraldes Braga > sesc.txt
+cat sesc.txt
+******************************************************************************************
+aurelio.net
+******************************************************************************************
+git status
+mkdir - cria diretório
+cat - lista conteúdo de arquivo texto
+> - cria arquivo ou sobrescreve
+>> - cria arquivo ou incrementa
+cd .. - volta um nível
+cd - volta para o nível anterior
+cd / - vai para a raiz
+cd ~ - vai para o diretorio home
+******************************************************************************************
+shift + pageup - paginar no terminal para cima
+shift + pagedown - paginar no terminal para baixo
+cat -n = numera as linhas
+tac - mostra o arquivo de cima pra baixo
+cat -n /etc/services | tac
+tail - lista o arquivo e imprime as últimas 10 linhas na saída padrão
+tail -n 20 - imprime as últimas 20 linhas na saída padrão
+cat -n /etc/services | tail -n 20 | tac
+head /etc/services - lista o arquivo e imprime as primeiras 10 linhas na saída padrão
+head -n 20 imprime as primeiras 20 linhas na saída padrão
+cat -n /etc/services | head -n 200 | tail -n 101
+cat -n /etc/services | tail -n +100 | head -n -217
+******************************************************************************************
+git pull
+git status
+git add .
+git commit -m "Atualizacao"
+git push
+git pull && git add . && git commit -m "Atualizacao" && git push
+
+
+
+
+
+
+
+
