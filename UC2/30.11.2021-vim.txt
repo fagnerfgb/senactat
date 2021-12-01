@@ -56,11 +56,58 @@ git add .
 git commit -m "Atualizacao"
 git push
 git pull && git add . && git commit -m "Atualizacao" && git push
-
-
-
-
-
-
-
-
+******************************************************************************************
+Comandos executados em sala de aula 
+vim - abre o editor de textos VIM
+ls - lista o diretório corrente
+cd Documentos/devops/ - acessa o diretório informado
+touch senac.txt - cria um arquivo em branco
+ls -lh - listagem longa e humana
+vim senac.txt - abre o arquivo informado no vim
+ls - lista o diretório corrente
+vim sesc.txt - abre arquivo no vim
+ls -lh - listagem longa e humana
+echo - ecoa na tela 
+echo Fagner Geraldes Braga - ecoa na tela
+echo Fagner Geraldes Braga > sesc.txt  - pega o resultado do comando echo e copia para o arquivo sesc.txt
+cat sesc.txt - exibe o conteúdo do arquivo
+ls -lh  - listagem longa e humana
+vim sesc.txt - abre arquivo no vim
+git status - mostra se houve alguma alteração de conteúdo no repositório do Git
+mkdir SENAC - cria diretório
+ls -lh   - listagem longa e humana
+cd SENAC/ - acessa o diretório
+touch README.md - cria o arquivo em branco
+ls - lista o diretório corrente
+echo Linha-01 > README.md pega o resultado do comando echo e copia para o arquivo README.md
+ls -lh    - listagem longa e humana
+vim README.md  - abre arquivo no vim
+cat README.md  - exibe o conteúdo do arquivo
+echo Linha-02 >> README.md - pega o resultado do comando echo e incrementa o arquivo README.md
+vim README.md   - abre arquivo no vim
+cd .. - volta um nível de diretório
+cd -  - volta para o diretório anterior
+cd /  - vai para o diretório raiz
+ls - lista o diretório corrente 
+cd ~ - vai para o diretório /home do usuário
+cd /   - vai para o diretório raiz
+cd ~/Documentos/devops/ - vai para o diretório informado
+cat /etc/services    - exibe o conteúdo do arquivo
+cat -n /etc/services   - exibe o conteúdo do arquivo e o número de cada linha
+tac /etc/services - exibe o conteúdo do arquivo de baixo para cima
+cat -n /etc/services | tac exibe o conteúdo do arquivo de baixo para cima e o número de cada linha
+tail /etc/services - exibe as últimas 10 linhas do arquivo
+tail -n 20 /etc/services - exibe as últimas 20 linhas do arquivo
+cat -n /etc/services | tail -n 20 | tac - exibe as últimas 20 linhas do arquivo de baixo para cima
+head /etc/services - exibe as primeiras 10 linhas do arquivo
+cat -n /etc/services | head  - exibe as primeiras 10 linhas do arquivo
+cat -n /etc/services | head -n 20 | tac  - exibe as primeiras 20 linhas do arquivo de baixo para cima
+cat -n /etc/services | tail -n +100 | head -n -217 - exibe o intervalo da linha 100 até a linha 200
+cat -n /etc/services | head -n 200 | tail -n 101  - exibe o intervalo da linha 100 até a linha 200
+git pull - puxa os dados do GitHub para o Git
+git status  - mostra se houve alguma alteração de conteúdo no repositório do Git
+git add . adiciona todos os arquivos novos e alterados para o controle de versionamento do Git
+git status  - mostra se houve alguma alteração de conteúdo no repositório do Git
+git commit -m "Atualizacao" - Realiza o commit
+git push - Envia os dados do repositório do Git para o GitHub
+git pull && git add . && git commit -m "Atualizacao" && git push 
