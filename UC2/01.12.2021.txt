@@ -42,8 +42,15 @@ sudo apt clean
 bash upgrade.sh - executa o script bash
 ctrl + alt + f1 - abre o terminal
 ctrl + alt + f7 - volta para o modo gráfico
-
-
+******************************************************************************************
+Visual Studio
+ctrl+k
+ctrl+o
+selecionar o diretório devops
+ctrl+j
+git pull && git add . && git commit -m "Atualizacao" && git push
+ctrl+k
+f
 
 
 
