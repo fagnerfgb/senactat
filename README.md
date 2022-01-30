@@ -23,3 +23,9 @@ Clonagem de Sistemas Operacionais
 * AOMEI
 * Macrium
 
+## UC-3
+Softwares para benchmarking e manutenção de computadores
+
+## UC-5
+Infraestrutura de Redes
+
