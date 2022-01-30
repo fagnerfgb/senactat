@@ -7,7 +7,7 @@ Criação de conta no site NetAcad https://www.netacad.com/pt-br
 Download e instalação do Cisco Packet Tracer 8.1.0  
 ***
 ## Customizando o Packet Tracer  
-***
+
 Clique em **Options** e depois em **Preferences** ou utilize a tecla de atalho **Ctrl + R**  
 
 Na aba **Interface**, desmarque as opções:  
@@ -19,7 +19,7 @@ Na aba **Show/Hide**, marque a opção:
 * **Show Wireless Boundary**
 
 ## Conhecendo os recursos do Packet Tracer
-***
+
 Rede Lógica  
 Rede Física  
 Dispositivos de Rede  
