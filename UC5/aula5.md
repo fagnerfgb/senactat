@@ -35,8 +35,8 @@ copy running-config startup-config
 
 ![Markdown][image]
 
-[image]: aula5_1.png
+[image]: aula5_1.PNG
 
 ![Markdown][image]
 
-[image]: aula5_2.png    
+[image]: aula5_2.PNG    
