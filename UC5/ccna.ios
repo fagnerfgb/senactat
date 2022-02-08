@@ -1,0 +1,463 @@
+#Autor: Fagner Geraldes Braga  
+#Data de criação: 04/02/2022  
+#Data de atualização: 04/02/2022  
+#Versão: 0.01  
+***
+Aula 1 - 04/02/2021  
+
+Memória Flash: IOS  
+Switch# show flash:  
+
+Running-config: RAM  
+Switch#show running-config   
+
+Startup-config: NVRAM  
+Switch#show startup-config   
+
+Modo Usuário  
+Switch>  
+
+Modo Exec (Privilegiado)  
+enable  
+Switch#  
+
+Modo de Configuração Global  
+configure terminal  
+Switch(config)#  
+
+Acesso a interface (Fast Ethernet)  
+Switch(config)#interface fastEthernet 0/1  
+Switch(config-if)#  
+
+Sair  
+Voltar um nível  
+exit  
+
+Voltar para o modo Exec  
+end  
+
+Criar VLAN  
+Switch#show vlan  
+Switch(config)#vlan 10  
+Switch(config-vlan)#name RH  
+
+Switch(config)#vlan 20  
+Switch(config-vlan)#name Comercial  
+
+Atribuir VLAN a Porta de acesso  
+Switch(config)#interface fastEthernet 0/1  
+Switch(config-if)#switchport mode access   
+Switch(config-if)#switchport access vlan 10   
+
+
+Switch(config)#interface fastEthernet 0/2  
+Switch(config-if)#switchport mode access   
+Switch(config-if)#switchport access vlan 20   
+
+Configurar VLAN em Modo Trunk  
+Switch(config)#interface gigabitEthernet 0/1  
+Switch(config-if)#switchport mode trunk   
+
+Native VLAN  
+Switch(config)#vlan 99  
+Switch(config-vlan)#name VLAN_NATIVA  
+Switch(config)#interface gigabitEthernet 0/1  
+Switch(config-if)#switchport trunk native vlan 99  
+
+Lab1-VLAN1 - 04/02/2022  
+## Criando VLANs  
+S1(config)#vlan 10  
+S1(config-vlan)#name Faculty/Staff  
+S1(config)#vlan 20  
+S1(config-vlan)#name Students  
+S1(config)#vlan 30  
+S1(config-vlan)#name Guest(Default)  
+S1(config)#vlan 99  
+S1(config-vlan)#name Management&Native  
+
+S2(config)#vlan 10  
+S2(config-vlan)#name Faculty/Staff  
+S2(config)#vlan 20  
+S2(config-vlan)#name Students  
+S2(config)#vlan 30  
+S2(config-vlan)#name Guest(Default)  
+S2(config)#vlan 99  
+S2(config-vlan)#name Management&Native  
+
+## Atribuindo VLANs nas interfaces  
+S2(config)#interface fastEthernet 0/11  
+S2(config-if)#switchport mode access   
+S2(config-if)#switchport access vlan 10  
+
+S2(config)#interface fastEthernet 0/18  
+S2(config-if)#switchport mode access   
+S2(config-if)#switchport access vlan 20  
+
+S2(config)#interface fastEthernet 0/6  
+S2(config-if)#switchport mode access   
+S2(config-if)#switchport access vlan 30  
+
+S3(config)#interface fastEthernet 0/11  
+S3(config-if)#switchport mode access   
+S3(config-if)#switchport access vlan 10  
+
+S3(config)#interface fastEthernet 0/18  
+S3(config-if)#switchport mode access   
+S3(config-if)#switchport access vlan 20  
+
+S3(config)#interface fastEthernet 0/6  
+S3(config-if)#switchport mode access   
+S3(config-if)#switchport access vlan 30  
+
+## Criando Trunk entre os switches  
+S1(config)#interface range gigabitEthernet 0/1-2  
+S1(config-if-range)#switchport mode trunk   
+
+S2(config)#interface gigabitEthernet 0/1  
+S2(config-if)#switchport mode trunk  
+
+S3(config)#interface gigabitEthernet 0/2  
+S3(config-if)#switchport mode trunk  
+
+Lab1-VLAN2 - 04/02/20222  
+
+Switch1  
+S1(config)#vlan 99  
+S1(config)#interface gigabitEthernet 0/1  
+S1(config-if)#switchport mode trunk  
+S1(config-if)#switchport trunk native vlan 99  
+
+S1(config)#interface gigabitEthernet 0/2  
+S1(config-if)#switchport mode trunk  
+S1(config-if)#switchport trunk native vlan 99  
+
+Switch2  
+S2(config)#vlan 99  
+S2(config)#interface gigabitEthernet 0/1  
+S2(config-if)#switchport mode trunk  
+S2(config-if)#switchport trunk native vlan 99  
+
+Switch3  
+S3(config)#vlan 99  
+S3(config)#interface gigabitEthernet 0/2  
+S3(config-if)#switchport mode trunk  
+S3(config-if)#switchport trunk native vlan 99  
+
+
+Lab1-VLAN1 - 04/02/2022  
+S1(config)#vlan 10  
+S1(config-vlan)#name Faculty/Staff  
+S1(config)#vlan 20  
+S1(config-vlan)#name Students  
+S1(config)#vlan 30  
+S1(config-vlan)#name Guest(Default)  
+S1(config)#vlan 99  
+S1(config-vlan)#name Management&Native  
+
+Aula 2 - 05/02/2022
+
+## Port Security
+Só se configura em porta de acesso  
+
+
+Switch>enable  
+Switch#conf t  
+Switch(config)#interface fastEthernet 0/1  
+Switch(config-if)#switchport mode access   
+Switch(config-if)#switchport port-security   
+
+Switch(config-if)#switchport port-security mac-address ?  
+  H.H.H   48 bit mac address  
+  sticky  Configure dynamic secure addresses as sticky  
+Switch(config-if)#switchport port-security mac-address sticky  
+
+Switch(config-if)#switchport port-security maximum ?  
+  <1-132>  Maximum addresses  
+Switch(config-if)#switchport port-security maximum 1  
+
+Switch(config-if)#switchport port-security violation ?  
+  protect   Security violation protect mode (protege entrada no switch)  
+  restrict  Security violation restrict mode (restringe entrada e saída)  
+  shutdown  Security violation shutdown mode  
+Switch(config-if)#switchport port-security violation shutdown     
+
+## Se a porta tiver com port-security aparecerá o erro abaixo:  
+FastEthernet0/1 is down, line protocol is down (err-disabled)  
+
+## Remover restrição do Port Security  
+Switch(config)#interface fastEthernet 0/1  
+Switch(config-if)#shutdown  
+Switch(config-if)#no shutdown  
+
+## Roteamento entre VLANs
+Switch(config)#vlan 10
+Switch(config)#vlan 20
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if-range)#switchport mode access 
+Switch(config-if)#switchport access vlan 10 
+
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if-range)#switchport mode access 
+Switch(config-if)#switchport access vlan 20
+
+Switch(config)#interface gigabitEthernet 0/1
+Switch(config-if)#switchport mode trunk 
+
+
+Router>enable
+Router#conf t
+Router(config)#interface gigabitEthernet 0/0/0
+Router(config-if)#no shutdown
+
+## Criando subinterface
+Deixar interface física sem configuração
+
+Router(config)#interface gigabitEthernet 0/0/0.10
+Router(config-subif)#encapsulation dot1Q 10 
+Router(config-subif)#ip address 192.168.10.1 255.255.255.0
+
+Router(config)#interface gigabitEthernet 0/0/0.20
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ip address 192.168.20.1 255.255.255.0
+
+Lab2 - Roteamento entre VLANs
+S1>enable 
+S1#conf t
+S1(config)#vlan 10
+S1(config)#vlan 30
+S1(config)#interface fastEthernet 0/11
+S1(config-if)#switchport mode access 
+S1(config-if)#switchport access vlan 10
+
+S1(config)#interface fastEthernet 0/6
+S1(config-if)#switchport mode access 
+S1(config-if)#switchport access vlan 30
+
+S1#show vlan brief 
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15, Fa0/16, Fa0/17, Fa0/18
+                                                Fa0/19, Fa0/20, Fa0/21, Fa0/22
+                                                Fa0/23, Fa0/24, Gig0/1, Gig0/2
+10   VLAN0010                         active    Fa0/11
+30   VLAN0030                         active    Fa0/6
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+
+
+R1>en
+R1#conf t
+R1(config)#interface gigabitEthernet 0/0.10
+R1(config-subif)#encapsulation dot1Q 10
+R1(config-subif)#ip address 172.17.10.1 255.255.255.0
+
+R1(config)#interface gigabitEthernet 0/0.30
+R1(config-subif)#encapsulation dot1Q 30
+R1(config-subif)#ip address 172.17.30.1 255.255.255.0
+
+R1(config)#interface gigabitEthernet 0/0
+R1(config-if)#no shutdown
+
+R1#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0     unassigned      YES unset  up                    up 
+GigabitEthernet0/0.10  172.17.10.1     YES manual up                    up 
+GigabitEthernet0/0.30  172.17.30.1     YES manual up                    up 
+GigabitEthernet0/1     unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+
+S1(config)#interface gigabitEthernet 0/1
+S1(config-if)#switchport mode trunk 
+
+Aula 3 - 05/02/2022
+
+Switches trocam entre si pacotes BPDU
+
+Spanning Tree (STP) - Layer 2
+
+Eleição (Root Bridge)
+1- menor priority ganha a eleição. Priority padrão: 32768
+2- menor mac address ganha a eleição.
+
+Toda porta do Root Bridge nunca é bloqueada. São Designated Ports (DP)
+Root Port são portas conectadas diretamente ao Root Bridge.
+
+BPDU - Spanning Tree para portas de acesso
+
+Port Fast - 
+Ignora Listening e Learning
+Deve ser utilizado em portas de acesso
+
+Possui 5 estados: 
+Listening
+Learning
+Forwarding
+Disabled
+Block
+
+Tipos de Spanning Tree
+STP
+RSTP
+PVSTP(Cisco)
+RPVSTP(Cisco)
+
+Switch>en
+Switch#conf t
+Switch(config)#spanning-tree mode rapid-pvst 
+Switch(config)#vlan 10
+Switch(config)#vlan 20
+Switch(config)#spanning-tree vlan 1,10,20 root primary 
+
+Switch#show spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    24577
+             Address     000B.BE82.5EAE
+             This bridge is the root
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    24577  (priority 24576 sys-id-ext 1)
+             Address     000B.BE82.5EAE
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Desg FWD 19        128.1    P2p
+Fa0/2            Desg FWD 19        128.2    P2p
+Gi0/2            Desg FWD 4         128.26   P2p
+Gi0/1            Desg FWD 4         128.25   P2p
+
+
+Switch>en
+Switch#conf t
+Switch(config)#spanning-tree mode rapid-pvst 
+Switch(config)#vlan 10
+Switch(config)#vlan 20
+Switch(config)#spanning-tree vlan 1,10,20 root secondary 
+
+Switch#show spanning-tree 
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    24577
+             Address     000B.BE82.5EAE
+             Cost        4
+             Port        25(GigabitEthernet0/1)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    28673  (priority 28672 sys-id-ext 1)
+             Address     000A.4102.3DD3
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Desg FWD 19        128.1    P2p
+Fa0/2            Desg FWD 19        128.2    P2p
+Gi0/2            Altn BLK 4         128.26   P2p
+Gi0/1            Root FWD 4         128.25   P2p
+
+Switch(config)#interface range fastEthernet 0/1-2
+Switch(config-if-range)#spanning-tree portfast 
+Switch(config-if-range)#spanning-tree bpduguard enable 
+
+Switch(config)#interface range fastEthernet 0/1-2
+Switch(config-if-range)#spanning-tree portfast 
+Switch(config-if-range)#spanning-tree bpduguard enable 
+
+# Nomeando os Switches
+Switch(config)#hostname SW-1
+Switch(config)#hostname SW-2
+
+
+Lab3 - PVST 
+
+
+S1(config)#interface fastEthernet 0/6
+S1(config-if)#switchport mode access 
+S1(config-if)#switchport access vlan 30
+S1(config-if)#no shutdown
+S1(config)#vlan 10
+S1(config)#vlan 20
+S1(config)#vlan 30
+S1(config)#vlan 40
+S1(config)#vlan 50
+S1(config)#vlan 60
+S1(config)#vlan 70
+S1(config)#vlan 80
+S1(config)#vlan 99
+
+S2(config)#interface fastEthernet 0/18
+S2(config-if)#switchport mode access 
+S2(config-if)#switchport access vlan 20
+S2(config-if)#no shutdown
+S2(config)#vlan 10
+S2(config)#vlan 20
+S2(config)#vlan 30
+S2(config)#vlan 40
+S2(config)#vlan 50
+S2(config)#vlan 60
+S2(config)#vlan 70
+S2(config)#vlan 80
+S2(config)#vlan 99
+
+S3(config)#interface fastEthernet 0/11
+S3(config-if)#switchport mode access 
+S2(config-if)#switchport access vlan 10
+S3(config-if)#no shutdown
+S3(config)#vlan 10
+S3(config)#vlan 20
+S3(config)#vlan 30
+S3(config)#vlan 40
+S3(config)#vlan 50
+S3(config)#vlan 60
+S3(config)#vlan 70
+S3(config)#vlan 80
+S3(config)#vlan 99
+
+S1(config)#interface range fastEthernet 0/1-4
+S1(config-if-range)#switchport mode trunk 
+S1(config-if-range)#switchport trunk native vlan 99
+
+S2(config)#interface range fastEthernet 0/1-4
+S2(config-if-range)#switchport mode trunk 
+S2(config-if-range)#switchport trunk native vlan 99
+
+S3(config)#interface range fastEthernet 0/1-4
+S3(config-if-range)#switchport mode trunk 
+S3(config-if-range)#switchport trunk native vlan 99
+
+S1(config)#interface vlan 99 
+S1(config-if)#ip address 172.31.99.1 255.255.255.0
+
+S2(config)#interface vlan 99
+S2(config-if)#ip address 172.31.99.2 255.255.255.0
+
+S3(config)#interface vlan 99
+S3(config-if)#ip address 172.31.99.3 255.255.255.0
+
+S1(config)#spanning-tree mode pvst 
+S2(config)#spanning-tree mode pvst 
+S3(config)#spanning-tree mode pvst 
+
+S1(config)#spanning-tree vlan 1,10,30,50,70 root primary 
+S3(config)#spanning-tree vlan 20,40,60,80,99 root primary 
+S2(config)#spanning-tree vlan 1,10,20,30,40,50,60,70,80,99 root secondary 
+
+S1(config)#interface fastEthernet 0/6
+S1(config-if)#spanning-tree portfast 
+S1(config-if)#spanning-tree bpduguard enable
+
+S2(config)#interface fastEthernet 0/18
+S2(config-if)#spanning-tree portfast 
+S2(config-if)#spanning-tree bpduguard enable
+
+S3(config)#interface fastEthernet 0/11
+S3(config-if)#spanning-tree portfast 
+S2(config-if)#spanning-tree bpduguard enable
+
