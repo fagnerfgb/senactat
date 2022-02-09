@@ -41,22 +41,22 @@ Host: rt-1941-1
 Int Gig0/0: 192.168.1.254/24  
 
 enable
-clock set 20:18:00 08 feb 2022
-configure terminal
-hostname sw-l2-2960-1
-service password-encryption 
-service timestamps log datetime msec 
-no ip domain-lookup 
-banner motd #AVISO: Acesso autorizado somente a funcionarios#
-enable secret 123@senac 
-username admin secret 123@senac 
-line console 0 
-login local 
-password 123@senac 
-logging synchronous 
-exec-timeout 5 30 
-end
-copy running-config startup-config
+	clock set 20:18:00 08 feb 2022
+	onfigure terminal
+		hostname sw-l2-2960-1
+		service password-encryption 
+		service timestamps log datetime msec 
+		no ip domain-lookup 
+		banner motd #AVISO: Acesso autorizado somente a funcionarios#
+		enable secret 123@senac 
+		username admin secret 123@senac 
+		line console 0 
+			login local 
+			password 123@senac 
+			logging synchronous 
+			exec-timeout 5 30 
+			end
+		copy running-config startup-config
 
 enable
 	clock set 20:18:00 08 feb 2022
