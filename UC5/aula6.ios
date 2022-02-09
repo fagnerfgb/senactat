@@ -1,0 +1,81 @@
+#Autor: Fagner Geraldes Braga  
+#Data de criação: 08/02/2022  
+#Data de atualização: 08/02/2022  
+#Versão: 0.01  
+***
+
+Host: server-01  
+Interface: Static  
+IPv4: 192.168.1.1/24  
+GW: 192.168.1.254  
+
+Host: desktop-01  
+Interface: Static    
+IPv4:192.168.1.10/24   
+GW:192.168.1.254    
+
+Host: desktop-02  
+Interface: Static  
+IPv4:192.168.1.11/24   
+GW: 192.168.1.254    
+
+Host: desktop-03   
+Interface: Static   
+IPv4:192.168.1.12/24   
+GW: 192.168.1.254  
+
+Host: desktop-04  
+Interface: Static  
+IPv4:192.168.1.13/24  
+GW: 192.168.1.254  
+
+Host: sw-l2-2960-1  
+SVI: 192.168.1.250/24  
+GW: 192.168.1.254
+
+Host: sw-l2-2960-2  
+SVI: 192.168.1.251/24  
+GW: 192.168.1.254
+
+Host: rt-1941-1   
+Int Gig0/0: 192.168.1.254/24  
+
+enable
+clock set 20:18:00 08 feb 2022
+configure terminal
+hostname sw-l2-2960-1
+service password-encryption 
+service timestamps log datetime msec 
+no ip domain-lookup 
+banner motd #AVISO: Acesso autorizado somente a funcionarios#
+enable secret 123@senac 
+username admin secret 123@senac 
+line console 0 
+login local 
+password 123@senac 
+logging synchronous 
+exec-timeout 5 30 
+end
+copy running-config startup-config
+
+enable
+	clock set 20:18:00 08 feb 2022
+	configure terminal
+		hostname sw-l2-2960-2
+		service password-encryption 
+		service timestamps log datetime msec 
+		no ip domain-lookup 
+		banner motd #AVISO: Acesso autorizado somente a funcionarios#
+		enable secret 123@senac 
+		username admin secret 123@senac 
+		line console 0 
+			login local 
+			password 123@senac 
+			logging synchronous 
+			exec-timeout 5 30 
+			end
+		copy running-config startup-config
+
+
+
+
