@@ -28,6 +28,27 @@ enable
 		end
 	copy running-config startup-config
 
+!Configurando as linhas virtuais
+enable
+	configure terminal
+	line vty 0 4
+		login local
+		password 123@senac
+		logging synchronous
+		exec-timeout 5 30
+		transport input all
+		end
+	write	
+
+
+	configure terminal
+
+
+
+
+
+
+
 
 !sw-l2-2960-2
 enable
@@ -44,3 +65,15 @@ enable
 	    #		                           
 		end
 	copy running-config startup-config
+
+!Configurando as linhas virtuais
+enable
+	configure terminal
+	line vty 0 4
+		login local
+		password 123@senac
+		logging synchronous
+		exec-timeout 5 30
+		transport input all
+		end
+	write	
