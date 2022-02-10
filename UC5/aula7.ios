@@ -54,6 +54,19 @@ enable
 	show interfaces vlan 1
 	show ip interface brief 
 
+!Configurando SSH
+enable
+	configure terminal
+		ip domain-name senac.intra
+		crypto key generate rsa general-keys modulus 1024
+		ip ssh version 2
+		ip ssh time-out 120
+		ip ssh authentication-retries 2
+		line vty 0 4
+		transport input ssh
+		
+
+
 !sw-l2-2960-2
 enable
 	configure terminal
@@ -96,6 +109,19 @@ enable
 	show interfaces vlan 1
 	show ip interface brief 
 
+!Configurando SSH
+enable
+	configure terminal
+		ip domain-name senac.intra
+		crypto key generate rsa general-keys modulus 1024
+		ip ssh version 2
+		ip ssh time-out 120
+		ip ssh authentication-retries 2
+		line vty 0 4
+		transport input ssh
+
 !Acessando o switch remotamente
 telnet 192.168.1.250
 telnet 192.168.1.251
+ssh -l admin 192.168.1.250
+ssh -l admin 192.168.1.251
