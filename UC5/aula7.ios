@@ -40,15 +40,19 @@ enable
 		end
 	write	
 
-
+!Configurando IP do Switch
 	configure terminal
-
-
-
-
-
-
-
+		ip default-gateway 192.168.1.254
+		interface vlan 1
+			ip address 192.168.1.250 255.255.255.0
+			description Interface SVI do Switch
+			no shutdown
+			end
+	write	
+	show running-configure
+	show vlan brief
+	show interfaces vlan 1
+	show ip interface brief 
 
 !sw-l2-2960-2
 enable
@@ -77,3 +81,21 @@ enable
 		transport input all
 		end
 	write	
+
+!Configurando IP do Switch
+	configure terminal
+		ip default-gateway 192.168.1.254
+		interface vlan 1
+			ip address 192.168.1.251 255.255.255.0
+			description Interface SVI do Switch
+			no shutdown
+			end
+	write	
+	show running-configure
+	show vlan brief
+	show interfaces vlan 1
+	show ip interface brief 
+
+!Acessando o switch remotamente
+telnet 192.168.1.250
+telnet 192.168.1.251
