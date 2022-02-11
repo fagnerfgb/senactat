@@ -125,3 +125,36 @@ telnet 192.168.1.250
 telnet 192.168.1.251
 ssh -l admin 192.168.1.250
 ssh -l admin 192.168.1.251
+
+!Configuração do Roteador
+enable
+    configure terminal
+        hostname rt-1941-1
+        service password-encryption
+        service timestamp log datetime msec
+        service timestamp debug datetime msec
+        no ip domain-lookup
+        banner motd #AVISO: acesso autorizado somente a funcionarios#
+        security passwords min-length 8
+        enable secret 123@senac
+        username admin privilege 15 secret 123@senac
+        ip domain-name senac.intra
+        crypto key generate rsa general-key modulus 1024
+        ip ssh version 2
+        ip ssh time-out 120
+        ip ssh authentication-retries 2
+        login block-for 120 attempts 2 within 60
+        line console 0
+            login local
+            password 123@senac
+            logging synchronous
+            exec-timeout 5 30
+            exit
+        line vty 0 4
+            login local
+            password 123@senac
+            logging synchronous
+            exec-timeout 5 30
+            transport input ssh
+            end
+    write
