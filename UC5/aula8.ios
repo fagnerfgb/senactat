@@ -40,3 +40,27 @@ copy startup-config flash:
 copy startup-config tftp:
 192.168.1.1
 
+!Configurando server-02
+!Config
+!display-name:server-02
+!Services
+!Service:On
+!Pool Name: serverPool
+!Default Gateway: 192.168.3.254
+!DNS Server: 192.168.3.1
+!Start IP Address: 192.168.1.100
+!Subnet Mask: 255.255.255.0
+!Maximum Number of Users: 50
+!TFTP Server: 192.168.3.1
+
+!Configurando os desktops
+!Config
+!display-name:desktop-05
+!dhcp
+!display-name:desktop-06
+!dhcp
+!display-name:desktop-07
+!dhcp
+!display-name:desktop-08
+!dhcp
+
