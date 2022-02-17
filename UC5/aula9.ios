@@ -4,3 +4,24 @@
 !Versão: 0.01  
 
 
+!Verificando conectividade do DHCP
+ipconfig /all
+ipconfig /release
+ipconfig /renew
+
+
+!Configurando o dns no server-02
+!Services
+!DNS Service: On
+
+!Name: server-02
+!Type: A Record
+!Address: 192.168.3.1
+
+nslookup server-02
+
+!Server: [192.168.3.1]
+!Address:  192.168.3.1
+!Non-authoritative answer:
+!Name:   server-02
+!Address:   192.168.3.1
