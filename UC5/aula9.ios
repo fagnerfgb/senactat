@@ -14,9 +14,10 @@ ipconfig /renew
 !Services
 !DNS Service: On
 
+!Criando registro direto
 !Name: server-02
 !Type: A Record
-!Address: 192.168.3.1
+!Host Name: 192.168.3.1
 
 nslookup server-02
 
@@ -24,4 +25,72 @@ nslookup server-02
 !Address:  192.168.3.1
 !Non-authoritative answer:
 !Name:   server-02
+!Host Name:   192.168.3.1
+
+!Criando name server
+!Name: ns1.senac.intra
+!Type: NS Record
+!Host Name: server-02
+
+!Criando domínio
+!Name: senac.intra
+!Type: SOA
+!Primary Server Name: ns1.senac.intra
+!Mail Box: admin@senac.intra
+!Minimum TTL: 3600
+!Refresh Time: 3600
+!Retry Time: 600
+!Expiry Time: 86400
+
+ipconfig /displaydns
+ipconfig /flushdns
+
+!Name: senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup senac.intra
+
+!Server: [192.168.3.1]
+!Address:  192.168.3.1
+!Non-authoritative answer:
+!Name:   server-02
 !Address:   192.168.3.1
+!Aliases:   server-02
+
+ping senac.intra
+
+!Criando CNAME para o Servidor Web
+!Name: www.senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup www.senac.intra
+
+!Configurando FTP
+!Username: senac
+!Password: 123@senac
+!Permissões: Write, Read, Delete, Rename, List
+
+
+!Criando CNAME para o FTP
+!Name: ftp.senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup www.senac.intra
+
+ftp ftp.senac.intra
+	dir
+	quit
+
+ftp ftp.senac.intra
+	put senac.txt
+	dir
+
+ftp ftp.senac.intra
+	get senac.txt	
+	quit
+dir
+
+
