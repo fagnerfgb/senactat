@@ -93,4 +93,52 @@ ftp ftp.senac.intra
 	quit
 dir
 
+!Criando CNAME para o TFTP
+!Name: tftp.senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup tftp.senac.intra
+
+!Criando CNAME para o POP
+!Name: pop3.senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup pop3.senac.intra
+
+!Criando CNAME para o SMTP
+!Name: smtp.senac.intra
+!Type: CNAME
+!Host Name: server-02
+
+nslookup smtp.senac.intra
+
+!Configurando E-MAIL
+!Domain Name: senac.br
+
+!User: fagner
+!Password: 123@senac
+!User: ramos
+!Password: 123@senac
+
+!Configurando Cliente de e-mail 1
+!Fagner Geraldes Braga
+!fagner@senac.br
+
+!pop3.senac.intra
+!smtp.senac.intra
+
+!fagner
+!123@senac
+
+!Configurando Cliente de e-mail 2
+!Leandro Ramos
+!ramos@senac.br
+
+!pop3.senac.intra
+!smtp.senac.intra
+
+!ramos
+!123@senac
 
