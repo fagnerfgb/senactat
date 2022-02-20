@@ -44,6 +44,7 @@ copy startup-config tftp:
 !Config
 !display-name:server-02
 !Services
+!DHCP
 !Service:On
 !Pool Name: serverPool
 !Default Gateway: 192.168.3.254

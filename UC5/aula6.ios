@@ -1,77 +1,127 @@
-#Autor: Fagner Geraldes Braga  
-#Data de criação: 08/02/2022  
-#Data de atualização: 08/02/2022  
-#Versão: 0.01  
+#Autor: Fagner Geraldes Braga
+#Data de criação: 08/02/2022
+#Data de atualização: 08/02/2022
+#Versão: 0.01
 ***
 
-Host: server-01  
-Interface: Static  
-IPv4: 192.168.1.1/24  
-GW: 192.168.1.254  
-
-Host: desktop-01  
-Interface: Static    
-IPv4:192.168.1.10/24   
-GW:192.168.1.254    
-
-Host: desktop-02  
-Interface: Static  
-IPv4:192.168.1.11/24   
-GW: 192.168.1.254    
-
-Host: desktop-03   
-Interface: Static   
-IPv4:192.168.1.12/24   
-GW: 192.168.1.254  
-
-Host: desktop-04  
-Interface: Static  
-IPv4:192.168.1.13/24  
-GW: 192.168.1.254  
-
-Host: sw-l2-2960-1  
-SVI: 192.168.1.250/24  
+Host: server-01
+Interface: Static
+IPv4: 192.168.1.1/24
 GW: 192.168.1.254
 
-Host: sw-l2-2960-2  
-SVI: 192.168.1.251/24  
+Host: desktop-01
+Interface: Static
+IPv4:192.168.1.10/24 
+GW:192.168.1.254
+
+Host: desktop-02
+Interface: Static
+IPv4:192.168.1.11/24 
 GW: 192.168.1.254
 
-Host: rt-1941-1   
-Int Gig0/0: 192.168.1.254/24  
+Host: desktop-03 
+Interface: Static 
+IPv4:192.168.1.12/24 
+GW: 192.168.1.254
+
+Host: desktop-04
+Interface: Static
+IPv4:192.168.1.13/24
+GW: 192.168.1.254
+
+Host: sw-l2-2960-1
+SVI: 192.168.1.250/24
+GW: 192.168.1.254
+
+Host: sw-l2-2960-2
+SVI: 192.168.1.251/24
+GW: 192.168.1.254
+
+Host: rt-1941-1 
+Int Gig0/0: 192.168.1.254/24
 
 enable
+	!Inserir data e hora manualmente
 	clock set 20:18:00 08 feb 2022
 	configure terminal
+		!Inserir nome do dispositivo
 		hostname sw-l2-2960-1
+		!Habilitar serviço de encriptação de senha
 		service password-encryption 
+		!Habilitar serviço de log para inserir timestamp com data e hora com precisão de milisegundos
 		service timestamps log datetime msec 
+		!Desabilitar busca por nome DNS
 		no ip domain-lookup 
-		banner motd #AVISO: Acesso autorizado somente a funcionarios#
+		!Inserir banner de aviso ao acessar o equipamento
+		banner motd #
+		
+   ____                                         
+  / __ \                                        
+ | |  | |_   _  ___ _ __ ___   __   _____ _ __  
+ | |  | | | | |/ _ \ '__/ _ \  \ \ / / _ \ '__| 
+ | |__| | |_| |  __/ | | (_) |  \ V /  __/ |    
+  \___\_\\__,_|\___|_|  \___/   _\_/ \___|_|    
+         (_)                   | (_)            
+          _ _ ____   ____ _  __| |_ _ __        
+         | | '_ \ \ / / _` |/ _` | | '__|       
+         | | | | \ V / (_| | (_| | | |          
+         |_|_| |_|\_/ \__,_|\__,_|_|_|  
+	    #		       
+		!Inserir senha para acesso o modo privilegiado
 		enable secret 123@senac 
 		username admin secret 123@senac 
+		!Acessar a porta console
 		line console 0 
-			login local 
+			!Só permite acesso local. Não permite acesso remoto
+			login local
+			!Define senha da porta console 
 			password 123@senac 
+			!Sincronizar as mensagens de saída
 			logging synchronous 
+			!Encerra a conexão após período de inatividade
 			exec-timeout 5 30 
 			end
 		copy running-config startup-config
 
 enable
+	!Inserir data e hora manualmente
 	clock set 20:18:00 08 feb 2022
 	configure terminal
+		!Inserir nome do dispositivo
 		hostname sw-l2-2960-2
+		!Habilitar serviço de encriptação de senha
 		service password-encryption 
+		!Habilitar serviço de log para inserir timestamp com data e hora com precisão de milisegundos
 		service timestamps log datetime msec 
+		!Desabilitar busca por nome DNS
 		no ip domain-lookup 
-		banner motd #AVISO: Acesso autorizado somente a funcionarios#
+		!Inserir banner de aviso ao acessar o equipamento
+		banner motd #
+		
+   ____                                         
+  / __ \                                        
+ | |  | |_   _  ___ _ __ ___   __   _____ _ __  
+ | |  | | | | |/ _ \ '__/ _ \  \ \ / / _ \ '__| 
+ | |__| | |_| |  __/ | | (_) |  \ V /  __/ |    
+  \___\_\\__,_|\___|_|  \___/   _\_/ \___|_|    
+         (_)                   | (_)            
+          _ _ ____   ____ _  __| |_ _ __        
+         | | '_ \ \ / / _` |/ _` | | '__|       
+         | | | | \ V / (_| | (_| | | |          
+         |_|_| |_|\_/ \__,_|\__,_|_|_|  
+	    #		       
+		!Inserir senha para acesso o modo privilegiado
 		enable secret 123@senac 
 		username admin secret 123@senac 
+		!Acessar a porta console
 		line console 0 
-			login local 
+			!Só permite acesso local. Não permite acesso remoto
+			login local
+			!Define senha da porta console 
 			password 123@senac 
+			!Sincronizar as mensagens de saída
 			logging synchronous 
+			!Encerra a conexão após período de inatividade
 			exec-timeout 5 30 
 			end
 		copy running-config startup-config

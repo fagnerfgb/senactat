@@ -28,15 +28,15 @@ nslookup server-02
 !Host Name:   192.168.3.1
 
 !Criando name server
-!Name: ns1.senac.intra
+!Name: ns1.senac.br
 !Type: NS Record
 !Host Name: server-02
 
 !Criando domínio
-!Name: senac.intra
+!Name: senac.br
 !Type: SOA
-!Primary Server Name: ns1.senac.intra
-!Mail Box: admin@senac.intra
+!Primary Server Name: ns1.senac.br
+!Mail Box: admin@senac.br
 !Minimum TTL: 3600
 !Refresh Time: 3600
 !Retry Time: 600
@@ -45,11 +45,11 @@ nslookup server-02
 ipconfig /displaydns
 ipconfig /flushdns
 
-!Name: senac.intra
+!Name: senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup senac.intra
+nslookup senac.br
 
 !Server: [192.168.3.1]
 !Address:  192.168.3.1
@@ -58,14 +58,14 @@ nslookup senac.intra
 !Address:   192.168.3.1
 !Aliases:   server-02
 
-ping senac.intra
+ping senac.br
 
 !Criando CNAME para o Servidor Web
-!Name: www.senac.intra
+!Name: www.senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup www.senac.intra
+nslookup www.senac.br
 
 !Configurando FTP
 !Username: senac
@@ -74,45 +74,45 @@ nslookup www.senac.intra
 
 
 !Criando CNAME para o FTP
-!Name: ftp.senac.intra
+!Name: ftp.senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup www.senac.intra
+nslookup ftp.senac.br
 
-ftp ftp.senac.intra
+ftp ftp.senac.br
 	dir
 	quit
 
-ftp ftp.senac.intra
+ftp ftp.senac.br
 	put senac.txt
 	dir
 
-ftp ftp.senac.intra
+ftp ftp.senac.br
 	get senac.txt	
 	quit
 dir
 
 !Criando CNAME para o TFTP
-!Name: tftp.senac.intra
+!Name: tftp.senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup tftp.senac.intra
+nslookup tftp.senac.br
 
 !Criando CNAME para o POP
-!Name: pop3.senac.intra
+!Name: pop3.senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup pop3.senac.intra
+nslookup pop3.senac.br
 
 !Criando CNAME para o SMTP
-!Name: smtp.senac.intra
+!Name: smtp.senac.br
 !Type: CNAME
 !Host Name: server-02
 
-nslookup smtp.senac.intra
+nslookup smtp.senac.br
 
 !Configurando E-MAIL
 !Domain Name: senac.br
@@ -126,8 +126,8 @@ nslookup smtp.senac.intra
 !Fagner Geraldes Braga
 !fagner@senac.br
 
-!pop3.senac.intra
-!smtp.senac.intra
+!pop3.senac.br
+!smtp.senac.br
 
 !fagner
 !123@senac
@@ -136,8 +136,8 @@ nslookup smtp.senac.intra
 !Leandro Ramos
 !ramos@senac.br
 
-!pop3.senac.intra
-!smtp.senac.intra
+!pop3.senac.br
+!smtp.senac.br
 
 !ramos
 !123@senac
