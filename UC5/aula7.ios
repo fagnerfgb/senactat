@@ -181,7 +181,7 @@ enable
         line vty 0 4
 			!Só permite acesso com usuário local
             login local
-			!Define senha das porta virtuais 
+			!Define senha das portas virtuais 
             password 123@senac
 			!Sincronizar as mensagens de saída
             logging synchronous

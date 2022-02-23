@@ -6,7 +6,7 @@
 !sw-l2-2960-3
 enable
 	!Inserir data e hora manualmente
-	clock set 20:18:00 08 feb 2022
+	clock set 20:18:00 22 feb 2022
 	configure terminal
 		!Inserir nome do dispositivo
 		hostname sw-l2-2960-3
@@ -83,7 +83,7 @@ write
 !sw-l2-2960-4
 enable
 	!Inserir data e hora manualmente
-	clock set 20:18:00 08 feb 2022
+	clock set 20:18:00 22 feb 2022
 	configure terminal
 		!Inserir nome do dispositivo
 		hostname sw-l2-2960-3
@@ -160,7 +160,7 @@ write
 !sw-l3-3560-1
 enable
 	!Inserir data e hora manualmente
-	clock set 20:18:00 08 feb 2022
+	clock set 20:18:00 22 feb 2022
 	configure terminal
 		!Inserir nome do dispositivo
 		hostname sw-l3-3560-1
@@ -232,39 +232,73 @@ enable
 			description Interface de Gerenciamento do Switch SW-L3-3560-1
 			ip address 192.168.3.254 255.255.255.0
 			no shutdown
-			end
+			exit
+		interface fastEthernet 0/24
+			!Configura interface como full duplex
+			duplex full
+			!Configura interface com velocidade de 100 Mbps
+			speed 100
+			end 
 write
 
 !rt-1941-2
 enable
-clock set 14:00:00 30 April 2020
+clock set 20:00:00 22 feb 2022
 	configure terminal
 		hostname rt-1941-2
 		service password-encryption
 		service timestamps log datetime msec
 		service timestamps debug datetime msec
 		no ip domain-lookup
-		banner motd #AVISO: acesso autorizado somente a funcionarios#
+		banner motd #
+		
+ __      __   _    _____           _       _   _     _                  
+ \ \    / /  (_)  / ____|         (_)     | | | |   (_)                 
+  \ \  / /_ _ _  | |     ___  _ __ _ _ __ | |_| |__  _  __ _ _ __  ___  
+   \ \/ / _` | | | |    / _ \| '__| | '_ \| __| '_ \| |/ _` | '_ \/ __| 
+    \  / (_| | | | |___| (_) | |  | | | | | |_| | | | | (_| | | | \__ \ 
+     \/ \__,_|_|  \_____\___/|_|  |_|_| |_|\__|_| |_|_|\__,_|_| |_|___/ 
+		
+		#	
+		!Senha deve possuir no mínimo 8 caracteres
 		security passwords min-length 8
+		!Inserir senha para acesso o modo privilegiado
 		enable secret 123@senac
+		!Criar usuário, define senha e privilégio 
 		username admin privilege 15 secret 123@senac
-		ip domain-name senac.intra
+		!Criar o domínio
+		ip domain-name senac.br
+		!Criar a chave de criptografia
 		crypto key generate rsa general-keys modulus 1024
+		!Melhorar a segurança do protocolo SSH
 		ip ssh version 2
+		!Fechar a sessão depois de atingido tempo de inatividade
 		ip ssh time-out 60
+		!Número de vezes que se pode tentar a conexão depois que se insere uma senha incorreta
 		ip ssh authentication-retries 2
+		!Bloqueia usuário por determinado período de tempo, 
+		!após um determinado número de tentativas incorretas for atingido
 		login block-for 120 attempts 2 within 60
 		line console 0
+			!Só permite acesso com usuário local
 			login local
+			!Define senha da porta console 
 			password 123@senac
+			!Sincronizar as mensagens de saída
 			logging synchronous
+			!Encerra a conexão após período de inatividade
 			exec-timeout 5 30
 			exit
 		line vty 0 4
+			!Só permite acesso com usuário local
 			login local
+			!Define senha das portas virtuais 
 			password 123@senac
+			!Sincronizar as mensagens de saída
 			logging synchronous
+			!Encerra a conexão após período de inatividade
 			exec-timeout 5 30
+			!Permite acesso de entrada somente com SSH
 			transport input ssh
 			end
 write
@@ -283,7 +317,18 @@ enable
 			exit
 		!Configurando o Gateway do Switch
 		ip default-gateway 192.168.2.254
-		end
+		interface gigabitEthernet 0/0
+		!Configura interface como full duplex
+			duplex full
+			!Configura interface com velocidade de 100 Mbps
+			speed 100
+			exit
+		interface gigabitEthernet 0/1
+		!Configura interface como full duplex
+			duplex full
+			!Configura interface com velocidade de 1000 Mbps
+			speed 1000
+			end
 write
 
 show ip interface brief 
@@ -312,6 +357,7 @@ show ip route
 !rt-1941-1
 enable
 	configure terminal
+	!Configurando IP na interface Gigabit 0/1 e habilitando o protocolo
 		interface gigabitEthernet 0/1
 		description Interface de WAN - Internet
 		ip address 10.0.0.1 255.255.255.252
@@ -322,6 +368,7 @@ write
 !rt-1941-2
 enable
 	configure terminal
+	!Configurando IP na interface Gigabit 0/1 e habilitando o protocolo
 		interface gigabitEthernet 0/1
 		description Interface de WAN - Internet
 		ip address 10.0.0.2 255.255.255.252
@@ -332,6 +379,8 @@ write
 !rt-1941-1
 enable
 	configure terminal
+		!Criando rotas estáticas para as redes 192.168.2.0 e 192.168.3.0
+		!Os pacotes devem ser encaminhados para a interface do próximo roteador
 		ip route 192.168.2.0 255.255.255.0 10.0.0.2 
 		ip route 192.168.3.0 255.255.255.0 10.0.0.2 
 		end
@@ -340,6 +389,8 @@ write
 !rt-1941-2
 enable
 	configure terminal
+		!Criando rotas estáticas para as redes 192.168.1.0 e 192.168.3.0
+		!Os pacotes devem ser encaminhados para a interface do próximo roteador
 		ip route 192.168.1.0 255.255.255.0 10.0.0.1 
 		ip route 192.168.3.0 255.255.255.0 192.168.2.1
 		end
@@ -350,6 +401,8 @@ show ip route
 !sw-l3-3560-1
 enable
 	configure terminal
+		!Criando rotas estáticas para as redes 192.168.2.0 e 192.168.3.0
+		!Os pacotes devem ser encaminhados para a interface do próximo roteador
 		ip route 192.168.1.0 255.255.255.0 192.168.2.254 
 		end
 write
