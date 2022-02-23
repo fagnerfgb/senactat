@@ -329,6 +329,34 @@ enable
 		end
 write
 
+!rt-1941-1
+enable
+	configure terminal
+		ip route 192.168.2.0 255.255.255.0 10.0.0.2 
+		ip route 192.168.3.0 255.255.255.0 10.0.0.2 
+		end
+write
+
+!rt-1941-2
+enable
+	configure terminal
+		ip route 192.168.1.0 255.255.255.0 10.0.0.1 
+		ip route 192.168.3.0 255.255.255.0 192.168.2.1
+		end
+write
+show ip route
+
+
+!sw-l3-3560-1
+enable
+	configure terminal
+		ip route 192.168.1.0 255.255.255.0 192.168.2.254 
+		end
+write
+show ip route
+ping 192.168.2.254
+ping 192.168.1.254
+
 
 
 
