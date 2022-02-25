@@ -1,0 +1,95 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 24/02/2022  
+!Data de atualização: 24/02/2022  
+!Versão: 0.01 
+
+
+
+!Primeira etapa: Você foi contratado pela empresa Procedimentos em TI para executar a implementação e migração
+!de alguns serviços de Infraestrutura na Rede atual da empresa, a equipe de TI já determinou os parâmetros para essa migração.
+!01_ - Implementar o Servidor de DHCP Server na Infraestrutura de TI na Rede 192.168.1.0/24 (Primeiro Cenário, lado esquerdo);
+        !Opções do Escopo:
+            !Ofertar os endereços IPv4 a partir de: 192.168.1.50 até 100
+            !Gateway Padrão: 192.168.1.254
+            !DNS Server Padrão: 192.168.3.1
+            !TFTP Server Padrão: 192.168.3.1
+
+!Não esquecer de colocar os desktops da rede 192.168.1.0 para pegar IP através do DHCP
+
+!#02_ - Após todos os testes de desempenho do Link Ponto a Ponto de Interligação das Unidades 1 e Unidade 2, 
+!foi diagnosticado que a substituição do Link para outro de Fibra Óptica irá resolver todos os problemas de interferência na transmissão de dados 
+!entre as duas unidades, para isso a equipe de TI já determinou os parâmetros para essa migração.
+
+!Primeiro: Fazer o Backup do Running-Config para o Startup-Config dos dois Routers 1941 na Unidade 1 e Unidade 2.
+copy running-config startup-config
+
+!Segundo: Fazer o Backup do Startup-Config para o Servidor TFTP: 192.168.3.1 com o nome de arquivo: seunomert?_datadehoje
+copy startup-config tftp:
+192.168.3.1
+fagner-rt1_240222
+fagner-rt2_240222
+
+!Terceiro: Remover as Rotas Estáticas existente nos dois Routers e o Cabo Ethernet de Ligação entre os Routers.
+!(OBS: utilizar o comando: no para remover as rotas)
+
+!rt-1941-1
+no ip route 192.168.2.0 255.255.255.0 10.0.0.2
+no ip route 192.168.3.0 255.255.255.0 10.0.0.2
+
+!rt-1941-2
+no ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+!Quarto: Adicionar um Módulo de Fibra Óptica nos dois Routers e fazer a Ligação via Fibra nas duas Pontas
+!(OBS: utilizar o Módulo 0 - lado direito do router)
+!OK
+
+!Quinto: Configurar os endereços IPv4 dos novos Links de WAN conforme determinação do ISP (Internet Service Provider)
+!Network: 200.204.0.0/30
+!IP Router 1 (esquerdo): 200.204.0.1/30
+!IP Router 2 (direito): 200.204.0.2/30
+
+!rt-1941-1
+interface gigabitEthernet 0/0/0
+	description Interface da WAN - Internet
+	ip address 200.204.0.1 255.255.255.252
+	no shutdown
+
+!rt-1941-2
+interface gigabitEthernet 0/0/0
+	description Interface da WAN - Internet
+	ip address 200.204.0.2 255.255.255.252
+	no shutdown
+
+!Sexto: Adicionar as novas Rotas Estáticas indicando os novos Endereços IPv4 da WAN de Gateway de Próximo Salto.
+!rt-1941-1
+ip route 192.168.2.0 255.255.255.0 200.204.0.2
+ip route 192.168.3.0 255.255.255.0 200.204.0.2
+
+!rt-1941-2
+ip route 192.168.1.0 255.255.255.0 200.204.0.1
+
+!Sétimo: Fazer todos os teste de conexão de Links (ping, tracert, etc...)
+!rt-1941-1
+ping 192.168.1.1
+ping 192.168.1.254
+ping 192.168.2.1
+ping 192.168.2.254
+ping 192.168.3.1
+ping 192.168.3.254
+tracert 192.168.3.1
+
+!rt-1941-2
+ping 192.168.1.1
+ping 192.168.1.254
+ping 192.168.2.1
+ping 192.168.2.254
+ping 192.168.3.1
+ping 192.168.3.254
+tracert 192.168.3.1
+
+!Oitavo: Fazer o Backup dos Routers para o Servidor TFTP: 192.168.3.1 como o nome: novoconfrt?
+copy running-config startup-config
+copy startup-config tftp:
+192.168.3.1
+novoconfrt1
+novoconfrt2
