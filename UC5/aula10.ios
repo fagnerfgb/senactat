@@ -404,6 +404,7 @@ enable
 		!Criando rotas estáticas para as redes 192.168.2.0 e 192.168.3.0
 		!Os pacotes devem ser encaminhados para a interface do próximo roteador
 		ip route 192.168.1.0 255.255.255.0 192.168.2.254 
+		ip route 0.0.0.0 0.0.0.0 192.168.2.254
 		end
 write
 show ip route
