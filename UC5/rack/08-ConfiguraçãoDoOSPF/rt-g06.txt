@@ -94,7 +94,7 @@ enable
     !Endereço IPv4 para o ID do OSPF
     !Verificar o endereçamento IP de Loopback do seu grupo
     !Endereço IP utilizado para o gerenciamento e métrica do OSPF
-    ip address 1.1.1.1 255.255.255.255
+    ip address 6.6.6.6 255.255.255.255
     
     !Inicializando a interface
     no shutdown
@@ -105,12 +105,12 @@ enable
   !Configurando o Roteamento de OSPF (?? = número de processo local)
   !Verificar a tabela de Endereçamento para ver o seu número de Processo Local
   !Pode existir vários processo locais do OSPF, cada um com uma finalidade diferente
-  router ospf 1
+  router ospf 6
   
     !Identificação do Roteador
     !Verificar o endereço IP de Loopback do seu grupo
     !OSPF utiliza o endereço de Loopback para gerenciar o processo local
-    router-id 1.1.1.1
+    router-id 6.6.6.6
       
     !Desativando os anúncios do Protocolo OSPF na Interface da LAN
     !Essa interface não vai anunciar suas rotas pela interface, mais pode receber anúncios
@@ -137,9 +137,9 @@ enable
     !Calculando a máscara coringa: 255.255.255.255 - sua_mascara
     !Exemplo: 255.255.255.255 - 255.255.255.252 = 0.0.0.3
     !Verificar a tabela de Endereçamento para ver a sua Rede
-    network 172.16.1.0 0.0.0.255 area 0
-    network 192.168.1.0 0.0.0.3 area 0
+    network 172.16.6.0 0.0.0.255 area 0
     network 192.168.1.20 0.0.0.3 area 0
+    network 192.168.1.16 0.0.0.3 area 0
     
     !Saindo de todas as configurações
     end
