@@ -1,0 +1,39 @@
+!Criando as VLANS
+vlan 21
+exit
+vlan 22
+exit
+vlan 23
+exit
+vlan 24
+exit
+vlan 25
+exit
+
+!
+interface fastEthernet 0/1
+ switchport mode access
+ switchport access vlan 21
+ exit
+ interface fastEthernet 0/2
+ switchport mode access
+ switchport access vlan 22
+ exit
+ interface fastEthernet 0/3
+ switchport mode access
+ switchport access vlan 23
+ exit
+ interface fastEthernet 0/4
+ switchport mode access
+ switchport access vlan 24
+ exit
+ interface fastEthernet 0/23
+ switchport mode access
+ switchport access vlan 25
+ exit
+ 
+ 
+
+
+
+

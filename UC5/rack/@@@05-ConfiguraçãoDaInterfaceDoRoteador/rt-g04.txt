@@ -1,0 +1,30 @@
+!Acessando o modo exec privilegiado
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+	
+	!Acessando a Interface Física GigabitEthernet 0/0
+	interface gigabitEthernet 0/0
+		
+		!Descrição da Interface
+		description Interface da Rede LAN
+		
+		!Configuração do Endereço IPv4 de Gateway LAN
+		ip address 172.16.40.254 255.255.255.0
+		
+		!Inicializando a Interface
+		no shutdown
+		
+		!Saindo das configurações
+		end
+		
+!Salvando as configurações do Switch
+copy running-config startup-config
+
+!Visualizando as confgurações
+show running-config
+show ip interface brief
+show ip route
+ping 172.16.40.253
+ssh -l fagner 172.16.40.253

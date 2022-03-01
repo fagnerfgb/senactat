@@ -26,7 +26,7 @@ clock set ??:??:?? ?? ???????? ????
 	!Comprimento mínimo da criação das senhas do Tipo-5 ou Tipo-7
 	security passwords min-length 8
 	
-	!Verificar tentativas de conexão simultaneas, fazer o bloqueio de um
+	!Verificar tentativas de conexões simultâneas, fazer o bloqueio de um
 	!período determinado do login
 	login block-for 120 attempts 4 within 60
   
@@ -65,9 +65,9 @@ clock set ??:??:?? ?? ???????? ????
 	!Habilitar a senha do tipo secret Tipo-5 para o modo enable privilegiado
 	enable secret 123@senac
   
-	!Criação dos usuários, senhas do Tipo-5 e privilegios diferenciados
+	!Criação dos usuários, senhas do Tipo-5 e privilégios diferenciados
 	!Consultar Planilha de Nomes de Usuários do Grupo
-	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integrandes, acréscentar no script
+	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integratdes, acrescentar ao script
 	username fagner privilege 15 secret 123@senac
 	  
 	!Configuração do nome de domínio, obrigatório para a configuração do SSH

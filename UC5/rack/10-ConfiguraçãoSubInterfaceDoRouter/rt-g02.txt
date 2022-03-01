@@ -1,0 +1,38 @@
+!01_ Determinação do endereço IPv4 Gateway do Router 2911
+!    Grupo-02:   Subinterface: 1     IPv4: 172.16.20.254/24
+!                Subinterface: 21    IPv4: 172.16.21.254/24
+!                Subinterface: 22    IPv4: 172.16.22.254/24
+!                Subinterface: 23    IPv4: 172.16.23.254/24
+!                Subinterface: 24    IPv4: 172.16.24.254/24
+!                Subinterface: 25    IPv4: 172.16.25.254/24
+				
+				
+interface GigabitEthernet0/0.1
+ encapsulation dot1Q 1
+ ip address 172.16.20.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.21
+ encapsulation dot1Q 21
+ ip address 172.16.21.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.22
+ encapsulation dot1Q 22
+ ip address 172.16.22.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.23
+ encapsulation dot1Q 23
+ ip address 172.16.23.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.24
+ encapsulation dot1Q 24
+ ip address 172.16.24.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.25
+ encapsulation dot1Q 25
+ ip address 172.16.25.254 255.255.255.0
+ exit

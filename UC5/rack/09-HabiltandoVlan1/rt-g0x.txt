@@ -1,0 +1,12 @@
+!Configurar nos 6 routers
+conf t
+interface vlan 1
+ no shutdown
+ end
+wr
+ 
+ 
+
+
+
+

@@ -1,0 +1,160 @@
+!Laboratório SENAC
+!PRIMEIRA ETAPA: Documentação dos Pontos de Redes do Rack Cisco
+
+#01_ Todos os pontos de Rede do Rack Cisco estão indentificados pela sigla: R.Cisco - Ponto 0x.
+
+#02_ Todos os pontos de Rede do Rack Cisco estão conectados nos 2 (dois) primeiros Patch Panel.
+    Primeiro Patch Panel: Pontos de 01 até 24
+    Segundo Patch Panel: Pontos de 25 até 30
+
+#03_ Todos os Patch Cords do Rack Cisco estão indentificados pela sigla: R.Cisco - Ponto 0x.
+
+#04_ No Rack Cisco existe 2 (dois) Patch Panel que são utilizados para o espelhamento das portas
+dos Switch Cisco Layer 3 3560.
+
+#05_ O Kits do Rack Cisco são divididos em 6 (seis) Grupos:
+    Grupo-01: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+    Grupo-02: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+    Grupo-03: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+    Grupo-04: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+    Grupo-05: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+    Grupo-06: 1 (um) Switch Layer 3 3560 e 1 (um) Router 2911
+
+OBSERVAÇÃO IMPORTANTE: Os equipamentos abaixo serão utilizados pelo Docente em aula.
+    1 (um) Router 4321, 1 (um) Router 2811 e 1 (um) Switch 2960-XR
+
+#06_ Cada Grupo deverá ser composto no máximo de: 4 (quatro) integrantes, cada integrante do
+grupo vai utilizar seu Ponto de Rede e deverá sobrar 1 (um) ponto para a Rede Sem-Fio.
+
+==============================================================================================
+!Feito
+!SEGUNDA ETAPA: Usuário e Senha padrão dos Switches e Routers Cisco de cada Grupo.
+
+#01_ Nos scripts de configuração Base dos Switches e Router existe as linhas de configuração da
+senha e usuários conforme abaixo:
+    Senha padrão: 123@senac
+    Usuário: seguir o padrão da documentação dos scripts alterando o seu valor.
+    username ??nomealuno?? privilege 15 secret 123@senac
+    OBSERVAÇÃO IMPORTANTE: sempre que aparecer o caracter: ? (interrogação), alterar o seu valor
+
+#02_ Nos scripts dos Switches e Routers você precisa prestar atenção nas linhas de configuração.
+    clock set
+    hostname
+    enable secret
+    username
+    password
+
+==============================================================================================
+
+!TERCEIRA ETAPA: Determinação das Redes (Subredes) e VLAN de Cada Grupo
+
+#01_ Todo o cenário será configurado utilizando VLAN (Virtual-LAN), será determinado 6 (seis)
+VLAN's por Grupo, sendo elas
+    VLAN de SVI (Switch Virtual Interface)
+    VLAN's para cada usuário na rede
+    VLAN de Rede Sem-Fio (Wi-Fi/Wireless)
+
+#02_ Determinação da Subredes e VLAN de cada Grupo.
+    Grupo-01:   Subredes:   172.16.10.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.11.253/24   VLAN:  11  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.12.253/24   VLAN:  12  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.13.253/24   VLAN:  13  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.14.253/24   VLAN:  14  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.15.253/24   VLAN:  15  -   utilizada pela rede sem-fio
+
+    Grupo-02:   Subredes:   172.16.20.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.21.253/24   VLAN:  21  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.22.253/24   VLAN:  22  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.23.253/24   VLAN:  23  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.24.253/24   VLAN:  24  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.25.253/24   VLAN:  25  -   utilizada pela rede sem-fio
+
+    Grupo-03:   Subredes:   172.16.30.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.31.253/24   VLAN:  31  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.32.253/24   VLAN:  32  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.33.253/24   VLAN:  33  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.34.253/24   VLAN:  34  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.35.253/24   VLAN:  35  -   utilizada pela rede sem-fio
+
+    Grupo-04:   Subredes:   172.16.40.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.41.253/24   VLAN:  41  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.42.253/24   VLAN:  42  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.43.253/24   VLAN:  43  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.44.253/24   VLAN:  44  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.45.253/24   VLAN:  45  -   utilizada pela rede sem-fio
+
+    Grupo-05:   Subredes:   172.16.50.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.51.253/24   VLAN:  51  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.52.253/24   VLAN:  52  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.53.253/24   VLAN:  53  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.54.253/24   VLAN:  54  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.55.253/24   VLAN:  55  -   utilizada pela rede sem-fio
+
+    Grupo-06:   Subredes:   172.16.60.253/24   VLAN:  1   -   utilizada no SVI do Switch Layer 3
+                Subredes:   172.16.61.253/24   VLAN:  61  -   utilizada pelo primeiro usuário da rede
+                Subredes:   172.16.62.253/24   VLAN:  62  -   utilizada pelo segundo usuário da rede
+                Subredes:   172.16.63.253/24   VLAN:  63  -   utilizada pelo terceiro usuário da rede
+                Subredes:   172.16.64.253/24   VLAN:  64  -   utilizada pelo quarto usuário da rede
+                Subredes:   172.16.65.253/24   VLAN:  65  -   utilizada pela rede sem-fio
+
+==============================================================================================
+!Feito
+!QUARTA ETAPA: Determinação dos Endereços de SVI e Gateway de cada Grupo
+
+#01_ Determinação do endereço IPv4 da VLAN de SVI e Gateway do Switch Layer 3
+    Grupo-01:  SVI:    172.16.10.253/24    -   Gateway: 172.16.10.254/24
+    Grupo-02:  SVI:    172.16.20.253/24    -   Gateway: 172.16.20.254/24
+    Grupo-03:  SVI:    172.16.30.253/24    -   Gateway: 172.16.30.254/24
+    Grupo-04:  SVI:    172.16.40.253/24    -   Gateway: 172.16.40.254/24
+    Grupo-05:  SVI:    172.16.50.253/24    -   Gateway: 172.16.50.254/24
+    Grupo-06:  SVI:    172.16.60.253/24    -   Gateway: 172.16.60.254/24
+
+==============================================================================================
+!Feito
+!QUINTA ETAPA: Determinação da Subinterfaces de Gateway de cada VLAN dos Grupos
+
+#01_ Determinação do endereço IPv4 Gateway do Router 2911
+    Grupo-01:   Subinterface: 1     IPv4: 172.16.10.254/24
+                Subinterface: 11    IPv4: 172.16.11.254/24
+                Subinterface: 12    IPv4: 172.16.12.254/24
+                Subinterface: 13    IPv4: 172.16.13.254/24
+                Subinterface: 14    IPv4: 172.16.14.254/24
+                Subinterface: 15    IPv4: 172.16.15.254/24
+
+    Grupo-02:   Subinterface: 1     IPv4: 172.16.20.254/24
+                Subinterface: 21    IPv4: 172.16.21.254/24
+                Subinterface: 22    IPv4: 172.16.22.254/24
+                Subinterface: 23    IPv4: 172.16.23.254/24
+                Subinterface: 24    IPv4: 172.16.24.254/24
+                Subinterface: 25    IPv4: 172.16.25.254/24
+
+    Grupo-03:   Subinterface: 1     IPv4: 172.16.30.254/24
+                Subinterface: 31    IPv4: 172.16.31.254/24
+                Subinterface: 32    IPv4: 172.16.32.254/24
+                Subinterface: 33    IPv4: 172.16.33.254/24
+                Subinterface: 34    IPv4: 172.16.34.254/24
+                Subinterface: 35    IPv4: 172.16.35.254/24
+
+    Grupo-04:   Subinterface: 1     IPv4: 172.16.40.254/24
+                Subinterface: 41    IPv4: 172.16.41.254/24
+                Subinterface: 42    IPv4: 172.16.42.254/24
+                Subinterface: 43    IPv4: 172.16.43.254/24
+                Subinterface: 44    IPv4: 172.16.44.254/24
+                Subinterface: 45    IPv4: 172.16.45.254/24
+
+    Grupo-05:   Subinterface: 1     IPv4: 172.16.50.254/24
+                Subinterface: 51    IPv4: 172.16.51.254/24
+                Subinterface: 52    IPv4: 172.16.52.254/24
+                Subinterface: 53    IPv4: 172.16.53.254/24
+                Subinterface: 54    IPv4: 172.16.54.254/24
+                Subinterface: 55    IPv4: 172.16.55.254/24
+
+    Grupo-06:   Subinterface: 1     IPv4: 172.16.60.254/24
+                Subinterface: 61    IPv4: 172.16.61.254/24
+                Subinterface: 62    IPv4: 172.16.62.254/24
+                Subinterface: 63    IPv4: 172.16.63.254/24
+                Subinterface: 64    IPv4: 172.16.64.254/24
+                Subinterface: 65    IPv4: 172.16.65.254/24
+==============================================================================================
+
+

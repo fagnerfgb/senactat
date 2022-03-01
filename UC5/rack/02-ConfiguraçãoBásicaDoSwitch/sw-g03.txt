@@ -20,7 +20,7 @@ clock set ??:??:?? ?? ???????? ????
 	!Habilitando o serviço de marcação de Data/Hora detalhado nos Logs
 	service timestamps log datetime msec
 	
-	!Verificar tentativas de conexão simultaneas, fazer o bloqueio de um
+	!Verificar tentativas de conexão simultâneas, fazer o bloqueio de um
 	!período determinado de tempo, proteção contra Brute Force
 	login block-for 120 attempts 4 within 60
   
@@ -59,9 +59,9 @@ clock set ??:??:?? ?? ???????? ????
 	!Habilitar a senha do tipo secret Tipo-5 para o modo enable privilegiado
 	enable secret 123@senac
   
-	!Criação dos usuários, senhas do Tipo-5 e privilegios diferenciados
+	!Criação dos usuários, senhas do Tipo-5 e privilégios diferenciados
 	!OBSERVAÇÃO: Consultar Planilha de Nomes de Usuários do Grupo
-	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integrandes, acréscentar no script
+	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integrantes, acrescentar ao script
 	username fagner privilege 15 secret 123@senac
 	
 

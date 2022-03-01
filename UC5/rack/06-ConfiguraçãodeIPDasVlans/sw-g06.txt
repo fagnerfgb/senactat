@@ -1,0 +1,19 @@
+interface vlan 61
+ip address 172.16.61.253 255.255.255.0
+exit
+
+interface vlan 62
+ip address 172.16.62.253 255.255.255.0
+exit
+
+interface vlan 63
+ip address 172.16.63.253 255.255.255.0
+exit
+
+interface vlan 64
+ip address 172.16.64.253 255.255.255.0
+exit
+
+interface vlan 65
+ip address 172.16.65.253 255.255.255.0
+end
