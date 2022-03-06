@@ -1,0 +1,97 @@
+!Acessando o modo EXEC Privilégiado
+enable
+
+	!Acessando o modo de Configuração Global de Comandos
+	configure terminal
+
+		!Criando as VLANs Standard (Padrão) no Switch Layer 3 3560
+		
+		!Criação da VLAN padrão
+		vlan 20
+			!Nome da VLAN padrão
+			name svig02
+			exit
+		vlan 21
+			name 21 
+			exit
+		vlan 22
+			name 22 
+			exit
+		vlan 23
+			name 23
+			exit
+		vlan 24
+			name 24
+			exit
+		vlan 25
+			name wifi
+			exit
+
+		!Configurando a Interface de Acesso a VLAN do Primeiro Usuário
+		interface fastEthernet 0/2
+			
+			!Configurando a Interface de Acesso a VLAN
+			description Interface de Acesso da VLAN 21 do Primeiro Usuário
+			
+			!Configurando o Modo de Acesso da Interface
+			switchport mode access
+			
+			!Configurando o Acesso a VLAN
+			switchport access vlan 21
+			
+			exit
+		
+		!Configurando a Interface de Acesso a VLAN do Segundo Usuário
+		interface fastEthernet 0/3
+			description Interface de Acesso da VLAN 22 do Segundo Usuário
+			switchport mode access
+			switchport access vlan 22
+			exit
+
+		!Configurando a Interface de Acesso a VLAN do Terceiro Usuário
+		interface fastEthernet 0/4
+			description Interface de Acesso da VLAN 23 do Terceiro Usuário
+			switchport mode access
+			switchport access vlan 23
+			exit
+
+		!Configurando a Interface de Acesso a VLAN do Quarto Usuário
+		interface fastEthernet 0/5
+			description Interface de Acesso da VLAN 24 do Quarto Usuário
+			switchport mode access
+			switchport access vlan 24
+			exit
+
+		!Configurando a Interface de Acesso a VLAN da Rede Sem-Fio (Wi-Fi/Wireless)
+		interface fastEthernet 0/6
+			description Interface de Acesso da VLAN 25 Wireless
+			switchport mode access
+			switchport access vlan 25
+			exit
+		
+		!Desativando as Interfaces que não serão utilizadas no Switch Layer 3 3560
+		interface range fastEthernet 0/7 - 23
+			shutdown
+			exit
+
+		!Configurando a Interface de Trunk com o Router 2911
+		interface fastEthernet 0/24
+			description Interface de Trunk com o Router 2911 do Grupo-02
+			switchport trunk encapsulation dot1q
+			switchport mode trunk
+			switchport trunk native vlan 20
+		end
+
+!Salvando as informações
+copy running-config startup-config
+	
+!Comandos para visualização das informações:
+show running-config
+show vlan brief
+show vlan id ??
+show vlan name ??
+show interface status
+show interface trunk
+show ip interface brief
+show interfaces fastEthernet 0/24 status
+show interfaces fastEthernet 0/24 switchport

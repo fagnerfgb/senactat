@@ -1,0 +1,51 @@
+!Acessando o modo exec privilegiado
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+	
+		!Acessando a Interface Física GigabitEthernet 0/0
+		interface gigabitEthernet 0/0
+			
+			!Inicializando a Interface Física gigabitEthernet 0/0
+			no shutdown
+			exit
+interface GigabitEthernet0/0.40
+ description Subinterface da VLAN de SVI do Switch Layer 3 3560
+ encapsulation dot1Q 40
+ ip address 172.16.40.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.41
+ description Subinterface da VLAN do Primeiro Usuário
+ encapsulation dot1Q 41
+ ip address 172.16.41.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.42
+ description Subinterface da VLAN do Segundo Usuário
+ encapsulation dot1Q 42
+ ip address 172.16.42.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.43
+ description Subinterface da VLAN do Teceiro Usuário
+ encapsulation dot1Q 43
+ ip address 172.16.43.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.44
+ description Subinterface da VLAN do Quarto Usuário
+ encapsulation dot1Q 44
+ ip address 172.16.44.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.45
+ description Subinterface da VLAN Wireless
+ encapsulation dot1Q 45
+ ip address 172.16.45.254 255.255.255.0
+ exit
+ 
+end
+wr
+ 

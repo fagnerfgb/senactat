@@ -1,0 +1,138 @@
+!Acessando o modo EXEC Privilégiado
+enable
+
+	!Acessando o modo de Configuração Global de Comandos
+	configure terminal
+		
+		!Configurando a Faixa de Exclusão de Endereços IPv4 do Escopo do DHCP Server
+		ip dhcp excluded-address 172.16.21.0 172.16.21.100
+		ip dhcp excluded-address 172.16.21.200 172.16.21.254
+		
+		ip dhcp excluded-address 172.16.22.0 172.16.22.100
+		ip dhcp excluded-address 172.16.22.200 172.16.22.254
+		
+		ip dhcp excluded-address 172.16.23.0 172.16.23.100
+		ip dhcp excluded-address 172.16.23.200 172.16.23.254
+		
+		ip dhcp excluded-address 172.16.24.0 172.16.24.100
+		ip dhcp excluded-address 172.16.24.200 172.16.24.254
+		
+		ip dhcp excluded-address 172.16.25.0 172.16.25.100
+		ip dhcp excluded-address 172.16.25.200 172.16.25.254
+		
+		
+		
+		!Configurando o Pool do DHCP Server da LAN
+		ip dhcp pool vlan-21
+		
+			!Configurando a Rede do Pool do DHCP da LAN
+			network 172.16.21.0 255.255.255.0
+			
+			!Configurando o Gateway padrão do Pool da LAN
+			default-router 172.16.21.254
+			
+			!Configurando o Endereço IPv4 do Servidor de DNS do Pool da LAN
+			dns-server 8.8.8.8
+			
+			!Configurando o Nome de Domínio do Pool da LAN
+			domain-name senac.br
+			
+			!Saindo
+			exit
+			
+			
+		!Configurando o Pool do DHCP Server da LAN
+		ip dhcp pool vlan-22
+		
+			!Configurando a Rede do Pool do DHCP da LAN
+			network 172.16.22.0 255.255.255.0
+			
+			!Configurando o Gateway padrão do Pool da LAN
+			default-router 172.16.22.254
+			
+			!Configurando o Endereço IPv4 do Servidor de DNS do Pool da LAN
+			dns-server 8.8.8.8
+			
+			!Configurando o Nome de Domínio do Pool da LAN
+			domain-name senac.br
+			
+			!Saindo
+			exit
+			
+		!Configurando o Pool do DHCP Server da LAN
+		ip dhcp pool vlan-23
+		
+			!Configurando a Rede do Pool do DHCP da LAN
+			network 172.16.23.0 255.255.255.0
+			
+			!Configurando o Gateway padrão do Pool da LAN
+			default-router 172.16.23.254
+			
+			!Configurando o Endereço IPv4 do Servidor de DNS do Pool da LAN
+			dns-server 8.8.8.8
+			
+			!Configurando o Nome de Domínio do Pool da LAN
+			domain-name senac.br
+			
+			!Saindo
+			exit
+			
+		!Configurando o Pool do DHCP Server da LAN
+		ip dhcp pool vlan-24
+		
+			!Configurando a Rede do Pool do DHCP da LAN
+			network 172.16.24.0 255.255.255.0
+			
+			!Configurando o Gateway padrão do Pool da LAN
+			default-router 172.16.24.254
+			
+			!Configurando o Endereço IPv4 do Servidor de DNS do Pool da LAN
+			dns-server 8.8.8.8
+			
+			!Configurando o Nome de Domínio do Pool da LAN
+			domain-name senac.br
+			
+			!Saindo
+			exit	
+			
+		!Configurando o Pool do DHCP Server da LAN
+		ip dhcp pool vlan-25
+		
+			!Configurando a Rede do Pool do DHCP da LAN
+			network 172.16.25.0 255.255.255.0
+			
+			!Configurando o Gateway padrão do Pool da LAN
+			default-router 172.16.25.254
+			
+			!Configurando o Endereço IPv4 do Servidor de DNS do Pool da LAN
+			dns-server 8.8.8.8
+			
+			!Configurando o Nome de Domínio do Pool da LAN
+			domain-name senac.br
+			
+			!Saindo de todos os níveis
+			end
+
+!Salvando as confgurações
+copy running-config startup-config
+
+!Verificando as informações do Pool DHCP Server
+show ip dhcp pool
+
+!Verificando as configurações de rede no Notebook GNU/Linux (Terminal: Ctrl+Alt+T)
+ifconfig
+route -n
+systemd-resolve --status
+
+!Testando o ping no Notebook GNU/Linux (Terminal: Ctrl+Alt+T)
+ping 172.16.10.253
+ping 172.16.10.254
+
+!Limpando as configurações antigas de acesso remoto ao Switch e Router (Terminal: Ctrl+Alt+T)
+rm -v .ssh/known_hosts
+
+!Acessando remotamente o Switch e Router utilizando o SSH no GNU/Linux ou Windows 10 Powershell
+!OBSERVAÇÃO IMPORTANTE: é necessário informar o tipo de algoritimo utilizado pelo Cisco no
+!acesso via SSH no Terminal ou Powershell, no aplicativo PuTTY não existe essa necessidade
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.10.253
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.10.254

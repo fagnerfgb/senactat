@@ -1,0 +1,79 @@
+Endereçamento IP para Rede de Interligação (WAN) - (GP=Grupo | PI=Primeiro IP | UP=Último IP)
+Interface Serial 0/0/0 e Serial 0/0/1  - Rede: 192.168.1.0/30 - 255.255.255.252
+
+GP-01:	Rede: 192.168.1.0	 PI: 192.168.1.1 - UP: 192.168.1.2    Broadcast: 192.168.1.3
+GP-01 Serial0/0/0 IP: 192.168.1.1/30 --> GP-02 Serial0/0/1 IP: 192.168.1.2/30
+
+GP-02:	Rede: 192.168.1.4	 PI: 192.168.1.5 - UP: 192.168.1.6    Broadcast: 192.168.1.7
+GP-02 Serial0/0/0 IP: 192.168.1.5/30 --> GP-03 Serial0/0/1 IP: 192.168.1.6/30
+
+GP-03:	Rede: 192.168.1.8	 PI: 192.168.1.9 - UP: 192.168.1.10   Broadcast: 192.168.1.11
+GP-03 Serial0/0/0 IP: 192.168.1.9/30 --> GP-04 Serial0/0/1 IP: 192.168.1.10/30
+
+GP-04:	Rede: 192.168.1.12	PI: 192.168.1.13 - UP: 192.168.1.14 Broadcast: 192.168.1.15
+GP-04 Serial0/0/0 IP: 192.168.1.13/30 --> GP-05 Serial0/0/1 IP: 192.168.1.14/30
+
+GP-05:	Rede: 192.168.1.16	PI: 192.168.1.17 - UP: 192.168.1.18 Broadcast: 192.168.1.19
+GP-05 Serial0/0/0 IP: 192.168.1.17/30 --> GP-06 Serial0/0/1 IP: 192.168.1.18/30
+
+GP-06:	Rede: 192.168.1.20	PI: 192.168.1.21 - UP: 192.168.1.22 Broadcast: 192.168.1.23
+GP-06 Serial0/0/0 IP: 192.168.1.21/30 --> GP-01 Serial0/0/1 IP: 192.168.1.22/30
+
+!Acessando o modo exec user
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+		
+	!Configuração da interface Serial0/0/0
+	interface serial 0/0/0
+	
+		!Descriação da Interface
+		description Interface Grupo-02 para Grupo-03
+		
+		!Configuração do endereçamento IP
+		!Verificar a tabela de endereçamento IP dos Grupos
+		!Sempre vai ser o Endereço IP Impar
+		ip address 192.168.1.5 255.255.255.252
+		
+		!Configurando o Clock Rate, Velocidade do Link
+		clock rate 64000
+		
+		!Configurando a Largura de Banda
+		bandwidth 64
+		
+		!Habilitando a interface
+		no shutdown
+		
+		!Saindo das configurações da interface
+		exit
+		
+	!Configuração da interface Serial0/0/1
+	interface serial 0/0/1
+	
+		!Descriação da Interface
+		description Interface Grupo-02 para Grupo-01
+		
+		!Configuração do endereçamento IP
+		!Verificar a tabela de endereçamento IP dos Grupos
+		!Sempre vai ser o Endereço IP Par
+		ip address 192.168.1.2 255.255.255.252
+		
+		!Configurando a Largura de Banda
+		bandwidth 64
+		
+		!Habilitando a interface
+		no shutdown
+		
+		!Saindo das configurações da interface
+		end
+
+	!Salvando as informações
+	copy running-config startup-config
+	
+!Comandos para visualização das informações:
+show running-config
+show ip interface brief
+show ip route
+ping 192.168.1.6 (serial 0/0/0)
+ping 192.168.1.1 (serial 0/0/1)

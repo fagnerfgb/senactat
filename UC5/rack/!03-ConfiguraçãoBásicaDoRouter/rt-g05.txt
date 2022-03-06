@@ -1,0 +1,132 @@
+!Acessando o modo exec privilegiado
+enable
+
+!Configuração de data/hora em inglês, abreviado ou completo
+!Exemplo: April ou Apr
+!Primeiro Hora no formato: 00:00:00 (hora:minutos:segundos) depois Data no formato: Dia Mês Ano
+clock set ??:??:?? ?? ???????? ????
+
+	!Acessar modo de configuração global
+	configure terminal
+  
+	!Configuração do nome do equipamento
+	!Obrigatório para a configuração do SSH e demais serviços de redes
+	!Mudar o nome do router para cada equipamento do seu grupo
+	hostname rt-g05
+  
+	!Habilitar o serviço de Criptografia de Senhas do tipo Password Tipo-7
+	service password-encryption
+	
+	!Habilitando o serviço de marcação de Data/Hora detalhado nos Logs
+	service timestamps log datetime msec
+	
+	!Habilitando o serviço de marcação de Data/Hora detalhado no Debug
+	service timestamps debug datetime msec
+	
+	!Comprimento mínimo da criação das senhas do Tipo-5 ou Tipo-7
+	security passwords min-length 8
+	
+	!Verificar tentativas de conexões simultâneas, fazer o bloqueio de um
+	!período determinado do login
+	login block-for 120 attempts 4 within 60
+  
+	!Desativar a resolução de nomes de domínio
+	no ip domain-lookup
+  
+	!Configuração do Banner da mensagem do dia
+	!Desafio: Buscar na Internet imagens ASCII para o Banner
+	banner motd *
+ __          __     _____  _   _ _____ _   _  _____ 
+ \ \        / /\   |  __ \| \ | |_   _| \ | |/ ____|
+  \ \  /\  / /  \  | |__) |  \| | | | |  \| | |  __ 
+   \ \/  \/ / /\ \ |  _  /| . ` | | | | . ` | | |_ |
+    \  /\  / ____ \| | \ \| |\  |_| |_| |\  | |__| |
+     \/  \/_/    \_\_|  \_\_| \_|_____|_| \_|\_____|
+                                                    
+	# UNAUTHORIZED ACCESS TO THIS SYSTEM IS FORBIDDEN AND WILL
+	# BE PROSECUTED BY LAW.
+	# BY ACCESSING THIS SYSTEM, YOU AGREE THAT YOUR ACTIONS MAY
+	# BE MONITORED IF UNAUTHORIZED USAGE IS SUSPECTED.
+
+	--------------------------------------------------------------
+        _______ ______ _   _  _____          ____  
+     /\|__   __|  ____| \ | |/ ____|   /\   / __ \ 
+    /  \  | |  | |__  |  \| | |       /  \ | |  | |
+   / /\ \ | |  |  __| | . ` | |      / /\ \| |  | |
+  / ____ \| |  | |____| |\  | |____ / ____ \ |__| |
+ /_/    \_\_|  |______|_| \_|\_____/_/    \_\____/ 
+                                                   
+	# O ACESSO NAO AUTORIZADO A ESTE SISTEMA E PROIBIDO E SERA
+	# PROCESSADO CONFORME A LEI.
+	# AO ACESSAR ESTE SISTEMA VOCE CONCORDA QUE O MONITORAMENTO
+	# DE SUAS ACOES SERA USADO CASO OCORRA ALGUMA SUSPEITA.
+	*
+  
+	!Habilitar a senha do tipo secret Tipo-5 para o modo enable privilegiado
+	enable secret 123@senac
+  
+	!Criação dos usuários, senhas do Tipo-5 e privilégios diferenciados
+	!Consultar Planilha de Nomes de Usuários do Grupo
+	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integratdes, acrescentar ao script
+	username fagner privilege 15 secret 123@senac
+	  
+	!Configuração do nome de domínio, obrigatório para a configuração do SSH
+	ip domain-name senac.br
+  
+	!Criação da chave de criptografia e habilitação do serviço de SSH
+	!Utilizar módulo de criptografia de 1024 bits
+	crypto key generate rsa general-keys modulus 1024
+	
+	!Habilitando a versão 2 do serviço do SSH
+	ip ssh version 2
+	
+	!Habilitar o tempo de inatividade para novas conexões do SSH
+	ip ssh time-out 60
+	
+	!Habilitar o número máximo de tentativas de conexão do SSH
+	ip ssh authentication-retries 2
+	
+  	!Acessando a linha console
+	line console 0
+	
+		!Habilitando senha do tipo Password  Tipo-7
+		password 123@senac
+		
+		!Forçando fazer login com usuário e senha local
+		login local
+		
+		!Sincronizando os logs na tela
+		logging synchronous
+		
+		!Habilitando o tempo de inatividade do console
+		exec-timeout 5 30
+		
+		!Saindo da linha console
+		exit
+	
+  	!Acessando as linhas virtuais
+	line vty 0 4
+		
+		!Habilitando senha do tipo Password  Tipo-7
+		password 123@senac
+		
+		!Forçando fazer login com usuário e senha local
+		login local 
+		
+		!Sincronizando os logs na tela
+		logging synchronous
+		
+		!Habilitando o tempo de inatividade do terminal
+		exec-timeout 5 30
+		
+		!Configuração do tipo de protocolo de transporte de entrada
+		transport input ssh
+
+		!Saindo de todos os níveis
+		end
+
+!Salvando as informações
+copy running-config startup-config
+	
+!Visualizando as confgurações
+show running-config

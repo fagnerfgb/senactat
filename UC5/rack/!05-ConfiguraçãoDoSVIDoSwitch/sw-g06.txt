@@ -1,0 +1,37 @@
+!Acessando o modo exec privilegiado
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+	
+	!Configuração do gateway padrão IPv4 do SVI
+	!Utilizado para acessar remotamente o equipamento
+	ip default-gateway 172.16.60.254
+  
+	!Configuração da interface virtual VLAN SVI
+	interface vlan 60
+		
+		!Configuração da descrição
+		description Interface SVI de Gerenciamento do Grupo-06
+		
+		!Configuração do endereçamento IPv4 do SVI
+		ip address 172.16.60.253 255.255.255.0
+		
+		!Inicializando a interface
+		no shutdown
+		
+		!Saindo de todos os níveis
+		end
+
+!Salvando as informações
+copy running-config startup-config
+	
+!Comandos para visualização das informações:
+show running-config
+show ip interface brief
+
+!Acessando remotamente o Switch e Router utilizando o SSH no GNU/Linux ou Windows 10 Powershell
+!OBSERVAÇÃO IMPORTANTE: é necessário informar o tipo de algoritmo utilizado pelo Cisco no
+!acesso via SSH no Terminal ou Powershell, no aplicativo PuTTY não existe essa necessidade
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc seu_usuario@172.16.60.253
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc seu_usuario@172.16.60.254
