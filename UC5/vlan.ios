@@ -1,0 +1,30 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 22/02/2022  
+!Data de atualização: 22/02/2022  
+!Versão: 0.01 
+
+!Criando VLANs
+enable
+ conf t
+   !Cria a VLAN
+   vlan 10
+   !Atribui nome a VLAN
+   name ADM
+   !Cria a VLAN   
+   vlan 20
+   !Atribui nome a VLAN
+   name EDU
+   exit
+  !Atribui VLAN 10 nas portas de 1 até 12 do switch
+  interface range fastethernet 0/1-12
+    switchport access vlan 10
+    exit
+  !Atribui VLAN 20 nas portas de 13 até 24 do switch
+  interface range fastethernet 0/13-24
+    switchport access vlan 20
+    end
+ wr
+ show vlan brief
+
+ 
+  
