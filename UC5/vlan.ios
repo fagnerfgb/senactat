@@ -26,5 +26,37 @@ enable
  wr
  show vlan brief
 
+ !Criando VLANs
+enable
+ conf t
+   !Cria a VLAN
+   vlan 30
+   !Atribui nome a VLAN
+   name FABRICA
+   !Cria a VLAN   
+   vlan 40
+   !Atribui nome a VLAN
+   name LOJA
+   vlan 50
+   !Atribui nome a VLAN
+   name ADM
+   exit
+  !Atribui VLAN 10 nas portas de 1 até 10 do switch
+  interface range fastethernet 0/1-10
+    switchport access vlan 30
+    exit
+  !Atribui VLAN 20 nas portas de 11 até 18 do switch
+  interface range fastethernet 0/11-18
+    switchport access vlan 40
+    exit
+interface range fastethernet 0/19-24
+    switchport access vlan 50
+    exit
+interface range GigabitEthernet 0/1-2
+    switchport access vlan 50
+    end
+ wr
+ show vlan brief
+
  
   
