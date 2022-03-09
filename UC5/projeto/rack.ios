@@ -376,19 +376,14 @@ enable
 		vlan 30
 			!Nome da VLAN padrão
 			name svig03
-			exit
 		vlan 31
 			name ALLAN 
-			exit
 		vlan 32
 			name HEDER 
-			exit
 		vlan 33
 			name FAGNER
-			exit
 		vlan 34
 			name KAREN
-			exit
 		vlan 35
 			name WIFI
 			exit
