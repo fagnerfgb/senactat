@@ -397,7 +397,7 @@ enable
 		interface fastEthernet 0/2
 			
 			!Configurando a Interface de Acesso a VLAN
-			description Interface de Acesso da VLAN 31 do Primeiro Usuário
+			description Interface de Acesso da VLAN 31 do Primeiro Usuario
 			
 			!Configurando o Modo de Acesso da Interface
 			switchport mode access
@@ -409,21 +409,21 @@ enable
 		
 		!Configurando a Interface de Acesso a VLAN do Segundo Usuário
 		interface fastEthernet 0/3
-			description Interface de Acesso da VLAN 32 do Segundo Usuário
+			description Interface de Acesso da VLAN 32 do Segundo Usuario
 			switchport mode access
 			switchport access vlan 32
 			exit
 
 		!Configurando a Interface de Acesso a VLAN do Terceiro Usuário
 		interface fastEthernet 0/4
-			description Interface de Acesso da VLAN 33 do Terceiro Usuário
+			description Interface de Acesso da VLAN 33 do Terceiro Usuario
 			switchport mode access
 			switchport access vlan 33
 			exit
 
 		!Configurando a Interface de Acesso a VLAN do Quarto Usuário
 		interface fastEthernet 0/5
-			description Interface de Acesso da VLAN 34 do Quarto Usuário
+			description Interface de Acesso da VLAN 34 do Quarto Usuario
 			switchport mode access
 			switchport access vlan 34
 			exit
