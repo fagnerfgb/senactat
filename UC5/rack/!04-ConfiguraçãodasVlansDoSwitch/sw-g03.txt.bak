@@ -12,19 +12,19 @@ enable
 			name svig03
 			exit
 		vlan 31
-			name ALLAN 
+			name 31 
 			exit
 		vlan 32
-			name HEDER 
+			name 32 
 			exit
 		vlan 33
-			name FAGNER
+			name 33
 			exit
 		vlan 34
-			name KAREN
+			name 34
 			exit
 		vlan 35
-			name WIFI
+			name wifi
 			exit
 
 		!Configurando a Interface de Acesso a VLAN do Primeiro Usuário

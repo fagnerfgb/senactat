@@ -63,6 +63,9 @@ clock set ??:??:?? ?? ???????? ????
 	!OBSERVAÇÃO: Consultar Planilha de Nomes de Usuários do Grupo
 	!OBSERVAÇÃO IMPORTANTE: se o grupo tiver mais integrantes, acrescentar ao script
 	username fagner privilege 15 secret 123@senac
+	username heder privilege 15 secret 123@senac
+	username allan privilege 15 secret 123@senac
+	username karen privilege 15 secret 123@senac
 	
 
 	!Configuração do nome de domínio, obrigatório para a configuração do SSH
