@@ -1,7 +1,7 @@
 !Autor: Fagner Geraldes Braga  
 !Data de criação: 07/03/2022  
-!Data de atualização: 07/03/2022  
-!Versão: 0.01 
+!Data de atualização: 09/03/2022  
+!Versão: 0.02 
 
 !Criando VLANs
 enable
@@ -57,6 +57,56 @@ interface range GigabitEthernet 0/1-2
     end
  wr
  show vlan brief
+
+enable
+Switch#configure  terminal
+hostname SW1
+!Cria a VLAN
+vlan 10
+!Atribui nome a VLAN
+name VERDE
+!Cria a VLAN
+vlan 20
+!Atribui nome a VLAN
+name VERMELHO
+exit
+!Atribui VLAN 10 nas portas de 1 até 12 do switch
+interface range fastEthernet 0/1-12
+switchport access vlan 10
+!Atribui VLAN 10 nas portas de 13 até 24 do switch
+interface range fastEthernet 0/13-24
+switchport access vlan 20
+exit
+!Cria o Trunk entre as interfaces Giga que conectam os switches
+interface gigabitEthernet 0/1
+switchport mode trunk 
+end
+show vlan brief
+wr
+
+enable
+Switch#configure  terminal
+hostname SW1
+!Cria a VLAN
+vlan 10
+!Atribui nome a VLAN
+name VERDE
+!Cria a VLAN
+vlan 20
+!Atribui nome a VLAN
+name VERMELHO
+exit
+!Atribui VLAN 10 nas portas de 1 até 12 do switch
+interface range fastEthernet 0/1-12
+switchport access vlan 10
+!Atribui VLAN 10 nas portas de 13 até 24 do switch
+interface range fastEthernet 0/13-24
+switchport access vlan 20
+end
+show vlan brief
+wr
+
+
 
  
   
