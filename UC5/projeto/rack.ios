@@ -31,6 +31,15 @@
 !20 segundos até os Leds piscarem na cor âmbar e o Switch entrar no modo ROMmon. 
 !Após este processo, o Switch será reinicializado e todas as informações do 
 !running-config serão apagadas.
+!04 - Limpar o arquivo startup-config 
+erase startup-config
+!05 - Listar o conteúdo da Flash 
+dir flash:
+!Se houver arquivo de VLAN, apagá-lo
+!06 - Limpar o banco de dados das VLAN
+delete flash:vlan.dat
+!9. Reinicializar o Switch
+reload
 !===============================================================================
 !OBSERVAÇÃO IMPORTANTE:
 !Caso o Switch não volte para o estado de fábrica (falha de reset):
@@ -140,11 +149,9 @@ configure terminal
     \  /\  / ____ \| | \ \| |\  |_| |_| |\  | |__| |
      \/  \/_/    \_\_|  \_\_| \_|_____|_| \_|\_____|
                                                     
-	# UNAUTHORIZED ACCESS TO THIS SYSTEM IS FORBIDDEN AND WILL
-	# BE PROSECUTED BY LAW.
-	# BY ACCESSING THIS SYSTEM, YOU AGREE THAT YOUR ACTIONS MAY
-	# BE MONITORED IF UNAUTHORIZED USAGE IS SUSPECTED.
-
+	# ONLY EMPLOYEES OF CHURRASC PARK 
+	# HAVE AUTHORIZED ACCESS TO THIS SYSTEM
+	
 	--------------------------------------------------------------
         _______ ______ _   _  _____          ____  
      /\|__   __|  ____| \ | |/ ____|   /\   / __ \ 
@@ -153,10 +160,8 @@ configure terminal
   / ____ \| |  | |____| |\  | |____ / ____ \ |__| |
  /_/    \_\_|  |______|_| \_|\_____/_/    \_\____/ 
                                                    
-	# O ACESSO NAO AUTORIZADO A ESTE SISTEMA E PROIBIDO E SERA
-	# PROCESSADO CONFORME A LEI.
-	# AO ACESSAR ESTE SISTEMA VOCE CONCORDA QUE O MONITORAMENTO
-	# DE SUAS ACOES SERA USADO CASO OCORRA ALGUMA SUSPEITA.
+	# O ACESSO A ESTE SISTEMA E SOMENTE AUTORIZADO 
+	# AOS FUNCIONARIOS DA EMPRESA CHURRASC PARK
 	*
   
 	!Habilitar a senha do tipo secret Tipo-5 para o modo enable privilegiado
@@ -236,7 +241,7 @@ show running-config
 enable
 
 !Configuração de data/hora em inglês, abreviado ou completo
-clock set 20:40:36 10 mar 2022
+clock set 20:28:36 10 mar 2022
 
 !Acessar modo de configuração global
 configure terminal
@@ -273,11 +278,9 @@ configure terminal
     \  /\  / ____ \| | \ \| |\  |_| |_| |\  | |__| |
      \/  \/_/    \_\_|  \_\_| \_|_____|_| \_|\_____|
                                                     
-	# UNAUTHORIZED ACCESS TO THIS SYSTEM IS FORBIDDEN AND WILL
-	# BE PROSECUTED BY LAW.
-	# BY ACCESSING THIS SYSTEM, YOU AGREE THAT YOUR ACTIONS MAY
-	# BE MONITORED IF UNAUTHORIZED USAGE IS SUSPECTED.
-
+	# ONLY EMPLOYEES OF CHURRASC PARK 
+	# HAVE AUTHORIZED ACCESS TO THIS SYSTEM
+	
 	--------------------------------------------------------------
         _______ ______ _   _  _____          ____  
      /\|__   __|  ____| \ | |/ ____|   /\   / __ \ 
@@ -286,10 +289,8 @@ configure terminal
   / ____ \| |  | |____| |\  | |____ / ____ \ |__| |
  /_/    \_\_|  |______|_| \_|\_____/_/    \_\____/ 
                                                    
-	# O ACESSO NAO AUTORIZADO A ESTE SISTEMA E PROIBIDO E SERA
-	# PROCESSADO CONFORME A LEI.
-	# AO ACESSAR ESTE SISTEMA VOCE CONCORDA QUE O MONITORAMENTO
-	# DE SUAS ACOES SERA USADO CASO OCORRA ALGUMA SUSPEITA.
+	# O ACESSO A ESTE SISTEMA E SOMENTE AUTORIZADO 
+	# AOS FUNCIONARIOS DA EMPRESA CHURRASC PARK
 	*
   
 	!Habilitar a senha do tipo secret Tipo-5 para o modo enable privilegiado
