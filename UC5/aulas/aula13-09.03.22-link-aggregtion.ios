@@ -1,0 +1,23 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 09/03/2022  
+!Data de atualização: 09/03/2022  
+!Versão: 0.01
+
+Link Aggregation
+
+enable
+ configure terminal
+  interface range gigabitEthernet 0/1-2
+   switchport mode trunk
+   channel-group 1 mode active
+   end
+wr
+
+enable
+configure terminal
+ interface range gigabitEthernet 0/1-2
+  switchport mode trunk
+  channel-group 1 mode passive
+  end
+wr
+ 
