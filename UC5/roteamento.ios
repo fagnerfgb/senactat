@@ -1,0 +1,44 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 11/03/2022  
+!Data de atualização: 11/03/2022  
+!Versão: 0.01
+
+enable
+  configure terminal
+    hostname SP
+    interface gigabitEthernet 0/0
+      description LAN DE SAO PAULO
+      ip address 192.168.100.1 255.255.255.0
+      no shutdown
+	  exit 
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA SP AO RJ
+	  ip address 20.0.0.1 255.0.0.0
+      bandwidth 128
+      clock rate 128000
+	  no shutdown
+	  exit 
+	router rip
+	network 192.168.100.0
+	network 20.0.0.0
+	wr
+
+enable
+  configure terminal
+    hostname RJ
+    interface gigabitEthernet 0/0
+      description LAN DO RIO DE JANEIRO
+      ip address 192.168.100.2 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA RJ A SP
+	  ip address 20.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.200.0
+	network 20.0.0.0
+	wr
+
