@@ -1,0 +1,104 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 13/03/2022  
+!Data de atualização: 13/03/2022  
+!Versão: 0.01
+
+
+!Roteamento
+!Camada 3 - IP de destino e IP de Origem
+!Roteia pacotes em interfaces diretamente conectadas
+
+!Protocolos de Roteamento
+!Precisa ser o mesmo nos 2 roteadores
+!Identifica as interfaces e comunica aos roteadores
+!diretamente conectadas
+!São criadas tabelas de roteamento
+
+!Tipos de Protocolos de Roteamento
+
+!IGP (Redes Privadas)
+!RIPv1/RIPv2
+!IGRP
+!EIGRP
+!OSPF
+!IS-IS
+
+!EGP (Redes Públicas)
+!BGP
+
+!Distância Administrativa
+!Interface Conectada	0
+!Rota Estática			1
+!EIGRP Rota Sumária		5
+!EBGP					20
+!EIGRP Interno			90
+!IGRP					100
+!OSPF					110
+!ISIS					115
+!RIP					120
+!EGP					140
+!ODR					160
+!EIGRP Externo			170
+!BGP Interno			200
+!Desconhecido			255
+
+!Configurando os Roteadores
+enable
+configure terminal
+hostname LA_R1
+interface gigabitEthernet 0/0
+ip address 10.1.1.1 255.255.255.0
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+end
+wr
+show ip interface brief
+
+enable
+configure terminal
+hostname NY_R1
+interface gigabitEthernet 0/0
+ip address 10.1.1.2 255.255.255.0
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 172.16.1.1 255.255.255.0
+no shutdown
+end
+wr
+show ip interface brief
+
+!Rotas estáticas
+!ip route rede de destino máscara endereço ip da interface do próximo salto
+!ip route rede de destino máscara nome da interface de saída do roteador
+
+!De LA para NY
+enable
+configure terminal
+ip route 172.16.1.0 255.255.255.0 10.1.1.2
+!ou
+ip route 172.16.1.0 255.255.255.0 gigabitEthernet 0/0
+
+!De NY para LA
+enable
+configure terminal
+ip route 192.168.10.0 255.255.255.0 10.1.1.1
+!ou
+ip route 192.168.1.0 255.255.255.0 gigabitEthernet 0/0
+
+!Rota Padrão
+!Exemplo: Estou em NY e quero configurar a saída pra internet através 
+!do roteador de LA
+ip route 0.0.0.0 0.0.0.0 10.1.1.1
+
+!Floating Static Route
+enable
+configure terminal
+ip route 0.0.0.0 0.0.0.0 100.1.1.1 1
+ip route 0.0.0.0 0.0.0.0 200.1.1.1 10
+end
+wr
+
