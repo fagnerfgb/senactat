@@ -1,0 +1,59 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 12/03/2022  
+!Data de atualização: 12/03/2022  
+!Versão: 0.01
+
+!Copiar do Roteador para o TFTP
+copy startup-config tftp:
+192.168.10.200
+!<enter>
+
+!Kron Job
+!Esta forma sobrescreve o arquivo de backup salvo no servidor
+kron policy-list backupcisco
+cli show run | redirect tftp://192.168.10.200/ny_r1_kron.cfg
+exit
+kron occurrence backupciscotime in 1 recurring
+policy-list backupcisco
+
+!Archive 
+archive
+logging enable
+exit
+path tftp://192.168.10.200/$h-
+write memory
+time-period 1
+
+!Atualizar a IOS
+!Entrar no site da Cisco com conta CCO e baixar a nova imagem IOS
+
+!Fazer o backup da imagem atual
+enable
+show flash: 
+copy flash: tftp:
+!inserir nome do arquivo de origem
+192.168.10.200
+!<enter>
+
+!Deletando IOS atual da memória flash
+delete flash:c1900-universalk9-mz.SPA.151-4.M4.bin
+!<enter>
+!<enter>
+
+!Transferindo a nova IOS para o roteador
+copy tftp: flash:
+192.168.10.200
+c1900-universalk9-mz.SPA.151-4.M4.bin
+!<enter>
+write
+reload
+
+!Caso queira manter 2 versões de IOS na Flash
+!Pode-se apontar qual se deseja inicializar
+enable
+configure terminal
+boot system flash c1900-universalk9-mz.SPA.151-4.M4.bin
+
+
+
+
