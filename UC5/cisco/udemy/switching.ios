@@ -1,0 +1,217 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 13/03/2022  
+!Data de atualização: 13/03/2022  
+!Versão: 0.01
+
+enable
+show mac address-table
+
+!VLANs
+enable
+configure terminal
+vlan 10
+name RH
+vlan 20
+name FINANCEIRO
+exit
+!Atribuindo VLAN modo acesso nas portas
+interface range fastEthernet 0/1-4
+switchport mode access
+switchport access vlan 10
+interface range fastEthernet 0/13-16
+switchport mode access
+switchport access vlan 20
+end
+wr
+show running-config
+show vlan brief
+
+!VLAN do tipo Trunk
+!DTP
+!Dynamic Auto: Fica aguardando porta de outro switch pedir pra formar Trunk
+!Dynamic Desirable: Comunica portas de outro switch para formar Trunk (Padrão)
+!No-Negotiate: Não utiliza DTP
+enable
+configure terminal
+interface range gigabitEthernet 0/1-2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+show interfaces gigabitEthernet 0/1 switchport
+
+!Interfaces SVI
+enable
+configure terminal
+interface vlan 10
+ip address 192.168.10.1
+no shutdown
+exit
+interface vlan 20
+ip address 192.168.20.1
+no shutdown
+end
+wr
+show ip interface brief
+
+!Habilitar roteamento
+configure terminal
+ip routing
+end
+wr
+show ip route
+
+!Voice VLAN
+!O telefone IP precisa de um arquivo de configuração enviado pelo Call Manager
+!Estas informações são enviadas pelo CDP(cisco) ou LLDP(aberto)
+enable
+configure terminal
+vlan 100
+name VOZ
+exit
+interface fastEthernet 0/1
+switchport voice vlan 100
+cdp enable
+end
+wr
+
+!Spanning Tree Protocol
+!STP - 1998 (802.1D)
+!PVST (CISCO) - Utiliza ISL
+!PVST+ (CISCO) - Utiliza ISL e 802.1Q
+!RSTP (Aberto) - 2004 (802.1W)
+!RPVST+ (CISCO) - Utiliza ISL e 802.1Q
+!MST (Aberto) - 802.1S
+
+!Eleições
+!1ª - Root Bridge
+!Vence quem tiver menor priority 
+!Range priority: 0-65536
+!Default priority: 32768
+!No caso de empate
+!Vence quem tiver menor endereço MAC
+!Swtiches trocam pacotes BPDU entre si
+!Pacotes BPDU são enviados de 2 em 2 segundos
+
+!Root Port: São escolhidas as portas com menor custo
+
+!Spanning Tree Cost
+!Data Rate	STP Cost
+!4Mbps		250
+!10Mbps		100
+!16Mbps		 62
+!100Mbps	 19
+!1Gbps		  4
+!2Gbps		  3
+!10Gbps		  2
+!20Gbps		  1
+
+
+!2ª - Blocked Port
+!Vence quem tiver menor priority 
+!Range priority: 0-65536
+!Default priority: 32768
+!No caso de empate
+!Vence quem tiver menor endereço MAC
+
+!Roles
+!Root Port - Conectada ao Root Bridge
+!Designated - Não é bloqueada e não é Root Port
+!Alternate - Recebe BDPU e pode ser a próxima a ser desbloqueada
+!Backup - Pode ser eleita pelo switch para ser o o backup de uma porta Designated 
+!Disabled - Não está funcionando
+
+!Status STP
+!Disabled
+!Listening
+!Learning
+!Forwarding
+!Blocking
+
+!Status RSTP
+!Discarding
+!Learning
+!Forwarding
+
+
+!NY_SW1
+enable
+configure terminal
+spanning-tree vlan 1 priority 0
+end
+wr
+show spanning-tree vlan 1
+
+!NY_SW2
+enable
+configure terminal
+spanning-tree vlan 1 priority 4096
+end
+wr
+show spanning-tree vlan 1
+
+!Habilitando o RSTP
+spanning-tree mode rapid-pvst
+
+!SpanningTree PortFast e BPDU Filter
+!Utilizado em portas em modo acesso
+!Não rodar o protocolo SpanningTree
+enable
+configure terminal
+interface range fastEthernet 0/1-4
+spanning-tree PortFast
+spanning-tree bpdufilter enable
+exit
+interface range fastEthernet 0/13-16
+spanning-tree PortFast
+spanning-tree bpdufilter enable
+
+!Etherchannel ou Link Aggregation
+!LACP (Aberto)
+!PAGP (CISCO)
+!Conexão de até 8 links físicos
+!Cria um link virtual com todos os links físicos que fazem parte da agregação de links
+!Aumenta largura de banda
+!Padrão: Round Robin
+
+enable
+configure terminal
+hostname NY_SW2
+interface range gigabitEthernet 0/1-2
+switchport trunk encapsulation dot1q
+switch mode trunk
+channel-protocol lacp
+channel-group 1 mode passive
+end
+wr
+show etherchannel summary
+show etherchannel port-channel
+
+enable
+configure terminal
+hostname NY_SW1
+interface range gigabitEthernet 0/1-2
+switchport trunk encapsulation dot1q
+switch mode trunk
+channel-protocol lacp
+channel-group 1 mode active
+end
+wr
+show etherchannel summary
+show etherchannel port-channel
+
+
+!active     Enable LACP unconditionally
+!auto       Enable PAgP only if a PAgP device is detected
+!desirable  Enable PAgP unconditionally
+!on         Enable Etherchannel only
+!passive    Enable LACP only if a LACP device is detected
+
+
+
+
+
+
+
+
+
+
