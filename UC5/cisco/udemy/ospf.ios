@@ -1,0 +1,94 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 14/03/2022  
+!Data de atualização: 14/03/2022  
+!Versão: 0.01
+
+!OSPF
+!1989 - RFC 1131
+!Versão 2 - Hoje
+!Versão 3 - IPv6
+
+!IGP - Interior Gateway Protocol
+!Link-State Routing Protocol
+
+!LSA - Link-State Advertise
+
+!LSDB - Link-State Database 
+!Precisa ser idêntica em todos os roteadores
+
+!Só coloca o endereço da melhor métrica na tabela de roteamento
+
+!Largura de Banda de referência (100Mbps) / Largura de banda da interface
+
+!Criação de vizinhança
+!Hello message: de 10 em 10 segundos
+!Router ID = RID = IP
+  !Pode ser definida de forma manual  
+  !Pode ser definida de forma automática
+        !Maior IP de interface Loopback
+        !Maior IP de interface Física
+
+!8 estágios para a formação de vizinhança
+!Down State
+
+!Init State
+  !Envia uma mensagem de Hello
+  !Multicast 224.0.0.5
+
+!2-way State
+  !Roteador que recebe mensagem, coloca na tabela de forma temporária e
+  !manda uma mensagem de Hello pro roteador o qual recebeu a mensagem que
+  !também coloca a informação na tabela de forma temporária
+
+!DR Election if Required
+
+!ExStart State
+  !DBD Packets - Envio da sumarização daquilo que o roteador possui
+
+!Exchange State
+  !DBD Packets - Recebimento da sumarização daquilo que o roteador possui
+
+!Loading State
+  !LSR - Link State Request
+  !LSU - Link State Update 
+  !LSAck - Link State Acknowledge
+
+!Full State
+  !Formação da vizinhança
+
+!DR - Designated Router
+!BDR - Backup Designated Router
+!DROTHERS
+
+!Eleição
+!Priority = 1 (Default)
+!0 - Não participa
+!De 0 a 255
+!Maior Priority vence
+!Se houver empate, maior R-ID vence
+
+!Full State = DR e BDR
+!2-way State = entre DROTHERS
+
+!40 segundos sem resposta do DR, outra eleição é feita
+
+!O processo é não preemptivo
+!Caso o DR fique indisponível, o BDR assume a posição de DR
+!e um novo BDR é eleito
+!Se o antigo DR voltar a operar, ele passa a ser um DROTHERS
+!e só voltará a ser DR caso haja outra eleição
+
+!Custo do OSPF
+!!Interface type     Bandwidth           Cost
+!Fa and faster       100Mbps and higher     1
+!Ethernet            100Mbps               10
+!E1                  2Mbps                 48
+!T1                  1,544Mbps             64
+!128kbps             128kbps              781
+!64kbps              64kbps              1562
+!56kbps              56kbps              1785
+
+!Reference Bandwidth
+auto-cost reference-bandwidth
+
+!Em caso de empate é realizado load balance
