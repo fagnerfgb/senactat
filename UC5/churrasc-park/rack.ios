@@ -1,8 +1,8 @@
 !===============================================================================
 !Autor: Fagner Geraldes Braga  
 !Data de criação: 08/03/2022  
-!Data de atualização: 08/03/2022  
-!Versão: 0.01 
+!Data de atualização: 15/03/2022  
+!Versão: 0.03 
 !===============================================================================
 !Grupo: G-03
 !Empresa: Churrasc Park
@@ -441,8 +441,7 @@ enable
 			description Interface de Trunk com o Router 2911 do Grupo-03
 			switchport trunk encapsulation dot1q
 			switchport mode trunk
-			!switchport trunk native vlan 30
-		end
+			end
 
 !Salvando as informações
 copy running-config startup-config
@@ -465,3 +464,105 @@ show interface trunk
 show ip interface brief
 show interfaces fastEthernet 0/24 status
 show interfaces fastEthernet 0/24 switchport
+
+!===============================================================================
+                   !FASE 4 - CONFIGURAÇÃO DA SVI DO SWITCH
+!===============================================================================
+
+!Acessando o modo exec privilegiado
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+	
+	!Configuração do gateway padrão IPv4 do SVI
+	!Utilizado para acessar remotamente o equipamento
+	ip default-gateway 172.16.30.254
+  
+	!Configuração da interface virtual VLAN SVI
+	interface vlan 30
+		
+		!Configuração da descrição
+		description Interface SVI de Gerenciamento do Grupo-03
+		
+		!Configuração do endereçamento IPv4 do SVI
+		ip address 172.16.30.253 255.255.255.0
+		
+		!Inicializando a interface
+		no shutdown
+		
+		!Saindo de todos os níveis
+		end
+
+!Salvando as informações
+copy running-config startup-config
+	
+!Comandos para visualização das informações:
+show running-config
+show ip interface brief
+
+!Acessando remotamente o Switch e Router utilizando o SSH no GNU/Linux ou Windows 10 Powershell
+!OBSERVAÇÃO IMPORTANTE: é necessário informar o tipo de algoritmo utilizado pelo Cisco no
+!acesso via SSH no Terminal ou Powershell, no aplicativo PuTTY não existe essa necessidade
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.253
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.254
+
+!===============================================================================
+                   !FASE 5 - CONFIGURAÇÃO DA INTERFACE DO ROTEADOR
+!===============================================================================
+
+!Acessando o modo exec privilegiado
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+	
+		!Acessando a Interface Física GigabitEthernet 0/0
+		interface gigabitEthernet 0/0
+			
+			!Inicializando a Interface Física gigabitEthernet 0/0
+			no shutdown
+			exit
+interface GigabitEthernet0/0.30
+ description Subinterface da VLAN de SVI do Switch Layer 3 3560
+ encapsulation dot1Q 30
+ ip address 172.16.30.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.31
+ description Subinterface da VLAN do Primeiro Usuario
+ encapsulation dot1Q 31
+ ip address 172.16.31.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.32
+ description Subinterface da VLAN do Segundo Usuario
+ encapsulation dot1Q 32
+ ip address 172.16.32.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.33
+ description Subinterface da VLAN do Teceiro Usuario
+ encapsulation dot1Q 33
+ ip address 172.16.33.254 255.255.255.0
+ exit
+ 
+interface GigabitEthernet0/0.34
+ description Subinterface da VLAN do Quarto Usuario
+ encapsulation dot1Q 34
+ ip address 172.16.34.254 255.255.255.0
+ exit 
+ 
+interface GigabitEthernet0/0.35
+ description Subinterface da VLAN Wireless
+ encapsulation dot1Q 35
+ ip address 172.16.35.254 255.255.255.0
+ end
+wr
+
+!Visualizando as configurações
+show running-config
+show ip interface brief
+show ip route
+show ip route connected
+ 
