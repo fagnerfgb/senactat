@@ -138,7 +138,7 @@ wr
 
 enable
   configure terminal
-    hostname AC
+    hostname MG
     interface gigabitEthernet 0/0
       description LAN DE MINAS GERAIS
       ip address 192.168.240.1 255.255.255.0
@@ -153,6 +153,55 @@ enable
 	router rip
 	network 192.168.240.0
 	network 60.0.0.0
+	end
+wr
+
+enable
+  configure terminal
+    hostname SC
+    interface gigabitEthernet 0/0
+      description LAN DE SANTA CATARINA
+      ip address 192.168.80.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA SC A PR
+	  ip address 9.0.0.1 255.0.0.0
+      bandwidth 128
+	  clock rate 128000
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.80.0
+	network 9.0.0.0
+	end
+wr
+
+enable
+  configure terminal
+    hostname PR
+    interface gigabitEthernet 0/0
+      description LAN DO PARANA
+      ip address 192.168.90.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA PR A SP
+	  ip address 11.0.0.1 255.0.0.0
+      bandwidth 128
+	  clock rate 128000
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA PR A SC
+	  ip address 9.0.0.1 255.0.0.0
+      bandwidth 128
+	  no shutdown 
+	  exit
+	router rip
+	network 192.168.90.0
+	network 9.0.0.0
+	network 11.0.0.0
 	end
 wr
 
