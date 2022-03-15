@@ -695,8 +695,8 @@ route -n
 systemd-resolve --status
 
 !Testando o ping no Notebook GNU/Linux (Terminal: Ctrl+Alt+T)
-ping 172.16.10.253
-ping 172.16.10.254
+ping 172.16.30.253
+ping 172.16.30.254
 
 !Limpando as configurações antigas de acesso remoto ao Switch e Router (Terminal: Ctrl+Alt+T)
 rm -v .ssh/known_hosts
@@ -704,6 +704,6 @@ rm -v .ssh/known_hosts
 !Acessando remotamente o Switch e Router utilizando o SSH no GNU/Linux ou Windows 10 Powershell
 !OBSERVAÇÃO IMPORTANTE: é necessário informar o tipo de algoritimo utilizado pelo Cisco no
 !acesso via SSH no Terminal ou Powershell, no aplicativo PuTTY não existe essa necessidade
-ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.10.253
-ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.10.254
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.253
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.254
 
