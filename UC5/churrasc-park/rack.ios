@@ -707,3 +707,67 @@ rm -v .ssh/known_hosts
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.253
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes128-cbc fagner@172.16.30.254
 
+!===============================================================================
+                   !FASE 8 - CONFIGURAÇÃO DAS INTERFACES SERIAIS
+!===============================================================================
+
+!Acessando o modo exec user
+enable
+
+	!Acessar modo de configuração global
+	configure terminal
+		
+	!Configuração da interface Serial0/0/0
+	interface serial 0/0/0
+	
+		!Descriação da Interface
+		description Interface Grupo-03 para Grupo-04
+		
+		!Configuração do endereçamento IP
+		!Verificar a tabela de endereçamento IP dos Grupos
+		!Sempre vai ser o Endereço IP Impar
+		ip address 192.168.1.9 255.255.255.252
+		
+		!Configurando o Clock Rate, Velocidade do Link
+		clock rate 64000
+		
+		!Configurando a Largura de Banda
+		bandwidth 64
+		
+		!Habilitando a interface
+		no shutdown
+		
+		!Saindo das configurações da interface
+		exit
+		
+	!Configuração da interface Serial0/0/1
+	interface serial 0/0/1
+	
+		!Descriação da Interface
+		description Interface Grupo-03 para Grupo-02
+		
+		!Configuração do endereçamento IP
+		!Verificar a tabela de endereçamento IP dos Grupos
+		!Sempre vai ser o Endereço IP Par
+		ip address 192.168.1.6 255.255.255.252
+		
+		!Configurando a Largura de Banda
+		bandwidth 64
+		
+		!Habilitando a interface
+		no shutdown
+		
+		!Saindo das configurações da interface
+		end
+
+	!Salvando as informações
+	copy running-config startup-config
+	
+!Comandos para visualização das informações:
+show running-config
+show ip interface brief
+show ip route
+ping 192.168.1.10 (serial 0/0/0)
+ping 192.168.1.5 (serial 0/0/1)
+
+
