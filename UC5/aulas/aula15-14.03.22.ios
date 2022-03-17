@@ -130,9 +130,16 @@ enable
       bandwidth 128
       no shutdown 
 	  exit
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA AC A SC
+	  ip address 8.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
 	router rip
 	network 192.168.230.0
 	network 50.0.0.0
+	network 8.0.0.0
 	end
 wr
 
@@ -171,9 +178,17 @@ enable
 	  clock rate 128000
       no shutdown 
 	  exit
+	interface serial 0/0/1
+	description INTERFACE WAN QUE LIGA SC A AC
+	ip address 8.0.0.1 255.0.0.0
+	bandwidth 128
+	clock rate 128000
+	no shutdown
+	exit
 	router rip
 	network 192.168.80.0
 	network 9.0.0.0
+	network 8.0.0.0
 	end
 wr
 

@@ -1,0 +1,77 @@
+1-) PR p/ AM
+
+PR#traceroute 192.168.220.10
+Type escape sequence to abort.
+Tracing the route to 192.168.220.10
+
+  1   11.0.0.2        6 msec    8 msec    4 msec    
+  2   20.0.0.2        16 msec   16 msec   12 msec   
+  3   30.0.0.2        5 msec    13 msec   24 msec   
+  4   40.0.0.2        20 msec   20 msec   16 msec   
+  5   192.168.220.10  10 msec   6 msec    5 msec    
+   
+2-) Configuração Interface Serial 
+SC
+interface serial 0/0/1
+	description INTERFACE WAN QUE LIGA SC A AC
+	ip address 8.0.0.1 255.0.0.0
+	bandwidth 128
+	clock rate 128000
+	no shutdown
+	exit
+	router rip
+	network 192.168.80.0
+	network 9.0.0.0
+	network 8.0.0.0
+	end
+
+AC
+interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA AC A SC
+	  ip address 8.0.0.2 255.0.0.0
+      bandwidth 128
+      no shutdown 
+	  exit
+	router rip
+	network 192.168.230.0
+	network 50.0.0.0
+	network 8.0.0.0
+	end
+
+
+3-)
+PR#traceroute 192.168.220.10
+Type escape sequence to abort.
+Tracing the route to 192.168.220.10
+
+  1   9.0.0.1         0 msec    0 msec    0 msec    
+  2   8.0.0.2         15 msec   17 msec   9 msec    
+  3   50.0.0.1        6 msec    24 msec   1 msec    
+  4   192.168.220.10  3 msec    23 msec   10 msec   
+ 
+
+4-)
+A rota é diferente porque o protocolo RIP utiliza contagem de saltos (distance vector) para determinar a melhor rota.
+
+5-)
+PR#traceroute 192.168.220.10
+Type escape sequence to abort.
+Tracing the route to 192.168.220.10
+
+  1   11.0.0.2        6 msec    8 msec    4 msec    
+  2   20.0.0.2        16 msec   16 msec   12 msec   
+  3   30.0.0.2        5 msec    13 msec   24 msec   
+  4   40.0.0.2        20 msec   20 msec   16 msec   
+  5   192.168.220.10  10 msec   6 msec    5 msec    
+
+6-)
+PR#traceroute 192.168.220.10
+Type escape sequence to abort.
+Tracing the route to 192.168.220.10
+
+  1   9.0.0.1         0 msec    0 msec    0 msec    
+  2   8.0.0.2         15 msec   17 msec   9 msec    
+  3   50.0.0.1        6 msec    24 msec   1 msec    
+  4   192.168.220.10  3 msec    23 msec   10 msec 
+
+7-)Para ter redundância em MG basta criar um link entre a unidade de MG e qualquer outra unidade e realizar as configurações
