@@ -905,3 +905,36 @@ ping 10.26.40.191
 ping 10.26.40.190
 ping 8.8.8.8
 
+!===============================================================================
+         !FASE 11 - BACKUP DAS CONFIGURAÇÕES DO ROTEADOR E DO SWITCH
+!===============================================================================
+
+!Acessando o modo exec privilegiado
+enable
+
+	!Salvando as configurações para NVRAM
+	copy running-config startup-config
+	
+	!Salvando uma cópia das configurações para FLASH
+	copy startup-config flash:
+	dir flash:
+	
+	!Salvando as configurações para NOTEPAD++
+	show running-config
+	
+!Backup das configurações do Switch
+
+!Acessando o modo exec privilegiado
+enable
+
+	!Salvando as conifgurações para NVRAM
+	copy running-config startup-config
+	
+	!Salvando uma cópia das configurações para FLASH
+	copy startup-config flash:
+	dir flash:
+	
+	!Salvando as configurações para NOTEPAD++
+	show running-config
+
+

@@ -1,0 +1,247 @@
+rt-g03#show running-config
+Building configuration...
+
+Current configuration : 5834 bytes
+!
+! Last configuration change at 00:11:35 UTC Fri Mar 18 2022 by fagner
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname rt-g03
+!
+boot-start-marker
+boot-end-marker
+!
+!
+security passwords min-length 8
+enable secret 4 123@senac
+no aaa new-model
+!
+ip cef
+!
+!
+!
+ip dhcp excluded-address 172.16.31.0 172.16.31.100
+ip dhcp excluded-address 172.16.31.200 172.16.31.254
+ip dhcp excluded-address 172.16.32.0 172.16.32.100
+ip dhcp excluded-address 172.16.32.200 172.16.32.254
+ip dhcp excluded-address 172.16.33.0 172.16.33.100
+ip dhcp excluded-address 172.16.33.200 172.16.33.254
+ip dhcp excluded-address 172.16.34.0 172.16.34.100
+ip dhcp excluded-address 172.16.34.200 172.16.34.254
+ip dhcp excluded-address 172.16.35.200 172.16.35.254
+ip dhcp excluded-address 172.16.35.0 172.16.35.100
+!
+ip dhcp pool vlan-31
+ network 172.16.31.0 255.255.255.0
+ default-router 172.16.31.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan-32
+ network 172.16.32.0 255.255.255.0
+ default-router 172.16.32.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan-33
+ network 172.16.33.0 255.255.255.0
+ default-router 172.16.33.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan-34
+ network 172.16.34.0 255.255.255.0
+ default-router 172.16.34.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan-35
+ network 172.16.35.0 255.255.255.0
+ default-router 172.16.35.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+!
+!
+no ip domain lookup
+ip domain name senac.br
+login block-for 120 attempts 4 within 60
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911BR-SEC/K9 sn TSP1833AAUT
+!
+!
+username fagner privilege 15 secret 4 123@senac
+username heder privilege 15 secret 4 123@senac
+username allan privilege 15 secret 4 123@senac
+username karen privilege 15 secret 4 123@senac
+!
+redundancy
+!
+!
+!
+!
+!
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description Interface de Loopback para ID do OSPF
+ ip address 3.3.3.3 255.255.255.255
+ no shutdown
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.30
+ description Subinterface da VLAN de SVI do Switch Layer 3 3560
+ encapsulation dot1Q 30
+ ip address 172.16.30.254 255.255.255.0
+!
+interface GigabitEthernet0/0.31
+ description Subinterface da VLAN do Primeiro Usuario
+ encapsulation dot1Q 31
+ ip address 172.16.31.254 255.255.255.0
+!
+interface GigabitEthernet0/0.32
+ description Subinterface da VLAN do Segundo Usuario
+ encapsulation dot1Q 32
+ ip address 172.16.32.254 255.255.255.0
+!
+interface GigabitEthernet0/0.33
+ description Subinterface da VLAN do Teceiro Usuario
+ encapsulation dot1Q 33
+ ip address 172.16.33.254 255.255.255.0
+!
+interface GigabitEthernet0/0.34
+ description Subinterface da VLAN do Quarto Usuario
+ encapsulation dot1Q 34
+ ip address 172.16.34.254 255.255.255.0
+!
+interface GigabitEthernet0/0.35
+ description Subinterface da VLAN Wireless
+ encapsulation dot1Q 35
+ ip address 172.16.35.254 255.255.255.0
+!
+interface GigabitEthernet0/1
+ description Interface de acesso a Internet do Grupo-03
+ ip address dhcp
+ duplex auto
+ speed auto
+ no shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ description Interface Grupo-03 para Grupo-04
+ bandwidth 64
+ ip address 192.168.1.9 255.255.255.252
+ clock rate 64000
+ no shutdown
+!
+interface Serial0/0/1
+ description Interface Grupo-03 para Grupo-02
+ bandwidth 64
+ ip address 192.168.1.6 255.255.255.252
+ no shutdown
+!
+router ospf 3
+ router-id 3.3.3.3
+ log-adjacency-changes detail
+ auto-cost reference-bandwidth 10000
+ passive-interface GigabitEthernet0/0
+ passive-interface GigabitEthernet0/1
+ network 172.16.30.0 0.0.0.255 area 0
+ network 172.16.31.0 0.0.0.255 area 0
+ network 172.16.32.0 0.0.0.255 area 0
+ network 172.16.33.0 0.0.0.255 area 0
+ network 172.16.34.0 0.0.0.255 area 0
+ network 172.16.35.0 0.0.0.255 area 0
+ network 192.168.1.4 0.0.0.3 area 0
+ network 192.168.1.8 0.0.0.3 area 0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^C
+ __          __     _____  _   _ _____ _   _  _____
+ \ \        / /\   |  __ \| \ | |_   _| \ | |/ ____|
+  \ \  /\  / /  \  | |__) |  \| | | | |  \| | |  __
+   \ \/  \/ / /\ \ |  _  /| . ` | | | | . ` | | |_ |
+    \  /\  / ____ \| | \ \| |\  |_| |_| |\  | |__| |
+     \/  \/_/    \_\_|  \_\_| \_|_____|_| \_|\_____|
+
+        # ONLY EMPLOYEES OF CHURRASC PARK
+        # HAVE AUTHORIZED ACCESS TO THIS SYSTEM
+
+        --------------------------------------------------------------
+        _______ ______ _   _  _____          ____
+     /\|__   __|  ____| \ | |/ ____|   /\   / __ \
+    /  \  | |  | |__  |  \| | |       /  \ | |  | |
+   / /\ \ | |  |  __| | . ` | |      / /\ \| |  | |
+  / ____ \| |  | |____| |\  | |____ / ____ \ |__| |
+ /_/    \_\_|  |______|_| \_|\_____/_/    \_\____/
+
+        # O ACESSO A ESTE SISTEMA E SOMENTE AUTORIZADO
+        # AOS FUNCIONARIOS DA EMPRESA CHURRASC PARK
+        ^C
+!
+line con 0
+ exec-timeout 5 30
+ password 7 123@senac
+ logging synchronous
+ login local
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 5 30
+ password 7 123@senac
+ logging synchronous
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+!
+end

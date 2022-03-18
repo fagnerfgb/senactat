@@ -1,0 +1,198 @@
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname sw-g03
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 123@senac
+!
+username karen privilege 15 secret 5 123@senac
+username heder privilege 15 secret 5 123@senac
+username fagner privilege 15 secret 5 123@senac
+username allan privilege 15 secret 5 123@senac
+!
+!
+no aaa new-model
+system mtu routing 1500
+no ip domain-lookup
+ip domain-name senac.br
+!
+!
+login block-for 120 attempts 4 within 60
+!
+!
+crypto pki trustpoint TP-self-signed-2307116544
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2307116544
+ revocation-check none
+ rsakeypair TP-self-signed-2307116544
+!
+!
+crypto pki certificate chain TP-self-signed-2307116544
+ certificate self-signed 01
+  30820247 308201B0 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32333037 31313635 3434301E 170D3933 30333031 30303031
+  31305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 33303731
+  31363534 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100BA12 78B0017C AC074EFF 96D90638 A1F2C792 D00D0CED E754AAB9 EAD4CAEB
+  70FE4B89 587E625C 447633F1 64F30F90 F18E9AFB CFCCAD36 9EF979EA 2AE1D54A
+  6FF2827C 1F18CABB 8A76830C 450CBC54 63A9DFF8 11887834 6A60C831 E5869B7F
+  72B38E94 291F33AF 9D1ADE26 711717F1 EDFCEE79 F18A82D4 0798FDA7 3D4401F9
+  140D0203 010001A3 6F306D30 0F060355 1D130101 FF040530 030101FF 301A0603
+  551D1104 13301182 0F73772D 6730332E 73656E61 632E6272 301F0603 551D2304
+  18301680 141A4FFE 5AD867B3 5AEBE899 BE4E4C6C 12A55D3E 4A301D06 03551D0E
+  04160414 1A4FFE5A D867B35A EBE899BE 4E4C6C12 A55D3E4A 300D0609 2A864886
+  F70D0101 04050003 81810042 D2098E5F 36E185EC 3C61AAA9 E9C32280 920F41D0
+  9385D1E0 8DA26147 09797220 37E9D9EF 72A5C3D2 5D699F37 9EB2B5AA F7ED7BC7
+  7934C8F3 A51E9E99 62F2BE0F 4C0D0E88 CC54E826 82E4715E 54F51775 FA828A2D
+  F427824E 2B63ECF5 721985D3 51B75C25 1851475A 08E63EB1 D2951D29 5988F3E1
+  A5749878 1994F270 643DB6
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip ssh version 2
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+ description Interface de Acesso da VLAN 31 do Primeiro Usuario
+ switchport access vlan 31
+ switchport mode access
+ no shutdown
+!
+interface FastEthernet0/3
+ description Interface de Acesso da VLAN 32 do Segundo Usuario
+ switchport access vlan 32
+ switchport mode access
+ no shutdown
+!
+interface FastEthernet0/4
+ description Interface de Acesso da VLAN 33 do Terceiro Usuario
+ switchport access vlan 33
+ switchport mode access
+ no shutdown
+!
+interface FastEthernet0/5
+ description Interface de Acesso da VLAN 34 do Quarto Usuario
+ switchport access vlan 34
+ switchport mode access
+ no shutdown
+!
+interface FastEthernet0/6
+ description Interface de Acesso da VLAN 35 Wireless
+ switchport access vlan 35
+ switchport mode access
+ no shutdown
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface FastEthernet0/9
+ shutdown
+!
+interface FastEthernet0/10
+ shutdown
+!
+interface FastEthernet0/11
+ shutdown
+!
+interface FastEthernet0/12
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ shutdown
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ shutdown
+!
+interface FastEthernet0/21
+ shutdown
+!
+interface FastEthernet0/22
+ shutdown
+!
+interface FastEthernet0/23
+ shutdown
+!
+interface FastEthernet0/24
+ description Interface de Trunk com o Router 2911 do Grupo-03
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan30
+ description Interface SVI de Gerenciamento do Grupo-03
+ ip address 172.16.30.253 255.255.255.0
+!
+ip default-gateway 172.16.30.254
+ip classless
+ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+banner motd ^CAVISO acesso autorizado somente a funcionarios da CHURRASC PARK ^C
+!
+line con 0
+ exec-timeout 5 30
+ password 7 123@senac
+ logging synchronous
+ login local
+line vty 0 4
+ exec-timeout 5 30
+ password 7 123@senac
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+end
