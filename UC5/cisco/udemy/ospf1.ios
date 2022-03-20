@@ -1,0 +1,80 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 20/03/2022  
+!Data de atualização: 20/03/2022  
+!Versão: 0.01
+
+
+!LA_SW1
+enable
+configure terminal
+hostname LA_SW1
+vlan 5
+exit
+interface fastEthernet 0/1
+switchport mode access 
+switchport access vlan 5
+exit
+interface gigabitEthernet 0/1
+switchport mode access 
+switchport access vlan 5
+end
+wr
+
+!NY_SW1
+enable
+configure terminal
+hostname NY_SW1
+vlan 5
+exit
+interface fastEthernet 0/1
+switchport mode access 
+switchport access vlan 5
+exit
+interface gigabitEthernet 0/1
+switchport mode access 
+switchport access vlan 5
+end
+wr
+
+!LA_R1
+enable
+configure terminal
+hostname LA_R1
+interface gigabitEthernet 0/0
+ip address 172.16.5.1 255.255.255.0
+description LAN DE LA
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 192.168.0.102 255.255.255.0
+description INTERFACE WAN QUE LIGA LA A NY
+no shutdown
+router ospf 1
+router-id 2.2.2.2
+network 192.168.0.0 0.0.0.255 area 0
+network 172.16.5.0 0.0.0.255 area 0
+end
+wr
+
+
+
+!NY_R1
+enable
+configure terminal
+hostname NY_R1
+interface gigabitEthernet 0/1
+ip address 192.168.0.101 255.255.255.0
+description INTERFACE WAN QUE LIGA NY A LA
+no shutdown
+exit
+interface gigabitEthernet 0/0
+ip address 192.168.5.1 255.255.255.0
+description LAN DE NY
+no shutdown
+exit
+router ospf 1
+router-id 1.1.1.1
+network 192.168.0.0 0.0.0.255 area 0
+network 192.168.5.0 0.0.0.255 area 0
+end
+wr

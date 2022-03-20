@@ -1,0 +1,81 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 18/03/2022
+#Data de atualização: 18/03/2022
+#Versão: 0.01
+******************************************************************************************
+TEMPLATE-W2K22
+Windows Server 2022 Datacenter
+RAM: 4GB
+HD SO: 30GB - Tamanho Fixo - VDI
+8 HDs 25GB - Dinamicamente Alocado - VDI
+******************************************************************************************
+Guia Geral
+Avançado
+Área de Transferência Compartilhada: Bi-direcional
+Arrastar e Soltar: Bi-direcional
+******************************************************************************************
+Guia Sistema
+Placa-Mãe: Habilitar EFI
+Processador: 
+    3 CPUs
+    Habilitar PAE/NX
+    Habilitar VT-x/AMD-V Aninhado
+******************************************************************************************    
+Guia Armazenamento
+Drive Óptico SATA 0- Apontar caminho da ISO do Windows 2022
+Disco Rígido SATA 1 a 9 - Drive de estado sólido
+******************************************************************************************
+Guia Áudio
+Desmarcar opção Habilitar Áudio
+******************************************************************************************
+Guia Rede
+Adaptador 1 - Habilitar Placa de Rede (Interna)
+Adaptador 2 - Habilitar Placa de Rede (Interna)
+Adaptador 3 - Habilitar Placa de Rede (Interna)
+******************************************************************************************
+Instalar Windows Server 2022 Datacenter
+Instalação Personalizada
+******************************************************************************************
+Usuário: Administrator
+Senha: 123@senac
+******************************************************************************************
+Adicionais para Convidado do VirtualBox
+Instalar CD dos Adicionais para Convidado do VirtualBox
+Reiniciar o computador
+******************************************************************************************
+UAC
+Nunca notificar
+******************************************************************************************
+Propriedades do Sistema (Windows Pause + Break)
+Guia Avançado, Desempenho - Ajustar para obter um melhor desempenho
+Guia Remoto
+    Marcar Permitir conexões remotas com este computador
+******************************************************************************************
+Gerenciador do Servidor
+  Configuração de Segurança Aprimorada do Interna
+    Administradores: Desligada
+******************************************************************************************
+BGINFO
+  C:\Scripts
+    Bginfo.exe
+	Logon.vbs
+	servers.bgi
+Copiar atalho do arquivo Logon.vbs para a pasta abaixo:  
+  C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+******************************************************************************************	
+Sysprep
+Executar Sysprep
+C:\Windows\System32\Sysprep\sysprep.exe
+Entrar na Configuração inicial pelo usuário do sistema (OOBE)
+Marcar a opção Generalizar
+Em opções de Desligamento escolher a opção Desligar
+******************************************************************************************
+Exportar máquina virtual para futuros laboratórios
+******************************************************************************************
+Iniciar VM
+******************************************************************************************
+Criar Usuário
+Usuário: administrator
+Senha: 123@senac
+Renomear computador
+******************************************************************************************

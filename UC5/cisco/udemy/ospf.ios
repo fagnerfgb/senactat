@@ -1,7 +1,7 @@
 !Autor: Fagner Geraldes Braga  
 !Data de criação: 14/03/2022  
-!Data de atualização: 14/03/2022  
-!Versão: 0.01
+!Data de atualização: 20/03/2022  
+!Versão: 0.02
 
 !OSPF
 !1989 - RFC 1131
@@ -11,7 +11,7 @@
 !IGP - Interior Gateway Protocol
 !Link-State Routing Protocol
 
-!LSA - Link-State Advertise
+!LSA - Link-State Advertisement
 
 !LSDB - Link-State Database 
 !Precisa ser idêntica em todos os roteadores
@@ -67,7 +67,7 @@
 !Maior Priority vence
 !Se houver empate, maior R-ID vence
 
-!Full State = DR e BDR
+!Full State = DR e BDR com os DROTHERS
 !2-way State = entre DROTHERS
 
 !40 segundos sem resposta do DR, outra eleição é feita
@@ -92,3 +92,24 @@
 auto-cost reference-bandwidth
 
 !Em caso de empate é realizado load balance
+
+!Areas = Divisão virtual das LSDB
+!Area 0 = Backbone Area (Obrigatória)
+
+!Roteadores na mesma área terão a mesma LSDB
+!Quanto maior a LSDB, maior será o processamento do roteador
+
+!Quando se cria áreas, existe a possbilidade de filtrá-las
+!ABR = Area Border Router
+!Para chegar em areas outras áreas, é configurada uma rota default nos ABRs
+
+!BBR = Backbone Router
+
+!Network Types
+
+!Network Type			Elects a DR and BDR		Default Hello Interval		Uses the neighbor Command
+!Broadcast				Yes						10s							No
+!Point-to-Point			No						10s							No
+!Non-Broadcast(NBMA)	Yes						30s							Yes
+!Point-to-Multipoint	No						30s							No
+

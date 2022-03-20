@@ -1,0 +1,211 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 20/03/2022  
+!Data de atualização: 20/03/2022  
+!Versão: 0.01
+
+!Cenário
+! 1 Roteador conectado ao SW1
+! 4 computadores conectados ao SW1 
+! 4 computadores conectados ao SW2
+! 5 VLANs 99 para Gerenciamento
+! 4 Subredes /25 pra cima
+! Colocar Description em todas as portas
+! Adicionar Port Security, BDPU Guard e Port Fast nas portas de acesso dos Switches
+! Colocar 2 VLANS como primárias e 2 VLANS como secundárias em cada switch (Não repetir a mesma configuração)
+! O roteador é o gateway das redes e todos precisam se pingar
+! Ativar o Etherchannel nos switches
+
+!SW1
+! PC1 - REDE 192.168.10.10/25 VLAN 10
+! PC2 - REDE 192.168.20.10/25 VLAN 20
+! PC3 - REDE 192.168.30.10/25 VLAN 30
+! PC4 - REDE 192.168.40.10/25 VLAN 40
+
+!SW2
+! PC1 - REDE 192.168.10.20/25 VLAN 10
+! PC2 - REDE 192.168.20.20/25 VLAN 20
+! PC3 - REDE 192.168.30.20/25 VLAN 30
+! PC4 - REDE 192.168.40.20/25 VLAN 40
+
+
+
+
+!Lab-Peterson
+!SW1
+enable
+configure terminal
+hostname SW1
+vlan 10
+name TI
+exit
+vlan 20
+name RH
+exit
+vlan 30
+name FIN
+exit
+vlan 40
+name MKT
+exit
+vlan 99
+name NATIVE
+exit
+interface fastEthernet0/1
+description PC1
+switchport mode access
+switchport access vlan 10
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/2
+description PC2
+switchport mode access
+switchport access vlan 20
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/3
+description PC3
+switchport mode access
+switchport access vlan 30
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/4
+description PC4
+switchport mode access
+switchport access vlan 40
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface range gigabitEthernet0/1-2
+switchport mode trunk
+switchport trunk native vlan 99
+description INTERFACE TRUNK QUE LIGA SW1 A SW2
+exit
+interface fastEthernet0/24
+switch mode trunk
+switch trunk native vlan 99
+description INTERFACE TRUNK QUE LIGA SW1 AO R1
+exit
+spanning-tree mode pvst
+spanning-tree vlan 10,20 root primary
+spanning-tree vlan 30,40 root secondary
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode active
+end
+wr
+
+
+!SW2
+enable
+configure terminal
+hostname SW2
+vlan 10
+name TI
+exit
+vlan 20
+name RH
+exit
+vlan 30
+name FIN
+exit
+vlan 40
+name MKT
+exit
+vlan 99
+name NATIVE
+exit
+interface fastEthernet0/1
+description PC1
+switchport mode access
+switchport access vlan 10
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/2
+description PC2
+switchport mode access
+switchport access vlan 20
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/3
+description PC3
+switchport mode access
+switchport access vlan 30
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface fastEthernet0/4
+description PC4
+switchport mode access
+switchport access vlan 40
+switchport port-security mac-address sticky
+switchport port-security maximum 1
+switchport port-security violation shutdown 
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+interface range gigabitEthernet0/1-2
+switchport mode trunk
+switchport trunk native vlan 99
+description INTERFACE TRUNK QUE LIGA SW2 A SW1
+exit
+spanning-tree mode pvst
+spanning-tree vlan 10,20 root secondary
+spanning-tree vlan 30,40 root primary
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode passive
+end
+wr
+
+!R1
+enable
+configure terminal
+hostname R1
+interface gigabitEthernet 0/0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+description Subinterface para conexão com a VLAN 10
+exit
+interface gigabitEthernet 0/0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+description Subinterface para conexão com a VLAN 20
+exit
+interface gigabitEthernet 0/0/0.30
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+description Subinterface para conexão com a VLAN 30
+exit
+interface gigabitEthernet 0/0/0.40
+encapsulation dot1Q 40
+ip address 192.168.40.1 255.255.255.0
+description Subinterface para conexão com a VLAN 40
+exit
+interface gigabitEthernet 0/0/0
+no shutdown
+end
+wr
