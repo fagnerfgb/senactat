@@ -1,8 +1,8 @@
 !===============================================================================
 !Autor: Fagner Geraldes Braga  
 !Data de criação: 08/03/2022  
-!Data de atualização: 17/03/2022  
-!Versão: 0.04 
+!Data de atualização: 21/03/2022  
+!Versão: 0.05 
 !===============================================================================
 !Grupo: G-03
 !Empresa: Churrasc Park
@@ -937,4 +937,30 @@ enable
 	!Salvando as configurações para NOTEPAD++
 	show running-config
 
+!===============================================================================
+         !FASE 12 - CONFIGURAÇÃO DO ACCESS POINT TP-LINK
+!===============================================================================
 
+
+!Configuração do Access Point TP-Link
+
+!Modelo D-Link DIR-809
+!Segurar o Botão WPS/Reset por 10 segundos
+!Após soltar, todos os LEDs devem piscar e
+!os LEDs de rede ficarão ligados e depois apagarão
+!Manual: https://www.dlink.com.br/wp-content/uploads/2018/10/DIR-809_A2_Manual_v1.00DI.pdf
+
+!Modelo D-Link DIR-819
+!Segurar o Botão WPS/Reset por 10 segundos
+!Após soltar, todos os LEDs devem piscar e
+!os LEDs de rede ficarão ligados e depois apagarão
+!Manual: https://www.dlink.com.br/wp-content/uploads/2018/10/DIR-819_A1_PPPoE.pdf
+
+!OBSERVAÇÃO: DESATIVAR O SERVIÇO DE DHCP SERVER DO ROUTER ACCESS POINT TP-LINK, CONECTAR O CABO
+!DE REDE NA PORTA 6 DO SEU SWITCH DIRETAMENTE NA PORTA DO SWITCH DO ROUTER TP-LINK, O ENDEREÇO 
+!IPv4 SERÁ FORNECIDO PELO ROUTER 2911.
+
+!Grupo-03 - Rede: 172.16.35.0/24  - IP-WAN: DHCP - IP-LAN: 172.16.35.254   - SSID: G-03 - Senha: 123@senac
+
+!Software de Análise de Rede Sem-Fio
+!WiFiMan: https://play.google.com/store/apps/details?id=com.ubnt.usurvey&hl=pt_BR&gl=US
