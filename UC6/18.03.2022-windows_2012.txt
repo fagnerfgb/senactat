@@ -1,7 +1,7 @@
 #Autor: Fagner Geraldes Braga
 #Data de criação: 18/03/2022
-#Data de atualização: 18/03/2022
-#Versão: 0.01
+#Data de atualização: 22/03/2022
+#Versão: 0.02
 ******************************************************************************************
 TEMPLATE-W2K22
 Windows Server 2022 Datacenter
@@ -77,5 +77,13 @@ Iniciar VM
 Criar Usuário
 Usuário: administrator
 Senha: 123@senac
-Renomear computador
 ******************************************************************************************
+Renomear computador: SRVFAGNER
+IP: 172.16.X.10 255.255.255.0
+Nome do Domínio: BRAGA.INTRA
+Escopo DHCP: de 172.16.X.100 até 172.16.X.200
+Criar reserva no Servidor DHCP para o seu PCNº+150.
+Ingressar as 2 Estações de Trabalho no Domínio (PCNº+100 e PCNº+150).
+Montar um Raid 5 (Paridade) com os Hds 1, 2 e 3
+Montar um Raid 1 (Espelho) com os Hds 4 e 5
+Criar um volume simples no HD 6 e formatar com o nome de BKPDADOS

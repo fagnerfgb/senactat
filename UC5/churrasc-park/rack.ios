@@ -961,7 +961,7 @@ enable
 !IPv4 SERÁ FORNECIDO PELO ROUTER 2911.
 
 !Grupo-03 - Rede: 172.16.35.0/24  - IP-WAN: DHCP - IP-LAN: 172.16.35.254   - SSID: G-03 - Senha: 123@senac
-!IP do Roteador: 172.16.35.10
+!IP do Roteador: 172.16.35.10,
 
 !Software de Análise de Rede Sem-Fio
 !WiFiMan: https://play.google.com/store/apps/details?id=com.ubnt.usurvey&hl=pt_BR&gl=US
