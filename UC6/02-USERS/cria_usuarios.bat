@@ -1,0 +1,8 @@
+; SCRIPT AUTOMATIZADO PARA CRIACAO DE USUARIOS NO ACTIVE DIRECTORY
+FOR /F "EOL=; TOKENS=1,2,3,* DELIMS=;" %%I IN (fin.csv) DO DSADD USER "CN=%%J %%I, OU=Financeiro, OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -SAMID "%%J.%%I" -UPN "%%J.%%I"@BRAGA.INTRA -FN %%J -LN %%I -DISPLAY "%%J %%I" -EMAIL "%%J.%%I"@braga.com.br -title %%K -Dept Financeiro -Company BRAGA -PWD 123@senac -DISABLED YES
+FOR /F "EOL=; TOKENS=1,2,3,* DELIMS=;" %%I IN (mkt.csv) DO DSADD USER "CN=%%J %%I, OU=Marketing, OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -SAMID "%%J.%%I" -UPN "%%J.%%I"@BRAGA.INTRA -FN %%J -LN %%I -DISPLAY "%%J %%I" -EMAIL "%%J.%%I"@braga.com.br -title %%K -Dept Marketing -Company BRAGA -PWD 123@senac -DISABLED YES
+FOR /F "EOL=; TOKENS=1,2,3,* DELIMS=;" %%I IN (ven.csv) DO DSADD USER "CN=%%J %%I, OU=Vendas, OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -SAMID "%%J.%%I" -UPN "%%J.%%I"@BRAGA.INTRA -FN %%J -LN %%I -DISPLAY "%%J %%I" -EMAIL "%%J.%%I"@braga.com.br -title %%K -Dept Vendas -Company BRAGA -PWD 123@senac -DISABLED YES
+FOR /F "EOL=; TOKENS=1,2,3,* DELIMS=;" %%I IN (ti.csv) DO DSADD USER "CN=%%J %%I, OU=Tecnologia, OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -SAMID "%%J.%%I" -UPN "%%J.%%I"@BRAGA.INTRA -FN %%J -LN %%I -DISPLAY "%%J %%I" -EMAIL "%%J.%%I"@braga.com.br -title %%K -Dept Tecnologia -Company BRAGA -PWD 123@senac -DISABLED YES
+FOR /F "EOL=; TOKENS=1,2,3,* DELIMS=;" %%I IN (rh.csv) DO DSADD USER "CN=%%J %%I, OU=RH, OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -SAMID "%%J.%%I" -UPN "%%J.%%I"@BRAGA.INTRA -FN %%J -LN %%I -DISPLAY "%%J %%I" -EMAIL "%%J.%%I"@braga.com.br -title %%K -Dept Recursos_Humanos -Company BRAGA -PWD 123@senac -DISABLED YES
+
+
