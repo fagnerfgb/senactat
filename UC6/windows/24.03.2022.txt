@@ -1,0 +1,22 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 24/03/2022
+#Data de atualização: 24/03/2022
+#Versão: 0.01
+******************************************************************************************
+Conceito de RAID 1
+Leitura: até o dobro da velocidade
+Gravação: sem ganho de desempenho
+Capacidade: Perde-se 50% da capacidade total para aumentar a segurança
+Os dados são gravados em ambos os discos
+Não substitui backup
+******************************************************************************************
+Criação do RAID nos discos 1 e 2
+Pressionar as teclas Winkey + R e digitar diskmgmt.msc
+Clicar com o botão direito do mouse e clicar em New Mirrored volume
+Selecionar os discos 1 e 2
+Alocar todo o espaço disponível.
+Formatar como NTFS e colocar o nome do Volume como RAID-1 e atribuir a letra E: 
+para o novo volume
+******************************************************************************************
+Simulação de defeito em um dos discos
+
