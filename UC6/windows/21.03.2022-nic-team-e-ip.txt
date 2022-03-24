@@ -22,10 +22,3 @@ Máscara: 255.255.255.0
 Default Gateway: 172.16.10.254
 DNS: 172.16.10.10
 ******************************************************************************************
-Nome do Domínio: BRAGA.INTRA
-Escopo DHCP: de 172.16.10.100 até 172.16.10.200
-Criar reserva no Servidor DHCP para o seu PCNº+150.
-Ingressar as 2 Estações de Trabalho no Domínio (PCNº+100 e PCNº+150).
-Montar um Raid 5 (Paridade) com os Hds 1, 2 e 3
-Montar um Raid 1 (Espelho) com os Hds 4 e 5
-Criar um volume simples no HD 6 e formatar com o nome de BKPDADOS
