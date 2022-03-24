@@ -1,0 +1,57 @@
+#Autor: Fagner Geraldes Braga  
+#Data de criação: 23/03/2022  
+#Data de atualização: 23/03/2022  
+#Versão: 0.01  
+***
+SRVFAGNER
+IP: 172.16.10.10 255.255.255.0
+Máscara: 255.255.255.0
+Default Gateway: 172.16.10.254
+DNS: 172.16.10.10 
+***
+Adicionar Função de Serviço de Domínio do Active Directory  
+Promover este servidor a um controlador de domínio  
+Adicionar uma nova floresta: BRAGA.INTRA  
+Nível Funcional da Floresta: Windows Server 2016  
+Nível Funcional do Domínio:  Windows Server 2016  
+Servidor DNS  
+Catálogo Global  
+Senha Modo de Restauração dos Serviços de Diretório: 123@senac  
+Nome NetBIOS: BRAGA  
+***
+Configurando o ADDS  
+ncpa.cpl  
+DNS1: 172.16.10.10  
+***
+DNS  
+Zona de Pesquisa Inversa  
+    Zona primária  
+    Armazenar a zona no AD  
+Para todos os servidores DNS sendo executados em controladores de domínio neste domínio: BRAGA.INTRA  
+Zona de Pesquisa Inversa IPv4  
+172.16.10
+Permitir apenas atualizações dinâmicas seguras  
+***
+Zona de Pesquisa Direta  
+BRAGA.INTRA 
+    SRVFAGNER  
+        Atualizar o registro de ponteiro   associado (PTR)  
+***
+Encaminhadores DNS  
+8.8.8.8  
+8.8.4.4  
+1.1.1.1  
+1.0.0.1  
+***
+Serviços e Sites do Active Directory  
+Renomear Default-First-Site-Name para BRAGA  
+***
+Criar Subnet  
+172.16.10.0/24
+***
+Copiar e Executar script 01-CRIA_OU.BAT
+***
+Copiar e Executar script CRIA_USUARIOS.BAT
+***
+Copiar e Executar script CRIA_GRUPOS_AD.cmd
+***
