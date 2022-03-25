@@ -9,8 +9,9 @@ Gravação: sem ganho de desempenho
 Capacidade: Perde-se 50% da capacidade total para aumentar a segurança
 Os dados são gravados em ambos os discos
 Não substitui backup
+Só pode perder 1 disco
 ******************************************************************************************
-Criação do RAID nos discos 1 e 2
+Criação do RAID 1 nos discos 1 e 2
 Pressionar as teclas Winkey + R e digitar diskmgmt.msc
 Clicar com o botão direito do mouse e clicar em New Mirrored volume
 Selecionar os discos 1 e 2
@@ -19,4 +20,50 @@ Formatar como NTFS e colocar o nome do Volume como RAID-1 e atribuir a letra E:
 para o novo volume
 ******************************************************************************************
 Simulação de defeito em um dos discos
+Insira arquivos no volume E: para simulação
+Desligar a VM
+Remover um dos discos espelhados
+Ligar a VM
+Pressionar as teclas Winkey + R e digitar diskmgmt.msc
+Clicar com o botão direito do mouse e clicar em Remove Mirror
+Selecione o disco que está faltando e clique em Remove Mirror e clique em Yes
+O disco voltará a fica disponível para ser utilizado
+Verifique se os dados estão disponíveis e íntegros
+Selecione o Disco com os Dados, clique com o botão Direito em Add Mirror
+Selecione o disco 2 para criar o novo espelhamento
+Depois de realizar o procedimento, irá ocorrer a sincronização dos dados nos dois discos
+Enquanto os discos estão em processo de sincronização, os dados ficam disponíveis para uso,
+mas o acesso a eles ficará mais lento porque os discos realizarão leitura e gravação intensa
+até o final da sincronização dos dados
+******************************************************************************************
+Conceito de RAID 5 (Paridade)
+Mínimo de 3 discos
+Leitura: Todos os discos menos 1
+Gravação: Todos os discos menos 1
+Capacidade: Perde-se 1 disco do total do conjunto
+Não substitui backup
+Só pode perder 1 disco
+******************************************************************************************
+Criação do RAID 5 nos discos 3, 4 e 5
+Pressionar as teclas Winkey + R e digitar diskmgmt.msc
+Clicar com o botão direito do mouse e clicar em New RAID-5 volume
+Selecionar os discos 3, 4 e 5
+Alocar todo o espaço disponível.
+Formatar como NTFS e colocar o nome do Volume como RAID-5 e atribuir a letra F: 
+para o novo volume
+Aguardar a sincronização dos discos
+******************************************************************************************
+Simulação de defeito em um dos discos
+Insira arquivos no volume F: para simulação
+Desligar a VM
+Remover um dos discos dos RAID 5
+Ligar a VM
+O volume estará disponível para ser utilizado
+Pressionar as teclas Winkey + R e digitar diskmgmt.msc
+Selecione um dos discos com os dados, clique com o botão Direito em Repair Volume
+Selecione um dos disco disponíveis para substituir o disco defeituoso no RAID 5
+Depois de realizar o procedimento, irá ocorrer a sincronização dos dados em todos os discos
+do conjunto
+Enquanto falta um disco no conjunto, o equipamento utilizará recursos de memória, processamento,
+leitura e escrita do disco para abrir e gravar dados
 
