@@ -461,3 +461,122 @@ S3(config)#interface fastEthernet 0/11
 S3(config-if)#spanning-tree portfast 
 S2(config-if)#spanning-tree bpduguard enable
 
+!Aula 5 - 26/03/2022
+!Rota estática
+!Vantagens:
+!Não utiliza CPU
+!Flexibilidade para trabalhar em ambiente misto
+!Desvantagens
+!Maior trabalho de configuração
+!Não tem atualização automática
+
+!Distância Administrativa
+!Interface Conectada	0
+!Rota Estática			1
+!EIGRP Rota Sumária		5
+!EBGP					20
+!EIGRP Interno			90
+!IGRP					100
+!OSPF					110
+!ISIS					115
+!RIP					120
+!EGP					140
+!ODR					160
+!EIGRP Externo			170
+!BGP Interno			200
+!Desconhecido			255
+
+enable
+configure terminal
+hostname R1
+interface gigabitEthernet 0/0
+ip address 1.1.1.1 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R2
+interface gigabitEthernet 0/0
+ip address 1.1.1.2 255.255.255.252
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 2.2.2.2 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R3
+interface gigabitEthernet 0/1
+ip address 2.2.2.1 255.255.255.252
+no shutdown
+end
+wr
+
+!R1
+enable
+confi terminal
+ip route 2.2.2.0 255.255.255.252 1.1.1.2
+end
+wr
+show ip route
+
+!R3
+enable
+confi terminal
+ip route 1.1.1.0 255.255.255.252 2.2.2.2
+end
+wr
+show ip route
+
+!Rota Padrão
+!0.0.0.0 0.0.0.0 200.250.255.1(próximo salto)
+
+!Lab5-roteamento-estatico-ipv4
+
+!R1
+ip route 172.31.0.0 255.255.255.0 172.31.1.193
+ip route 172.31.1.196 255.255.255.252 172.31.1.193
+ip route 172.31.1.128 255.255.255.192 172.31.1.193
+end
+wr
+
+!R2
+ip route 172.31.1.0 255.255.255.128 172.31.1.194
+ip route 172.31.1.128 255.255.255.192 172.31.1.198
+end
+wr
+
+!R3
+ip route 0.0.0.0 0.0.0.0 172.31.1.197
+end
+wr
+
+
+!Lab5-roteamento-estatico-ipv6
+
+!R1
+ipv6 unicast-routing
+ipv6 route 2001:DB8:1:2::1/64 2001:DB8:1:A001::2
+ipv6 route 2001:db8:1:3::/64 2001:DB8:1:A001::2
+ipv6 route 2001:DB8:1:A002::/64 2001:DB8:1:A001::2
+end
+wr
+
+!R2
+ipv6 unicast-routing
+ipv6 route 2001:DB8:1:1::/64 2001:DB8:1:A001::1
+ipv6 route 2001:DB8:1:3::/64 2001:DB8:1:A002::2
+end
+wr
+
+!R3
+ipv6 unicast-routing
+ipv6 route ::/0 2001:DB8:1:A002::1
+end
+wr
+
