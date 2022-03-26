@@ -1,0 +1,118 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 25/03/2022
+#Data de atualização: 25/03/2022
+#Versão: 0.01
+
+LINUX MINT 20.3 CINNAMON
+RAM: 2GB
+HD: 50GB - VDI
+******************************************************************************************
+Guia Geral
+Avançado
+Área de Transferência Compartilhada: Bi-direcional
+Arrastar e Soltar: Bi-direcional
+******************************************************************************************
+Guia Sistema
+Placa-Mãe: Desmarcar Relógio da máquina retorna hora UTC
+Processador: 
+    2 CPUs
+    Habilitar PAE/NX
+******************************************************************************************  
+Guia Monitor
+Tela - Marcar Habilitar Aceleração 3D
+******************************************************************************************    
+Guia Armazenamento
+Disco Rígido SATA 0 - Drive de estado sólido
+Drive Óptico - Apontar caminho da ISO do Linux Mint
+******************************************************************************************
+Guia Áudio
+Desmarcar opção Habilitar Áudio
+******************************************************************************************
+Guia Rede
+Adaptador 1 - Habilitar Placa de Rede (Modo Bridge)
+******************************************************************************************
+Instalando o GNU/Linux Mint
+******************************************************************************************
+Start Linux Mint
+Install Linux Mint
+Idioma Português do Brasil
+Layout do Teclado - Português (Brasil) - Testar \/|
+Instalar codecs multimídia
+Apagar disco e reinstalar o Linux Mint
+Local: São Paulo
+Seu Nome: senac
+Nome do seu computador: senac-VirtualBox
+Usuário: 123@senac
+Senha: 123@senac
+Solicitar minha senha para entrar
+******************************************************************************************
+Configuração Básica do GNU/Linux Mint
+(Tela Bem-Vindo e Relatório do Sistema)
+Desmarcar Mostre esta tela de boas-vindas ao iniciar o Linux Mint
+******************************************************************************************
+Instalação dos Convidados do VirtualBOX
+******************************************************************************************
+Adicionais para Convidado do VirtualBox
+Instalar CD dos Adicionais para Convidado do VirtualBox
+Remover CD dos Adicionais para Convidado do VirtualBox
+Reiniciar o computador
+******************************************************************************************
+Atualizando o GNU/Linux Mint 
+(MintUpdate - Modo Gráfico)
+******************************************************************************************
+Mover Painel para parte de cima da tela
+******************************************************************************************
+Aplicativos
+Instalação por linha de comando
+sudo apt install cairo-dock vim kolourpaint notepadqq vlc git -y
+Cairo-Dock
+KolourPaint
+Vim
+NotepadQQ
+VLC
+Git
+******************************************************************************************
+Baixar Pacotes .Deb no site dos criadores
+Google Chrome
+Microsoft Edge
+Teams
+Visual Studio Code
+Free Office
+VirtualBox
+Extension Pack
+******************************************************************************************
+Gerenciador de Aplicativos
+Instalar Ttf-mscorefonts-installer
+Marcar Do you accept the EULA license terms?
+******************************************************************************************
+sudo apt update && apt upgrade -y
+sudo apt clean 
+sudo apt autoclean
+sudo apt autoremove
+******************************************************************************************
+Cairo-Dock
+Lembrar esta escolha
+Yes
+Visibilidade: Sempre abaixo
+******************************************************************************************
+Aplicativos na Inicialização
+Cairo-Dock
+Atraso para iniciar = 5
+******************************************************************************************
+Aplicativos Preferenciais
+Web = Chrome
+Texto Puro = VSCode
+Música = VLC
+Vídeo = VLC
+Código Fonte = VSCode
+Instalação do Tema Adapta-Nokto
+******************************************************************************************
+
+
+
+
+
+
+
+
+

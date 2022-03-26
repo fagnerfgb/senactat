@@ -1,0 +1,221 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 25/03/2022
+#Data de atualização: 25/03/2022
+#Versão: 0.01
+******************************************************************************************
+VM: Firewall-pfSense
+BSD
+FreeBSD (64 Bits)
+pfSense-CE-2.6.0-RELEASE-amd64
+RAM: 2GB
+HD SO: 16GB - Dinamicamente Alocado - VDI
+******************************************************************************************
+Guia Sistema
+Processador: 
+    2 CPUs
+    Habilitar PAE/NX
+    Habilitar VT-x/AMD-V Aninhado
+******************************************************************************************    
+Guia Armazenamento
+Controladora IDE - Drive de estado sólido
+Drive Óptico Controladora IDE - Apontar caminho da ISO do pfSense
+******************************************************************************************
+Monitor
+	Tela
+		Memória de Vídeo: 128MB
+		Aceleração: Habilitar Aceleração 3D
+******************************************************************************************	
+Guia Áudio
+Desmarcar opção Habilitar Áudio
+******************************************************************************************
+Guia Rede
+Adaptador 1 - Habilitar Placa de Rede (Bridge) - WAN
+Adaptador 2 - Habilitar Placa de Rede (Interna) - LAN
+******************************************************************************************
+Instalação
+Inicializar o PC com a ISO do pfSense
+Copyright and distribution notice: 
+	Accept - <Enter>
+Welcome to pfSense!
+	Install (Install pfSense) - <Enter>
+Keymap Selection
+	Brazilian (accent keys) - <Enter>
+	Continue with br.kdb keymap - <Enter>
+Partitioning
+	Auto (ZFS) Guided Root-on-ZFS - <Enter>
+	Configure Options:
+		>>> Install (Proceed with Installation) - <Enter>
+			T Pool Type/Disks:		stripe: 0 disks
+			- Rescan Devices		*
+			- Disk Info 			*
+			N Pool Name				pfsense
+			4 Force 4K Sectores?	YES
+			E Encrypt Disks?		NO
+			P Partition Scheme		GPT (BIOS)
+			S Swap Size				1g
+			M Mirror Swap?			NO
+			W Encrypt Swap?			NO
+		Select Virtual Device type:
+			stripe Stripe - No Redundancy <Enter>
+		Hard Disk Selection
+			[*] ada0 VBOX HARDDISK - <Space-Bar> - <Enter>
+		Last Chance! - <Yes> - <Enter>
+Manual Configuration: <No> - <Enter>
+Complete: <Reboot> - <Enter>
+
+Observação: No Oracle VirtualBOX existe uma falha onde o CD-ROM do pfSense não é ejetado 
+no final da instalação, sendo necessário desmontar o CD-ROM e reiniciar a máquina virtual.
+******************************************************************************************
+Endereçamento das Interfaces do pfSense
+Configurando  o endereçamento IPv4 ou IPv6 das Interfaces de WAN e LAN
+Enter the number of the interface you wish to configure: 2 <Enter>
+	Enter the new LAN IPv4 address.
+	> 172.16.10.254 <Enter>
+	Enter the new LAN IPv4 subnet.
+	> 24 <Enter>
+	For a WAN, enter the new LAN IPv4 upstream gateway address
+	For a LAN, press <Enter> for nome:
+	> <Enter>
+	Enter the new LAN IPv6 address.
+	> <Enter>
+	Do you want to enable the DHCP server on LAN? (y/n): y <Enter>
+	Enter the start address of the IPv4 client address range: 172.16.10.100 <Enter>
+	Enter the end address fo the IPv4 client address range: 172.16.10.150 <Enter>
+	Do you want to revert to HTTP as the WebConfigurator protocol? (y/n): y <Enter>	
+	Press <Enter> to continue.
+******************************************************************************************
+Iniciar o Linx Mint
+Colocar a placa de rede como Interna
+Abrir o navegador de internet
+Inserir o endereço http://172.16.10.254
+Usuário: admin
+Senha: pfsense
+******************************************************************************************
+pfSense Setup
+	Welcome to pfSense® software!
+	<Next>
+	Netgate® Global Support is available 24/7
+	<Next>
+******************************************************************************************	
+General Information
+Hostname: fwfagner
+Domain: braga.intra
+Primary DNS Server: 8.8.8.8
+Secondary DNS Server: 8.8.4.4
+Override DNS: Desmarcar
+<Next>
+******************************************************************************************
+Time Server Information
+Time server hostname: a.st1.ntp.br
+Timezone: America/Sao_Paulo
+******************************************************************************************
+Configure WAN Interface
+SelectedType: DHCP
+Block RFC1918 Private Networks: Desmarcar
+Block bogon networks: Desmarcar
+******************************************************************************************
+Configure LAN Interface
+<Next>
+******************************************************************************************
+Set Admin WebGUI Password
+123@senac
+123@senac
+<Next>
+******************************************************************************************
+Reload configuration
+<Reload>
+******************************************************************************************
+Wizard completed.
+<Finish>
+******************************************************************************************
+Copyright and Trademark Notices.
+<Accept>
+Thank you!
+<Close>
+******************************************************************************************
+System
+	General Setup
+		webConfigurator
+			Theme:pfSense-dark
+			Top Navigation: Fixed
+			Hostname in Menu: FQDN
+			Dashboard Columns: 3
+			Interfaces: Sort Alphabetically
+			Associated Panels Show/Hide: Available Widgets, Log Filter, Manage Log, Monitoring Settings
+			Login hostname: Show hostname on login banner
+Save
+******************************************************************************************
+Desativar verificação de atualização no Dashboard
+System
+	Update
+		Update Settings
+			Updates
+				Dashboard check: ON
+		Save
+******************************************************************************************
+Configuração do Dashboard do pfSense
+Dashboard
+	Available Widgets 
+		#Configuração dos Widgets Esquerda
+			Picture - Left-01
+			New pictures: image.png 
+			Save
+			System Information: ON - Left-02
+******************************************************************************************
+		#Configuração dos Widgets Centro
+			Interfaces: ON - Center-01
+			Gateways: ON - Center-02
+			Interface Statistics: ON - Center-03
+			Traffic Graphs: ON - Center-04
+			Service Status: ON - Center-05
+******************************************************************************************
+		#Configuração dos Widgets Lado Direito
+			NTP Status: ON - Right-01
+			Dynamic DNS Status: ON - Right-02
+			IPSec: ON - Right-03
+			OpenVPN: ON - Right-04
+			Firewall Logs: ON - Right-05
+				Edit
+				Widgets: Firewall Logs 
+				Number of entries: 20
+				Filter actions: ON Pass, ON Block and ON Reject
+				Filter interface: ALL 
+				Update interval: 1 Seconds
+				Save
+Save
+******************************************************************************************
+Migração para o pfSense Plus+ 22.01
+1- Criar uma conta no pfSense Store: https://shop.netgate.com/account/register
+2- Realizar a assinatura do pfSense Plus: https://shop.netgate.com/products/pfsense-software-subscription
+	pfSense+ Software Subscription $0.00
+	Subscription Type: Lab (Non-commercial use)
+	ADD TO CART
+	CART
+	CHECKOUT
+	Preencher as informações de: Billing address
+	CONTINUE TO PAYMENT
+	COMPLETE ORDER
+3- Copiar a chave do token enviada por e-mail após realização da assinatura do pfSense+
+4- Ativar o Token no pfSense 2.6.0
+	System
+		Register
+			Register pfSense
+				Activation token: (colar o Token do pfSense Plus)
+					Register
+5- Atualizar para a versão do pfSense Plus
+	System
+		Update
+			System Update
+				Confirmation Required to update pfSense System
+					Branch: pfSense Plus Upgrade
+				Confirm
+******************************************************************************************
+
+
+
+
+
+
+
+
+
