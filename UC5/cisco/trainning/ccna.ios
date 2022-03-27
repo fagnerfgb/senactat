@@ -1,7 +1,7 @@
 #Autor: Fagner Geraldes Braga  
 #Data de criação: 04/02/2022  
-#Data de atualização: 26/03/2022  
-#Versão: 0.02  
+#Data de atualização: 27/03/2022  
+#Versão: 0.03  
 ***
 Aula 1 - 04/02/2021  
 
@@ -929,5 +929,42 @@ show ip route
 show ip ospf database
 show ip ospf interface
 show ip ospf neighbor
+
+
+!Aula 7 - 27/03/2022
+
+!HSRP
+!Protocolo de camada 3
+!Precisa de redundância de equipamentos (Roteador Ativo e Roteador em Standby)
+!VIP (Virtual IP)
+!Só pode ter um roteador ativo
+
+!HSRP1 - de 0 a 255 grupos
+!HSRP2 - de 0 a 4095 grupos
+!priority default = 100
+
+interface GigabitEthernet0/0
+ip address 10.1.10.2 255.255.255.0
+!Endereço VIP
+standby 1 ip 10.1.10.1 
+standby 1 priority 110
+!No caso do roteador ativo cair e voltar, ele volta a ser ativo com o comando abaixo:
+standby 1 preempt
+
+show standby brief
+
+!lab7-hsrp
+
+!R1
+no standby 11 ip 192.168.1.254
+no standby 11 priority 50
+standby 1 ip 192.168.1.254
+standby 1 priority 110
+standby 1 preempt
+
+!R2
+no standby 111 ip 192.168.1.254
+standby 1 ip 192.168.1.254
+
 
 
