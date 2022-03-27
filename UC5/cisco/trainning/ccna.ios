@@ -1,6 +1,6 @@
 #Autor: Fagner Geraldes Braga  
 #Data de criação: 04/02/2022  
-#Data de atualização: 20/02/2022  
+#Data de atualização: 26/03/2022  
 #Versão: 0.02  
 ***
 Aula 1 - 04/02/2021  
@@ -579,4 +579,355 @@ ipv6 unicast-routing
 ipv6 route ::/0 2001:DB8:1:A002::1
 end
 wr
+
+!Aula 6 - 26/03/2022
+!Protocolos de Roteamento Dinâmico
+!RIP
+!EIGRP (Cisco)
+!OSPF
+!IS-IS
+!BGP
+
+!Vantagens:
+!O administrador tem menos trabalho para manter a configuração (add ou remover redes)
+!A configuração é menos propensa a erros
+!Os protocolos reagem automaticamente a alterações na topologia
+
+!Desvantagens:
+!Maior uso de CPU, memória e banda larga do link
+!É necessário conhecimento do protocolo
+
+!IGP (Internal Gateway Protocol)
+!RIP
+!EIGRP (Cisco)
+!OSPF
+!IS-IS
+
+!EGP (External Gateway Protocol)
+!BGP
+
+!Link State (Saúde do Link)
+!OSPF
+!IS-IS
+!BGP
+
+!Distance Vector (Saltos)
+!RIP
+!EIGRP* (Cisco)
+
+!RIP
+!Atualização a cada 30s
+!Máximo de 15 saltos
+
+!EIGRP
+!Atualiza somente se houver alteração na topologia
+!Cálculo para decisão de melhor caminho: Largura de banda, atraso, MTU e Carga
+!Deixa guardado a rota de backup na tabela de roteamento
+!feasible successor
+!Forma vizinhança através de pacotes de Hello
+!Hello a cada 5s
+!Hold Time: 15s
+!Algoritmo DUAL
+!Comunicação através de multicast 224.0.0.10
+!Pode-se configurar autenticação para fechar neighbor
+
+
+enable
+configure terminal
+hostname R1
+interface gigabitEthernet 0/0
+ip address 1.1.1.1 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R2
+interface gigabitEthernet 0/0
+ip address 1.1.1.2 255.255.255.252
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 2.2.2.2 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R3
+interface gigabitEthernet 0/1
+ip address 2.2.2.1 255.255.255.252
+no shutdown
+end
+wr
+
+!R1
+router eigrp 1
+no auto-summary
+network 1.1.1.0 0.0.0.3
+end
+wr
+show ip route
+
+!R2
+router eigrp 1
+no auto-summary
+network 1.1.1.0 0.0.0.3
+network 2.2.2.0 0.0.0.3
+end
+wr
+show ip route
+
+!R3
+router eigrp 1
+no auto-summary
+network 2.2.2.0 0.0.0.3
+end
+wr
+show ip route
+
+show eigrp neighbors
+show ip protocols
+
+!OSPF
+!Atualiza somente se houver alteração na topologia
+!Forma vizinhança através de pacotes de Hello
+!Design de hierarquia 
+!DR (Designated Route)
+!BDR (Backup Designated Route)
+!OTHERS
+!Eleição
+!Priority (Maior ganha)
+!Maior IP da interface Lógica (Loopback)
+!Maior IP da interface Física
+!Hello a cada 10s
+!Dead Time: 30s
+!Algoritmo SPF
+
+!LSA (Link State Advertisement)
+!LSR (Link State Request)
+!LSU (Link State Update)
+!LSAck (Link State Acknowledge)
+!Comunicação através de multicast 224.0.0.5
+!Pode-se configurar autenticação para fechar neighbor
+!Area 0 - Área de Backbone
+
+
+enable
+configure terminal
+hostname R1
+interface gigabitEthernet 0/0
+ip address 1.1.1.1 255.255.255.252
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 200.200.200.2 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R2
+interface gigabitEthernet 0/0
+ip address 1.1.1.2 255.255.255.252
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ip address 2.2.2.2 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname R3
+interface gigabitEthernet 0/1
+ip address 2.2.2.1 255.255.255.252
+no shutdown
+end
+wr
+
+enable
+configure terminal
+hostname Internet
+interface gigabitEthernet 0/1
+ip address 200.200.200.1 255.255.255.252
+no shutdown
+end
+wr
+
+!R1
+enable
+configure terminal
+router ospf 1
+router-id 1.1.1.1
+network 1.1.1.0 0.0.0.3 area 0
+default-information originate
+exit
+ip route 0.0.0.0 0.0.0.0 200.200.200.1
+end
+wr
+
+!R2
+enable
+configure terminal
+router ospf 1
+router-id 2.2.2.2
+network 1.1.1.0 0.0.0.3 area 0
+network 2.2.2.0 0.0.0.3 area 0
+end
+wr
+
+!R3
+enable
+configure terminal
+router ospf 1
+router-id 3.3.3.3
+network 2.2.2.0 0.0.0.3 area 0
+end
+wr
+
+!Lab6-ospf-single-area-ipv4
+
+!R1
+enable
+configure terminal
+router ospf 10
+router-id 1.1.1.1
+network 172.16.3.0 0.0.0.3 area 0
+network 192.168.10.4 0.0.0.3 area 0
+network 172.16.1.0 0.0.0.255 area 0
+passive-interface gigabitEthernet 0/0
+end
+wr
+
+!R2
+enable
+configure terminal
+router ospf 10
+router-id 2.2.2.2
+network 172.16.3.0 0.0.0.3 area 0
+network 192.168.10.8 0.0.0.3 area 0
+network 172.16.2.0 0.0.0.255 area 0
+passive-interface gigabitEthernet 0/0
+end
+wr
+
+!R3
+enable
+configure terminal
+router ospf 10
+router-id 3.3.3.3
+network 192.168.1.0 0.0.0.255 area 0
+network 192.168.10.8 0.0.0.3 area 0
+network 192.168.10.4 0.0.0.3 area 0
+passive-interface gigabitEthernet 0/0
+end
+wr
+
+!Lab6-ospf-single-area-ipv6
+
+ipv6 unicast-routing
+
+!R1
+enable
+configure terminal
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 1.1.1.1
+auto-cost reference-bandwidth 1000
+exit
+interface gigabitEthernet 0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/1
+ipv6 ospf 10 area 0
+end
+wr
+
+!R2
+enable
+configure terminal
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 2.2.2.2
+auto-cost reference-bandwidth 1000
+exit
+interface gigabitEthernet 0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/1
+ipv6 ospf 10 area 0
+end
+wr
+
+!R3
+enable
+configure terminal
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 3.3.3.3
+auto-cost reference-bandwidth 1000
+exit
+interface gigabitEthernet 0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/0
+ipv6 ospf 10 area 0
+exit
+interface serial 0/0/1
+ipv6 ospf 10 area 0
+end
+wr
+
+!lab6-ospf-multi-area-ipv4
+
+!R1
+enable
+configure terminal
+router ospf 1
+router-id 1.1.1.1
+network 10.1.1.0 0.0.0.255 area 1
+network 10.1.2.0 0.0.0.255 area 1
+network 192.168.10.0 0.0.0.3 area 0
+end
+wr
+
+!R2
+enable
+configure terminal
+router ospf 1
+router-id 2.2.2.2
+network 10.2.1.0 0.0.0.255 area 0
+network 192.168.10.0 0.0.0.3 area 0
+network 192.168.10.4 0.0.0.3 area 0
+end
+wr
+
+!R3
+enable
+configure terminal
+router ospf 1
+router-id 3.3.3.3
+network 192.168.1.0 0.0.0.255 area 2
+network 192.168.2.0 0.0.0.255 area 2
+network 192.168.10.4 0.0.0.3 area 0
+end
+wr
+
+show ip protocols
+show ip route
+show ip ospf database
+show ip ospf interface
+show ip ospf neighbor
+
 
