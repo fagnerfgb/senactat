@@ -103,6 +103,15 @@ FQDN or Hostname: fwfagner.braga.intra
 System/Advanced/Admin Access
 SSL/TLS Certificate: certificado do pfSense
 ******************************************************************************************
+Linux Mint
+Ctrl+Alt+t
+sudo apt update
+sudo apt upgrade -y
+sudo apt install vim git phyton cloc -y
+
+cd ~/Documentos$
+git clone https://github.com/fagnerfgb/senactat-1.git
+******************************************************************************************
 
 
 
