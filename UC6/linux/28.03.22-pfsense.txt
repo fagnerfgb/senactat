@@ -1,0 +1,114 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 28/03/2022
+#Data de atualização: 28/03/2022
+#Versão: 0.01
+******************************************************************************************
+Segurança de acesso
+******************************************************************************************
+SSH
+System, Advanced, Secure Shell
+Secure Shell Server: Marcar Enable Secure Shell
+******************************************************************************************
+Login Protection
+Threshold 30
+Blocktime 120
+Detection time 1800
+******************************************************************************************
+Console Options
+Console menu
+Marcar Password protect the console menu 
+******************************************************************************************
+Acessando SSH no Mint
+ssh admin@172.16.10.254
+******************************************************************************************
+Criando par de chaves SSH
+pwd
+cd .ssh
+ls
+known_hosts
+pwd
+ssh-keygen
+	/home/senac/.ssh/pfsense
+******************************************************************************************
+Verificando conteúdo da chave SSH
+cat pfsense.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8A/lNdjikPJZV0e/sHb/UBC31z3Fm7AbtKSl0QbkzGP+T3+xJXILEULrIuc3q01aqSTLITsougrtHcWKHfNscrPhkNr9URKI835Sqe6x807nCdu9EOe+ca1pg9XcoyVHtPJodApbgmXYurNamahApL5OTgE73orgN1u0ky+ApBLR5pwC2rsoy6hHKjBk8kHK7O+D7LQmnZ8794yIjxeFHMd8FVXjQck1yfbm1rpnf9o4mbtT6HFbUF49KAI+35mwBbr/BUuxudas3XPHN+EBLiGsjySkNFG46c29RIAKYRWV3F0Q06x12XWGfH50Pj7LcdaDthpe1IF8IPUjBr/udl6YpsduyfDFQuBUUjmvf9QbaSyW+QtG+MfJJW3zVc+k/1CbaC3ZXH6M1G0FbuZN+UOJsmVEVzALhLWtqbVl1Kcvl1ni5lGOP4kRHquEcU3xm0TJBkNyJS3h4HNtA+c7/H7Ehy2YLbk+se2Qr0VIZNFcaK/QpEJpPOPkFudCPJ1c=
+******************************************************************************************
+Configurando a chave SSH no Pfsense
+System, User Manager, Users
+admin, edit
+Keys
+Authorized SSH Keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8A/lNdjikPJZV0e/sHb/UBC31z3Fm7AbtKSl0QbkzGP+T3+xJXILEULrIuc3q01aqSTLITsougrtHcWKHfNscrPhkNr9URKI835Sqe6x807nCdu9EOe+ca1pg9XcoyVHtPJodApbgmXYurNamahApL5OTgE73orgN1u0ky+ApBLR5pwC2rsoy6hHKjBk8kHK7O+D7LQmnZ8794yIjxeFHMd8FVXjQck1yfbm1rpnf9o4mbtT6HFbUF49KAI+35mwBbr/BUuxudas3XPHN+EBLiGsjySkNFG46c29RIAKYRWV3F0Q06x12XWGfH50Pj7LcdaDthpe1IF8IPUjBr/udl6YpsduyfDFQuBUUjmvf9QbaSyW+QtG+MfJJW3zVc+k/1CbaC3ZXH6M1G0FbuZN+UOJsmVEVzALhLWtqbVl1Kcvl1ni5lGOP4kRHquEcU3xm0TJBkNyJS3h4HNtA+c7/H7Ehy2YLbk+se2Qr0VIZNFcaK/QpEJpPOPkFudCPJ1c=
+******************************************************************************************
+Usar Chave Pública e senha para autenticação
+System, Advanced, Secure Shell
+SSHd Key Only: RequireBoth Password and Public Key
+******************************************************************************************
+Verificando os Logs do SSH
+Status/System Logs/System/General
+Clicar em +
+Advanced Log Filter, Process, SSHD
+******************************************************************************************
+Configuração de CA (Autoridade Certificadora)
+System/Certificate Manager/CAs
+Add
+Descriptive name: braga
+Method: Create an internal Certificate Authority
+Trust Store: Add this Certificate Authority to the Operating System Trust Store
+Key type: RSA
+Length: 2048
+Digest Algorithm: sha256
+Lifetime (days): 3650
+Common Name: braga-ca
+Country Code: BR
+State or Province: Sao Paulo
+City: Sao Paulo
+Organization: Braga
+Organizational Unit Firewall: pfSense da Matriz
+******************************************************************************************
+Exportando a CA
+System/Certificate Manager/CAs
+Export CAs
+******************************************************************************************
+Instalar CA no Firefox
+about:preferences#privacy
+Certificados
+Ver Certificados
+Autoridades
+Importar
+Confiar nesta CA para identificar sites
+Confiar nesta CA para identificar usuários de e-mail
+******************************************************************************************
+Instalar CA no Chrome
+chrome://settings/certificates
+Autoridade
+Importar
+Confiar neste certificado para identificar sites 
+Confiar neste certificado para identificar usuários de e-mail
+Confiar neste certificado para identificar fabricantes de software
+<OK>
+Digite a URL: chrome://restart
+******************************************************************************************
+Gerando o certificado
+System/Certificate Manager/Certificates/Edit
+Descriptive name: certificado do pfSense
+Common Name: fwfagner.braga.intra
+Certificate Type: Server Certificate
+Alternative Names:
+IP address: 172.16.10.254
+FQDN or Hostname: fwfagner
+FQDN or Hostname: fwfagner.braga.intra
+******************************************************************************************
+System/Advanced/Admin Access
+SSL/TLS Certificate: certificado do pfSense
+******************************************************************************************
+
+
+
+
+
+
+
+
+
