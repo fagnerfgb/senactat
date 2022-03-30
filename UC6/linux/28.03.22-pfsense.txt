@@ -91,7 +91,8 @@ Confiar neste certificado para identificar fabricantes de software
 Digite a URL: chrome://restart
 ******************************************************************************************
 Gerando o certificado
-System/Certificate Manager/Certificates/Edit
+System/Certificate Manager/Certificates
+Add
 Descriptive name: certificado do pfSense
 Common Name: fwfagner.braga.intra
 Certificate Type: Server Certificate
