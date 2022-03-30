@@ -66,4 +66,5 @@ Depois de realizar o procedimento, irá ocorrer a sincronização dos dados em t
 do conjunto
 Enquanto falta um disco no conjunto, o equipamento utilizará recursos de memória, processamento,
 leitura e escrita do disco para abrir e gravar dados
+******************************************************************************************
 
