@@ -48,5 +48,8 @@ Guia Remoto
     Desabilitar Assistência Remota
     Marcar Permitir conexões remotas com este computador
 ******************************************************************************************
-Nome do Computador: 
+Nome do Computador 1:PC10
+Nome do Computador 2:PC110
+******************************************************************************************
+ 
 
