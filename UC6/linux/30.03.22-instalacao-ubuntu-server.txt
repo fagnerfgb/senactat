@@ -4,13 +4,11 @@
 #Versão: 0.01
 ******************************************************************************************
 Webserver-Ubuntu-20.04
-RAM: 4GB
+RAM: 2GB
 HD SO: 50GB - Dinamicamente Alocado - VDI
 ******************************************************************************************
 Guia Geral
 Avançado
-Área de Transferência Compartilhada: Bi-direcional
-Arrastar e Soltar: Bi-direcional
 ******************************************************************************************
 Guia Sistema
 Placa-Mãe:
@@ -47,10 +45,10 @@ Network connections
 	enp0s3 eth 
 		Edit IPv4
 		IPv4 Method: Manual
-			Subnet: 172.16.1.0/24
-	 		Address: 172.16.1.20
-	 		Gateway: 172.16.1.254
-	 		Name servers: 172.16.1.254
+			Subnet: 172.16.10.0/24
+	 		Address: 172.16.10.20
+	 		Gateway: 172.16.10.254
+	 		Name servers: 172.16.10.254
 	 		Search domains: braga.intra
 Configure proxy
 	<Done>
@@ -74,8 +72,8 @@ Confirm destructive action
 	<Continue>
 Profile setup
 	Your name: Fagner Geraldes Braga
-	Your server's name: bragaspo01ws01
-	Pick a username: fagner
+	Your server's name: wsfagner
+	Pick a username: senac
 	Choose a passwords: 123@senac
 	Confirm your passwords: 123@senac
 SSH Setup

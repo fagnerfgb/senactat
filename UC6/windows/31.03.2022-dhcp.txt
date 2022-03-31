@@ -1,0 +1,48 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 31/03/2022
+#Data de atualização: 31/03/2022
+#Versão: 0.01
+******************************************************************************************
+Instalação do DHCP
+SRVFAGNER
+******************************************************************************************
+Em Gerenciador do Servidor, clique em Gerenciar e depois em Adicionar Funções e Recursos
+Clique em Próximo
+Selecione "Instalação baseada em função ou recurso" e clique em Próximo
+Selecione "Selecionar um servidor no pool de servidor" e clique em Próximo
+Marque a função "Servidor DHCP" e clique em Próximo
+Clique no botão "Adicionar Recursos"
+Clique em Próximo
+Clique em Próximo
+Clique em Próximo
+Clique em Instalar
+Finalizada a instalação, clique em Configuração de DHCP concluída
+Clique em Próximo
+Marque a opção "Usar as seguintes credenciais do usuário"
+Em Nome de usuário digite BRAGA\Administrador e depois clique em Confirmar
+Clique em Fechar
+******************************************************************************************
+Configurando o DHCP
+Em Ferramentas Administrativas, abra o DHCP
+Clique com o botão direito em IPv4 e selecione a opção Novo escopo
+Clique em avançar
+Nome: Rede-Cabeada
+Descrição: DHCP para estações de trabalho conectadas via cabo de rede
+Clique em avançar
+Endereço IP Inicial: 192.168.10.30
+Endereço IP Final: 192.168.10.200
+Clique em avançar
+Clique em avançar
+Duração da concessão: 30 dias
+Clique em avançar
+Selecione a opção "Sim, desejo configurar essas opções agora"
+Clique em avançar
+Roteador: 192.168.10.254
+Clique em Adicionar
+Clique em avançar
+Domínio Pai: BRAGA.INTRA
+Clique em avançar
+Clique em avançar
+Selecione a opção "Sim, desejo ativar este escopo agora"
+Clique em avançar
+Clique em Concluir
