@@ -111,12 +111,8 @@ ssh senac@172.16.10.20
 ******************************************************************************************
 # Configuração do Locale (Localidade) do Sistema Operacional Ubuntu Server
 sudo localectl
-sudo locale-gen pt_BR.UTF-8
-sudo localectl set-locale LANG=pt_BR.UTF-8
-sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 # Configuração do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
 sudo timedatectl
-#sudo systemctl status systemd-timesyncd.service
 sudo timedatectl set-timezone "America/Sao_Paulo"
 # OBSERVAÇÃO IMPORTANTE: geralmente mudar para o Time Zone de America/Sao_Paulo a hora
 # fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
