@@ -53,6 +53,17 @@ Nome do Computador 2:PC110
 ******************************************************************************************
 Após instalar e configurar o serviço do DHCP no Windows Server, ingressar os computadores 
 no domínio
+Pressione as teclas Windows + Pause/Break
+Configurações Avançadas do Sistema
+Nome do computador
+Alterar
+Membro de domínio: braga.intra
+Usuário: administrator
+Senha: 123@senac
+Reiniciar o computador
+Fazer logon com o usuário do domínio
+Usuário: Fagner.Braga
+Senha: 123@senac
 ******************************************************************************************
 
  
