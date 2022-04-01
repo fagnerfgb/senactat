@@ -26,18 +26,22 @@ Configurando o DHCP
 Em Ferramentas Administrativas, abra o DHCP
 Clique com o botão direito em IPv4 e selecione a opção Novo escopo
 Clique em avançar
-Nome: Rede-Cabeada
-Descrição: DHCP para estações de trabalho conectadas via cabo de rede
+Nome: BRAGA.INTRA
+Descrição: DHCP para estações de trabalho conectadas na rede corporativa BRAGA.INTRA
 Clique em avançar
-Endereço IP Inicial: 192.168.10.30
-Endereço IP Final: 192.168.10.200
+Endereço IP Inicial: 172.16.10.100
+Endereço IP Final: 172.16.10.200
+Comprimento: 24
+Máscara de Sub-Rede: 255.255.255.0
 Clique em avançar
+Exclusão
+172.16.10.150	172.16.10.154
 Clique em avançar
-Duração da concessão: 30 dias
+Duração da concessão: 2 horas
 Clique em avançar
 Selecione a opção "Sim, desejo configurar essas opções agora"
 Clique em avançar
-Roteador: 192.168.10.254
+Roteador: 172.16.10.254
 Clique em Adicionar
 Clique em avançar
 Domínio Pai: BRAGA.INTRA

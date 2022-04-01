@@ -51,5 +51,9 @@ Guia Remoto
 Nome do Computador 1:PC10
 Nome do Computador 2:PC110
 ******************************************************************************************
+Após instalar e configurar o serviço do DHCP no Windows Server, ingressar os computadores 
+no domínio
+******************************************************************************************
+
  
 
