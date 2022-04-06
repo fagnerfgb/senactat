@@ -3,3 +3,46 @@
 #Data de atualização: 05/04/2022
 #Versão: 0.01
 ******************************************************************************************
+Proibindo usuário de acessar o domínio por horário
+Pressionar as teclas Winkey + R e digitar dsa.msc e pressionar a tecla OK
+Selecionar a OU "BRAGA", depois a OU "USERS", depois a OU "Financeiro"
+Clicar com o botão direito no usuário "Karen Silva" e clicar em Propriedades
+Clicar na guia Conta e depois em Horário de Logon
+Permitir que o usuário só possa efetuar logon das 22:00 às 06:00 de segunda a sexta
+******************************************************************************************
+Proibindo usuário de acessar o domínio por horário
+Pressionar as teclas Winkey + R e digitar dsa.msc e pressionar a tecla OK
+Selecionar a OU "BRAGA", depois a OU "USERS", depois a OU "Financeiro"
+Clicar com o botão direito no usuário "Felipe Cachuf" e clicar em Propriedades
+Clicar na guia Conta e depois em Fazer logon em...
+Permitir que o usuário só possa efetuar logon das 22:00 às 06:00 de segunda a sexta
+Clique em Os seguintes computadores
+Digite PC100 e clique em Adicionar e depois clique em OK
+******************************************************************************************
+GPO Bloquear CMD
+Pressionar as teclas Winkey + R e digitar gpmc.msc e pressionar a tecla OK
+Selecionar a OU "BRAGA", depois a OU "USERS"
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-BLOQUEIA-CMD e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Policies/Administratives Templates/System/
+Dê um duplo clique em Prevent access to the command prompt e selecione Enabled e clique em OK
+******************************************************************************************
+GPO Bloquear Regedit
+Pressionar as teclas Winkey + R e digitar gpmc.msc e pressionar a tecla OK
+Selecionar a OU "BRAGA", depois a OU "USERS"
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-BLOQUEIA-REGEDIT e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Policies/Administratives Templates/System/
+Dê um duplo clique em Prevent access to registry editing tools e selecione Enabled e clique em OK
+******************************************************************************************
+Forçar aplicação das Políticas
+Pressionar as teclas Winkey + R e digitar cmd e pressionar a tecla OK
+Digitar gpupdate /force e pressionar a tecla Enter
