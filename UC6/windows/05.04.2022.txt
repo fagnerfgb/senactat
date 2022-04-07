@@ -46,3 +46,8 @@ Dê um duplo clique em Prevent access to registry editing tools e selecione Enab
 Forçar aplicação das Políticas
 Pressionar as teclas Winkey + R e digitar cmd e pressionar a tecla OK
 Digitar gpupdate /force e pressionar a tecla Enter
+******************************************************************************************
+Habilitando a lixeira no Active Directory
+Em Gerenciamento do Servidor, Clique em Ferramentas e depois em Central Administrativa do Adicionar
+Clique com o botão direito em braga (local) e clique em Habilitar Lixeira
+******************************************************************************************
