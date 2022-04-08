@@ -1,0 +1,204 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 07/04/2022
+#Data de atualização: 07/04/2022
+#Versão: 0.01
+******************************************************************************************
+Na unidade F:\ clique com o botão direito em Propriedades
+Clique na aba Segurança e depois em Editar
+Remova o grupo Usuários e clique em OK
+Crie os diretórios
+Financeiro
+Marketing
+Publica
+RH
+Tecnologia
+Vendas
+******************************************************************************************
+Atribuindo Permissões de Compartilhamento em todas as pastas
+Clique com o botão direito na pasta a ser compartilhada e clique na aba Compartilhamento
+Clique em Compartilhamento Avançado
+Marque a opção compartilhar esta pasta e clique em Permissões
+Remova o grupos todos e adicione o grupo Usuários do domínio
+Marque a opção Alterar e clique em OK
+******************************************************************************************
+Atribuindo Permissões de Segurança
+Clique com o botão direito na pasta Financeiro e clique em Propriedades
+Clique na aba Segurança e clique em Editar
+Clique em Adicionar e adicione os grupos abaixo
+G-BRAGA-FINANCEIRO-R
+G-BRAGA-FINANCEIRO-W
+No grupo G-BRAGA-FINANCEIRO-W selecione a opção Modificar e clique em OK
+******************************************************************************************
+Clique com o botão direito na pasta Marketing e clique em Propriedades
+Clique na aba Segurança e clique em Editar
+Clique em Adicionar e adicione os grupos abaixo
+G-BRAGA-MARKETING-R
+G-BRAGA-MARKETING-W
+No grupo G-BRAGA-MARKETING-W selecione a opção Modificar e clique em OK
+******************************************************************************************
+Clique com o botão direito na pasta RH e clique em Propriedades
+Clique na aba Segurança e clique em Editar
+Clique em Adicionar e adicione os grupos abaixo
+G-BRAGA-RH-R
+G-BRAGA-RH-W
+No grupo G-BRAGA-RH-W selecione a opção Modificar e clique em OK
+******************************************************************************************
+Clique com o botão direito na pasta Tecnologia e clique em Propriedades
+Clique na aba Segurança e clique em Editar
+Clique em Adicionar e adicione os grupos abaixo
+G-BRAGA-TI-R
+G-BRAGA-TI-W
+No grupo G-BRAGA-TI-W selecione a opção Modificar e clique em OK
+******************************************************************************************
+Clique com o botão direito na pasta Vendas e clique em Propriedades
+Clique na aba Segurança e clique em Editar
+Clique em Adicionar e adicione os grupos abaixo
+G-BRAGA-VENDAS-R
+G-BRAGA-VENDAS-W
+No grupo G-BRAGA-VENDAS-W selecione a opção Modificar e clique em OK
+******************************************************************************************
+Pressione as teclas Winkey + R e digite gpmc.msc
+Clique em Floresta, Domínios, Braga, USERS
+Clique com o botão direito do mouse em Financeiro e selecione
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-MAPEIA-PASTAS-FINANCEIRO e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\financeiro
+Reconectar
+Rotular como: FINANCEIRO
+Use: O
+OK
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\publica
+Reconectar
+Rotular como: PUB
+Use: P
+OK
+******************************************************************************************
+Clique em Floresta, Domínios, Braga, USERS
+Clique com o botão direito do mouse em Marketing e selecione
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-MAPEIA-PASTAS-MARKETING e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\Marketing
+Reconectar
+Rotular como: Marketing
+Use: O
+OK
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\publica
+Reconectar
+Rotular como: PUB
+Use: P
+OK
+******************************************************************************************
+Clique em Floresta, Domínios, Braga, USERS
+Clique com o botão direito do mouse em RH e selecione
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-MAPEIA-PASTAS-RH e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\RH
+Reconectar
+Rotular como: RH
+Use: O
+OK
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\publica
+Reconectar
+Rotular como: PUB
+Use: P
+OK
+******************************************************************************************
+Clique em Floresta, Domínios, Braga, USERS
+Clique com o botão direito do mouse em Tecnologia e selecione
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-MAPEIA-PASTAS-TECNOLOGIA e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\Tecnologia
+Reconectar
+Rotular como: Tecnologia
+Use: O
+OK
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\publica
+Reconectar
+Rotular como: PUB
+Use: P
+OK
+******************************************************************************************
+Clique em Floresta, Domínios, Braga, USERS
+Clique com o botão direito do mouse em Tecnologia e selecione
+Clique com o botão direito em "Criar uma GPO neste domínio e fornecer um link para ele aqui...
+Nome da GPO: GPO-USERS-MAPEIA-PASTAS-VENDAS e clique em OK
+Clique na GPO e depois clique na aba Detalhes
+Em status da GPO, selecione Computer configuration settings disabled
+Clique com o botão direito na GPO e depois clique em Edit...
+Vá até o caminho abaixo
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\Vendas
+Reconectar
+Rotular como: Vendas
+Use: O
+OK
+User Configuration/Preferences/Windows Settings/Drive Maps/New/Mapped Drive
+Action: Update
+Local: \\srvfagner\publica
+Reconectar
+Rotular como: PUB
+Use: P
+OK
+******************************************************************************************
+Script de Logon (Leandro)
+net use P: \\srvfagner\publica
+net use O: \\srvfagner\Financeiro
+Salvar como financeiro.bat
+Local: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+******************************************************************************************
+net use P: \\srvfagner\publica
+net use O: \\srvfagner\Marketing
+Salvar como marketing.bat
+Local: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+******************************************************************************************
+net use P: \\srvfagner\publica
+net use O: \\srvfagner\Vendas
+Salvar como vendas.bat
+Local: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+******************************************************************************************
+net use P: \\srvfagner\publica
+net use O: \\srvfagner\Tecnologia
+Salvar como tecnologia.bat
+Local: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+******************************************************************************************
+net use P: \\srvfagner\publica
+net use O: \\srvfagner\RH
+Salvar como rh.bat
+Local: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+******************************************************************************************
+Pressione as teclas Winkey + R e digite dsa.msc
+Selecione um usuário, clique com o botão direito em Propriedades
+Clique na aba Perfil e no campo script de logon, insira o script desejado

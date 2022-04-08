@@ -9,7 +9,7 @@ Criar Usuário
 Usuário: administrator
 Senha: 123@senac
 ******************************************************************************************
-Renomear computador: SRVFAGNER
+Renomear computador: srvfagner
 ******************************************************************************************
 Criação de NIC Team
 Nome: NICFAGNER
