@@ -133,3 +133,43 @@ net use R: \\SRVFAGNER\Pedidos
 net use S: \\SRVFAGNER\PublicaVila
 ******************************************************************************************
 No AD, associar os devidos scripts aos devidos usuários
+******************************************************************************************
+Criando Pasta Base
+Na unidade F:\, crie o diretório HOME
+******************************************************************************************
+Atribuindo Permissões de Compartilhamento na pasta
+Nome do Compartilhamento: HOME$
+Dar permissão de Alteração ao grupo Usuários do domínio
+******************************************************************************************
+Atribuindo Permissões de Segurança
+Clique com o botão direito do mouse no diretório Home e clique em Propriedades
+Clique na aba Segurança
+Clique em Avançado
+Na aba Permissão, clique em ADD
+Selecione usuários do domínio
+Em aplicar em: Somente esta pasta
+Permissões básicas: Modificar
+OK
+******************************************************************************************
+No AD, vá até a OU braga.intra/BRAGA/USERS/VILA e selecione todos os usuários
+Clique com o botão direito e selecione Propriedades
+Clique na aba perfil
+Clique em Pasta Base
+Selecione Conectar, escolha a unidade Z:
+Digite \\srvfagner\home$\%username%
+Clique em OK
+******************************************************************************************
+Habilitar Enumeração
+Abra o Gerenciador do Servidor
+Clique em Serviços de Armazenamento e Arquivos
+Clique em Compartilhamentos
+Selecione o compartilhamento HOME$ e clique com o botão direito do mouse em Propriedades
+Clique em Configurações
+Selecione a opção Habilitar enumeração baseada em acesso
+******************************************************************************************
+
+
+
+
+
+
