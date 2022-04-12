@@ -1,0 +1,135 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 12/04/2022
+#Data de atualização: 12/04/2022
+#Versão: 0.01
+******************************************************************************************
+Na unidade F:\, crie o diretório VILA
+Dentro do diretório VILA, crie os diretórios abaixo:
+Administrativo
+Atendentes
+Compras
+Estoque
+Financeiro
+Gerentes
+Pedidos
+Promocao
+PublicaVila
+RH
+Vendas
+******************************************************************************************
+Abra o AD
+Crie os grupos abaixo na OU: braga.intra/BRAGA/GROUPS
+G-VILA-ADMINISTRATIVO
+G-VILA-ATENDENTES
+G-VILA-COMPRAS
+G-VILA-GERENTES
+G-VILA-VENDAS
+******************************************************************************************
+Adicione os usuários abaixo ao grupo G-VILA-VENDAS
+Senhor Barriga
+Chaves Bolanos
+Chiquinha Madruga
+Dona Clotilde
+Dona Florinda
+******************************************************************************************
+Adicione os usuários abaixo ao grupo G-VILA-ATENDENTES
+Jaiminho Carteiro
+Kiko Vilagran
+******************************************************************************************
+Adicione os usuários abaixo ao grupo G-VILA-COMPRAS
+Professor Girafales
+Godines Bolanos
+******************************************************************************************
+Adicione os usuários abaixo ao grupo G-VILA-GERENTES
+Senhor Madruga
+******************************************************************************************
+Adicione os usuários abaixo ao grupo G-VILA-ADMINISTRATIVO
+Nhonho Barriga
+Pops Mesa
+******************************************************************************************
+Atribuindo Permissões de Compartilhamento para todas as pastas
+Dar permissão de Alteração ao grupo Usuários do domínio
+******************************************************************************************
+Atribuindo Permissões de Segurança
+Pasta: Administrativo
+Grupo: G-VILA-ADMINISTRATIVO
+Permissão: Modificar
+
+Pasta: Atendentes
+Grupo: G-VILA-ATENDENTES
+Permissão: Modificar
+
+Pasta: Compras
+Grupo: G-VILA-COMPRAS
+Permissão: Modificar
+
+Pasta: Gerentes
+Grupo: G-VILA-GERENTES
+Permissão: Modificar
+
+Pasta: Vendas
+Grupo: G-VILA-VENDAS
+Permissão: Modificar
+
+Pasta: Estoque
+Grupo: G-VILA-COMPRAS, G-VILA-VENDAS, G-VILA-GERENTES, G-VILA-ATENDENTES
+Permissão: Modificar, Modificar, Modificar, Leitura e Execução
+
+Pasta: Promocao
+Grupo: G-VILA-VENDAS, G-VILA-GERENTES
+Permissão: Leitura e Execução, Modificar
+
+Pasta: Financeiro
+Grupo: G-VILA-ADMINISTRATIVO, G-VILA-GERENTES
+Permissão: Modificar, Modificar
+
+Pasta: Pedidos
+Grupo: G-VILA-COMPRAS, G-VILA-VENDAS, G-VILA-GERENTES, G-VILA-ADMINISTRATIVO
+Permissão: Modificar, Leitura e Execução, Modificar, Leitura e Execução
+
+Pasta: RH
+Grupo: G-VILA-GERENTES, G-VILA-ADMINISTRATIVO
+Permissão: Modificar, Modificar
+
+Pasta: PublicaVila
+Grupo: Usuários do domínio
+Permissão: Modificar
+******************************************************************************************
+Criando os scripts de logon
+Local para salvar: C:\Windows\SYSVOL\sysvol\braga.intra\scripts
+
+administrativo.bat
+net use O: \\SRVFAGNER\Administrativo
+net use P: \\SRVFAGNER\Financeiro2
+net use Q: \\SRVFAGNER\Pedidos
+net use R: \\SRVFAGNER\RH2
+net use S: \\SRVFAGNER\PublicaVila
+
+atendentes.bat
+net use O: \\SRVFAGNER\Atendentes
+net use P: \\SRVFAGNER\Estoque
+net use Q: \\SRVFAGNER\PublicaVila
+
+compras.bat
+net use O: \\SRVFAGNER\Compras
+net use P: \\SRVFAGNER\Estoque
+net use Q: \\SRVFAGNER\Pedidos
+net use R: \\SRVFAGNER\PublicaVila
+
+gerentes.bat
+net use O: \\SRVFAGNER\Gerentes
+net use P: \\SRVFAGNER\Estoque
+net use Q: \\SRVFAGNER\Promocao
+net use R: \\SRVFAGNER\Financeiro2
+net use S: \\SRVFAGNER\Pedidos
+net use T: \\SRVFAGNER\RH
+net use U: \\SRVFAGNER\PublicaVila
+
+vendas.bat
+net use O: \\SRVFAGNER\Vendas2
+net use P: \\SRVFAGNER\Estoque
+net use Q: \\SRVFAGNER\Promocao
+net use R: \\SRVFAGNER\Pedidos
+net use S: \\SRVFAGNER\PublicaVila
+******************************************************************************************
+No AD, associar os devidos scripts aos devidos usuários
