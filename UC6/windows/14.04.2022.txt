@@ -1,0 +1,163 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 14/04/2022
+#Data de atualização: 14/04/2022
+#Versão: 0.01
+******************************************************************************************
+GPOS
+******************************************************************************************
+GPO-COMP-PERMITE-PING-FIREWALL-WINDOWS
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/ Windows Firewall with Advanced Security
+Inbound Rules, New Rule
+Custom, Next
+All Programs, Next
+Protcol type: ICMPv4, Next
+Next
+Allow the connection, Next
+Domain, Next
+Name: PERMITE-PING
+Description: PERMITE-PING, Finish
+******************************************************************************************
+GPO-USERS-BLOQUEIA-PAINEL-DE-CONTROLE
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Control Panel
+Prohibit access to Control Panel and PC settings: Enabled
+******************************************************************************************
+Default Domain Policy
+Computer Configuration/Policies/Windows Settings/Security Settings/Account Policies/Password Policy
+Enforce password history 4 passwords remembered 
+Maximum password age 90 days 
+Minimum password age 7 days 
+Minimum password length 8 characters 
+Password must meet complexity requirements Enabled 
+Store passwords using reversible encryption Disabled
+******************************************************************************************
+Script para criação de pasta e copia de papel de parede para a estação de trabalho
+@echo off
+
+:: DEFINA O NOME DO DOMINIO E CAMINHO DE AUTOMACAO
+set DeployServer=\\braga.intra\netlogon\braga
+
+REM *********************************************************************
+REM VERIFICA SE O SO É 32BITS OU 64 BITS
+
+IF NOT "%ProgramFiles(x86)%"=="" (goto X64) else (goto X86)
+
+:X64
+
+:: VERIFICA SE PASTA TI EXISTE
+
+if exist "C:\TI" GOTO FASE2
+if not exist "C:\TI" (
+cd\
+mkdir TI
+GOTO FASE2
+)
+
+
+:X86
+
+if exist "C:\TI" GOTO FASE2
+if not exist "C:\TI" (
+cd\
+mkdir TI
+GOTO FASE2
+)
+
+exit
+
+:FASE2
+:: VERIFICA PAPEL DE PAREDE
+
+if exist "C:\TI\wallpaper.jpg" GOTO SAIR
+if not exist "C:\TI\wallpaper.jpg" (
+copy "%DeployServer%\wallpaper.jpg" "C:\TI" /y
+)
+
+:SAIR
+exit
+******************************************************************************************
+Criar o diretório braga no caminho \\braga.intra\netlogon
+Copiar os arquivos TI.cmd e wallpaper.jpg para o diretório \\braga.intra\netlogon\braga
+******************************************************************************************
+GPO-COMP-AUTOMACAO
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Startup
+Name: TI.cmd 
+******************************************************************************************
+GPO-USERS-PAPEL-DE-PAREDE
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates
+Desktop/Desktop
+Desktop Wallpaper: Enabled  
+Wallpaper Name: C:\TI\wallpaper.jpg 
+Wallpaper Style: Stretch 
+Enable Active Desktop Enabled
+******************************************************************************************
+GPO para Configuração de NTP nos Clientes
+WMI Filters, New
+Name: LOCALIZA-PDC
+ADD
+Query: Select * from Win32_ComputerSystem where DomainRole = 5
+OK
+******************************************************************************************
+GPO-COMP-CLIENTE-NTP
+Details: This GPO is linked to the following WMI filter:
+LOCALIZA-PDC
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Windows Time Service/Time Providers
+Configure Windows NTP Client: Enabled  
+NtpServer a.st1.ntp.br,0x9 b.st1.ntp.br,0x9 c.st1.ntp.br,0x9 
+Type NT5DS 
+CrossSiteSyncFlags 2 
+ResolvePeerBackoffMinutes 15 
+ResolvePeerBackoffMaxTimes 7 
+SpecialPollInterval 1024 
+EventLogFlags 0 
+ 
+Enable Windows NTP Client: Enabled
+******************************************************************************************
+GPO-COMP-BLOQUEIA-PC
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
+Interactive logon: Machine inactivity limit 300 seconds 
+******************************************************************************************
+GPO-COMP-CERTIFICADOS
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Public Key Policies
+Certificate Services Client - Auto-Enrollment Settings
+Configuration Model: Enabled 
+Renew expired certificates, update pending certificates, and remove revoked certificates
+Update certificates that use certificate templates
+ 
+Trusted Root Certification Authorities
+Import
+Next
+File name: \\braga.intra\netlogon\braga\braga-ca.cert
+******************************************************************************************
+GPO-COMP-BLOQUEIA-GPO-LOCAL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Group Policy
+Turn off Local Group Policy Objects processing: Enabled  
+******************************************************************************************
+GPO-USERS-REMOVER-DESLIGAR-RDS
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Start Menu and Taskbar
+Remove and prevent access to the Shutdown, Restart, Sleep, and Hibernate commands: Enabled
+******************************************************************************************
+GPO-USERS-MAPEIA-IMPRESSORA
+GPO Status: Computer User configuration settings disabled
+User Configuration/Preferences/Control Panel Settings/Printers
+New, Shared Printer
+Action: Update
+Share path: \\SRVFAGNER\IMP-FIN-001
+IMP-FIN-001 (Order: 1)hide
+Set this printer as default printer True
+******************************************************************************************
+
+
+
+ 
+
+
+
