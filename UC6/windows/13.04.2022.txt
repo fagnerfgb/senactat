@@ -1,0 +1,113 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/04/2022
+#Data de atualização: 13/04/2022
+#Versão: 0.01
+******************************************************************************************
+Verificar se as configurações da placa de rede estão corretas:
+IP: 172.16.10.10
+Máscara de subrede: 255.255.255.0
+Gateway padrão: 172.16.10.254
+DNS: 172.16.10.10
+******************************************************************************************
+Criar Zona DNS Inversa
+Zona de Pesquisa Inversa  
+    Zona primária  
+    Armazenar a zona no AD  
+Para todos os servidores DNS sendo executados em controladores de domínio neste domínio: BRAGA.INTRA  
+Zona de Pesquisa Inversa IPv4  
+172.16.10
+Permitir apenas atualizações dinâmicas seguras  
+***
+Zona de Pesquisa Direta  
+BRAGA.INTRA 
+    SRVFAGNER  
+        Atualizar o registro de ponteiro   associado (PTR)  
+******************************************************************************************
+Criando registros DNS
+Tipo: A
+Nome: fwfagner
+Dado: 172.16.10.254
+
+Tipo: A
+Nome: wsfagner
+Dado: 172.16.10.20
+
+Tipo: CNAME
+Nome: ftp
+Dado: wsfagner.braga.intra.
+
+Tipo: CNAME
+Nome: fw
+Dado: fwfagner.braga.intra.
+
+Tipo: CNAME
+Nome: ssh
+Dado: wsfagner.braga.intra.
+
+Tipo: CNAME
+Nome: wp
+Dado: wsfagner.braga.intra.
+
+Tipo: CNAME
+Nome: www
+Dado: wsfagner.braga.intra.
+******************************************************************************************
+DHCP
+Opções de Escopo
+Nome da opção: 044 WINS/NBNS Servers
+
+Server name: 172.16.10.10
+Nome da opção: 046 WINS/NBT Node Type
+Byte: 0x8
+******************************************************************************************
+No PowerShell no Windows Server
+nslookup www
+nslookup braga.intra
+nslookup ftp
+nslookup ssh
+nslookup google.com
+******************************************************************************************
+No Linux Mint
+Abrir o navegador e digitar http://www.braga.intra
+Deverá abrir a página do Apache
+
+Acessar o wsfagner pelo ssh
+ssh senac@ssh.braga.intra
+******************************************************************************************
+No wsfagner
+Alterando o endereço do DNS no servidor wsfagner
+sudo vim /etc/netplan/00-installer-config.yaml
+Comentar a linha 39 e descomentar a linha 38
+# Configuração dos Endereços de DNS Server IPv4 do Ubuntu Server
+ 36       nameservers:
+ 37         addresses:
+ 38         - 172.16.10.10
+ 39         #- 172.16.10.254
+******************************************************************************************
+No wsfagner
+sudo netplan --debug apply
+Verificar se o DNS aponta para o srvfagner (172.16.10.10)
+******************************************************************************************
+No wsfagner
+sudo systemd-resolve --status
+Verificar se o DNS aponta para o srvfagner (172.16.10.10)
+******************************************************************************************
+No wsfagner
+Testar a conexão local do MySQL
+sudo -i
+mysql -u root -p
+
+******************************************************************************************
+No Linux Mint
+Testar a conexão remota ao MySQL
+sudo apt install mysql-client -y
+mysql -u root -p -h 172.16.10.20
+******************************************************************************************
+
+
+
+
+
+
+
+

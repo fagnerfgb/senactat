@@ -1,0 +1,22 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 25/03/2022
+#Data de atualização: 25/03/2022
+#Versão: 0.01
+******************************************************************************************
+Instalação no MySQL Workbench no Mint
+sudo rm /etc/apt/preferences.d/nosnap.pref
+sudo apt update
+sudo apt install snapd
+Reinicie o computador
+******************************************************************************************
+sudo snap install mysql-workbench-community
+******************************************************************************************
+sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
+******************************************************************************************
+Abrir o MySQL Workbench
+Nome da Conexão: wsfagner
+IP: 172.16.10.20
+Porta: 3306
+Usuário: root
+Senha: 123@senac
+
