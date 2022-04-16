@@ -1,0 +1,10 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 16/04/2022
+#Data de atualização: 16/04/2022
+#Versão: 0.01
+******************************************************************************************
+Alterar Apache para Codificação UTF-8
+vim /etc/apache2/conf-available/charset.conf
+Adicionar a linha abaixo:
+
+AddDefaultCharset UTF-8
