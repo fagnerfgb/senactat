@@ -5,19 +5,6 @@
 ******************************************************************************************
 GPOS
 ******************************************************************************************
-GPO-COMP-PERMITE-PING-FIREWALL-WINDOWS
-GPO Status: User configuration settings disabled
-Computer Configuration/Policies/Windows Settings/Security Settings/ Windows Firewall with Advanced Security
-Inbound Rules, New Rule
-Custom, Next
-All Programs, Next
-Protcol type: ICMPv4, Next
-Next
-Allow the connection, Next
-Domain, Next
-Name: PERMITE-PING
-Description: PERMITE-PING, Finish
-******************************************************************************************
 GPO-USERS-BLOQUEIA-PAINEL-DE-CONTROLE
 GPO Status: Computer User configuration settings disabled
 User Configuration/Policies/Administrative Templates/Control Panel
