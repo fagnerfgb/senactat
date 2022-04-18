@@ -1,0 +1,32 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 17/04/2022
+#Data de atualização: 17/04/2022
+#Versão: 0.01
+******************************************************************************************
+Criar regras de NAT no firewall para as portas 21 e 22
+Liberar a rede 10.26.44.0/24 para acesso ao FTP no arquivo /etc/hosts.allow
+******************************************************************************************
+Conectando ao FTP
+
+Acesso Interno
+ftp
+open ftp
+Usuário: ftpuser
+Senha: 123@senac
+******************************************************************************************
+Acesso Externo
+ftp
+open 10.26.44.28
+Usuário: ftpuser
+Senha: 123@senac
+******************************************************************************************
+Subindo arquivos ao FTP
+put nome-do-arquivo.extensão
+******************************************************************************************
+Baixando arquivos do FTP
+get nome-do-arquivo.extensão
+
+
+
+
+
