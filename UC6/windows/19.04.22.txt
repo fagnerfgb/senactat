@@ -46,4 +46,32 @@ Derive properties from this quota template (recommended):
 20MB
 Create
 ******************************************************************************************
+Aplicar Triagem
+File Screening Management
+File Groups
+Create File Group
+File group name: braga
+Files to include:
+*.bat
+*.cmd
+*.eml
+*.exe
+*.mp3
+*.mp4
+*.rar
+*.zip
+******************************************************************************************
+File Screen Templates
+Create File Screen Template
+Template name: Braga
+Active screening: Do not allow users to save unauthorized Files
+File groups: braga
+OK
+******************************************************************************************
+File Screens
+Create File Screens
+File Screen path: F:\VILA\PublicaVila
+Derive properties from this file screen template (recommended): Braga
+Create
+******************************************************************************************
 
