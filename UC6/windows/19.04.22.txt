@@ -1,0 +1,49 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 19/04/2022
+#Data de atualização: 19/04/2022
+#Versão: 0.01
+******************************************************************************************
+Triagem e Cotas em Disco
+******************************************************************************************
+Abra o Server Manager
+Clique em Manage
+Add Roles and Features
+Next
+Next
+Next
+File and Storage Services
+File and iSCSI Services
+File Server Resource Manager
+Next
+Next
+Install
+******************************************************************************************
+Abra o Server Manager
+Clique em Tools
+File Server Resource Manager
+Quota Management
+Quota Templates
+Create Quota Template
+Template Name: 20MB
+Description: Cota de 20MB
+Limit: 20MB
+******************************************************************************************
+Cota em Pasta
+Quotas
+Create Quota
+Quota path: F:\VILA\PublicaVila
+Create quota on path
+Derive properties from this quota template (recommended):
+20MB
+Create
+******************************************************************************************
+Aplicar Cota na Pasta Base
+Quotas
+Create Quota
+Quota path: F:\HOME
+Auto apply template and create quotas on existing and new subfolders
+Derive properties from this quota template (recommended):
+20MB
+Create
+******************************************************************************************
+
