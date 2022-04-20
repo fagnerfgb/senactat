@@ -74,4 +74,13 @@ File Screen path: F:\VILA\PublicaVila
 Derive properties from this file screen template (recommended): Braga
 Create
 ******************************************************************************************
+GPO: GPO-USERS-BLOQUEIA-UNIDADE-C
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Windows Components/File Explorer
+Hide these specified drives in My Computer: Enabled  
+Pick one of the following combinations: Restrict A, B, C and D drives only 
+ 
+Prevent access to drives from My Computer: Enabled  
+Pick one of the following combinations: Restrict A, B, C and D drives only 
+ 
 
