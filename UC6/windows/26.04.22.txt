@@ -1,0 +1,114 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 26/04/2022
+#Data de atualização: 26/04/2022
+#Versão: 0.01
+******************************************************************************************
+Adicionando e Compartilhando Impressora 
+Abrir o Server Manager
+Clicar em Tools e depois em Print Management
+Clicar em Print Servers
+Clique com o botão direito do mouse em Printers e selecione Add Printer
+Add a new printer using an existing port: LPT1
+Next
+Use an existing printer driver on the computer: Lexmark Universal v2
+Next
+Printer Name: IMP-TI-001
+Share this printer
+Share Name: IMP-TI-001
+Location: IMPRESSORA DO DEPARTAMENTO DE TI
+Next
+Next
+Finish
+******************************************************************************************
+'Script de Logon
+'============================================================================
+'Impedindo exibição de error para o usuário
+On error Resume Next
+Err.clear 0
+'============================================================================
+'Mapeando Unidades de Disco 
+Set WshNetwork = Wscript.CreateObject("Wscript.Network")
+WshNetwork.MapNetworkDrive "O:","\\srvfagner\PublicaVila","true"
+WshNetwork.MapNetworkDrive "P:","\\srvfagner\Estoque","true"
+WshNetwork.MapNetworkDrive "Q:","\\srvfagner\Promocao","true"
+WshNetwork.MapNetworkDrive "R:","\\srvfagner\Financeiro2","true"
+WshNetwork.MapNetworkDrive "S:","\\srvfagner\Pedidos","true"
+'============================================================================
+'Mapeando Impressora 
+Set WshNetwork = Wscript.CreateObject("Wscript.Network")
+WshNetwork.AddWindowsPrinterConnection "\\srvfagner\IMP-TI-001", "IMP-TI-001"
+WshNetwork.SetDefaultPrinter "\\srvfagner\IMP-TI-001", "IMP-TI-001"
+'============================================================================
+'CRIA ATALHO DO COMPARTILHAMENTO NO DESKTOP
+strAppPath = "O:\"
+Set wshShell = CreateObject("WScript.Shell")
+objDesktop = wshShell.SpecialFolders("Desktop")
+set oShellLink = WshShell.CreateShortcut(objDesktop & "\Publica.lnk")
+oShellLink.TargetPath = strAppPath
+oShellLink.WindowStyle = "1"
+oShellLink.Description = "PublicaVila"
+oShellLink.Save 
+
+strAppPath = "P:\"
+Set wshShell = CreateObject("WScript.Shell")
+objDesktop = wshShell.SpecialFolders("Desktop")
+set oShellLink = WshShell.CreateShortcut(objDesktop & "\Estoque.lnk")
+oShellLink.TargetPath = strAppPath
+oShellLink.WindowStyle = "1"
+oShellLink.Description = "Estoque"
+oShellLink.Save 
+
+strAppPath = "Q:\"
+Set wshShell = CreateObject("WScript.Shell")
+objDesktop = wshShell.SpecialFolders("Desktop")
+set oShellLink = WshShell.CreateShortcut(objDesktop & "\Promocao.lnk")
+oShellLink.TargetPath = strAppPath
+oShellLink.WindowStyle = "1"
+oShellLink.Description = "Promocao"
+oShellLink.Save 
+
+strAppPath = "R:\"
+Set wshShell = CreateObject("WScript.Shell")
+objDesktop = wshShell.SpecialFolders("Desktop")
+set oShellLink = WshShell.CreateShortcut(objDesktop & "\Financeiro2.lnk")
+oShellLink.TargetPath = strAppPath
+oShellLink.WindowStyle = "1"
+oShellLink.Description = "Financeiro2"
+oShellLink.Save 
+
+strAppPath = "S:\"
+Set wshShell = CreateObject("WScript.Shell")
+objDesktop = wshShell.SpecialFolders("Desktop")
+set oShellLink = WshShell.CreateShortcut(objDesktop & "\Pedidos.lnk")
+oShellLink.TargetPath = strAppPath
+oShellLink.WindowStyle = "1"
+oShellLink.Description = "Pedidos"
+oShellLink.Save 
+'ENVIA O COMANDO PARA APERTAR A TECLA F5 PARA ATUALIZAR OS ICONES NO DESKTOP
+WshShell.SendKeys "{F5}"
+'============================================================================
+'SINCRONIZA HORARIO ESTAÇÃO x SERVIDOR
+Set wshShell = CreateObject("WScript.Shell")
+wshShell.Run "NET TIME \\srvfagner /SET /Y", 0, True
+'============================================================================
+'Boas Vindas Ao Usuario
+
+Set objUser = WScript.CreateObject("WScript.Network")
+wuser=objUser.UserName
+If Time <= "12:00:00" Then
+MsgBox ("Bom Dia "+Wuser+", você acaba de ingressar na rede corporativa BRAGA, por favor respeite as políticas de segurança e bom trabalho!")
+ElseIf Time >= "12:00:01" And Time <= "18:00:00" Then
+MsgBox ("Boa Tarde "+Wuser+", você acaba de ingressar na rede corporativa BRAGA, por favor respeite as políticas de segurança e bom trabalho!")
+Else
+MsgBox ("Boa Noite "+wuser+", você acaba de ingressar na rede corporativa BRAGA, por favor respeite as políticas de segurança e bom trabalho!")
+End If
+Wscript.Quit
+******************************************************************************************
+Salvar o script em C:\Windows\SYSVOL\sysvol\braga.intra\scripts com o nome script.vbs
+******************************************************************************************
+Pressionar as teclas Winkey + R e digitar dsa.msc
+Clicar com o botão direito do mouse no usuário Senhor Madruga e clicar em Propriedades
+Clicar na aba Perfil
+Em Script de Logon digitar script.vbs
+******************************************************************************************
+No Windows 10, conectar com o usuário senhor.madruga e verificar se as configurações foram aplicadas.
