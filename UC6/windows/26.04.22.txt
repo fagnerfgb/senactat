@@ -112,3 +112,69 @@ Clicar na aba Perfil
 Em Script de Logon digitar script.vbs
 ******************************************************************************************
 No Windows 10, conectar com o usuário senhor.madruga e verificar se as configurações foram aplicadas.
+******************************************************************************************
+Criando Pool de Impressoras 
+Abrir o Server Manager
+Clicar em Tools e depois em Print Management
+Clicar em Print Servers
+Clique com o botão direito do mouse em Printers e selecione Add Printer
+Add am IPP, TCP/IP, or Web Services Printer by IP address or hostname
+Next
+Type of Device: TCP/IP Device
+Host name or IP address: 172.16.10.90
+Next
+Generic Network Card
+Next
+Use an existing printer driver on the computer: Lexmark Universal v2
+Next
+Printer Name: IMP-MKT-001
+Share this printer
+Share Name: IMP-MKT-001
+Location: IMPRESSORA DO DEPARTAMENTO DE MARKETING
+Next
+Next
+Finish
+Clique com o botão direito do mouse em IMP-MKT-001 e clique em List in Directory
+Depois clique em Properties
+Clique na aba Ports
+Clique em Add Port
+Standard TCP/IP Port
+New Port
+Next
+Printer Name or IP Address: 172.16.10.91
+Next
+Generic Network Card
+Finish
+Standard TCP/IP Port
+New Port
+Next
+Printer Name or IP Address: 172.16.10.92
+Next
+Generic Network Card
+Finish
+Close
+Enable printer pooling
+Selecione as portas das 3 impressoras e clique em Apply e depois em Close
+******************************************************************************************
+Criando reserva de IP no DHCP
+Abra o Server Manager, clique em Tools e depois em DHCP
+Clique em srvfagner.braga.intra
+IPv4
+Scope
+Clique com o botão direito do mouse em Reservations e depois em New Reservation
+Reservation Name: IMP-MKT-001-IP-90
+IP address: 172.16.10.90
+MAC Address: 001122334455
+Add
+Reservation Name: IMP-MKT-001-IP-91
+IP address: 172.16.10.91
+MAC Address: 112233445566
+Add
+Reservation Name: IMP-MKT-001-IP-92
+IP address: 172.16.10.92
+MAC Address: 223344556677
+Close
+******************************************************************************************
+
+
+
