@@ -1,0 +1,3 @@
+Auditoria em pasta financeiro
+Auditoria logon e logoff
+Instalação de software
