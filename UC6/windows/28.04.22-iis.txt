@@ -1,0 +1,26 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 28/04/2022
+#Data de atualização: 28/04/2022
+#Versão: 0.01
+******************************************************************************************
+Instalação e Configuração do IIS
+Abrir o Server Manager
+Clicar em Manage e depois em Add Roles and Features
+Next
+Next
+Next
+Web Server (IIS)
+Add Features
+Next
+Next
+Next
+Install
+Close
+******************************************************************************************
+Abrir o navegador do servidor e digitar http://localhost
+Abrir o navegador na estação de trabalho e digitar http://172.16.10.10
+******************************************************************************************
+Copiar os arquivos da pasta fagner (salva no hd externo) para a pasta C:\inetpub\wwwroot
+Abrir o navegador do servidor e digitar http://localhost/fagner
+Abrir o navegador na estação de trabalho e digitar http://172.16.10.10/fagner
+******************************************************************************************
