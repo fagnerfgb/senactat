@@ -21,6 +21,70 @@ Abrir o navegador do servidor e digitar http://localhost
 Abrir o navegador na estação de trabalho e digitar http://172.16.10.10
 ******************************************************************************************
 Copiar os arquivos da pasta fagner (salva no hd externo) para a pasta C:\inetpub\wwwroot
-Abrir o navegador do servidor e digitar http://localhost/fagner
-Abrir o navegador na estação de trabalho e digitar http://172.16.10.10/fagner
+Abrir o navegador do servidor e digitar http://localhost
+Abrir o navegador na estação de trabalho e digitar http://172.16.10.10
 ******************************************************************************************
+Criação de CNAME no DNS
+Abrir o Server Manager
+Clicar em Tools e selecionar DNS
+Clicar em SRVFAGNER, Forward Lookup Zones, braga.intra
+Clicar com o botão direito do mouse e selecionar New Alias (CNAME)
+Alias name: fagner
+FQDN: srvfagner.braga.intra
+******************************************************************************************
+Criação de Nova Zona Primária DNS
+Abrir o Server Manager
+Clicar em Tools e selecionar DNS
+Clicar em SRVFAGNER, Forward Lookup Zones
+Clicar com o botão direito do mouse e selecionar New Zone
+Next
+Primary Zone
+Next
+To all DNS server running on domain controllers in this domain: braga.intra
+Zone name: fgb.intra
+Next
+Allow only secure dynamic updates
+Next
+Finish
+Entrar na zona fgb.intra
+Clicar com o botão direito do mouse e selecionar New Host (A or AAAA)
+Name: www
+IP address: 172.16.10.10
+Add Host
+OK
+Done
+******************************************************************************************
+Criação de Nova Zona Primária DNS
+Abrir o Server Manager
+Clicar em Tools e selecionar DNS
+Clicar em SRVFAGNER, Forward Lookup Zones
+Clicar com o botão direito do mouse e selecionar New Zone
+Next
+Primary Zone
+Next
+To all DNS server running on domain controllers in this domain: braga.intra
+Zone name: senac.intra
+Next
+Allow only secure dynamic updates
+Next
+Finish
+Entrar na zona fgb.intra
+Clicar com o botão direito do mouse e selecionar New Host (A or AAAA)
+Name: www
+IP address: 172.16.10.10
+Add Host
+OK
+Done
+******************************************************************************************
+Abrir o Server Manager
+Clicar em Tools e selecionar Internet Information Services
+Clicar em SRVFAGNER
+Clicar com o direito em Sites e depois em Add Website...
+Site name: senac
+Physical path: C:\senac
+Hostname: www.senac.intra
+******************************************************************************************
+Abrir o navegador na estação de trabalho e digitar http://www.fagner.intra
+Abrir o navegador na estação de trabalho e digitar http://www.senac.intra
+******************************************************************************************
+
