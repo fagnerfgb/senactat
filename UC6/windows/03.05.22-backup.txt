@@ -1,0 +1,87 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 03/05/2022
+#Data de atualização: 03/05/2022
+#Versão: 0.01
+******************************************************************************************
+Backup
+******************************************************************************************
+Abra o Server Manager e clique em Manage
+Clique em Add Roles and Features
+Next
+Next
+Next
+Next
+Clique em Windows Server Backup
+Next
+Install
+Close
+******************************************************************************************
+Realizando o Backup
+Clique em Tools e depois em Windows Server Backup
+Clique em Local Backup e depois em Backup Schedule...
+Next
+Custom
+Next
+Add Items
+Marque a Unidade RAID-5(F:)
+Marque as pastas C:\inetpub e C:\senac
+Clique em OK
+Next
+Marque More than once a day
+Em Scheduled time: 
+20:30
+21:30
+Next
+Backup to a hard disk that is dedicated for backups (recommended)
+Next
+Show All Available Disks...
+Disk 6
+OK
+Disk 6
+Next
+Yes
+Finish
+Close
+******************************************************************************************
+Restaurando o Backup
+Clique em Tools e depois em Windows Server Backup
+Clique em Local Backup e depois em Recover...
+This server (SRVFAGNER)
+Next
+Selecionar a data e o horário do backup a ser restaurado
+Next
+Files and folders
+Next
+Selecionar C:\senac
+Next
+Recovery destination: Original location
+Create copies so that you have both versions
+Restore access control list (ACL) permissions to the file or folder being recovered
+Next
+Recover
+Close
+******************************************************************************************
+Realizando Backup Bare Metal
+Clique em Tools e depois em Windows Server Backup
+Clique em Local Backup e depois em Backup Once...
+Different options
+Next
+Custom
+Next
+Add Items
+Bare metal Recovery
+OK
+Next
+Local drives
+Next
+Backup destination: (G:)
+Next
+Backup
+Close
+******************************************************************************************
+Restaurando o Backup
+Desligar a VM
+Remover a conexão do disco que contém o SO para simular uma catástrofe.
+Iniciar o VM com a mídia do Windows Server
+
+
