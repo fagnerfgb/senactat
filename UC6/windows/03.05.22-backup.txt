@@ -83,5 +83,17 @@ Restaurando o Backup
 Desligar a VM
 Remover a conexão do disco que contém o SO para simular uma catástrofe.
 Iniciar o VM com a mídia do Windows Server
+Next
+Repair your computer
+Troubleshoot
+System Image Recovery
+Use the latest available system imagem (recommended)
+Next
+Next
+Finish
+Yes
+******************************************************************************************
+
+
 
 
