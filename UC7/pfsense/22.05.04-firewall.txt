@@ -1,0 +1,141 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 04/05/2022
+#Data de atualização: 04/05/2022
+#Versão: 0.01
+******************************************************************************************
+Firewall/Rules/LAN
+Desativar as regras IPv4, IPv6
+Edit, Disable this rule, save
+Apply
+******************************************************************************************
+Criar Separador
+Regras padrão do pfSense desabilitadas (Vermelho)
+******************************************************************************************
+Tentar pingar endereços externos
+ping google.com
+ping 8.8.8.8
+******************************************************************************************
+Liberação do DNS
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: UDP
+Source: LAN net
+Destination: any
+Destination Port Range: DNS(53)
+Log
+Description: Liberando o protocolo DNS
+******************************************************************************************
+Criar Separador
+Regras de liberação para redes externas
+******************************************************************************************
+nslookup google.com
+******************************************************************************************
+Liberação do protocolo ICMP
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: ICMP
+ICMP subtypes: any
+Source: LAN net
+Destination: any
+Log
+Description: Liberando o protocolo ICMP
+******************************************************************************************
+ping google.com
+ping 8.8.8.8
+******************************************************************************************
+Liberação do protocolo HTTP
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: TCP
+Source: LAN net
+Destination: any
+Destination Port Range: HTTP
+Log
+Description: Liberando o protocolo HTTP
+******************************************************************************************
+Liberação do protocolo HTTPS
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: TCP
+Source: LAN net
+Destination: any
+Destination Port Range: HTTPS
+Log
+Description: Liberando o protocolo HTTPS
+******************************************************************************************
+Liberação do protocolo FTP
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: TCP
+Source: LAN net
+Destination: any
+Destination Port Range: FTP
+Log
+Description: Liberando o protocolo FTP
+******************************************************************************************
+Liberação do protocolo NTP
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: UDP
+Source: LAN net
+Destination: any
+Destination Port Range: NTP
+Log
+Description: Liberando o protocolo NTP
+******************************************************************************************
+Liberação do protocolo NTP
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: UDP
+Source: LAN net
+Destination: any
+Destination Port Range: NTP
+Log
+Description: Liberando o protocolo NTP
+******************************************************************************************
+Liberação pfSense para acesso externo
+System/Advanced/Admin Access
+TCP port: 10443
+******************************************************************************************
+Liberação pfSense para acesso externo
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: TCP
+Source: Any
+Destination: Wan address
+Destination Port Range: 10443
+Log
+Description: Liberando a porta 10443 - pfSense
+******************************************************************************************
+Liberação pfSense para acesso externo
+Action: Pass
+Interface: LAN
+Address Family: IPv4
+Protocol: ICMP
+ICMP Subtypes: any
+Source: Any
+Destination: Wan address
+Log
+Description: Liberando o protocolo ICMP para acessar de fora da rede
+******************************************************************************************
+Regra de NAT do Protocolo RDP
+Action: Pass
+Interface: WAN
+Address Family: IPv4
+Protocol: TCP
+Source: Any
+Destination: Single host or alias: srvfagner
+Destination Port Range: 3389
+Log
+Description: NAT Redirecionamento da Porta 3389 do Windows Server
+******************************************************************************************
+
+
