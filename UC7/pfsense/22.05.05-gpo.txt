@@ -22,4 +22,6 @@ GPO Status: Computer User configuration settings disabled
 User Configuration/Policies/Windows Settings/Folder Redirection/Documents/
 Setting: Basic (Redirect everyone's folder to the same location)hide
 Path: \\SRVFAGNER\docs$\%USERNAME%\Documents
+
+Ao criar a pasta base, no compartilhamento de pasta, dar controle total aos usuários do domínio
 ******************************************************************************************
