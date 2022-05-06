@@ -1,0 +1,25 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 05/05/2022
+#Data de atualização: 05/05/2022
+#Versão: 0.01
+******************************************************************************************
+GPO-USERS-PAPEL-DE-PAREDE
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Desktop/Desktop
+Desktop Wallpaper: Enabled  
+Wallpaper Name: C:\TI\wallpaper.jpg 
+Wallpaper Style: Stretch 
+Enable Active Desktop Enabled
+******************************************************************************************
+GPO-COMP-DESABILITA-SOM
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Windows Settings/Registry/
+Computer Configuration/Policies/Windows Settings/Security Settings/System Services
+Windows Audio (Startup Mode: Disabled)
+******************************************************************************************
+GPO-USERS-REDIRECIONA-PASTA-DOC
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Windows Settings/Folder Redirection/Documents/
+Setting: Basic (Redirect everyone's folder to the same location)hide
+Path: \\SRVFAGNER\docs$\%USERNAME%\Documents
+******************************************************************************************
