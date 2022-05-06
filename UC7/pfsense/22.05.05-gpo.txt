@@ -25,3 +25,8 @@ Path: \\SRVFAGNER\docs$\%USERNAME%\Documents
 
 Ao criar a pasta base, no compartilhamento de pasta, dar controle total aos usuários do domínio
 ******************************************************************************************
+GPO-COMP-BLOQUEIA-MIDIA-REMOVIVEL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Removable Storage Access
+All Removable Storage classes: Deny all access: Enabled 
+******************************************************************************************
