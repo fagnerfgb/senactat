@@ -1,0 +1,99 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 06/05/2022
+#Data de atualização: 06/05/2022
+#Versão: 0.01
+******************************************************************************************
+Adicionar placa de rede adicional no servidor pfSense e colocar em modo NAT
+Logar no pfSense usando a interface gráfica
+Clicar em Interfaces, Assignments
+Adiciona a nova interface e salvar
+******************************************************************************************
+Clicar em Interfaces, OPT
+Enable: Enable interface
+Description: NET
+IPv4 Configuration Type: DHCP
+Salvar
+Aplicar
+******************************************************************************************
+Clicar em Interfaces, WAN
+Description: VIVO
+Salvar
+Aplicar
+******************************************************************************************
+System/Routing/Gateways
+Default gateway IPv4: Automatic
+Default gateway IPv6: None
+Salvar
+Aplicar
+******************************************************************************************
+Na VM do pfSense, desconectar a placa de rede 1
+Obs: o link da NET não entrou sozinho
+Para alterar manualmente
+System/Routing/Gateways
+Default gateway IPv4: NET_DHCP
+Salvar
+Aplicar
+******************************************************************************************
+System/Advanced/Miscellaneous
+Load Balancing: Use sticky connections
+State Killing on Gateway Failure: Flush all states when a gateway goes down
+Skip rules when gateway is down: Do not create rules when gateway is down
+Save
+******************************************************************************************
+System/Routing/Gateway Groups
+Add
+Group Name: HA_WAN
+VIVO_DHCP Tier 1
+NET_DHCP  Tier 2
+Trigger Level: Member Down
+Description: Grupo de interfaces de internet
+Save
+Aplicar
+******************************************************************************************
+System/Routing/Gateways
+Default gateway IPv4: HA_WAN
+Salvar
+Aplicar
+******************************************************************************************
+Na VM do pfSense, desconectar a placa de rede 1
+O link secundário entra automaticamente.
+Ao reconectar a placa de rede, o link da VIVO voltou a ser o primário
+******************************************************************************************
+System/Routing/Gateway Groups
+Group Name: HA_WAN
+Editar
+VIVO_DHCP Tier 1
+NET_DHCP  Tier 1
+Trigger Level: Member Down
+Description: Grupo de interfaces de internet
+Aplicar
+Aplicar
+******************************************************************************************
+System/Routing/Gateways
+Vivo -  Editar
+Monitor IP: 8.8.8.8
+Advanced
+Latency thresholds: 400 - 600
+Packet Loss thresholds: 20 - 40
+Salvar
+Aplicar
+******************************************************************************************
+System/Routing/Gateways
+NET -  Editar
+Monitor IP: 1.1.1.1
+Advanced
+Latency thresholds: 400 - 600
+Packet Loss thresholds: 20 - 40
+Salvar
+Aplicar
+******************************************************************************************
+
+
+
+
+
+
+
+
+
+
