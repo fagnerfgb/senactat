@@ -1,0 +1,11 @@
+Criar pasta no servidor com nome de auditoria
+******************************************************************************************
+Compartilhamento de pasta: auditoria$
+Usuários do domínio: Alterar
+******************************************************************************************
+Segurança
+Usuários do domínio: Modificar
+******************************************************************************************
+Criar GPO, aplicar script de logon e de logoff e apontar o arquivo auditoria.exe
+\\core.intra\netlogon\core\auditoria.exe
+

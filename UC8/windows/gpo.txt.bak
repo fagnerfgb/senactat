@@ -1,0 +1,139 @@
+GPO-COMP-MOTD
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
+Interactive logon: Interactive logon: Message text for users attempting to log on: Este sistema é restrito a usuários autorizados. Os indivíduos que tentarem acesso não autorizado serão processados. Se você não estiver autorizado, termine o acesso agora. Clique em OK para indicar sua aceitação dessas informações.
+Interactive logon: Message title for users attempting to log on: "Bem vindo a Rede Corporativa da System Core" 
+******************************************************************************************
+GPO-COMP-CERTIFICADOS
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Public Key Policies
+Certificate Services Client - Auto-Enrollment Settings
+Configuration Model: Enabled 
+Renew expired certificates, update pending certificates, and remove revoked certificates
+Update certificates that use certificate templates
+ 
+Trusted Root Certification Authorities
+Import
+Next
+File name: \\braga.intra\netlogon\braga\braga-ca.cert
+******************************************************************************************
+GPO-COMP-CERT-FIREFOX
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Windows Settings/Files
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Destination file C:\Program Files\Mozilla Firefox\umbrella.cfg
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Destination file C:\Program Files\Mozilla Firefox\defaults\pref\local-settings.js
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
+******************************************************************************************
+GPO-COMP-ENERGIA
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Power Options/
+New, Power Plan (At least Windows 7)
+Action: Update
+High performance
+Set as the active power plan
+
+When computer is: 					Plugged in 			Running on batteries 
+Require a password on wakeup: 		Yes 				Yes 
+Turn off hard disk after: 			Never 				Never 
+Sleep after: 						Never 				Never 
+Allow hybrid sleep: 				Off 				Off 
+Hibernate after: 					Never 				Never 
+Lid close action: 					Do nothing 			Do nothing 
+Power button action: 				Shutdown 			Shutdown 
+Start menu power button: 			Do nothing 			Do nothing 
+Link State Power Management: 		Off 				Off 
+Minimum processor state: 			After 100 minutes 	After 5 minutes 
+Maximum processor state: 			After 100 minutes 	After 100 minutes 
+Turn off display after: 			After 10 minutes 	Never 
+Adaptive display: 					On 					On 
+Critical battery action: 			Do nothing 			Shutdown 
+Low battery level: 					After 10 minutes 	After 10 minutes 
+Critical battery level: 			After 5 minutes 	After 5 minutes 
+Low battery notification: 			Off 				Off 
+Low battery action: 				Do nothing 			Do nothing 
+******************************************************************************************
+GPO-COMP-FIREWALL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Windows Firewall with Advanced Security
+Properties
+Domain Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+Private Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+Public Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+
+Inbound Rules, New Rule
+Custom, Next
+All Programs, Next
+Protcol type: ICMPv4, Next
+Next
+Allow the connection, Next
+Domain, Next
+Name: PERMITE-PING
+Description: PERMITE-PING, Finish
+******************************************************************************************
+GPO-COMP-BLOQUEIA-MIDIA-REMOVIVEL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Removable Storage Access
+All Removable Storage classes: Deny all access: Enabled 
+******************************************************************************************
+GPO-COMP-NAVEGADORES
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/Google/Google Chrome/Startup, Home page and New Tab page 
+Configure the home page URL: Enabled  
+Home page URL http://wp.braga.intra/wp 
+ 
+Show Home button on toolbar: Enabled  
+URLs to open on startup: Enabled  
+URLs to open on startup: http://wp.braga.intra/wp 
+ 
+Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
+Configure the home page URL: Enabled  
+Home page URL: http://wp.braga.intra/wp 
+Show Home button on toolbar: Enabled 
+
+Microsoft Edge/Startup, home page and new tab page
+Configure the home page URL: Enabled  
+Home page URL: http://wp.braga.intra/wp 
+ 
+Configure the new tab page URL: Enabled  
+New tab page URL: http://wp.braga.intra/wp 
+ 
+Show Home button on toolbar: Enabled  
+
+Mozilla/Firefox/Home page
+Start Page: Enabled  
+ 
+URL for Home page Enabled  
+URL:  http://wp.braga.intra/wp 
+Don't allow the homepage to be changed.: Enabled 
+******************************************************************************************
+GPO-COMP-REMOTE-DESKTOP
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Local Users and Groups
+New Local Group
+Action Update 
+Group Name: Remote Desktop Users (built-in)
+Add 
+CORE\G-CORE-TI-REMOTE-DESKTOP
+******************************************************************************************
