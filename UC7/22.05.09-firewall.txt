@@ -1,0 +1,34 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 09/05/2022
+#Data de atualização: 09/05/2022
+#Versão: 0.01
+******************************************************************************************
+DNS Dinâmico
+
+Criar conta em https://www.cloudns.net
+Criar
+******************************************************************************************
+Services/Dynamic DNS/Dynamic DNS Clients
+Add
+Service Type: Custom
+Interface to monitor: VIVO
+Interface to send update from: VIVO
+Description: DNS dinâmico para o link da VIVO
+******************************************************************************************
+Services/Dynamic DNS/Dynamic DNS Clients
+Add
+Service Type: Custom
+Interface to monitor: NET
+Interface to send update from: NET
+Description: DNS dinâmico para o link da NET
+******************************************************************************************
+Services/Dynamic DNS/Dynamic DNS Clients
+Add
+Service Type: Custom
+Interface to monitor: GW Group HA_WAN
+Interface to send update from: GW Group HA_WAN
+Description: DNS dinâmico para o GW Group HA_WAN
+******************************************************************************************
+System/Package Manager/Available Packages
+Squid
+Lightsquid
