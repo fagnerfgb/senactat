@@ -76,6 +76,27 @@ Group Name: Remote Desktop Users (built-in)
 Add 
 BRAGA\G-TI-REMOTE-DESKTOP
 ******************************************************************************************
+GPO-USERS-PROXY
+GPO Status: Computer configuration settings disabled
+User Configuration/Preferences/Control Panel Settings/Internet Settings
+New
+Internet Explorer 10
+Connections
+LAN Settings
+Use a proxy server for your LAN (These settings will not apply to dial-up or VPN connections).
+Address: 172.16.10.254 Port: 3128
+Bypass proxy server for local addresses
+******************************************************************************************
+GPO-USERS-PROXY-FIREFOX
+GPO Status: Computer configuration settings disabled
+User Configuration/Policies/Administrative Templates/Mozilla/Firefox/Proxy Settings
+Don't allow proxy settings to be changed: Enabled 
+Connection Type:  Manual proxy configuration 
+HTTP Proxy:  172.16.10.254:3128 
+Use this proxy server for all protocols: Enabled 
+SOCKS Version:  SOCKS v5 
+No proxy for: 172.16.10.0/24, .braga.intra 
+******************************************************************************************
 GPO-COMP-AVISO-TROCA-DE-SENHA
 GPO Status: User configuration settings disabled
 Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
