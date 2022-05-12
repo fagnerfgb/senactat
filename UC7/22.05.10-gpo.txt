@@ -96,11 +96,9 @@ Group Name: Remote Desktop Users (built-in)
 Add 
 BRAGA\G-TI-REMOTE-DESKTOP
 
-Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections
+Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections: Enabled
 
-Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Security
-
-
+Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Security: Enabled
 ******************************************************************************************
 GPO-USERS-PROXY
 GPO Status: Computer configuration settings disabled
