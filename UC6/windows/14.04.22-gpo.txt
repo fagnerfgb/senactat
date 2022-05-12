@@ -98,7 +98,7 @@ Interactive logon: Machine inactivity limit 300 seconds
 GPO-COMP-MOTD
 GPO Status: User configuration settings disabled
 Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
-Interactive logon: Interactive logon: Message text for users attempting to log on: Esse sistema é restrito a usuários autorizados. Os indivíduos que tentarem acesso não autorizado serão processados. Se você não estiver autorizado, termine o acesso agora. Clique em OK para indicar sua aceitação dessas informações.
+Interactive logon: Message text for users attempting to log on: Esse sistema é restrito a usuários autorizados. Os indivíduos que tentarem acesso não autorizado serão processados. Se você não estiver autorizado, termine o acesso agora. Clique em OK para indicar sua aceitação dessas informações.
 Interactive logon: Message title for users attempting to log on: "Bem vindo a Rede Corporativa BRAGA" 
 ******************************************************************************************
 GPO-COMP-CERTIFICADOS

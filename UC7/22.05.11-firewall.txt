@@ -1,0 +1,73 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 11/05/2022
+#Data de atualização: 11/05/2022
+#Versão: 0.01
+******************************************************************************************
+Instalação da Unidade Certificadora Raiz na Máquina
+Configuração do Proxy na máquina e navegador
+Configuração do Proxy no Firefox
+Configuração da Unidade Certificadora (ADMX)
+Dansguardian, squidguardian, pfBlock, e2guardian
+******************************************************************************************
+Services / Squid Proxy Server
+Local Cache
+Do Not Cache
+itau.com.br
+bradesco.com.br
+santander.com.br
+bb.com.br
+caixa.gov.br
+******************************************************************************************
+Services / Squid Proxy Server
+General
+Enable Squid Proxy: Check to enable the Squid proxy.
+Proxy Interface(s): LAN e loopback
+Proxy Port: 3128
+Resolve DNS IPv4 First: Enable this to force DNS IPv4 lookup first.
+Enable Access Logging: This will enable the access log.
+Error Language: pt-br
+Suppress Squid Version: Suppresses Squid version string info in HTTP headers and HTML error pages if enabled.
+******************************************************************************************
+Abrir o Firefox no computador cliente
+Clicar em abrir menu do aplicativo
+Configurações
+Configurações da Rede
+Configurar conexão
+Configuração manual de proxy
+Proxy HTTP: 172.16.10.254 Porta 3128
+Usar este proxy também para HTTPS
+******************************************************************************************
+Nenhum proxy para:
+172.16.10.0/24, .braga.intra
+******************************************************************************************
+Services / Squid Proxy Server
+Real Time
+******************************************************************************************
+Abrir o DHCP no servidor Windows Server e remover a configuração de gateway
+******************************************************************************************
+Abrir o Edge no computador cliente
+Configurações e mais...
+Configurações
+Sistema e desempenho
+Abrir as configurações de proxy do computador
+Usar um servidor proxy
+Ativado
+Endereço: 172.16.10.254 Porta 3128
+172.20.10.0/24;;.braga.intra
+Não usar o servidor proxy para endereços locais (intranet)
+******************************************************************************************
+Services / Squid Proxy Server
+ACLs
+Allowed Subnets: 172.16.10.0/24
+******************************************************************************************
+Services / Squid Proxy Server
+Authentication
+Authentication Method: Local
+Authentication Prompt: Insira as suas credenciais para acesso à internet
+******************************************************************************************
+Services / Squid Proxy Server
+Users
+Add
+Username: senac
+Password: 123@senac
+Description: Usuário padrão de internet
