@@ -48,18 +48,22 @@ Description: PERMITE-PING, Finish
 ******************************************************************************************
 GPO-COMP-NAVEGADORES
 GPO Status: User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Microsoft Edge
 
 Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
 Configure the home page URL: Enabled  
-Home page URL: http://wp.braga.intra/wp 
+Home page URL: http://www.uol.com.br
 Show Home button on toolbar: Enabled 
+Action to take on startup: Enabled
+Open a list of URLs
+Value: http://www.uol.com.br
 
 Microsoft Edge/Startup, home page and new tab page
 Configure the home page URL: Enabled  
-Home page URL: http://wp.braga.intra/wp 
+Home page URL: http://www.uol.com.br
  
 Configure the new tab page URL: Enabled  
-New tab page URL: http://wp.braga.intra/wp 
+New tab page URL: http://www.uol.com.br
  
 Show Home button on toolbar: Enabled
 ******************************************************************************************
@@ -72,3 +76,11 @@ Group Name: Remote Desktop Users (built-in)
 Add 
 BRAGA\G-TI-REMOTE-DESKTOP
 ******************************************************************************************
+GPO-COMP-AVISO-TROCA-DE-SENHA
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
+Interactive logon: Prompt user to change password before expiration
+Define this policy setting
+Begin prompting this many days before passwords expires: 5 days
+******************************************************************************************
+
