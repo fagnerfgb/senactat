@@ -1,7 +1,7 @@
 #Autor: Fagner Geraldes Braga
 #Data de criação: 11/05/2022
-#Data de atualização: 11/05/2022
-#Versão: 0.01
+#Data de atualização: 12/05/2022
+#Versão: 0.02
 ******************************************************************************************
 GPO-COMP-DESABILITA-IPV6
 GPO Status: User configuration settings disabled
@@ -48,7 +48,7 @@ Description: PERMITE-PING, Finish
 ******************************************************************************************
 GPO-COMP-NAVEGADORES
 GPO Status: User configuration settings disabled
-User Configuration/Policies/Administrative Templates/Microsoft Edge
+Computer Configuration/Policies/Administrative Templates/Microsoft Edge
 
 Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
 Configure the home page URL: Enabled  
@@ -56,16 +56,36 @@ Home page URL: http://www.uol.com.br
 Show Home button on toolbar: Enabled 
 Action to take on startup: Enabled
 Open a list of URLs
+Sites to open when the browser starts
 Value: http://www.uol.com.br
 
 Microsoft Edge/Startup, home page and new tab page
 Configure the home page URL: Enabled  
 Home page URL: http://www.uol.com.br
- 
-Configure the new tab page URL: Enabled  
-New tab page URL: http://www.uol.com.br
- 
+Show Home button on toolbar: Enabled 
+Action to take on startup: Enabled
+Open a list of URLs
+Sites to open when the browser starts
+Value: http://www.uol.com.br
+
+Computer Configuration/Policies/Administrative Templates/Mozilla/Firefox/Home page
+URL for Home page: Enabled
+URL: http://www.uol.com.br
+Don't allow the homepage to be changed
+
 Show Home button on toolbar: Enabled
+
+Additional Homepages: Enabled
+http://www.uol.com.br
+
+Computer Configuration/Policies/Administrative Templates/Google/Google Chrome
+Startup, home page and new tab page
+Action on startup: Enabled
+Open a list of URLs
+
+URLs to open on startup: Enabled
+Show: http://www.uol.com.br
+
 ******************************************************************************************
 GPO-COMP-REMOTE-DESKTOP
 GPO Status: User configuration settings disabled
@@ -75,6 +95,12 @@ Action Update
 Group Name: Remote Desktop Users (built-in)
 Add 
 BRAGA\G-TI-REMOTE-DESKTOP
+
+Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections
+
+Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Security
+
+
 ******************************************************************************************
 GPO-USERS-PROXY
 GPO Status: Computer configuration settings disabled
