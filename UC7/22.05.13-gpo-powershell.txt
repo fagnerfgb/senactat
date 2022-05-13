@@ -1,0 +1,78 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/05/2022
+#Data de atualização: 13/05/2022
+#Versão: 0.01
+******************************************************************************************
+PowerShell ISE
+
+import-module -name grouppolicy
+
+
+#Cria uma GPO
+New-GPO -name Teste
+
+#Remove uma GPO
+Remove-GPO -name Teste
+
+#Renomeia uma GPO
+Rename-GPO -name Teste -TargetName GPO-TESTE
+
+#Laço For
+for ($n = 1; $n -lt 10; $n++){
+New-GPO -Name "BRAGA $n"
+}
+
+#Linkar GPO
+New-GPLink -name "GPO-TESTE" -Target "OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA"
+
+#Remover Link
+Set-GPLink "GPO-TESTE" -Target "OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -LinkEnabled No
+
+#Forçar GPO
+Set-GPLink "GPO-TESTE" -Target "OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" -Enforced Yes
+
+#Bloquear Herança
+Set-GPInheritance -Target "OU=USERS,OU=BRAGA,DC=BRAGA,DC=INTRA" - IsBlocked yes
+
+#Filtro de Segurança
+SetGPPermissions -Name "GPO-TESTE" -Replace -PermissionLevel None -TargetName 'Authenticated Users' -TargetType Group
+SetGPPermissions -Name "GPO-TESTE" -PermissionLevel GpoApply -TargetName 'Domain Users' -TargetType Group
+
+#Consultar GPOs
+Get-GPO -Name "GPO-TESTE"
+Get-GPO -All | Select DisplayName, GPOStatus
+
+#Relatórios
+Get-GPOReport -name "GPO-TESTE" -ReportType html -Path C:\Reports\GPO-TESTE.html
+
+#Dados RSOP
+Get-GPResultantSetofPolicy -user braga.intra\fagner.braga -computer PC110 -ReportType HTML -Path C:\Reports\PC110.html
+
+#Permissões
+Get-GPPermissions -name "GPO-TESTE" -all
+Get-GPPermissions -name "GPO-TESTE" -TargetType User -Targetname "Fagner.Braga"
+Set-GPPermissions -name "GPO-TESTE" -PermissionLevel GPORead -TargetType User -Targetname "Fagner.Braga"
+Set-GPPermissions -name "GPO-TESTE" -PermissionLevel None -TargetType User -Targetname "Fagner.Braga"
+
+#Backup
+Backup-GPO -name "GPO-TESTE" -Path C:\GPO_Backup
+Backup-GPO all -path C:\GPO_Backup
+
+$Hoje = Get-Date -Format dd-MM-yyyy
+$Folder = 'C:\GPO_Backup'
+$FolderBackup = '$Hoje'
+if(Test-Path -Path $Folder){
+  CD $Folder
+  MKDIR $Hoje
+}
+else{
+  cd\
+  C:
+  mkdir $Folder
+}
+
+Backup-GPO -name "GPO-TESTE" -Path "$Folder\$Hoje"
+Backup-GPO all -Path "$Folder\$Hoje" | Export-Csv "$Folder\$Hoje\GPOs.csv" 
+
+#Restauração
+Restore-GPO -BackupId ddsndjkndjkfndfjkndf -Path "C:\GPO_Backup\Data
