@@ -1,0 +1,41 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/05/2022
+#Data de atualização: 13/05/2022
+#Versão: 0.01
+******************************************************************************************
+No pfSense
+System/Certificate Manager/CAs
+Export CA
+******************************************************************************************
+No Firefox
+Importar a CA para o Firefox
+******************************************************************************************
+No Windows Server
+Instalar o Certificado no Windows Server
+******************************************************************************************
+No pfSense
+Man in the middle (MITM)
+Services/Squid Proxy Server/General
+Extra Trusted CA: braga
+HTTPS/SSL Interception: Enable SSL filtering.
+CA: braga
+Remote Cert Checks: Accept remote server certificate with errors
+Certificate Adapt: 
+Sets the "Not After" (setValidAfter)
+Sets the "Not Before" (setValidBefore)
+Sets CN property (setCommonName)
+******************************************************************************************
+Desligar o pfSense
+Aumentar o tamanho da memória para 4GB
+Ligar o pfSense
+******************************************************************************************
+Services/Squid Proxy Server/Antivirus
+Enable AVEnable Squid antivirus check using ClamAV.
+Exclude Audio/Video Streams: This option disables antivirus scanning of streamed video and audio for the default scan type.
+Block PUA: This option enables blocking of Potentially Unwanted Applications.
+ClamAV Database Update: Every 1 hour
+Regional ClamAV Database Update Mirror: United States
+******************************************************************************************
+Update AV
+
+
