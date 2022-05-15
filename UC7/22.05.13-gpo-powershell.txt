@@ -72,7 +72,7 @@ else{
 }
 
 Backup-GPO -name "GPO-TESTE" -Path "$Folder\$Hoje"
-Backup-GPO all -Path "$Folder\$Hoje" | Export-Csv "$Folder\$Hoje\GPOs.csv" 
+Backup-GPO -all -Path "$Folder\$Hoje" | Export-Csv "$Folder\$Hoje\GPOs.csv" 
 
 #Restauração
 Restore-GPO -BackupId ddsndjkndjkfndfjkndf -Path "C:\GPO_Backup\Data

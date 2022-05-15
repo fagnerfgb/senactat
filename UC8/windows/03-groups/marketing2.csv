@@ -1,0 +1,5 @@
+#TYPE Selected.Microsoft.ActiveDirectory.Management.ADUser
+"SamAccountName"
+"Nicolas.Araujo"
+"Otavio.Cirico"
+"Pedro.Goncalves"
