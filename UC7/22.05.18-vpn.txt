@@ -1,0 +1,128 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 18/05/2022
+#Data de atualização: 18/05/2022
+#Versão: 0.01
+******************************************************************************************
+
+Matriz - Nicolas : 10.26.44.70
+Filial - Fagner	 : 10.26.44.47
+
+Matriz
+VPN/IPsec/Tunnels
+Add P1
+
+General Information
+Description: VPN-IPSEC - Matriz para Filial
+
+IKE Endpoint Configuration
+Key Exchange version: IKEv2
+Internet Protocol: IPv4
+Interface: VIVO
+Remote Gateway: 10.26.44.47
+
+Phase 1 Proposal (Authentication)
+Authentication Method: Mutual PSK
+My identifier: My IP Address
+Peer identifier: Peer IP Address
+Pre-Shared Key: 123@senac
+
+Phase 1 Proposal (Encryption Algorithm)
+Algorithm: AES 
+Key length: 256 bits
+Hash: SHA256 
+DH Group: 14 (2048 bit)
+
+Expiration and Replacement
+Lifetime (Seconds): 28800
+
++Show Phase 2 Entries
+Add P2
+
+General Information
+Description: Fase-2 IPSEC-VPN Matriz para Filial
+Mode: Tunnel IPv4
+Local Network: LAN Subnet
+Remote Network: Type: Network Address: 172.16.10.0/24
+
+Phase 2 Proposal (SA/Key Exchange)
+Protocol: ESP
+Encryption Algorithms:
+ON - AES 128 bits
+ON - AES128-GCM - 128 bits
+Hash Algorithms
+ON - SHA256
+PFS key group: 14 (2048 bit)
+
+Expiration and Replacement
+Lifetime: 3600
+
+Keep Alive
+Automatically ping host: 172.16.10.254
+
+
+Filial
+VPN/IPsec/Tunnels
+Add P1
+
+General Information
+Description: VPN-IPSEC - Filial para Matriz
+
+IKE Endpoint Configuration
+Key Exchange version: IKEv2
+Internet Protocol: IPv4
+Interface: VIVO
+Remote Gateway: 10.26.44.70
+
+Phase 1 Proposal (Authentication)
+Authentication Method: Mutual PSK
+My identifier: My IP Address
+Peer identifier: Peer IP Address
+Pre-Shared Key: 123@senac
+
+Phase 1 Proposal (Encryption Algorithm)
+Algorithm: AES 
+Key length: 256 bits
+Hash: SHA256 
+DH Group: 14 (2048 bit)
+
+Expiration and Replacement
+Lifetime (Seconds): 28800
+
++Show Phase 2 Entries
+Add P2
+
+General Information
+Description: Fase-2 IPSEC-VPN Filial para Matriz
+Mode: Tunnel IPv4
+Local Network: LAN Subnet
+Remote Network: Type: Network Address: 172.16.18.0/24
+
+Phase 2 Proposal (SA/Key Exchange)
+Protocol: ESP
+Encryption Algorithms:
+ON - AES 128 bits
+ON - AES128-GCM - 128 bits
+Hash Algorithms
+ON - SHA256
+PFS key group: 14 (2048 bit)
+
+Expiration and Replacement
+Lifetime: 3600
+
+Keep Alive
+Automatically ping host: 172.16.18.254
+
+Firewall/Rules/VIVO/IPsec
+Add
+Action: Pass
+Interface: IPsec
+Address Family: IPv4
+Protocol: Any
+Source: Any
+Destination: Any
+Log: Log packets that are handled by this rule
+Description: Liberação da Conexão IPSEC-VPN Matriz/Filial
+
+Firewall/Rules/VIVO/NAT
+Habilitar regra IPv4 Padrão
+
