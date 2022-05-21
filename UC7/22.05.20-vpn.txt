@@ -1,0 +1,10 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 20/05/2022
+#Data de atualização: 20/05/2022
+#Versão: 0.01
+******************************************************************************************
+System/Package Manager/Available Packages
+openvpn-client-export 
+Install
+******************************************************************************************
+System/User Manager/Groups
