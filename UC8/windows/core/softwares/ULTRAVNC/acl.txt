@@ -1,1 +1,0 @@
-allow 0x3 "CORE\G-CORE-TI-VNC"

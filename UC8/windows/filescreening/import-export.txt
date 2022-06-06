@@ -1,5 +1,0 @@
-filescrn filegroup export /file:C:\temp\allgroups.xml
-filescrn template export /file:C:\temp\alltemplates.xml
-
-filescrn filegroup import /file:C:\temp\allgroups.xml
-filescrn template import /file:C:\temp\alltemplates.xml
