@@ -129,16 +129,16 @@ public class IMC extends JDialog {
 			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está muito magro", "IMC", JOptionPane.DEFAULT_OPTION);
 		} 
 		if (imc >= 18.5 && imc <=24.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nO seu IMC está normal", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + Math.round(imc)+"! \nO seu IMC está normal", "IMC", JOptionPane.DEFAULT_OPTION);
 		}
 		if (imc >25 && imc <=29.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com sobrepeso", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + Math.round(imc)+"! \nVocê está com sobrepeso", "IMC", JOptionPane.DEFAULT_OPTION);
 		}
 		if (imc >30 && imc <=39.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com obesidade", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + Math.round(imc)+"! \nVocê está com obesidade", "IMC", JOptionPane.DEFAULT_OPTION);
 		}
 		if (imc > 40) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com obesidade grave", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + Math.round(imc)+"! \nVocê está com obesidade grave", "IMC", JOptionPane.DEFAULT_OPTION);
 		}
 	}
 
