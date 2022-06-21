@@ -1,0 +1,63 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class IMC extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private JTextField txtInsiraOSeu;
+	private JTextField txtInsiraASua;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IMC dialog = new IMC();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public IMC() {
+		setModal(true);
+		setTitle("IMC");
+		setResizable(false);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		JLabel lblPeso = new JLabel("Peso (Kg)");
+		lblPeso.setBounds(36, 61, 70, 15);
+		getContentPane().add(lblPeso);
+		
+		JLabel lblNewLabel = new JLabel("Altura (m)");
+		lblNewLabel.setBounds(36, 111, 70, 15);
+		getContentPane().add(lblNewLabel);
+		
+		txtInsiraOSeu = new JTextField();
+		txtInsiraOSeu.setText("Insira o seu peso");
+		txtInsiraOSeu.setBounds(169, 61, 114, 19);
+		getContentPane().add(txtInsiraOSeu);
+		txtInsiraOSeu.setColumns(10);
+		
+		txtInsiraASua = new JTextField();
+		txtInsiraASua.setText("Insira a sua altura");
+		txtInsiraASua.setBounds(169, 109, 114, 19);
+		getContentPane().add(txtInsiraASua);
+		txtInsiraASua.setColumns(10);
+
+	}
+}

@@ -1,0 +1,27 @@
+/**
+ * Fundamentos do Java
+ * Operadores Aritméticos
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class OperadoresAritmeticos {
+
+	/**
+	 * Método principal
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// 
+		double x = 5;
+		System.out.println("Operadores Aritméticos");
+		System.out.println("----------------------------------");
+		System.out.println("| Operador | Exemplo     | Resultado |");
+		System.out.println("|    =     |  x = 5      |  " +x+ "      |");
+		System.out.println("|    +     |  X = 5 + 5  |  " + (x+5)+"|");
+	}
+
+}
