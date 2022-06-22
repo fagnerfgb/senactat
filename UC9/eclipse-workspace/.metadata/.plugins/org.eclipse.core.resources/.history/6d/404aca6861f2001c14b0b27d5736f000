@@ -40,7 +40,7 @@ public class Sobre extends JDialog {
 		txtpnOlEuSou.setEditable(false);
 		txtpnOlEuSou.setFont(new Font("Dialog", Font.PLAIN, 12));
 		txtpnOlEuSou.setText("Olá! Eu sou o Fagner! \nTrabalho com infraestrutura de TI e estudo inglês e francês.\nEstes são os meus primeiros passos em desenvolvimento de sistemas.\n\nHello! My name is Fagner!\nI work with IT infrastructure and I study English and French.\nThese are my first steps in systems development.\n\nSalut ! Je m'appelle Fagner.\nJe travaille avec la infrastructure de technologie de l'information et j'étudie l'anglais et le français.\nMaintenant je commence à apprendre à développer des systèmes.\n\n");
-		txtpnOlEuSou.setBounds(36, 12, 384, 230);
+		txtpnOlEuSou.setBounds(36, 12, 384, 245);
 		getContentPane().add(txtpnOlEuSou);
 
 	}

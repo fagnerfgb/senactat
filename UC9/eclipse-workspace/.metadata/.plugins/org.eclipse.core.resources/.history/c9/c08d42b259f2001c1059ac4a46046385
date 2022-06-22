@@ -49,65 +49,65 @@ public class Boletim extends JDialog {
 		getContentPane().setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(12, 20, 70, 15);
+		lblNome.setBounds(12, 26, 70, 15);
 		getContentPane().add(lblNome);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(110, 17, 283, 19);
+		txtNome.setBounds(120, 24, 114, 19);
 		getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 
 		JLabel lblIdade = new JLabel("Idade");
-		lblIdade.setBounds(12, 55, 70, 15);
+		lblIdade.setBounds(12, 51, 70, 15);
 		getContentPane().add(lblIdade);
 
 		txtIdade = new JTextField();
-		txtIdade.setBounds(110, 53, 114, 19);
+		txtIdade.setBounds(120, 49, 114, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
 
 		JLabel lblDisciplina = new JLabel("Disciplina");
-		lblDisciplina.setBounds(12, 90, 70, 15);
+		lblDisciplina.setBounds(12, 80, 70, 15);
 		getContentPane().add(lblDisciplina);
 
 		txtDisciplina = new JTextField();
-		txtDisciplina.setBounds(110, 89, 114, 19);
+		txtDisciplina.setBounds(120, 78, 114, 19);
 		getContentPane().add(txtDisciplina);
 		txtDisciplina.setColumns(10);
 
 		JLabel lblBimestre1 = new JLabel("1º Bimestre");
-		lblBimestre1.setBounds(12, 125, 100, 15);
+		lblBimestre1.setBounds(12, 109, 100, 15);
 		getContentPane().add(lblBimestre1);
 
 		txtBimestre1 = new JTextField();
-		txtBimestre1.setBounds(110, 121, 76, 19);
+		txtBimestre1.setBounds(120, 107, 114, 19);
 		getContentPane().add(txtBimestre1);
 		txtBimestre1.setColumns(10);
 
 		JLabel lblBimestre2 = new JLabel("2º Bimestre");
-		lblBimestre2.setBounds(233, 125, 100, 15);
+		lblBimestre2.setBounds(12, 138, 100, 15);
 		getContentPane().add(lblBimestre2);
 
 		txtBimestre2 = new JTextField();
-		txtBimestre2.setBounds(340, 121, 76, 19);
+		txtBimestre2.setBounds(120, 136, 114, 19);
 		getContentPane().add(txtBimestre2);
 		txtBimestre2.setColumns(10);
 
 		JLabel lblBimestre3 = new JLabel("3º Bimestre");
-		lblBimestre3.setBounds(12, 156, 91, 15);
+		lblBimestre3.setBounds(12, 167, 91, 15);
 		getContentPane().add(lblBimestre3);
 
 		txtBimestre3 = new JTextField();
-		txtBimestre3.setBounds(110, 152, 76, 19);
+		txtBimestre3.setBounds(120, 165, 114, 19);
 		getContentPane().add(txtBimestre3);
 		txtBimestre3.setColumns(10);
 
 		JLabel lblBimestre4 = new JLabel("4º Bimestre");
-		lblBimestre4.setBounds(233, 156, 91, 15);
+		lblBimestre4.setBounds(12, 191, 91, 15);
 		getContentPane().add(lblBimestre4);
 
 		txtBimestre4 = new JTextField();
-		txtBimestre4.setBounds(340, 152, 76, 19);
+		txtBimestre4.setBounds(120, 189, 114, 19);
 		getContentPane().add(txtBimestre4);
 		txtBimestre4.setColumns(10);
 
@@ -117,7 +117,7 @@ public class Boletim extends JDialog {
 				media();
 			}
 		});
-		btnMedia.setBounds(161, 208, 117, 25);
+		btnMedia.setBounds(286, 104, 117, 25);
 		getContentPane().add(btnMedia);
 
 	}// Fim do Construtor
@@ -142,7 +142,7 @@ public class Boletim extends JDialog {
 		media = Math.round(media * 100.0) / 100.0;
 
 		// Saída
-		JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
+		JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média na disciplina "
 				+ disciplina + " é " + media + "!", "Média", JOptionPane.DEFAULT_OPTION);
 
 	}

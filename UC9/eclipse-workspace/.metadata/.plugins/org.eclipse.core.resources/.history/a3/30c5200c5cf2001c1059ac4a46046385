@@ -53,7 +53,7 @@ public class Boletim extends JDialog {
 		getContentPane().add(lblNome);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(110, 17, 283, 19);
+		txtNome.setBounds(120, 17, 283, 19);
 		getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 
@@ -62,7 +62,7 @@ public class Boletim extends JDialog {
 		getContentPane().add(lblIdade);
 
 		txtIdade = new JTextField();
-		txtIdade.setBounds(110, 53, 114, 19);
+		txtIdade.setBounds(120, 53, 114, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
 
@@ -71,16 +71,16 @@ public class Boletim extends JDialog {
 		getContentPane().add(lblDisciplina);
 
 		txtDisciplina = new JTextField();
-		txtDisciplina.setBounds(110, 89, 114, 19);
+		txtDisciplina.setBounds(120, 89, 114, 19);
 		getContentPane().add(txtDisciplina);
 		txtDisciplina.setColumns(10);
 
 		JLabel lblBimestre1 = new JLabel("1º Bimestre");
-		lblBimestre1.setBounds(12, 125, 100, 15);
+		lblBimestre1.setBounds(19, 125, 100, 15);
 		getContentPane().add(lblBimestre1);
 
 		txtBimestre1 = new JTextField();
-		txtBimestre1.setBounds(110, 121, 76, 19);
+		txtBimestre1.setBounds(130, 121, 76, 19);
 		getContentPane().add(txtBimestre1);
 		txtBimestre1.setColumns(10);
 
@@ -94,11 +94,11 @@ public class Boletim extends JDialog {
 		txtBimestre2.setColumns(10);
 
 		JLabel lblBimestre3 = new JLabel("3º Bimestre");
-		lblBimestre3.setBounds(12, 156, 91, 15);
+		lblBimestre3.setBounds(19, 156, 91, 15);
 		getContentPane().add(lblBimestre3);
 
 		txtBimestre3 = new JTextField();
-		txtBimestre3.setBounds(110, 152, 76, 19);
+		txtBimestre3.setBounds(130, 152, 76, 19);
 		getContentPane().add(txtBimestre3);
 		txtBimestre3.setColumns(10);
 

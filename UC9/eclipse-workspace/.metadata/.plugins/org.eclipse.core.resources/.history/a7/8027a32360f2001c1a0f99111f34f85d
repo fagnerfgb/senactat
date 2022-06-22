@@ -53,7 +53,7 @@ public class IMC extends JDialog {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(165, 215, 117, 25);
+		btnSalvar.setBounds(175, 215, 117, 25);
 		getContentPane().add(btnSalvar);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome");
@@ -61,7 +61,7 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_2);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(127, 75, 296, 19);
+		txtNome.setBounds(127, 77, 296, 19);
 		getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 
@@ -95,7 +95,7 @@ public class IMC extends JDialog {
 		JLabel lblNewLabel_4 = new JLabel("CÁLCULO DO IMC");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel_4.setBounds(74, 30, 291, 29);
+		lblNewLabel_4.setBounds(78, 30, 291, 29);
 		getContentPane().add(lblNewLabel_4);
 
 	}// fim do construtor
