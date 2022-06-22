@@ -47,7 +47,7 @@ public class IMC extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 
-		JButton btnSalvar = new JButton("Salvar");
+		JButton btnSalvar = new JButton("Gravar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
@@ -91,7 +91,7 @@ public class IMC extends JDialog {
 		txtIdade.setBounds(127, 108, 148, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("CÁLCULO DO IMC");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 24));
@@ -99,47 +99,66 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_4);
 
 	}// fim do construtor
-
+	
 	// Método responsável pelo cálculo do IMC
 	void calcular() {
-		// Declaração de variávies
+		// Declaração de variáveis
 		String nome;
-		double peso;
-		double altura;
+		double peso, altura, imc;
 		int idade;
-		double imc;
-		
+
+		//Entrada
 		// Armazenando o conteúdo das caixas de texto nas variáveis
 		nome = txtNome.getText();
-		
-		
+
 		// Armazenando e convertendo o conteúdo das caixas de texto nas variáveis
 		peso = Double.parseDouble(txtPeso.getText());
 		altura = Double.parseDouble(txtAltura.getText());
 		idade = Integer.parseInt(txtIdade.getText());
 		
+		// Processamento
 		// Cálculo do IMC
 		imc = peso / (altura * altura);
-		imc = Math.round(imc * 100.0)/100.0;
-		
-		
+		imc = Math.round(imc * 100.0) / 100.0;
+
 		// Exibir o conteúdo das variáveis em uma caixa de mensagem
-		//JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + Math.round(imc)+"!", "Ficha do Aluno", JOptionPane.DEFAULT_OPTION);
+		// JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + "
+		// anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + "
+		// metros!\nO seu IMC é " + Math.round(imc)+"!", "Ficha do Aluno",
+		// JOptionPane.DEFAULT_OPTION);
+		
+		// Saída
 		if (imc < 18.5) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está muito magro", "IMC", JOptionPane.DEFAULT_OPTION);
-		} 
-		if (imc >= 18.5 && imc <=24.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nO seu IMC está normal", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null,
+					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
+							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está muito magro!",
+					"IMC", JOptionPane.DEFAULT_OPTION);
 		}
-		if (imc >25 && imc <=29.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com sobrepeso", "IMC", JOptionPane.DEFAULT_OPTION);
+		if (imc >= 18.5 && imc <= 24.9) {
+			JOptionPane.showMessageDialog(null,
+					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
+							+ altura + " metros!\nO seu IMC é " + imc + "! \nO seu IMC está normal!",
+					"IMC", JOptionPane.DEFAULT_OPTION);
 		}
-		if (imc >30 && imc <=39.9) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com obesidade", "IMC", JOptionPane.DEFAULT_OPTION);
+		if (imc > 25 && imc <= 29.9) {
+			JOptionPane.showMessageDialog(null,
+					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
+							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com sobrepeso!",
+					"IMC", JOptionPane.DEFAULT_OPTION);
+		}
+		if (imc > 30 && imc <= 39.9) {
+			JOptionPane.showMessageDialog(null,
+					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
+							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade!",
+					"IMC", JOptionPane.DEFAULT_OPTION);
 		}
 		if (imc > 40) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + " metros!\nO seu IMC é " + imc+"! \nVocê está com obesidade grave", "IMC", JOptionPane.DEFAULT_OPTION);
+			JOptionPane.showMessageDialog(null,
+					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
+							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade grave!",
+					"IMC", JOptionPane.DEFAULT_OPTION);
 		}
 	}
 
 }
+

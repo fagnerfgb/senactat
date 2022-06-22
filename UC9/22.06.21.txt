@@ -3,3 +3,27 @@
 #Data de atualização: 21/06/2022
 #Versão: 0.01
 ******************************************************************************************
+Algoritmo
+******************************************************************************************
+1- Entender o problema
+2- Desenvolver solução pensando no usuário final (Experiência do Usuário)
+3- Usar o mínimo possível de código (Eficiência, economicidade)
+******************************************************************************************
+Exemplo: Cálculo do IMC
+
+Variáveis:
+peso, altura, imc (numérico não inteiro)
+
+Entrada:
+peso, altura
+
+Processamento: 
+imc = peso / (altura * altura)
+
+Saída
+imc
+******************************************************************************************
+Dica Eclipse:
+<alt><shift><y> = quebra de linha
+******************************************************************************************
+

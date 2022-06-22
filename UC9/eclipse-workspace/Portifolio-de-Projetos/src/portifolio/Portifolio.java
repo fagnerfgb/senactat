@@ -45,26 +45,36 @@ public class Portifolio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("IMC");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnImc = new JButton("IMC");
+		btnImc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// as linhas abaixo fazem o link com o formulário IMC
 				IMC imc = new IMC();
 				imc.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(46, 107, 117, 25);
-		contentPane.add(btnNewButton);
+		btnImc.setBounds(24, 107, 117, 25);
+		contentPane.add(btnImc);
 		
-		JButton btnNewButton_1 = new JButton("Sobre");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnSobre = new JButton("Sobre");
+		btnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// as linhas abaixo fazem o link com o formulário Sobre
 				Sobre sobre = new Sobre();
 				sobre.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(271, 107, 117, 25);
-		contentPane.add(btnNewButton_1);
+		btnSobre.setBounds(306, 107, 117, 25);
+		contentPane.add(btnSobre);
+		
+		JButton btnBoletim = new JButton("Boletim");
+		btnBoletim.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Boletim boletim = new Boletim();
+				boletim.setVisible(true);
+			}
+		});
+		btnBoletim.setBounds(165, 107, 117, 25);
+		contentPane.add(btnBoletim);
 	} // fim do construtor
 }

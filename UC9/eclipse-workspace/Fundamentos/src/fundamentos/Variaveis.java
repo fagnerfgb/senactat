@@ -19,6 +19,8 @@ public class Variaveis {
 		String nome;
 		nome = "Fagner Geraldes Braga";
 		System.out.println("Nome: " + nome);
+		char sexo;
+		boolean vip;
 		// É possível criar a variável e ao mesmo tempo atribuir um valor
 		int idade = 38;
 		System.out.println("Idade: " + idade);
@@ -26,8 +28,13 @@ public class Variaveis {
 		double peso,altura;
 		peso = 94;
 		altura = 1.85;
+		sexo = 'M';
+		vip = true;
+		// Imprimir mensagens e resultados no Console
 		System.out.println("Peso: " + peso + " kilos");
 		System.out.println("Altura: " + altura + " metros");
+		System.out.println("Sexo: " + sexo);
+		System.out.println("Aluno VIP? " + vip);
 
 	}
 
