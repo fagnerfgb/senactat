@@ -1,0 +1,35 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 22/06/2022
+#Data de atualização: 22/06/2022
+#Versão: 0.01
+******************************************************************************************
+Site lógica: https://www.beecrowd.com.br/judge/pt/login
+******************************************************************************************
+Conversão de Fahrenheit para Celsius
+Entrada:
+fahrenheit
+Processamento:
+celsius = (5 * fahrenheit - 160) / 9
+Saída
+celsius
+******************************************************************************************
+Conversão de Celsius para Fahrenheit
+C / 5 = (F - 32) / 9
+Entrada:
+celsius
+Processamento:
+fahrenheit = 1.8 * celsius + 32
+Saída
+fahrenheit
+******************************************************************************************
+Porcentagem
+Entrada:
+porcentagem, valor
+Processamento:
+valor = (porcentagem * valor) / 100
+Saída
+valor
+******************************************************************************************
+
+
+

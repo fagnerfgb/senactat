@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Portifolio extends JFrame {
 
@@ -44,7 +45,7 @@ public class Portifolio extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnImc = new JButton("IMC");
 		btnImc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -53,9 +54,9 @@ public class Portifolio extends JFrame {
 				imc.setVisible(true);
 			}
 		});
-		btnImc.setBounds(24, 107, 117, 25);
+		btnImc.setBounds(24, 12, 117, 25);
 		contentPane.add(btnImc);
-		
+
 		JButton btnSobre = new JButton("Sobre");
 		btnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -64,9 +65,9 @@ public class Portifolio extends JFrame {
 				sobre.setVisible(true);
 			}
 		});
-		btnSobre.setBounds(306, 107, 117, 25);
+		btnSobre.setBounds(306, 12, 117, 25);
 		contentPane.add(btnSobre);
-		
+
 		JButton btnBoletim = new JButton("Boletim");
 		btnBoletim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -74,7 +75,40 @@ public class Portifolio extends JFrame {
 				boletim.setVisible(true);
 			}
 		});
-		btnBoletim.setBounds(165, 107, 117, 25);
+		btnBoletim.setBounds(165, 12, 117, 25);
 		contentPane.add(btnBoletim);
+
+		JButton btnNewButton = new JButton("Temperatura");
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Temperatura temperatura = new Temperatura();
+				temperatura.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(24, 61, 117, 25);
+		contentPane.add(btnNewButton);
+
+		JButton btnTemperatura = new JButton("Temperatura2");
+		btnTemperatura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Temperatura2 temperatura2 = new Temperatura2();
+				temperatura2.setVisible(true);
+			}
+		});
+		btnTemperatura.setFont(new Font("Dialog", Font.BOLD, 10));
+		btnTemperatura.setBounds(165, 60, 117, 25);
+		contentPane.add(btnTemperatura);
+
+		JButton btnPorcentagem = new JButton("Porcentagem");
+		btnPorcentagem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Porcentagem porcentagem = new Porcentagem();
+				porcentagem.setVisible(true);
+			}
+		});
+		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 10));
+		btnPorcentagem.setBounds(306, 60, 117, 25);
+		contentPane.add(btnPorcentagem);
 	} // fim do construtor
 }
