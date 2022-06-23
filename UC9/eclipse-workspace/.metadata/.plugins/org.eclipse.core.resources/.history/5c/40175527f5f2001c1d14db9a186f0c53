@@ -78,8 +78,8 @@ public class Portifolio extends JFrame {
 		btnBoletim.setBounds(165, 12, 117, 25);
 		contentPane.add(btnBoletim);
 
-		JButton btnNewButton = new JButton("ºF para ºC");
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 12));
+		JButton btnNewButton = new JButton("Temperatura");
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temperatura temperatura = new Temperatura();
@@ -89,25 +89,25 @@ public class Portifolio extends JFrame {
 		btnNewButton.setBounds(24, 61, 117, 25);
 		contentPane.add(btnNewButton);
 
-		JButton btnTemperatura = new JButton("ºC para ºF");
+		JButton btnTemperatura = new JButton("Temperatura2");
 		btnTemperatura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temperatura2 temperatura2 = new Temperatura2();
 				temperatura2.setVisible(true);
 			}
 		});
-		btnTemperatura.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnTemperatura.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnTemperatura.setBounds(165, 60, 117, 25);
 		contentPane.add(btnTemperatura);
 
-		JButton btnPorcentagem = new JButton("%");
+		JButton btnPorcentagem = new JButton("Porcentagem");
 		btnPorcentagem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Porcentagem porcentagem = new Porcentagem();
 				porcentagem.setVisible(true);
 			}
 		});
-		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 10));
 		btnPorcentagem.setBounds(306, 60, 117, 25);
 		contentPane.add(btnPorcentagem);
 	} // fim do construtor

@@ -49,18 +49,18 @@ public class Porcentagem extends JDialog {
 		txtPorcentagem = new JTextField();
 		txtPorcentagem.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPorcentagem.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtPorcentagem.setBounds(10, 97, 44, 47);
+		txtPorcentagem.setBounds(12, 97, 44, 47);
 		getContentPane().add(txtPorcentagem);
 		txtPorcentagem.setColumns(10);
 		
 		JLabel lbl1 = new JLabel("% de");
-		lbl1.setBounds(64, 113, 44, 15);
+		lbl1.setBounds(74, 113, 44, 15);
 		getContentPane().add(lbl1);
 		
 		txtValor = new JTextField();
 		txtValor.setHorizontalAlignment(SwingConstants.CENTER);
 		txtValor.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtValor.setBounds(118, 97, 114, 47);
+		txtValor.setBounds(120, 97, 114, 47);
 		getContentPane().add(txtValor);
 		txtValor.setColumns(10);
 		
@@ -70,13 +70,13 @@ public class Porcentagem extends JDialog {
 				calcular();
 			}
 		});
-		button.setBounds(242, 108, 70, 25);
+		button.setBounds(246, 108, 70, 25);
 		getContentPane().add(button);
 		
 		txtResultado = new JTextField();
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtResultado.setBounds(322, 97, 114, 47);
+		txtResultado.setBounds(324, 97, 114, 47);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 		
