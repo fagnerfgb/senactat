@@ -18,3 +18,13 @@ subtotal, desconto
 total = subtotal - (subtotal * desconto)/100;
 //Saída
 total
+******************************************************************************************
+Cálculo do valor da hora de um serviço
+// Entrada
+remuneracao, custoOperacional, horas
+// Processamento
+reserva = 0.3 * remuneracao;
+investimentos = 0.2 * remuneracao;
+rendimento = (remuneracao + custoOperacional + reserva + investimentos) / horas;
+// Saída
+rendimento

@@ -110,15 +110,5 @@ public class Portifolio extends JFrame {
 		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnPorcentagem.setBounds(306, 60, 117, 25);
 		contentPane.add(btnPorcentagem);
-		
-		JButton btnServico = new JButton("Serviço");
-		btnServico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				HoraServico horaservico = new HoraServico();
-				horaservico.setVisible(true);
-			}
-		});
-		btnServico.setBounds(24, 110, 117, 25);
-		contentPane.add(btnServico);
 	} // fim do construtor
 }
