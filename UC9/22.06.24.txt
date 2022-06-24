@@ -1,0 +1,21 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 24/06/2022
+#Data de atualização: 24/06/2022
+#Versão: 0.01
+******************************************************************************************
+https://www.iconfinder.com/
+https://icon-icons.com/pt/
+https://icons8.com/
+******************************************************************************************
+Adicionar ícone ao projeto Java no Eclipse
+
+Clicar com o direito em src, New Package >> img
+Salvar as imagens em /home/fagner/eclipse-workspace/Portifolio-de-Projetos/src/img
+
+No Jframe do Portifólio de Projetos, clicar em IconImage
+ClassPath >> src, img, escolher ícone
+
+Bounds (ajustar width e height para o tamanho do ícone): 64x64	
+Icon (clicar nos 3 pontos, selecionar classpath e escolher o ícone)
+Text = excluir o texto do botão
+ToolTipText = escrever o texto de acessibilidade

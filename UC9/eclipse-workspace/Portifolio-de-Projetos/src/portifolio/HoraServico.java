@@ -45,29 +45,29 @@ public class HoraServico extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JLabel lblRemuneracao = new JLabel("Remuneração");
-		lblRemuneracao.setBounds(12, 41, 106, 15);
+		lblRemuneracao.setBounds(12, 15, 106, 15);
 		getContentPane().add(lblRemuneracao);
 		
 		JLabel lblCustoOperacional = new JLabel("Custo Operacional");
-		lblCustoOperacional.setBounds(12, 97, 146, 15);
+		lblCustoOperacional.setBounds(12, 71, 146, 15);
 		getContentPane().add(lblCustoOperacional);
 		
 		JLabel lblHoras = new JLabel("Horas trabalhadas");
-		lblHoras.setBounds(12, 153, 146, 15);
+		lblHoras.setBounds(12, 127, 146, 15);
 		getContentPane().add(lblHoras);
 		
 		txtRemuneracao = new JTextField();
-		txtRemuneracao.setBounds(161, 38, 114, 19);
+		txtRemuneracao.setBounds(161, 12, 114, 19);
 		getContentPane().add(txtRemuneracao);
 		txtRemuneracao.setColumns(10);
 		
 		txtCustoOperacional = new JTextField();
-		txtCustoOperacional.setBounds(161, 95, 114, 19);
+		txtCustoOperacional.setBounds(161, 69, 114, 19);
 		getContentPane().add(txtCustoOperacional);
 		txtCustoOperacional.setColumns(10);
 		
 		txtHoras = new JTextField();
-		txtHoras.setBounds(161, 152, 114, 19);
+		txtHoras.setBounds(161, 126, 114, 19);
 		getContentPane().add(txtHoras);
 		txtHoras.setColumns(10);
 		
@@ -77,16 +77,16 @@ public class HoraServico extends JDialog {
 				hora();
 			}
 		});
-		btnCalcular.setBounds(305, 122, 117, 25);
+		btnCalcular.setBounds(165, 232, 117, 25);
 		getContentPane().add(btnCalcular);
 		
 		JLabel lblRendimento = new JLabel("Rendimento");
-		lblRendimento.setBounds(12, 209, 106, 15);
+		lblRendimento.setBounds(12, 183, 106, 15);
 		getContentPane().add(lblRendimento);
 		
 		txtRendimento = new JTextField();
 		txtRendimento.setEditable(false);
-		txtRendimento.setBounds(161, 209, 114, 19);
+		txtRendimento.setBounds(161, 183, 114, 19);
 		getContentPane().add(txtRendimento);
 		txtRendimento.setColumns(10);
 

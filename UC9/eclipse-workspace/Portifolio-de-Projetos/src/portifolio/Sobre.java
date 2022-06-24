@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Sobre extends JDialog {
 
@@ -39,9 +41,18 @@ public class Sobre extends JDialog {
 		JTextPane txtpnSobre = new JTextPane();
 		txtpnSobre.setEditable(false);
 		txtpnSobre.setFont(new Font("Dialog", Font.PLAIN, 12));
-		txtpnSobre.setText("Olá! Eu sou o Fagner! \nTrabalho com infraestrutura de TI e estudo inglês e francês.\nEstes são os meus primeiros passos em desenvolvimento de sistemas.\n\nHello! My name is Fagner!\nI work with IT infrastructure and I study English and French.\nThese are my first steps in systems development.\n\nSalut ! Je m'appelle Fagner.\nJe travaille avec la infrastructure de technologie de l'information et j'étudie l'anglais et le français.\nMaintenant je commence à apprendre à développer des systèmes.\n\n");
-		txtpnSobre.setBounds(36, 12, 384, 230);
+		txtpnSobre.setText("Olá! Eu sou o Fagner! \nTrabalho com infraestrutura de TI e estudo inglês e francês.\nEstes são os meus primeiros passos em desenvolvimento de sistemas.\n\nHello! My name is Fagner!\nI work with IT Infrastructure and I'am learning English and French.\nThese are my first steps in systems development.\n");
+		txtpnSobre.setBounds(24, 52, 253, 177);
 		getContentPane().add(txtpnSobre);
+		
+		JLabel lblSobALicena = new JLabel("Sob a licença MIT");
+		lblSobALicena.setBounds(295, 192, 131, 15);
+		getContentPane().add(lblSobALicena);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Sobre.class.getResource("/img/mit.png")));
+		label.setBounds(298, 52, 128, 128);
+		getContentPane().add(label);
 
 	}
 }

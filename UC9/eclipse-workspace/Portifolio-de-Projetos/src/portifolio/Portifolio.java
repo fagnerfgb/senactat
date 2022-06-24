@@ -10,6 +10,9 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import java.awt.Cursor;
 
 public class Portifolio extends JFrame {
 
@@ -36,6 +39,7 @@ public class Portifolio extends JFrame {
 	 * Create the frame.
 	 */
 	public Portifolio() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Portifolio.class.getResource("/img/pc.png")));
 		setForeground(new Color(0, 102, 153));
 		setResizable(false);
 		setTitle("Portifólio de Projetos");
@@ -46,7 +50,10 @@ public class Portifolio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnImc = new JButton("IMC");
+		JButton btnImc = new JButton("");
+		btnImc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnImc.setIcon(new ImageIcon(Portifolio.class.getResource("/img/bmi.png")));
+		btnImc.setToolTipText("Cálculo do IMC");
 		btnImc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// as linhas abaixo fazem o link com o formulário IMC
@@ -54,10 +61,13 @@ public class Portifolio extends JFrame {
 				imc.setVisible(true);
 			}
 		});
-		btnImc.setBounds(24, 12, 117, 25);
+		btnImc.setBounds(24, 88, 64, 64);
 		contentPane.add(btnImc);
 
-		JButton btnSobre = new JButton("Sobre");
+		JButton btnSobre = new JButton("");
+		btnSobre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSobre.setIcon(new ImageIcon(Portifolio.class.getResource("/img/about.png")));
+		btnSobre.setToolTipText("Sobre");
 		btnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// as linhas abaixo fazem o link com o formulário Sobre
@@ -65,20 +75,26 @@ public class Portifolio extends JFrame {
 				sobre.setVisible(true);
 			}
 		});
-		btnSobre.setBounds(306, 12, 117, 25);
+		btnSobre.setBounds(328, 12, 64, 64);
 		contentPane.add(btnSobre);
 
-		JButton btnBoletim = new JButton("Boletim");
+		JButton btnBoletim = new JButton("");
+		btnBoletim.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBoletim.setToolTipText("Calculadora da Média");
+		btnBoletim.setIcon(new ImageIcon(Portifolio.class.getResource("/img/media.png")));
 		btnBoletim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Boletim boletim = new Boletim();
 				boletim.setVisible(true);
 			}
 		});
-		btnBoletim.setBounds(165, 12, 117, 25);
+		btnBoletim.setBounds(176, 12, 64, 64);
 		contentPane.add(btnBoletim);
 
-		JButton btnNewButton = new JButton("ºF para ºC");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton.setToolTipText("Converte para Celsius");
+		btnNewButton.setIcon(new ImageIcon(Portifolio.class.getResource("/img/celsius.png")));
 		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -86,10 +102,13 @@ public class Portifolio extends JFrame {
 				temperatura.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(24, 61, 117, 25);
+		btnNewButton.setBounds(24, 12, 64, 64);
 		contentPane.add(btnNewButton);
 
-		JButton btnTemperatura = new JButton("ºC para ºF");
+		JButton btnTemperatura = new JButton("");
+		btnTemperatura.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnTemperatura.setIcon(new ImageIcon(Portifolio.class.getResource("/img/fahrenheit.png")));
+		btnTemperatura.setToolTipText("Converte para Fahrenheit");
 		btnTemperatura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temperatura2 temperatura2 = new Temperatura2();
@@ -97,10 +116,13 @@ public class Portifolio extends JFrame {
 			}
 		});
 		btnTemperatura.setFont(new Font("Dialog", Font.BOLD, 12));
-		btnTemperatura.setBounds(165, 60, 117, 25);
+		btnTemperatura.setBounds(100, 12, 64, 64);
 		contentPane.add(btnTemperatura);
 
-		JButton btnPorcentagem = new JButton("%");
+		JButton btnPorcentagem = new JButton("");
+		btnPorcentagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPorcentagem.setIcon(new ImageIcon(Portifolio.class.getResource("/img/porcentagem.png")));
+		btnPorcentagem.setToolTipText("Cálculo da Porcentagem");
 		btnPorcentagem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Porcentagem porcentagem = new Porcentagem();
@@ -108,17 +130,20 @@ public class Portifolio extends JFrame {
 			}
 		});
 		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 12));
-		btnPorcentagem.setBounds(306, 60, 117, 25);
+		btnPorcentagem.setBounds(252, 12, 64, 64);
 		contentPane.add(btnPorcentagem);
 		
-		JButton btnServico = new JButton("Serviço");
+		JButton btnServico = new JButton("");
+		btnServico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnServico.setIcon(new ImageIcon(Portifolio.class.getResource("/img/hora-trabalho.png")));
+		btnServico.setToolTipText("Cálculo da Hora de Trabalho");
 		btnServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				HoraServico horaservico = new HoraServico();
 				horaservico.setVisible(true);
 			}
 		});
-		btnServico.setBounds(24, 110, 117, 25);
+		btnServico.setBounds(100, 88, 64, 64);
 		contentPane.add(btnServico);
 	} // fim do construtor
 }
