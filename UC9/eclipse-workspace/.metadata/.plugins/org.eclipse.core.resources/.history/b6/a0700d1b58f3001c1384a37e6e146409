@@ -105,7 +105,6 @@ public class HoraServico extends JDialog {
 		reserva = 0.3 * remuneracao;
 		investimentos = 0.2 * remuneracao;
 		rendimento = (remuneracao + custoOperacional + reserva + investimentos) / horas;
-		rendimento = Math.round(rendimento * 100.0) / 100.0;
 		
 		// Saída
 		txtRendimento.setText(String.valueOf(rendimento));
