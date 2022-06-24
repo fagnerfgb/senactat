@@ -196,6 +196,12 @@ public class Porcentagem extends JDialog {
 	} // Fim do método para calcular a porcentagem
 	
 	void lucro() {
+		double venda;
+		venda = calcular();
+		txtVenda.setText(String.valueOf(venda));
+	}
+
+	/*void lucro() {
 		// Declaração de variáveis
 		double custo, lucro, venda;
 
@@ -208,7 +214,7 @@ public class Porcentagem extends JDialog {
 
 		// Saída
 		txtVenda.setText(String.valueOf(venda));
-	} // Fim do método para calcular o lucro 
+	} // Fim do método para calcular o lucro */
 
 	void desconto() {
 		// Declaração de variáveis

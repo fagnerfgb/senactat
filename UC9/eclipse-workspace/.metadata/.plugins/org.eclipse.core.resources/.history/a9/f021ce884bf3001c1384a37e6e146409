@@ -87,7 +87,7 @@ public class Porcentagem extends JDialog {
 		txtResultado.setColumns(10);
 
 		txtCusto = new JTextField();
-		txtCusto.setBounds(20, 122, 114, 19);
+		txtCusto.setBounds(12, 122, 114, 19);
 		getContentPane().add(txtCusto);
 		txtCusto.setColumns(10);
 
@@ -102,16 +102,16 @@ public class Porcentagem extends JDialog {
 		getContentPane().add(txtVenda);
 		txtVenda.setColumns(10);
 
-		JLabel lblCusto = new JLabel("Custo (R$)");
-		lblCusto.setBounds(34, 102, 87, 15);
+		JLabel lblCusto = new JLabel("Custo");
+		lblCusto.setBounds(42, 102, 54, 15);
 		getContentPane().add(lblCusto);
 
-		JLabel lblLucro = new JLabel("Lucro (%)");
-		lblLucro.setBounds(146, 102, 70, 15);
+		JLabel lblLucro = new JLabel("Lucro");
+		lblLucro.setBounds(154, 102, 44, 15);
 		getContentPane().add(lblLucro);
 
-		JLabel lblVenda = new JLabel("Venda (R$)");
-		lblVenda.setBounds(339, 102, 84, 15);
+		JLabel lblVenda = new JLabel("Venda");
+		lblVenda.setBounds(354, 102, 54, 15);
 		getContentPane().add(lblVenda);
 
 		JButton btnCalcular = new JButton("Calcular");
@@ -129,7 +129,7 @@ public class Porcentagem extends JDialog {
 		txtSubtotal.setColumns(10);
 
 		txtDesconto = new JTextField();
-		txtDesconto.setBounds(132, 207, 73, 19);
+		txtDesconto.setBounds(136, 207, 73, 19);
 		getContentPane().add(txtDesconto);
 		txtDesconto.setColumns(10);
 
@@ -148,16 +148,16 @@ public class Porcentagem extends JDialog {
 		getContentPane().add(txtTotal);
 		txtTotal.setColumns(10);
 
-		JLabel lblSubtotal = new JLabel("Subtotal (R$)");
-		lblSubtotal.setBounds(12, 190, 109, 15);
+		JLabel lblSubtotal = new JLabel("Subtotal");
+		lblSubtotal.setBounds(30, 190, 70, 15);
 		getContentPane().add(lblSubtotal);
 
-		JLabel lblDesconto = new JLabel("Desconto (%)");
-		lblDesconto.setBounds(120, 190, 96, 15);
+		JLabel lblDesconto = new JLabel("Desconto");
+		lblDesconto.setBounds(137, 190, 70, 15);
 		getContentPane().add(lblDesconto);
 
-		JLabel lblTotal = new JLabel("Total (R$)");
-		lblTotal.setBounds(339, 190, 84, 15);
+		JLabel lblTotal = new JLabel("Total");
+		lblTotal.setBounds(359, 190, 44, 15);
 		getContentPane().add(lblTotal);
 
 		JLabel lblPorcentagem = new JLabel("Porcentagem");
@@ -191,10 +191,9 @@ public class Porcentagem extends JDialog {
 
 		// Saída
 		txtResultado.setText(String.valueOf(resultado));
-		
 
-	} // Fim do método para calcular a porcentagem
-	
+	}
+
 	void lucro() {
 		// Declaração de variáveis
 		double custo, lucro, venda;
@@ -208,7 +207,7 @@ public class Porcentagem extends JDialog {
 
 		// Saída
 		txtVenda.setText(String.valueOf(venda));
-	} // Fim do método para calcular o lucro 
+	}
 
 	void desconto() {
 		// Declaração de variáveis
@@ -223,5 +222,5 @@ public class Porcentagem extends JDialog {
 
 		// Saída
 		txtTotal.setText(String.valueOf(total));
-	} // Fim do método para calcular o desconto
+	}
 }

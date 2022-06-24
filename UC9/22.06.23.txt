@@ -1,0 +1,20 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 23/06/2022
+#Data de atualização: 23/06/2022
+#Versão: 0.01
+******************************************************************************************
+Custo x venda
+// Entrada
+custo, lucro
+// Processamento
+venda = custo + (custo * lucro)/100;
+//Saída
+venda
+******************************************************************************************
+Desconto
+// Entrada
+subtotal, desconto 
+// Processamento
+total = subtotal - (subtotal * desconto)/100;
+//Saída
+total
