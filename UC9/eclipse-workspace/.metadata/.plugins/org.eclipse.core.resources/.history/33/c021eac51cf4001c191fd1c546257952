@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
 
 public class Temperatura2 extends JDialog {
 
@@ -37,7 +36,6 @@ public class Temperatura2 extends JDialog {
 	 * Create the dialog.
 	 */
 	public Temperatura2() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Temperatura2.class.getResource("/img/fahrenheit-48.png")));
 		setTitle("Converter de Celsius para Farenheit");
 		setResizable(false);
 		setModal(true);

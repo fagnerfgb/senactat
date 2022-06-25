@@ -43,7 +43,7 @@ public class Boletim extends JDialog {
 	 * Create the dialog.
 	 */
 	public Boletim() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Boletim.class.getResource("/img/media-48.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Boletim.class.getResource("/img/media.png")));
 		setModal(true);
 		setTitle("Cálculo da Média");
 		setResizable(false);

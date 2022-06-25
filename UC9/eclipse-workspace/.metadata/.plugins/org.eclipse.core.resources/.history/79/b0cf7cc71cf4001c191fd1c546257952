@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
 
 public class Temperatura extends JDialog {
 
@@ -37,7 +36,6 @@ public class Temperatura extends JDialog {
 	 * Create the dialog.
 	 */
 	public Temperatura() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Temperatura.class.getResource("/img/celsius-48.png")));
 		setModal(true);
 		setResizable(false);
 		setTitle("Conversão de Fahrenheit para Celsius");
