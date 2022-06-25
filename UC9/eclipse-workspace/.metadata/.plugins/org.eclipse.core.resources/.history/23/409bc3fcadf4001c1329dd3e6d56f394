@@ -44,16 +44,16 @@ public class Sobre extends JDialog {
 		txtpnSobre.setEditable(false);
 		txtpnSobre.setFont(new Font("Dialog", Font.PLAIN, 12));
 		txtpnSobre.setText("Olá! Eu sou o Fagner! \nTrabalho com infraestrutura de TI e estudo inglês e francês.\nEstes são os meus primeiros passos em desenvolvimento de sistemas.\n\nHello! My name is Fagner!\nI work with IT Infrastructure and I'am learning English and French.\nThese are my first steps in systems development.\n");
-		txtpnSobre.setBounds(24, 52, 253, 205);
+		txtpnSobre.setBounds(24, 52, 253, 177);
 		getContentPane().add(txtpnSobre);
 		
 		JLabel lblSobALicena = new JLabel("Sob a licença MIT");
-		lblSobALicena.setBounds(298, 192, 131, 15);
+		lblSobALicena.setBounds(295, 192, 131, 15);
 		getContentPane().add(lblSobALicena);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Sobre.class.getResource("/img/mit.png")));
-		label.setBounds(298, 52, 131, 128);
+		label.setBounds(298, 52, 128, 128);
 		getContentPane().add(label);
 		
 		JLabel lblSobre = new JLabel("Sobre");
