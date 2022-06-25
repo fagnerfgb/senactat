@@ -7,7 +7,6 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class Sobre extends JDialog {
 
@@ -34,7 +33,6 @@ public class Sobre extends JDialog {
 	 * Create the dialog.
 	 */
 	public Sobre() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Sobre.class.getResource("/img/about-48.png")));
 		setTitle("Sobre");
 		setModal(true);
 		setBounds(100, 100, 450, 300);
