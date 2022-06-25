@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.Cursor;
 
 public class IMC extends JDialog {
 
@@ -46,58 +47,59 @@ public class IMC extends JDialog {
 		setModal(true);
 		setTitle("IMC");
 		setResizable(false);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 230);
 		getContentPane().setLayout(null);
 
 		JButton btnSalvar = new JButton("Gravar");
+		btnSalvar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(165, 215, 117, 25);
+		btnSalvar.setBounds(165, 162, 117, 25);
 		getContentPane().add(btnSalvar);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome");
-		lblNewLabel_2.setBounds(27, 79, 70, 15);
+		lblNewLabel_2.setBounds(27, 44, 70, 15);
 		getContentPane().add(lblNewLabel_2);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(127, 75, 296, 19);
+		txtNome.setBounds(127, 40, 296, 19);
 		getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Peso (Kg)");
-		lblNewLabel.setBounds(27, 139, 70, 15);
+		lblNewLabel.setBounds(27, 104, 70, 15);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Altura (m)");
-		lblNewLabel_1.setBounds(27, 168, 70, 15);
+		lblNewLabel_1.setBounds(27, 133, 70, 15);
 		getContentPane().add(lblNewLabel_1);
 
 		txtPeso = new JTextField();
-		txtPeso.setBounds(127, 137, 150, 19);
+		txtPeso.setBounds(127, 102, 150, 19);
 		getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		txtAltura = new JTextField();
-		txtAltura.setBounds(127, 166, 148, 19);
+		txtAltura.setBounds(127, 131, 148, 19);
 		getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Idade");
-		lblNewLabel_3.setBounds(27, 110, 70, 15);
+		lblNewLabel_3.setBounds(27, 75, 70, 15);
 		getContentPane().add(lblNewLabel_3);
 
 		txtIdade = new JTextField();
-		txtIdade.setBounds(127, 108, 148, 19);
+		txtIdade.setBounds(127, 73, 148, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
 
-		JLabel lblNewLabel_4 = new JLabel("CÁLCULO DO IMC");
+		JLabel lblNewLabel_4 = new JLabel("IMC");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel_4.setBounds(74, 30, 291, 29);
+		lblNewLabel_4.setBounds(189, 12, 70, 29);
 		getContentPane().add(lblNewLabel_4);
 
 	}// fim do construtor

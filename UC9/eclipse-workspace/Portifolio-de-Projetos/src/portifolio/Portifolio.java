@@ -81,7 +81,7 @@ public class Portifolio extends JFrame {
 		JButton btnBoletim = new JButton("");
 		btnBoletim.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBoletim.setToolTipText("Calculadora da Média");
-		btnBoletim.setIcon(new ImageIcon(Portifolio.class.getResource("/img/media.png")));
+		btnBoletim.setIcon(new ImageIcon(Portifolio.class.getResource("/img/boletim.png")));
 		btnBoletim.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Boletim boletim = new Boletim();

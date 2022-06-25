@@ -55,6 +55,11 @@ public class Sobre extends JDialog {
 		label.setIcon(new ImageIcon(Sobre.class.getResource("/img/mit.png")));
 		label.setBounds(298, 52, 128, 128);
 		getContentPane().add(label);
+		
+		JLabel lblSobre = new JLabel("Sobre");
+		lblSobre.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblSobre.setBounds(182, 12, 84, 28);
+		getContentPane().add(lblSobre);
 
 	}
 }

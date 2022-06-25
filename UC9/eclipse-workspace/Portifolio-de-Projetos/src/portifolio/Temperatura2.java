@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Font;
+import java.awt.Cursor;
 
 public class Temperatura2 extends JDialog {
 
@@ -41,36 +43,42 @@ public class Temperatura2 extends JDialog {
 		setTitle("Converter de Celsius para Farenheit");
 		setResizable(false);
 		setModal(true);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 200);
 		getContentPane().setLayout(null);
 		
 		JLabel lblCelsius = new JLabel("Celsius");
-		lblCelsius.setBounds(77, 55, 70, 15);
+		lblCelsius.setBounds(123, 61, 70, 15);
 		getContentPane().add(lblCelsius);
 		
 		txtCelsius = new JTextField();
-		txtCelsius.setBounds(165, 53, 114, 19);
+		txtCelsius.setBounds(211, 59, 114, 19);
 		getContentPane().add(txtCelsius);
 		txtCelsius.setColumns(10);
 		
 		JLabel lblFahrenheit = new JLabel("Fahrenheit");
-		lblFahrenheit.setBounds(77, 101, 102, 15);
+		lblFahrenheit.setBounds(123, 90, 78, 15);
 		getContentPane().add(lblFahrenheit);
 		
 		txtFahrenheit = new JTextField();
 		txtFahrenheit.setEditable(false);
-		txtFahrenheit.setBounds(165, 99, 114, 19);
+		txtFahrenheit.setBounds(211, 88, 114, 19);
 		getContentPane().add(txtFahrenheit);
 		txtFahrenheit.setColumns(10);
 		
 		JButton btnConverter = new JButton("Converter");
+		btnConverter.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConverter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		btnConverter.setBounds(162, 163, 117, 25);
+		btnConverter.setBounds(165, 127, 117, 25);
 		getContentPane().add(btnConverter);
+		
+		JLabel lblDeCelsiusPara = new JLabel("De Celsius para Fahrenheit");
+		lblDeCelsiusPara.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblDeCelsiusPara.setBounds(43, 12, 362, 29);
+		getContentPane().add(lblDeCelsiusPara);
 
 	} // Fim do Construtor
 	

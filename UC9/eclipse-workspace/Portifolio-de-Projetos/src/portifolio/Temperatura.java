@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Font;
+import java.awt.Cursor;
 
 public class Temperatura extends JDialog {
 
@@ -41,36 +43,42 @@ public class Temperatura extends JDialog {
 		setModal(true);
 		setResizable(false);
 		setTitle("Conversão de Fahrenheit para Celsius");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 205);
 		getContentPane().setLayout(null);
 
 		JLabel lblFahrenheit = new JLabel("Fahrenheit");
-		lblFahrenheit.setBounds(119, 54, 102, 15);
+		lblFahrenheit.setBounds(122, 65, 78, 15);
 		getContentPane().add(lblFahrenheit);
 
 		txtFahrenheit = new JTextField();
-		txtFahrenheit.setBounds(223, 50, 114, 19);
+		txtFahrenheit.setBounds(226, 61, 114, 19);
 		getContentPane().add(txtFahrenheit);
 		txtFahrenheit.setColumns(10);
 
 		JButton btnCalcular = new JButton("Converter");
+		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		btnCalcular.setBounds(165, 151, 117, 25);
+		btnCalcular.setBounds(165, 121, 117, 25);
 		getContentPane().add(btnCalcular);
 
 		JLabel lblCelsius = new JLabel("Celsius");
-		lblCelsius.setBounds(119, 103, 70, 15);
+		lblCelsius.setBounds(122, 94, 70, 15);
 		getContentPane().add(lblCelsius);
 
 		txtCelsius = new JTextField();
 		txtCelsius.setEditable(false);
-		txtCelsius.setBounds(223, 101, 114, 19);
+		txtCelsius.setBounds(226, 92, 114, 19);
 		getContentPane().add(txtCelsius);
 		txtCelsius.setColumns(10);
+		
+		JLabel lblConverteDeFahrenheit = new JLabel("Fahrenheit para Celsius");
+		lblConverteDeFahrenheit.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblConverteDeFahrenheit.setBounds(59, 12, 330, 30);
+		getContentPane().add(lblConverteDeFahrenheit);
 
 	} // Fim do Construtor
 
