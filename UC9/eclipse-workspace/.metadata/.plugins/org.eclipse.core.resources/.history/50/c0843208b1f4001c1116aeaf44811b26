@@ -104,7 +104,6 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_4);
 		
 		txtImc = new JTextField();
-		txtImc.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtImc.setHorizontalAlignment(SwingConstants.CENTER);
 		txtImc.setEditable(false);
 		txtImc.setBounds(26, 207, 396, 19);

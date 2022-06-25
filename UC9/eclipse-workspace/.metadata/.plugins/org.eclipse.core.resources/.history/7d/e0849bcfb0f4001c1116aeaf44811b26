@@ -104,7 +104,6 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_4);
 		
 		txtImc = new JTextField();
-		txtImc.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtImc.setHorizontalAlignment(SwingConstants.CENTER);
 		txtImc.setEditable(false);
 		txtImc.setBounds(26, 207, 396, 19);
@@ -146,35 +145,35 @@ public class IMC extends JDialog {
 					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
 							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está muito magro!",
 					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está muito magro!"));
+			txtImc.setText(String.valueOf(imc + " Você está muito magro!"));
 		}
 		if (imc >= 18.5 && imc <= 24.9) {
 			JOptionPane.showMessageDialog(null,
 					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
 							+ altura + " metros!\nO seu IMC é " + imc + "! \nO seu IMC está normal!",
 					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " + imc + ". O seu IMC está normal!"));
+			txtImc.setText(String.valueOf(imc + " O seu IMC está normal!"));
 		}
 		if (imc > 25 && imc <= 29.9) {
 			JOptionPane.showMessageDialog(null,
 					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
 							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com sobrepeso!",
 					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com sobrepeso!"));
+			txtImc.setText(String.valueOf(imc + " Você está com sobrepeso!"));
 		}
 		if (imc > 30 && imc <= 39.9) {
 			JOptionPane.showMessageDialog(null,
 					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
 							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade!",
 					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com obesidade!"));
+			txtImc.setText(String.valueOf(imc + " Você está com obesidade!"));
 		}
 		if (imc > 40) {
 			JOptionPane.showMessageDialog(null,
 					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
 							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade grave!",
 					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com obesidade grave!"));
+			txtImc.setText(String.valueOf(imc + " ocê está com obesidade grave!"));
 		}
 	}
 
