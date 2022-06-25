@@ -2,7 +2,7 @@
 public class TestaConversao3 {
 	public static void main(String[] args) {
 
-		float pontoFlutuante = 3.14f; // aqui!
+		//float pontoFlutuante = 3.14f; // aqui!
 
 		double salario = 1270.50;
 		int valor = (int) salario;
