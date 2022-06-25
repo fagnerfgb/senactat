@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.Cursor;
-import javax.swing.SwingConstants;
 
 public class Boletim extends JDialog {
 
@@ -24,7 +23,6 @@ public class Boletim extends JDialog {
 	private JTextField txtNota2;
 	private JTextField txtNota3;
 	private JTextField txtNota4;
-	private JTextField txtMedia;
 
 	/**
 	 * Launch the application.
@@ -51,7 +49,7 @@ public class Boletim extends JDialog {
 		setModal(true);
 		setTitle("Cálculo da Média");
 		setResizable(false);
-		setBounds(100, 100, 450, 343);
+		setBounds(100, 100, 450, 311);
 		getContentPane().setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome");
@@ -124,20 +122,13 @@ public class Boletim extends JDialog {
 				media();
 			}
 		});
-		btnMedia.setBounds(165, 233, 117, 25);
+		btnMedia.setBounds(161, 233, 117, 25);
 		getContentPane().add(btnMedia);
 		
 		JLabel lblMdiaEscolar = new JLabel("Média Escolar");
 		lblMdiaEscolar.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblMdiaEscolar.setBounds(131, 12, 185, 36);
 		getContentPane().add(lblMdiaEscolar);
-		
-		txtMedia = new JTextField();
-		txtMedia.setHorizontalAlignment(SwingConstants.CENTER);
-		txtMedia.setEditable(false);
-		txtMedia.setBounds(167, 270, 114, 19);
-		getContentPane().add(txtMedia);
-		txtMedia.setColumns(10);
 
 	}// Fim do Construtor
 
@@ -163,7 +154,6 @@ public class Boletim extends JDialog {
 		// Saída
 		JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
 				+ disciplina + " é " + media + "!", "Média", JOptionPane.INFORMATION_MESSAGE);
-		txtMedia.setText(String.valueOf(media));
 
 	}
 }

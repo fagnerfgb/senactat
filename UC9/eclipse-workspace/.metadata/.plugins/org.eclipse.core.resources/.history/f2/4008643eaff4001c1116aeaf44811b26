@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.Cursor;
-import javax.swing.SwingConstants;
 
 public class Boletim extends JDialog {
 
@@ -133,7 +132,6 @@ public class Boletim extends JDialog {
 		getContentPane().add(lblMdiaEscolar);
 		
 		txtMedia = new JTextField();
-		txtMedia.setHorizontalAlignment(SwingConstants.CENTER);
 		txtMedia.setEditable(false);
 		txtMedia.setBounds(167, 270, 114, 19);
 		getContentPane().add(txtMedia);
