@@ -9,7 +9,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
 
 public class Boletim extends JDialog {
 
@@ -43,7 +42,6 @@ public class Boletim extends JDialog {
 	 * Create the dialog.
 	 */
 	public Boletim() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Boletim.class.getResource("/img/media.png")));
 		setModal(true);
 		setTitle("Cálculo da Média");
 		setResizable(false);
