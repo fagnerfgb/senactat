@@ -48,11 +48,11 @@ public class HoraServico extends JDialog {
 		setTitle("Cálculo da Hora de um Serviço");
 		setModal(true);
 		setResizable(false);
-		setBounds(100, 100, 422, 407);
+		setBounds(100, 100, 644, 265);
 		getContentPane().setLayout(null);
 		
-		JLabel lblRemuneracao = new JLabel("Remuneração Pretendida");
-		lblRemuneracao.setBounds(12, 68, 184, 15);
+		JLabel lblRemuneracao = new JLabel("Remuneração Mensal");
+		lblRemuneracao.setBounds(12, 68, 158, 15);
 		getContentPane().add(lblRemuneracao);
 		
 		JLabel lblCustoOperacional = new JLabel("Custo Operacional Mensal");
@@ -85,51 +85,51 @@ public class HoraServico extends JDialog {
 				hora();
 			}
 		});
-		btnCalcular.setBounds(151, 157, 117, 25);
+		btnCalcular.setBounds(258, 195, 117, 25);
 		getContentPane().add(btnCalcular);
 		
-		JLabel lblRendimento = new JLabel("Custo da Hora Trabalhada");
-		lblRendimento.setBounds(12, 204, 192, 15);
+		JLabel lblRendimento = new JLabel("Custo Hora");
+		lblRendimento.setBounds(335, 68, 87, 15);
 		getContentPane().add(lblRendimento);
 		
 		txtRendimento = new JTextField();
 		txtRendimento.setEditable(false);
-		txtRendimento.setBounds(214, 204, 114, 19);
+		txtRendimento.setBounds(489, 68, 114, 19);
 		getContentPane().add(txtRendimento);
 		txtRendimento.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Custo Hora");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel.setBounds(131, 12, 158, 42);
+		lblNewLabel.setBounds(242, 12, 158, 42);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblReserva = new JLabel("Reserva de Emergência");
-		lblReserva.setBounds(12, 263, 170, 15);
+		JLabel lblReserva = new JLabel("Reserva");
+		lblReserva.setBounds(335, 99, 57, 15);
 		getContentPane().add(lblReserva);
 		
 		txtReserva = new JTextField();
 		txtReserva.setEditable(false);
-		txtReserva.setBounds(214, 261, 114, 19);
+		txtReserva.setBounds(489, 99, 114, 19);
 		getContentPane().add(txtReserva);
 		txtReserva.setColumns(10);
 		
-		JLabel lblInvestimentos = new JLabel("Reserva para Investimentos");
-		lblInvestimentos.setBounds(12, 294, 205, 15);
+		JLabel lblInvestimentos = new JLabel("Investimentos");
+		lblInvestimentos.setBounds(335, 130, 100, 15);
 		getContentPane().add(lblInvestimentos);
 		
 		txtInvestimento = new JTextField();
 		txtInvestimento.setEditable(false);
-		txtInvestimento.setBounds(214, 292, 114, 19);
+		txtInvestimento.setBounds(489, 130, 114, 19);
 		getContentPane().add(txtInvestimento);
 		txtInvestimento.setColumns(10);
 		
 		JLabel lblFaturamentoMensal = new JLabel("Faturamento Mensal");
-		lblFaturamentoMensal.setBounds(12, 323, 158, 15);
+		lblFaturamentoMensal.setBounds(335, 168, 158, 15);
 		getContentPane().add(lblFaturamentoMensal);
 		
 		txtFaturamento = new JTextField();
 		txtFaturamento.setEditable(false);
-		txtFaturamento.setBounds(214, 321, 114, 19);
+		txtFaturamento.setBounds(489, 164, 114, 19);
 		getContentPane().add(txtFaturamento);
 		txtFaturamento.setColumns(10);
 
