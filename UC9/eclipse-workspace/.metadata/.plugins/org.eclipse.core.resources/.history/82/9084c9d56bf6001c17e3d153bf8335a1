@@ -43,7 +43,7 @@ public class Combustivel extends JDialog {
 		setTitle("Gasolina ou Etanol ?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Combustivel.class.getResource("/img/combustivel-48.png")));
 		setModal(true);
-		setBounds(100, 100, 385, 245);
+		setBounds(100, 100, 350, 245);
 		getContentPane().setLayout(null);
 		
 		JLabel lblPreoDaGasolina = new JLabel("Preço da Gasolina");
@@ -71,17 +71,17 @@ public class Combustivel extends JDialog {
 				calcular();
 			}
 		});
-		btnCalcular.setBounds(133, 123, 117, 25);
+		btnCalcular.setBounds(115, 123, 117, 25);
 		getContentPane().add(btnCalcular);
 		
 		txtResultado = new JTextField();
-		txtResultado.setBounds(43, 160, 297, 19);
+		txtResultado.setBounds(25, 160, 297, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 		
 		JLabel lblQualAMelhor = new JLabel("Qual a melhor opção ?");
 		lblQualAMelhor.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblQualAMelhor.setBounds(43, 12, 297, 30);
+		lblQualAMelhor.setBounds(25, 12, 297, 30);
 		getContentPane().add(lblQualAMelhor);
 
 	} // Fim do Construtor
