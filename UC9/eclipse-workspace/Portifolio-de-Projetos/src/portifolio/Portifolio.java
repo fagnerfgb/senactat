@@ -145,5 +145,18 @@ public class Portifolio extends JFrame {
 		});
 		btnServico.setBounds(100, 88, 64, 64);
 		contentPane.add(btnServico);
+		
+		JButton btnCombustivel = new JButton("");
+		btnCombustivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCombustivel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Combustivel combustivel = new Combustivel();
+				combustivel.setVisible(true);
+			}
+		});
+		btnCombustivel.setToolTipText("Gasolina ou Etanol ?");
+		btnCombustivel.setIcon(new ImageIcon(Portifolio.class.getResource("/img/combustivel.png")));
+		btnCombustivel.setBounds(176, 88, 64, 64);
+		contentPane.add(btnCombustivel);
 	} // fim do construtor
 }
