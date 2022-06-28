@@ -3,3 +3,22 @@
 #Data de atualização: 27/06/2022
 #Versão: 0.01
 ******************************************************************************************
+Variável:
+local - dentro do método
+// só atende ao método
+
+global (dentro da classe)
+// atende todos os métodos
+******************************************************************************************
+Estruturas de controle condicional
+// 1ª
+if (condição){
+	// condição verdadeira
+}
+******************************************************************************************
+// 2ª
+if (condição){
+	// condição verdadeira
+} else {
+	// condição falsa
+}
