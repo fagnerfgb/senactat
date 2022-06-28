@@ -126,12 +126,12 @@ public class Boletim extends JDialog {
 		});
 		btnMedia.setBounds(165, 233, 117, 25);
 		getContentPane().add(btnMedia);
-		
+
 		JLabel lblMdiaEscolar = new JLabel("Média Escolar");
 		lblMdiaEscolar.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblMdiaEscolar.setBounds(131, 12, 185, 36);
 		getContentPane().add(lblMdiaEscolar);
-		
+
 		txtMedia = new JTextField();
 		txtMedia.setHorizontalAlignment(SwingConstants.CENTER);
 		txtMedia.setEditable(false);
@@ -155,15 +155,20 @@ public class Boletim extends JDialog {
 		nota2 = Double.parseDouble(txtNota2.getText());
 		nota3 = Double.parseDouble(txtNota3.getText());
 		nota4 = Double.parseDouble(txtNota4.getText());
-		
+
 		// Processamento
 		media = (nota1 + nota2 + nota3 + nota4) / 4;
 		media = Math.round(media * 100.0) / 100.0;
 
 		// Saída
-		JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
-				+ disciplina + " é " + media + "!", "Média", JOptionPane.INFORMATION_MESSAGE);
-		txtMedia.setText(String.valueOf(media));
-
+		if (media < 5.0) {
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
+					+ disciplina + " é " + media + "!\nREPROVADO", "Média", JOptionPane.ERROR_MESSAGE);
+			txtMedia.setText(String.valueOf(media));
+		} else {
+			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
+					+ disciplina + " é " + media + "!\n APROVADO!", "Média", JOptionPane.INFORMATION_MESSAGE);
+			txtMedia.setText(String.valueOf(media));
+		}
 	}
 }

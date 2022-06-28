@@ -5,12 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Cursor;
+import javax.swing.SwingConstants;
 
 public class Combustivel extends JDialog {
 
@@ -40,6 +42,7 @@ public class Combustivel extends JDialog {
 	 * Create the dialog.
 	 */
 	public Combustivel() {
+		setResizable(false);
 		setTitle("Gasolina ou Etanol ?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Combustivel.class.getResource("/img/combustivel-48.png")));
 		setModal(true);
@@ -75,7 +78,10 @@ public class Combustivel extends JDialog {
 		getContentPane().add(btnCalcular);
 		
 		txtResultado = new JTextField();
-		txtResultado.setBounds(43, 160, 297, 19);
+		txtResultado.setFont(new Font("Dialog", Font.BOLD, 12));
+		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
+		txtResultado.setEditable(false);
+		txtResultado.setBounds(32, 160, 318, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 		
@@ -96,8 +102,11 @@ public class Combustivel extends JDialog {
 		//Processamento
 		if (etanol < 0.7 * gasolina) {
 			txtResultado.setText(String.valueOf("O etanol é mais vantajoso que a gasolina"));
+			JOptionPane.showMessageDialog(null, "O etanol é mais vantajoso que a gasolina", "Vai de Etanol", JOptionPane.DEFAULT_OPTION);
+			
 		} else {
 			txtResultado.setText(String.valueOf("A gasolina é mais vantajosa que o etanol"));
+			JOptionPane.showMessageDialog(null, "A gasolina é mais vantajosa que o etanol", "Vai de Gasosa", JOptionPane.DEFAULT_OPTION);
 		}
 		
 	}
