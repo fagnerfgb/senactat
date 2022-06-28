@@ -94,7 +94,7 @@ public class Combustivel extends JDialog {
 		etanol = Double.parseDouble(txtEtanol.getText());
 		
 		//Processamento
-		if (etanol < 0.7 * gasolina) {
+		if (etanol * 0.7 < gasolina) {
 			txtResultado.setText(String.valueOf("O etanol é mais vantajoso que a gasolina"));
 		} else {
 			txtResultado.setText(String.valueOf("A gasolina é mais vantajosa que o etanol"));
