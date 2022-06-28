@@ -22,9 +22,8 @@ public class HoraServico extends JDialog {
 	private JTextField txtCustoOperacional;
 	private JTextField txtHoras;
 	private JTextField txtRendimento;
-	private JTextField txtReserva;
-	private JTextField txtInvestimento;
-	private JTextField txtFaturamento;
+	private JTextField txtReservaServico;
+	private JTextField txtInvestimentoServico;
 	private JTextField txtEstimativaHoras;
 	private JTextField txtValorServico;
 
@@ -57,29 +56,29 @@ public class HoraServico extends JDialog {
 		getContentPane().setLayout(null);
 
 		JLabel lblRemuneracao = new JLabel("Remuneração Pretendida");
-		lblRemuneracao.setBounds(12, 68, 184, 15);
+		lblRemuneracao.setBounds(12, 45, 184, 15);
 		getContentPane().add(lblRemuneracao);
 
 		JLabel lblCustoOperacional = new JLabel("Custo Operacional Mensal");
-		lblCustoOperacional.setBounds(12, 99, 192, 15);
+		lblCustoOperacional.setBounds(12, 76, 192, 15);
 		getContentPane().add(lblCustoOperacional);
 
 		JLabel lblHoras = new JLabel("Horas trabalhadas por mês");
-		lblHoras.setBounds(12, 130, 205, 15);
+		lblHoras.setBounds(12, 107, 205, 15);
 		getContentPane().add(lblHoras);
 
 		txtRemuneracao = new JTextField();
-		txtRemuneracao.setBounds(214, 64, 114, 19);
+		txtRemuneracao.setBounds(214, 41, 114, 19);
 		getContentPane().add(txtRemuneracao);
 		txtRemuneracao.setColumns(10);
 
 		txtCustoOperacional = new JTextField();
-		txtCustoOperacional.setBounds(214, 95, 114, 19);
+		txtCustoOperacional.setBounds(214, 72, 114, 19);
 		getContentPane().add(txtCustoOperacional);
 		txtCustoOperacional.setColumns(10);
 
 		txtHoras = new JTextField();
-		txtHoras.setBounds(214, 126, 114, 19);
+		txtHoras.setBounds(214, 103, 114, 19);
 		getContentPane().add(txtHoras);
 		txtHoras.setColumns(10);
 
@@ -90,60 +89,54 @@ public class HoraServico extends JDialog {
 				hora();
 			}
 		});
-		btnCalcular.setBounds(151, 157, 117, 25);
+		btnCalcular.setBounds(151, 134, 117, 25);
 		getContentPane().add(btnCalcular);
 
 		JLabel lblRendimento = new JLabel("Custo da Hora Trabalhada");
-		lblRendimento.setBounds(12, 194, 192, 15);
+		lblRendimento.setBounds(12, 171, 192, 15);
 		getContentPane().add(lblRendimento);
 
 		txtRendimento = new JTextField();
 		txtRendimento.setEditable(false);
-		txtRendimento.setBounds(214, 194, 114, 19);
+		txtRendimento.setBounds(214, 171, 114, 19);
 		getContentPane().add(txtRendimento);
 		txtRendimento.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Custo Hora");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel.setBounds(131, 12, 158, 42);
+		lblNewLabel.setBounds(131, 0, 158, 42);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblReserva = new JLabel("Reserva de Emergência");
-		lblReserva.setBounds(14, 354, 170, 15);
+		lblReserva.setBounds(12, 309, 170, 15);
 		getContentPane().add(lblReserva);
 
-		txtReserva = new JTextField();
-		txtReserva.setEditable(false);
-		txtReserva.setBounds(216, 352, 114, 19);
-		getContentPane().add(txtReserva);
-		txtReserva.setColumns(10);
+		txtReservaServico = new JTextField();
+		txtReservaServico.setEditable(false);
+		txtReservaServico.setBounds(214, 307, 114, 19);
+		getContentPane().add(txtReservaServico);
+		txtReservaServico.setColumns(10);
 
 		JLabel lblInvestimentos = new JLabel("Reserva para Investimentos");
-		lblInvestimentos.setBounds(14, 385, 205, 15);
+		lblInvestimentos.setBounds(12, 338, 205, 15);
 		getContentPane().add(lblInvestimentos);
 
-		txtInvestimento = new JTextField();
-		txtInvestimento.setEditable(false);
-		txtInvestimento.setBounds(216, 383, 114, 19);
-		getContentPane().add(txtInvestimento);
-		txtInvestimento.setColumns(10);
+		txtInvestimentoServico = new JTextField();
+		txtInvestimentoServico.setEditable(false);
+		txtInvestimentoServico.setBounds(214, 336, 114, 19);
+		getContentPane().add(txtInvestimentoServico);
+		txtInvestimentoServico.setColumns(10);
 
-		JLabel lblFaturamentoMensal = new JLabel("Faturamento Mensal");
-		lblFaturamentoMensal.setBounds(14, 414, 158, 15);
+		JLabel lblFaturamentoMensal = new JLabel("Rendimento Líquido");
+		lblFaturamentoMensal.setBounds(12, 395, 152, 15);
 		getContentPane().add(lblFaturamentoMensal);
 
-		txtFaturamento = new JTextField();
-		txtFaturamento.setEditable(false);
-		txtFaturamento.setBounds(216, 412, 114, 19);
-		getContentPane().add(txtFaturamento);
-		txtFaturamento.setColumns(10);
-
 		JLabel lblEstimativaDeHoras = new JLabel("Estimativa de Horas");
-		lblEstimativaDeHoras.setBounds(12, 241, 147, 15);
+		lblEstimativaDeHoras.setBounds(12, 218, 147, 15);
 		getContentPane().add(lblEstimativaDeHoras);
 
 		txtEstimativaHoras = new JTextField();
-		txtEstimativaHoras.setBounds(214, 240, 114, 19);
+		txtEstimativaHoras.setBounds(214, 217, 114, 19);
 		getContentPane().add(txtEstimativaHoras);
 		txtEstimativaHoras.setColumns(10);
 
@@ -153,63 +146,66 @@ public class HoraServico extends JDialog {
 				processar();
 			}
 		});
-		btnProcessar.setBounds(153, 267, 117, 25);
+		btnProcessar.setBounds(151, 245, 117, 25);
 		getContentPane().add(btnProcessar);
 
 		JLabel lblValorCobradoPelo = new JLabel("Valor cobrado pelo serviço");
-		lblValorCobradoPelo.setBounds(14, 304, 192, 15);
+		lblValorCobradoPelo.setBounds(12, 280, 192, 15);
 		getContentPane().add(lblValorCobradoPelo);
 
 		txtValorServico = new JTextField();
 		txtValorServico.setEditable(false);
-		txtValorServico.setBounds(216, 302, 114, 19);
+		txtValorServico.setBounds(214, 280, 114, 19);
 		getContentPane().add(txtValorServico);
 		txtValorServico.setColumns(10);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(30, 218, 360, 10);
+		panel.setBounds(30, 198, 360, 5);
 		getContentPane().add(panel);
-
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.DARK_GRAY);
-		panel_1.setBounds(30, 330, 360, 10);
-		getContentPane().add(panel_1);
 		
-		txtRendimentoLiquido = new JTextField();
-		txtRendimentoLiquido.setEditable(false);
-		txtRendimentoLiquido.setBounds(276, 271, 114, 19);
-		getContentPane().add(txtRendimentoLiquido);
-		txtRendimentoLiquido.setColumns(10);
+		txtRendimentoLiquidoServico = new JTextField();
+		txtRendimentoLiquidoServico.setEditable(false);
+		txtRendimentoLiquidoServico.setBounds(214, 395, 114, 19);
+		getContentPane().add(txtRendimentoLiquidoServico);
+		txtRendimentoLiquidoServico.setColumns(10);
+		
+		JLabel lblReservaCustoOperacional = new JLabel("Reserva Custo Operacional");
+		lblReservaCustoOperacional.setBounds(12, 365, 205, 15);
+		getContentPane().add(lblReservaCustoOperacional);
+		
+		txtCustoOperacionalServico = new JTextField();
+		txtCustoOperacionalServico.setEditable(false);
+		txtCustoOperacionalServico.setBounds(214, 367, 114, 19);
+		getContentPane().add(txtCustoOperacionalServico);
+		txtCustoOperacionalServico.setColumns(10);
 
 	} // Fim do Construtor
 
 	// Variáveis globais;
-	double rendimento, reserva, custoOperacional, investimento, faturamento, rendimentoLiquido;
-	private JTextField txtRendimentoLiquido;
+	double rendimento, investimentoServico, custoOperacionalServico, reservaServico, rendimentoLiquido, remuneracao, horas, reserva, custoOperacional, investimento ;
+	double percentualInvestimento = 0.2;
+	double percentualReserva = 0.3;
+	private JTextField txtRendimentoLiquidoServico;
+	private JTextField txtCustoOperacionalServico;
 
 	void hora() {
 		// Declarando as variáveis
-		double remuneracao, horas;
-
+		
 		// Entrada
 		remuneracao = Double.parseDouble(txtRemuneracao.getText());
 		custoOperacional = Double.parseDouble(txtCustoOperacional.getText());
 		horas = Double.parseDouble(txtHoras.getText());
 
 		// Processamento
-		reserva = 0.3 * remuneracao;
-		investimento = 0.2 * remuneracao;
+		reserva = remuneracao * percentualReserva;
+		investimento = remuneracao * percentualInvestimento;
 		rendimento = (remuneracao + custoOperacional + reserva + investimento) / horas;
 		rendimento = Math.round(rendimento * 100.0) / 100.0;
-		faturamento = reserva + investimento + remuneracao + custoOperacional;
-
+		
 		// Saída
 		txtRendimento.setText(String.valueOf(rendimento));
-		txtReserva.setText(String.valueOf(reserva));
-		txtInvestimento.setText(String.valueOf(investimento));
-		txtFaturamento.setText(String.valueOf(faturamento));
-
+				
 	} // Fim do método hora
 
 	void processar() {
@@ -221,12 +217,27 @@ public class HoraServico extends JDialog {
 
 		// Processamento
 		valorServico = estimativaHoras * rendimento;
-		//rendimentoLiquido = valorServico - reserva - investimento - custoOperacional;
+		valorServico = Math.round(valorServico * 100.0) / 100.0;
+		
+		reservaServico = (remuneracao / horas) * percentualReserva * estimativaHoras;
+		reservaServico = Math.round(reservaServico * 100.0) / 100.0;
+		
+		investimentoServico	 = (remuneracao / horas) * percentualInvestimento * estimativaHoras;
+		investimentoServico = Math.round(investimentoServico * 100.0) / 100.0;
+		
+		custoOperacionalServico = custoOperacional / horas * estimativaHoras;
+		custoOperacionalServico = Math.round(custoOperacionalServico * 100.0) / 100.0;
+		
+		rendimentoLiquido = valorServico - reservaServico - investimentoServico - custoOperacionalServico;
+		rendimentoLiquido = Math.round(rendimentoLiquido * 100.0) / 100.0;
 
 		// Saída
 		txtValorServico.setText(String.valueOf(valorServico));
-		txtRendimentoLiquido.setText(String.valueOf(rendimentoLiquido));
-		JOptionPane.showMessageDialog(null, "Valor do Serviço é R$" + valorServico, "Relatório",
+		txtReservaServico.setText(String.valueOf(reservaServico));
+		txtInvestimentoServico.setText(String.valueOf(investimentoServico));
+		txtRendimentoLiquidoServico.setText(String.valueOf(rendimentoLiquido));
+		txtCustoOperacionalServico.setText(String.valueOf(custoOperacionalServico));
+		JOptionPane.showMessageDialog(null, "Valor do Serviço é R$" + valorServico + "\nO valor da reserva de emergência é R$"+reservaServico+"\nO valor da reserva para investimento é R$"+investimentoServico+"\nO valor da reserva de custo operacional é R$"+custoOperacionalServico+"\nO rendimento líquido do serviço é R$"+rendimentoLiquido, "Relatório",
 				JOptionPane.INFORMATION_MESSAGE);
 
 	} // Fim do método processar
