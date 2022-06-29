@@ -46,17 +46,17 @@ public class Eleitor extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Eleitor.class.getResource("/img/eleicao-48.png")));
 		setBounds(100, 100, 297, 203);
 		getContentPane().setLayout(null);
-
+		
 		JLabel lblIdade = new JLabel("Idade");
 		lblIdade.setBounds(119, 25, 48, 15);
 		getContentPane().add(lblIdade);
-
+		
 		txtIdade = new JTextField();
 		txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIdade.setBounds(86, 52, 114, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
-
+		
 		JButton btnVerifica = new JButton("Verifica");
 		btnVerifica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -66,7 +66,7 @@ public class Eleitor extends JDialog {
 		btnVerifica.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVerifica.setBounds(85, 83, 117, 25);
 		getContentPane().add(btnVerifica);
-
+		
 		txtResultado = new JTextField();
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -76,24 +76,24 @@ public class Eleitor extends JDialog {
 		txtResultado.setColumns(10);
 
 	} // Fim do Construtor
-
-	void verifica() {
-
-		// Variáveis e Entrada
-		int idade;
-		idade = Integer.parseInt(txtIdade.getText());
-
-		// Processamento e Saída
+	
+	
+	void verifica(){
+		
+	// Variáveis e Entrada
+	int idade;
+	idade = Integer.parseInt(txtIdade.getText());
+	
+	// Processamento e Saída
 		if (idade < 16) {
 			txtResultado.setText(String.valueOf("Voto proibido"));
-			JOptionPane.showMessageDialog(null, "Voto proibido", "A sua hora vai chegar", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Voto proibido","A sua hora vai chegar", JOptionPane.ERROR_MESSAGE);			
 		} else if (idade > 17 && idade < 71) {
 			txtResultado.setText(String.valueOf("Voto obrigatório"));
-			JOptionPane.showMessageDialog(null, "Voto obrigatório", "Cumpra com o seu dever cívico!",
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Voto obrigatório","Cumpra com o seu dever cívico!", JOptionPane.INFORMATION_MESSAGE);	
 		} else {
 			txtResultado.setText(String.valueOf("Voto facultativo"));
-			JOptionPane.showMessageDialog(null, "Voto facultativo", "A decisão é sua!", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Voto facultativo","A decisão é sua!", JOptionPane.QUESTION_MESSAGE);	
 		}
 	} // Fim do método verifica
 }// Fim
