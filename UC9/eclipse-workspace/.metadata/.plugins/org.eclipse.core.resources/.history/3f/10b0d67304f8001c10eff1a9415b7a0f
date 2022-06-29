@@ -52,7 +52,6 @@ public class Eleitor extends JDialog {
 		getContentPane().add(lblIdade);
 		
 		txtIdade = new JTextField();
-		txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIdade.setBounds(86, 52, 114, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);

@@ -61,6 +61,39 @@ if (condição 1 ){
 	// nenhuma das condições anteriores verdadeiras
 }
 ******************************************************************************************
+Exemplo: Desenvolver um sistema que verifique a obrigatoriedade de votar de acordo com a idade:
+No Brasil:
+Até 15 anos o voto proibido
+16, 17 ou acima de 70 anos o voto é facultativo
+Entre 18 e 70 o voto é obrigatório
+
+int idade = 71;
+
+System.out.println("Idade: " + idade);
+if (idade < 16) {
+  System.out.println("Proibido votar");
+} else if (idade == 16 || idade == 17 || idade > 70) {
+  System.out.println("Voto facultativo");
+} else {
+  System.out.println("Voto obrigatório");
+}
+--------------------------------------------------
+(idade == 16 || idade == 17 || idade > 70)
+
+(idade > 17 && idade < 71)
+--------------------------------------------------
+
+System.out.println("Idade: " + idade);
+if (idade < 16) {
+  System.out.println("Proibido votar");
+} else if (idade > 17 && idade < 71) {
+  System.out.println("Voto obrigatório");
+} else {
+  System.out.println("Voto facultativo");
+}
+******************************************************************************************
+Atividade:
+Desenvolver este aplicativo no portfólio de projetos
 
 
 
