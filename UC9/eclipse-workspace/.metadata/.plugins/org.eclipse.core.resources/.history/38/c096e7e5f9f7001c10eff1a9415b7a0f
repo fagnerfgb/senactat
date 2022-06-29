@@ -1,0 +1,20 @@
+/**
+ * Operadores Atribuição
+ */
+package fundamentos;
+
+/**
+ * @author Fagner
+ *
+ */
+public class OperadoresAtribuicao {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+	}
+
+}

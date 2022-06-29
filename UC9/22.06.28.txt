@@ -16,3 +16,23 @@ https://meubolsoemdia.com.br/calculadora-alcool-gasolina
 Mudar Propriedade de um Label
 
 Convert Local to Field
+
+lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/icone.png")));
+******************************************************************************************
+Algoritmo:
+
+//variáveis
+etanol, gasolina (números não inteiros)
+
+//entrada
+etanol, gasolina
+
+//processamento/saída
+if (etanol < 0.7 * gasolina) {
+ //abastecer com etanol
+} else {
+ //abastecer com gasolina
+} 
+******************************************************************************************
+
+

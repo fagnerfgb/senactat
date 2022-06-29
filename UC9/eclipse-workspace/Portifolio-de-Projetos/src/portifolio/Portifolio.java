@@ -158,5 +158,18 @@ public class Portifolio extends JFrame {
 		btnCombustivel.setIcon(new ImageIcon(Portifolio.class.getResource("/img/combustivel.png")));
 		btnCombustivel.setBounds(176, 88, 64, 64);
 		contentPane.add(btnCombustivel);
+		
+		JButton btnEleicao = new JButton("");
+		btnEleicao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Eleitor eleitor = new Eleitor();
+				eleitor.setVisible(true);
+			}
+		});
+		btnEleicao.setToolTipText("Eleição");
+		btnEleicao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEleicao.setIcon(new ImageIcon(Portifolio.class.getResource("/img/eleicao.png")));
+		btnEleicao.setBounds(252, 88, 64, 64);
+		contentPane.add(btnEleicao);
 	} // fim do construtor
 }
