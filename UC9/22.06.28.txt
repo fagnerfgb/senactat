@@ -12,3 +12,7 @@ Segundo as montadoras de veículos é mais vantagem abastecer com Etanol se o li
 até 70% do valor do litro da gasolina.
 
 https://meubolsoemdia.com.br/calculadora-alcool-gasolina
+******************************************************************************************
+Mudar Propriedade de um Label
+
+Convert Local to Field

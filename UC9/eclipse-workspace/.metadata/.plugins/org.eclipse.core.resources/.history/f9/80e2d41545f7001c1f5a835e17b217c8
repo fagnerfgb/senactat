@@ -47,7 +47,7 @@ public class Combustivel extends JDialog {
 		setTitle("Gasolina ou Etanol ?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Combustivel.class.getResource("/img/combustivel-48.png")));
 		setModal(true);
-		setBounds(100, 100, 385, 427);
+		setBounds(100, 100, 385, 475);
 		getContentPane().setLayout(null);
 
 		JLabel lblPreoDaGasolina = new JLabel("Preço da Gasolina");
@@ -82,7 +82,7 @@ public class Combustivel extends JDialog {
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setEditable(false);
-		txtResultado.setBounds(32, 332, 318, 19);
+		txtResultado.setBounds(32, 365, 318, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 
@@ -93,7 +93,7 @@ public class Combustivel extends JDialog {
 		
 		lblStatus = new JLabel("");
 		lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/neutro.png")));
-		lblStatus.setBounds(31, 160, 320, 160);
+		lblStatus.setBounds(31, 178, 320, 160);
 		getContentPane().add(lblStatus);
 
 	} // Fim do Construtor
@@ -109,12 +109,14 @@ public class Combustivel extends JDialog {
 		// Processamento/Saída
 		if (etanol < 0.7 * gasolina) {
 			txtResultado.setText(String.valueOf("O etanol é mais vantajoso que a gasolina"));
-			lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/etanol.png")));
 			/*JOptionPane.showMessageDialog(null, "O etanol é mais vantajoso que a gasolina", "Vai de Etanol",
 					JOptionPane.DEFAULT_OPTION);*/
+			
+			
+			
+
 		} else {
 			txtResultado.setText(String.valueOf("A gasolina é mais vantajosa que o etanol"));
-			lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/gasolina.png")));
 			/*JOptionPane.showMessageDialog(null, "A gasolina é mais vantajosa que o etanol", "Vai de Gasosa",
 					JOptionPane.DEFAULT_OPTION);*/
 			
