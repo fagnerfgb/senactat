@@ -4,24 +4,20 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import java.awt.Cursor;
+import javax.swing.ImageIcon;
 
 public class IMC extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txtNome;
 	private JTextField txtPeso;
 	private JTextField txtAltura;
-	private JTextField txtIdade;
-	private JTextField txtImc;
+	private JLabel lblImagem;
 
 	/**
 	 * Launch the application.
@@ -48,7 +44,7 @@ public class IMC extends JDialog {
 		setModal(true);
 		setTitle("IMC");
 		setResizable(false);
-		setBounds(100, 100, 450, 281);
+		setBounds(100, 100, 309, 636);
 		getContentPane().setLayout(null);
 
 		JButton btnSalvar = new JButton("Calcular");
@@ -58,77 +54,50 @@ public class IMC extends JDialog {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(161, 173, 117, 25);
+		btnSalvar.setBounds(95, 80, 117, 25);
 		getContentPane().add(btnSalvar);
 
-		JLabel lblNewLabel_2 = new JLabel("Nome");
-		lblNewLabel_2.setBounds(22, 57, 70, 15);
-		getContentPane().add(lblNewLabel_2);
-
-		txtNome = new JTextField();
-		txtNome.setBounds(122, 53, 296, 19);
-		getContentPane().add(txtNome);
-		txtNome.setColumns(10);
-
 		JLabel lblNewLabel = new JLabel("Peso (Kg)");
-		lblNewLabel.setBounds(22, 117, 70, 15);
+		lblNewLabel.setBounds(12, 24, 70, 15);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Altura (m)");
-		lblNewLabel_1.setBounds(22, 146, 70, 15);
+		lblNewLabel_1.setBounds(12, 53, 70, 15);
 		getContentPane().add(lblNewLabel_1);
 
 		txtPeso = new JTextField();
-		txtPeso.setBounds(122, 115, 150, 19);
+		txtPeso.setBounds(112, 22, 150, 19);
 		getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		txtAltura = new JTextField();
-		txtAltura.setBounds(122, 144, 148, 19);
+		txtAltura.setBounds(112, 51, 148, 19);
 		getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 
-		JLabel lblNewLabel_3 = new JLabel("Idade");
-		lblNewLabel_3.setBounds(22, 88, 70, 15);
-		getContentPane().add(lblNewLabel_3);
-
-		txtIdade = new JTextField();
-		txtIdade.setBounds(122, 86, 148, 19);
-		getContentPane().add(txtIdade);
-		txtIdade.setColumns(10);
-
-		JLabel lblNewLabel_4 = new JLabel("IMC");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel_4.setBounds(189, 12, 70, 29);
-		getContentPane().add(lblNewLabel_4);
-		
-		txtImc = new JTextField();
-		txtImc.setFont(new Font("Dialog", Font.BOLD, 12));
-		txtImc.setHorizontalAlignment(SwingConstants.CENTER);
-		txtImc.setEditable(false);
-		txtImc.setBounds(26, 207, 396, 19);
-		getContentPane().add(txtImc);
-		txtImc.setColumns(10);
+		lblImagem = new JLabel("");
+		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
+		lblImagem.setBounds(74, 129, 159, 425);
+		getContentPane().add(lblImagem);
 
 	}// fim do construtor
-	
+
 	// Método responsável pelo cálculo do IMC
 	void calcular() {
 		// Declaração de variáveis
-		String nome;
+		//String nome;
 		double peso, altura, imc;
-		int idade;
+		//int idade;
 
-		//Entrada
+		// Entrada
 		// Armazenando o conteúdo das caixas de texto nas variáveis
-		nome = txtNome.getText();
+		//nome = txtNome.getText();
 
 		// Armazenando e convertendo o conteúdo das caixas de texto nas variáveis
 		peso = Double.parseDouble(txtPeso.getText());
 		altura = Double.parseDouble(txtAltura.getText());
-		idade = Integer.parseInt(txtIdade.getText());
-		
+		//idade = Integer.parseInt(txtIdade.getText());
+
 		// Processamento
 		// Cálculo do IMC
 		imc = peso / (altura * altura);
@@ -139,44 +108,23 @@ public class IMC extends JDialog {
 		// anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + "
 		// metros!\nO seu IMC é " + Math.round(imc)+"!", "Ficha do Aluno",
 		// JOptionPane.DEFAULT_OPTION);
-		
+
 		// Saída
-		if (imc < 18.5) {
-			JOptionPane.showMessageDialog(null,
-					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
-							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está muito magro!",
-					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está muito magro!"));
-		}
-		if (imc >= 18.5 && imc <= 24.9) {
-			JOptionPane.showMessageDialog(null,
-					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
-							+ altura + " metros!\nO seu IMC é " + imc + "! \nO seu IMC está normal!",
-					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " + imc + ". O seu IMC está normal!"));
-		}
-		if (imc > 25 && imc <= 29.9) {
-			JOptionPane.showMessageDialog(null,
-					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
-							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com sobrepeso!",
-					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com sobrepeso!"));
-		}
-		if (imc > 30 && imc <= 39.9) {
-			JOptionPane.showMessageDialog(null,
-					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
-							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade!",
-					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com obesidade!"));
-		}
-		if (imc > 40) {
-			JOptionPane.showMessageDialog(null,
-					nome + ",\nA sua idade é " + idade + " anos! \nO seu peso é " + peso + " kilos! \nA sua altura é "
-							+ altura + " metros!\nO seu IMC é " + imc + "! \nVocê está com obesidade grave!",
-					"IMC", JOptionPane.DEFAULT_OPTION);
-			txtImc.setText(String.valueOf("O seu IMC é: " +imc + ". Você está com obesidade grave!"));
+		if (imc < 17) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc1.png")));
+		} else if (imc >= 17.0 && imc < 18.5) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc2.png")));
+		} else if (imc >= 18.5 && imc < 25.0) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc3.png")));
+		} else if (imc >= 25 && imc < 30.0) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc4.png")));
+		} else if (imc >= 30 && imc < 35.0) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc5.png")));
+		} else if (imc >= 35 && imc < 40.0) {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc6.png")));
+		} else {
+			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc7.png")));
 		}
 	}
 
 }
-

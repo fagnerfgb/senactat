@@ -79,8 +79,10 @@ public class Eleitor extends JDialog {
 
 	void verifica() {
 
-		// Variáveis e Entrada
+		// Variáveis
 		int idade;
+		
+		// Entrada
 		idade = Integer.parseInt(txtIdade.getText());
 
 		// Processamento e Saída
