@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Cursor;
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 
 public class IMC extends JDialog {
 
@@ -19,7 +18,6 @@ public class IMC extends JDialog {
 	private JTextField txtPeso;
 	private JTextField txtAltura;
 	private JLabel lblImagem;
-	private JTextField txtResultado;
 
 	/**
 	 * Launch the application.
@@ -56,7 +54,7 @@ public class IMC extends JDialog {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(103, 82, 100, 25);
+		btnSalvar.setBounds(95, 80, 117, 25);
 		getContentPane().add(btnSalvar);
 
 		JLabel lblNewLabel = new JLabel("Peso (Kg)");
@@ -68,32 +66,19 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_1);
 
 		txtPeso = new JTextField();
-		txtPeso.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPeso.setBounds(103, 22, 100, 19);
+		txtPeso.setBounds(112, 22, 150, 19);
 		getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		txtAltura = new JTextField();
-		txtAltura.setHorizontalAlignment(SwingConstants.CENTER);
-		txtAltura.setBounds(103, 51, 100, 19);
+		txtAltura.setBounds(112, 51, 148, 19);
 		getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 
 		lblImagem = new JLabel("");
 		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
-		lblImagem.setBounds(74, 148, 159, 425);
+		lblImagem.setBounds(74, 129, 159, 425);
 		getContentPane().add(lblImagem);
-		
-		txtResultado = new JTextField();
-		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
-		txtResultado.setEditable(false);
-		txtResultado.setBounds(103, 117, 100, 19);
-		getContentPane().add(txtResultado);
-		txtResultado.setColumns(10);
-		
-		JLabel lblOSeuImc = new JLabel("O seu IMC é");
-		lblOSeuImc.setBounds(12, 121, 90, 15);
-		getContentPane().add(lblOSeuImc);
 
 	}// fim do construtor
 
@@ -125,7 +110,6 @@ public class IMC extends JDialog {
 		// JOptionPane.DEFAULT_OPTION);
 
 		// Saída
-		txtResultado.setText(String.valueOf(imc));
 		if (imc < 17) {
 			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc1.png")));
 		} else if (imc >= 17.0 && imc < 18.5) {
@@ -142,4 +126,5 @@ public class IMC extends JDialog {
 			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc7.png")));
 		}
 	}
+
 }

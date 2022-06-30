@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Cursor;
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 
 public class IMC extends JDialog {
 
@@ -56,7 +55,7 @@ public class IMC extends JDialog {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(103, 82, 100, 25);
+		btnSalvar.setBounds(112, 82, 150, 25);
 		getContentPane().add(btnSalvar);
 
 		JLabel lblNewLabel = new JLabel("Peso (Kg)");
@@ -68,14 +67,12 @@ public class IMC extends JDialog {
 		getContentPane().add(lblNewLabel_1);
 
 		txtPeso = new JTextField();
-		txtPeso.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPeso.setBounds(103, 22, 100, 19);
+		txtPeso.setBounds(112, 22, 150, 19);
 		getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		txtAltura = new JTextField();
-		txtAltura.setHorizontalAlignment(SwingConstants.CENTER);
-		txtAltura.setBounds(103, 51, 100, 19);
+		txtAltura.setBounds(112, 51, 150, 19);
 		getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 
@@ -85,9 +82,7 @@ public class IMC extends JDialog {
 		getContentPane().add(lblImagem);
 		
 		txtResultado = new JTextField();
-		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
-		txtResultado.setEditable(false);
-		txtResultado.setBounds(103, 117, 100, 19);
+		txtResultado.setBounds(112, 117, 150, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 		
