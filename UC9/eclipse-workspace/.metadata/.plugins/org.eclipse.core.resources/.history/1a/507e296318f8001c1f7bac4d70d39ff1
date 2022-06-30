@@ -13,7 +13,6 @@ import java.awt.Font;
 import java.awt.Cursor;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import java.awt.Color;
 
 public class Combustivel extends JDialog {
 
@@ -44,7 +43,6 @@ public class Combustivel extends JDialog {
 	 * Create the dialog.
 	 */
 	public Combustivel() {
-		getContentPane().setBackground(Color.WHITE);
 		setResizable(false);
 		setTitle("Gasolina ou Etanol ?");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Combustivel.class.getResource("/img/combustivel-48.png")));

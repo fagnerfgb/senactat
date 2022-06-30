@@ -12,7 +12,6 @@ import java.awt.Toolkit;
 import java.awt.Cursor;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import java.awt.Color;
 
 public class IMC extends JDialog {
 
@@ -43,7 +42,6 @@ public class IMC extends JDialog {
 	 * Create the dialog.
 	 */
 	public IMC() {
-		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IMC.class.getResource("/img/bmi48.png")));
 		setModal(true);
 		setTitle("IMC");

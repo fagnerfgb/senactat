@@ -12,7 +12,6 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import java.awt.Cursor;
-import java.awt.Color;
 
 public class Porcentagem extends JDialog {
 
@@ -48,7 +47,6 @@ public class Porcentagem extends JDialog {
 	 * Create the dialog.
 	 */
 	public Porcentagem() {
-		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Porcentagem.class.getResource("/img/porcentagem-48.png")));
 		setTitle("Cálculo da Porcentagem");
 		setResizable(false);
@@ -70,7 +68,7 @@ public class Porcentagem extends JDialog {
 		txtValor = new JTextField();
 		txtValor.setHorizontalAlignment(SwingConstants.CENTER);
 		txtValor.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtValor.setBounds(114, 54, 114, 20);
+		txtValor.setBounds(128, 54, 114, 20);
 		getContentPane().add(txtValor);
 		txtValor.setColumns(10);
 
@@ -81,14 +79,14 @@ public class Porcentagem extends JDialog {
 				calcular();
 			}
 		});
-		button.setBounds(231, 49, 95, 25);
+		button.setBounds(252, 49, 70, 25);
 		getContentPane().add(button);
 
 		txtResultado = new JTextField();
 		txtResultado.setEditable(false);
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtResultado.setBounds(332, 54, 114, 19);
+		txtResultado.setBounds(332, 54, 114, 20);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 
@@ -98,13 +96,13 @@ public class Porcentagem extends JDialog {
 		txtCusto.setColumns(10);
 
 		txtLucro = new JTextField();
-		txtLucro.setBounds(166, 126, 44, 20);
+		txtLucro.setBounds(146, 126, 61, 19);
 		getContentPane().add(txtLucro);
 		txtLucro.setColumns(10);
 
 		txtVenda = new JTextField();
 		txtVenda.setEditable(false);
-		txtVenda.setBounds(332, 126, 114, 19);
+		txtVenda.setBounds(324, 126, 114, 19);
 		getContentPane().add(txtVenda);
 		txtVenda.setColumns(10);
 
@@ -127,7 +125,7 @@ public class Porcentagem extends JDialog {
 				lucro();
 			}
 		});
-		btnCalcular.setBounds(231, 120, 95, 25);
+		btnCalcular.setBounds(219, 120, 95, 25);
 		getContentPane().add(btnCalcular);
 
 		txtSubtotal = new JTextField();
@@ -136,7 +134,7 @@ public class Porcentagem extends JDialog {
 		txtSubtotal.setColumns(10);
 
 		txtDesconto = new JTextField();
-		txtDesconto.setBounds(166, 210, 44, 19);
+		txtDesconto.setBounds(144, 210, 73, 19);
 		getContentPane().add(txtDesconto);
 		txtDesconto.setColumns(10);
 
@@ -152,7 +150,7 @@ public class Porcentagem extends JDialog {
 
 		txtTotal = new JTextField();
 		txtTotal.setEditable(false);
-		txtTotal.setBounds(332, 210, 114, 19);
+		txtTotal.setBounds(336, 210, 114, 19);
 		getContentPane().add(txtTotal);
 		txtTotal.setColumns(10);
 

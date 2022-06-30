@@ -8,7 +8,6 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
-import java.awt.Color;
 
 public class Sobre extends JDialog {
 
@@ -35,7 +34,6 @@ public class Sobre extends JDialog {
 	 * Create the dialog.
 	 */
 	public Sobre() {
-		getContentPane().setBackground(Color.WHITE);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Sobre.class.getResource("/img/about-48.png")));
 		setTitle("Sobre");
@@ -64,7 +62,7 @@ public class Sobre extends JDialog {
 		lblSobre.setBounds(182, 12, 84, 28);
 		getContentPane().add(lblSobre);
 		
-		JLabel lblVerso = new JLabel("Versão 5.0");
+		JLabel lblVerso = new JLabel("Versão 4.0");
 		lblVerso.setBounds(315, 234, 91, 15);
 		getContentPane().add(lblVerso);
 

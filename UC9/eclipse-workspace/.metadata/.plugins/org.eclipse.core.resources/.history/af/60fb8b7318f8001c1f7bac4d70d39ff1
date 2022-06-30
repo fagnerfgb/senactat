@@ -48,7 +48,6 @@ public class HoraServico extends JDialog {
 	 * Create the dialog.
 	 */
 	public HoraServico() {
-		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HoraServico.class.getResource("/img/hora-trabalho-48.png")));
 		setTitle("Cálculo da Hora de um Serviço");
 		setModal(true);
