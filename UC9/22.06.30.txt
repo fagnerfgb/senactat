@@ -1,0 +1,20 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 30/06/2022
+#Data de atualização: 30/06/2022
+#Versão: 0.01
+******************************************************************************************
+Validação de campos obrigatórios:
+
+.isEmpty()  -> verificar se a caixa de texto está vazia
+.requestFocus()  -> posicionar o cursor na caixa de texto
+******************************************************************************************
+Exemplo:
+if (txtNome.getText().isEmpty()) {
+  //preencha o nome
+  txtNome.requestFocus();
+} else if (txtNome.getText().isEmpty()) {
+  //preencha a idade 
+  txtIdade.requestFocus();
+} else {
+  //lógica principal
+}

@@ -144,33 +144,57 @@ public class Boletim extends JDialog {
 	}// Fim do Construtor
 
 	void media() {
-		// Declaração de variáveis
-		String nome, disciplina;
-		double nota1, nota2, nota3, nota4, media;
-		int idade;
-
-		// Entrada
-		nome = txtNome.getText();
-		idade = Integer.parseInt(txtIdade.getText());
-		disciplina = txtDisciplina.getText();
-		nota1 = Double.parseDouble(txtNota1.getText());
-		nota2 = Double.parseDouble(txtNota2.getText());
-		nota3 = Double.parseDouble(txtNota3.getText());
-		nota4 = Double.parseDouble(txtNota4.getText());
-
-		// Processamento
-		media = (nota1 + nota2 + nota3 + nota4) / 4;
-		media = Math.round(media * 100.0) / 100.0;
-
-		// Saída
-		if (media < 5.0) {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
-					+ disciplina + " é " + media + "!\nREPROVADO", "Média", JOptionPane.ERROR_MESSAGE);
-			txtMedia.setText(String.valueOf(media));
+		// Validação
+		if (txtNome.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o nome");
+			txtNome.requestFocus();
+		} else if (txtIdade.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a idade");
+			txtIdade.requestFocus();
+		} else if (txtDisciplina.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a disciplina");
+			txtDisciplina.requestFocus();
+		} else if (txtNota1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a nota 1");
+			txtNota1.requestFocus();
+		} else if (txtNota2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a nota 2");
+			txtNota2.requestFocus();
+		} else if (txtNota3.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a nota 3");
+			txtNota3.requestFocus();
+		} else if (txtNota4.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a nota 4");
+			txtNota4.requestFocus();
 		} else {
-			JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
-					+ disciplina + " é " + media + "!\n APROVADO!", "Média", JOptionPane.INFORMATION_MESSAGE);
-			txtMedia.setText(String.valueOf(media));
+			// Declaração de variáveis
+			String nome, disciplina;
+			double nota1, nota2, nota3, nota4, media;
+			int idade;
+
+			// Entrada
+			nome = txtNome.getText();
+			idade = Integer.parseInt(txtIdade.getText());
+			disciplina = txtDisciplina.getText();
+			nota1 = Double.parseDouble(txtNota1.getText());
+			nota2 = Double.parseDouble(txtNota2.getText());
+			nota3 = Double.parseDouble(txtNota3.getText());
+			nota4 = Double.parseDouble(txtNota4.getText());
+
+			// Processamento
+			media = (nota1 + nota2 + nota3 + nota4) / 4;
+			media = Math.round(media * 100.0) / 100.0;
+
+			// Saída
+			if (media < 5.0) {
+				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
+						+ disciplina + " é " + media + "!\nREPROVADO", "Média", JOptionPane.ERROR_MESSAGE);
+				txtMedia.setText(String.valueOf(media));
+			} else {
+				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + " anos! \nA sua média em "
+						+ disciplina + " é " + media + "!\n APROVADO!", "Média", JOptionPane.INFORMATION_MESSAGE);
+				txtMedia.setText(String.valueOf(media));
+			}
 		}
 	}
 }

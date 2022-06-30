@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -76,7 +77,7 @@ public class Temperatura extends JDialog {
 		txtCelsius.setBounds(226, 92, 114, 19);
 		getContentPane().add(txtCelsius);
 		txtCelsius.setColumns(10);
-		
+
 		JLabel lblConverteDeFahrenheit = new JLabel("Fahrenheit para Celsius");
 		lblConverteDeFahrenheit.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblConverteDeFahrenheit.setBounds(59, 12, 330, 30);
@@ -85,23 +86,30 @@ public class Temperatura extends JDialog {
 	} // Fim do Construtor
 
 	void calcular() {
-		// Declaração de variáveis
-		double fahrenheit, celsius;
+		// Validação
+		if (txtFahrenheit.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a temperatura em Fahrenheit");
+			txtFahrenheit.requestFocus();
+		} else {
 
-		// Entrada
-		fahrenheit = Double.parseDouble(txtFahrenheit.getText());
+			// Declaração de variáveis
+			double fahrenheit, celsius;
 
-		// Processamento
-		celsius = (5 * fahrenheit - 160) / 9;
-		celsius = Math.round(celsius * 100.0) / 100.0;
+			// Entrada
+			fahrenheit = Double.parseDouble(txtFahrenheit.getText());
 
-		// Saída
-		// A linha abaixo exibe o conteúdo da variável celsius na caixa de texto
-		// txtCelsius
-		// É necessário converter para String
-		txtCelsius.setText(String.valueOf(celsius));
-		// JOptionPane.showMessageDialog(null, "A temperatura em Celsius é " + celsius,
-		// "Converte temperatura", JOptionPane.INFORMATION_MESSAGE);
+			// Processamento
+			celsius = (5 * fahrenheit - 160) / 9;
+			celsius = Math.round(celsius * 100.0) / 100.0;
+
+			// Saída
+			// A linha abaixo exibe o conteúdo da variável celsius na caixa de texto
+			// txtCelsius
+			// É necessário converter para String
+			txtCelsius.setText(String.valueOf(celsius));
+			// JOptionPane.showMessageDialog(null, "A temperatura em Celsius é " + celsius,
+			// "Converte temperatura", JOptionPane.INFORMATION_MESSAGE);
+		}
 
 	}
 }

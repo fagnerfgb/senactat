@@ -80,24 +80,32 @@ public class Eleitor extends JDialog {
 	} // Fim do Construtor
 
 	void verifica() {
-
-		// Variáveis
-		int idade;
-		
-		// Entrada
-		idade = Integer.parseInt(txtIdade.getText());
-
-		// Processamento e Saída
-		if (idade < 16) {
-			txtResultado.setText(String.valueOf("Voto proibido"));
-			JOptionPane.showMessageDialog(null, "Voto proibido", "A sua hora vai chegar", JOptionPane.ERROR_MESSAGE);
-		} else if (idade > 17 && idade < 71) {
-			txtResultado.setText(String.valueOf("Voto obrigatório"));
-			JOptionPane.showMessageDialog(null, "Voto obrigatório", "Cumpra com o seu dever cívico!",
-					JOptionPane.INFORMATION_MESSAGE);
+		// Validação
+		if (txtIdade.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a idade");
+			txtIdade.requestFocus();
 		} else {
-			txtResultado.setText(String.valueOf("Voto facultativo"));
-			JOptionPane.showMessageDialog(null, "Voto facultativo", "A decisão é sua!", JOptionPane.QUESTION_MESSAGE);
+
+			// Variáveis
+			int idade;
+
+			// Entrada
+			idade = Integer.parseInt(txtIdade.getText());
+
+			// Processamento e Saída
+			if (idade < 16) {
+				txtResultado.setText(String.valueOf("Voto proibido"));
+				JOptionPane.showMessageDialog(null, "Voto proibido", "A sua hora vai chegar",
+						JOptionPane.ERROR_MESSAGE);
+			} else if (idade > 17 && idade < 71) {
+				txtResultado.setText(String.valueOf("Voto obrigatório"));
+				JOptionPane.showMessageDialog(null, "Voto obrigatório", "Cumpra com o seu dever cívico!",
+						JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				txtResultado.setText(String.valueOf("Voto facultativo"));
+				JOptionPane.showMessageDialog(null, "Voto facultativo", "A decisão é sua!",
+						JOptionPane.QUESTION_MESSAGE);
+			}
 		}
 	} // Fim do método verifica
 }// Fim

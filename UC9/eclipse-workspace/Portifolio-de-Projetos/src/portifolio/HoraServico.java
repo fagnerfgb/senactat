@@ -164,17 +164,17 @@ public class HoraServico extends JDialog {
 		panel.setBackground(Color.DARK_GRAY);
 		panel.setBounds(30, 198, 360, 5);
 		getContentPane().add(panel);
-		
+
 		txtRendimentoLiquidoServico = new JTextField();
 		txtRendimentoLiquidoServico.setEditable(false);
 		txtRendimentoLiquidoServico.setBounds(214, 395, 114, 19);
 		getContentPane().add(txtRendimentoLiquidoServico);
 		txtRendimentoLiquidoServico.setColumns(10);
-		
+
 		JLabel lblReservaCustoOperacional = new JLabel("Reserva Custo Operacional");
 		lblReservaCustoOperacional.setBounds(12, 365, 205, 15);
 		getContentPane().add(lblReservaCustoOperacional);
-		
+
 		txtCustoOperacionalServico = new JTextField();
 		txtCustoOperacionalServico.setEditable(false);
 		txtCustoOperacionalServico.setBounds(214, 367, 114, 19);
@@ -184,62 +184,85 @@ public class HoraServico extends JDialog {
 	} // Fim do Construtor
 
 	// Variáveis globais;
-	double rendimento, investimentoServico, custoOperacionalServico, reservaServico, rendimentoLiquido, remuneracao, horas, reserva, custoOperacional, investimento ;
+	double rendimento, investimentoServico, custoOperacionalServico, reservaServico, rendimentoLiquido, remuneracao,
+			horas, reserva, custoOperacional, investimento;
 	double percentualInvestimento = 0.2;
 	double percentualReserva = 0.3;
 	private JTextField txtRendimentoLiquidoServico;
 	private JTextField txtCustoOperacionalServico;
 
 	void hora() {
-		// Declarando as variáveis
-		
-		// Entrada
-		remuneracao = Double.parseDouble(txtRemuneracao.getText());
-		custoOperacional = Double.parseDouble(txtCustoOperacional.getText());
-		horas = Double.parseDouble(txtHoras.getText());
+		// Validação
+		if (txtRemuneracao.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a remuneracao mensal pretendida");
+			txtRemuneracao.requestFocus();
+		} else if (txtCustoOperacional.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o custo operacional mensal");
+			txtCustoOperacional.requestFocus();
+		} else if (txtHoras.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas trabalhadas por mês");
+			txtHoras.requestFocus();
+		} else {
 
-		// Processamento
-		reserva = remuneracao * percentualReserva;
-		investimento = remuneracao * percentualInvestimento;
-		rendimento = (remuneracao + custoOperacional + reserva + investimento) / horas;
-		rendimento = Math.round(rendimento * 100.0) / 100.0;
-		
-		// Saída
-		txtRendimento.setText(String.valueOf(rendimento));
-				
+			// Declarando as variáveis
+
+			// Entrada
+			remuneracao = Double.parseDouble(txtRemuneracao.getText());
+			custoOperacional = Double.parseDouble(txtCustoOperacional.getText());
+			horas = Double.parseDouble(txtHoras.getText());
+
+			// Processamento
+			reserva = remuneracao * percentualReserva;
+			investimento = remuneracao * percentualInvestimento;
+			rendimento = (remuneracao + custoOperacional + reserva + investimento) / horas;
+			rendimento = Math.round(rendimento * 100.0) / 100.0;
+
+			// Saída
+			txtRendimento.setText(String.valueOf(rendimento));
+		}
+
 	} // Fim do método hora
 
 	void processar() {
-		// Declarando as variáveis
-		double estimativaHoras, valorServico;
+		// Validação
+		if (txtEstimativaHoras.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas para realizar o serviço");
+			txtEstimativaHoras.requestFocus();
+		} else {
+			// Declarando as variáveis
+			double estimativaHoras, valorServico;
 
-		// Entrada
-		estimativaHoras = Double.parseDouble(txtEstimativaHoras.getText());
+			// Entrada
+			estimativaHoras = Double.parseDouble(txtEstimativaHoras.getText());
 
-		// Processamento
-		valorServico = estimativaHoras * rendimento;
-		valorServico = Math.round(valorServico * 100.0) / 100.0;
-		
-		reservaServico = (remuneracao / horas) * percentualReserva * estimativaHoras;
-		reservaServico = Math.round(reservaServico * 100.0) / 100.0;
-		
-		investimentoServico	 = (remuneracao / horas) * percentualInvestimento * estimativaHoras;
-		investimentoServico = Math.round(investimentoServico * 100.0) / 100.0;
-		
-		custoOperacionalServico = custoOperacional / horas * estimativaHoras;
-		custoOperacionalServico = Math.round(custoOperacionalServico * 100.0) / 100.0;
-		
-		rendimentoLiquido = valorServico - reservaServico - investimentoServico - custoOperacionalServico;
-		rendimentoLiquido = Math.round(rendimentoLiquido * 100.0) / 100.0;
+			// Processamento
+			valorServico = estimativaHoras * rendimento;
+			valorServico = Math.round(valorServico * 100.0) / 100.0;
 
-		// Saída
-		txtValorServico.setText(String.valueOf(valorServico));
-		txtReservaServico.setText(String.valueOf(reservaServico));
-		txtInvestimentoServico.setText(String.valueOf(investimentoServico));
-		txtRendimentoLiquidoServico.setText(String.valueOf(rendimentoLiquido));
-		txtCustoOperacionalServico.setText(String.valueOf(custoOperacionalServico));
-		JOptionPane.showMessageDialog(null, "Valor do Serviço é R$" + valorServico + "\nO valor da reserva de emergência é R$"+reservaServico+"\nO valor da reserva para investimento é R$"+investimentoServico+"\nO valor da reserva de custo operacional é R$"+custoOperacionalServico+"\nO rendimento líquido do serviço é R$"+rendimentoLiquido, "Relatório",
-				JOptionPane.INFORMATION_MESSAGE);
+			reservaServico = (remuneracao / horas) * percentualReserva * estimativaHoras;
+			reservaServico = Math.round(reservaServico * 100.0) / 100.0;
 
+			investimentoServico = (remuneracao / horas) * percentualInvestimento * estimativaHoras;
+			investimentoServico = Math.round(investimentoServico * 100.0) / 100.0;
+
+			custoOperacionalServico = custoOperacional / horas * estimativaHoras;
+			custoOperacionalServico = Math.round(custoOperacionalServico * 100.0) / 100.0;
+
+			rendimentoLiquido = valorServico - reservaServico - investimentoServico - custoOperacionalServico;
+			rendimentoLiquido = Math.round(rendimentoLiquido * 100.0) / 100.0;
+
+			// Saída
+			txtValorServico.setText(String.valueOf(valorServico));
+			txtReservaServico.setText(String.valueOf(reservaServico));
+			txtInvestimentoServico.setText(String.valueOf(investimentoServico));
+			txtRendimentoLiquidoServico.setText(String.valueOf(rendimentoLiquido));
+			txtCustoOperacionalServico.setText(String.valueOf(custoOperacionalServico));
+			JOptionPane.showMessageDialog(null,
+					"Valor do Serviço é R$" + valorServico + "\nO valor da reserva de emergência é R$" + reservaServico
+							+ "\nO valor da reserva para investimento é R$" + investimentoServico
+							+ "\nO valor da reserva de custo operacional é R$" + custoOperacionalServico
+							+ "\nO rendimento líquido do serviço é R$" + rendimentoLiquido,
+					"Relatório", JOptionPane.INFORMATION_MESSAGE);
+		}
 	} // Fim do método processar
 } // Fim

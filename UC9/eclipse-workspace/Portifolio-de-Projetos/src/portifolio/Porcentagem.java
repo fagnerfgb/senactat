@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -186,50 +187,75 @@ public class Porcentagem extends JDialog {
 	}// Fim do Construtor
 
 	void calcular() {
-		// Declaração das variáveis
-		double porcentagem, valor, resultado;
+		// Validação
+		if (txtPorcentagem.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a porcentagem");
+			txtPorcentagem.requestFocus();
+		} else if (txtValor.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o valor a calcular");
+			txtValor.requestFocus();
+		} else {
+			// Declaração das variáveis
+			double porcentagem, valor, resultado;
 
-		// Entrada
-		porcentagem = Double.parseDouble(txtPorcentagem.getText());
-		valor = Double.parseDouble(txtValor.getText());
+			// Entrada
+			porcentagem = Double.parseDouble(txtPorcentagem.getText());
+			valor = Double.parseDouble(txtValor.getText());
 
-		// Processamento
-		resultado = (porcentagem * valor) / 100;
-		resultado = Math.round(resultado * 100.0) / 100.0;
+			// Processamento
+			resultado = (porcentagem * valor) / 100;
+			resultado = Math.round(resultado * 100.0) / 100.0;
 
-		// Saída
-		txtResultado.setText(String.valueOf(resultado));
-		
+			// Saída
+			txtResultado.setText(String.valueOf(resultado));
+		}
 
 	} // Fim do método para calcular a porcentagem
-	
+
 	void lucro() {
-		// Declaração de variáveis
-		double custo, lucro, venda;
+		// Validação
+		if (txtCusto.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o preço de custo");
+			txtCusto.requestFocus();
+		} else if (txtLucro.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a margem de lucro");
+			txtLucro.requestFocus();
+		} else {
+			// Declaração de variáveis
+			double custo, lucro, venda;
 
-		// Entrada
-		custo = Double.parseDouble(txtCusto.getText());
-		lucro = Double.parseDouble(txtLucro.getText());
+			// Entrada
+			custo = Double.parseDouble(txtCusto.getText());
+			lucro = Double.parseDouble(txtLucro.getText());
 
-		// Processamento
-		venda = custo + (custo * lucro) / 100;
+			// Processamento
+			venda = custo + (custo * lucro) / 100;
 
-		// Saída
-		txtVenda.setText(String.valueOf(venda));
-	} // Fim do método para calcular o lucro 
+			// Saída
+			txtVenda.setText(String.valueOf(venda));
+		}
+	} // Fim do método para calcular o lucro
 
 	void desconto() {
-		// Declaração de variáveis
-		double subtotal, desconto, total;
+		if (txtSubtotal.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o subtotal");
+			txtSubtotal.requestFocus();
+		} else if (txtDesconto.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o percentual de desconto");
+			txtDesconto.requestFocus();
+		} else {
+			// Declaração de variáveis
+			double subtotal, desconto, total;
 
-		// Entrada
-		subtotal = Double.parseDouble(txtSubtotal.getText());
-		desconto = Double.parseDouble(txtDesconto.getText());
+			// Entrada
+			subtotal = Double.parseDouble(txtSubtotal.getText());
+			desconto = Double.parseDouble(txtDesconto.getText());
 
-		// Processamento
-		total = subtotal - (subtotal * desconto) / 100;
+			// Processamento
+			total = subtotal - (subtotal * desconto) / 100;
 
-		// Saída
-		txtTotal.setText(String.valueOf(total));
+			// Saída
+			txtTotal.setText(String.valueOf(total));
+		}
 	} // Fim do método para calcular o desconto
 }

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -85,14 +86,14 @@ public class IMC extends JDialog {
 		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
 		lblImagem.setBounds(74, 148, 159, 425);
 		getContentPane().add(lblImagem);
-		
+
 		txtResultado = new JTextField();
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setEditable(false);
 		txtResultado.setBounds(103, 117, 100, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
-		
+
 		JLabel lblOSeuImc = new JLabel("O seu IMC é");
 		lblOSeuImc.setBounds(12, 121, 90, 15);
 		getContentPane().add(lblOSeuImc);
@@ -101,47 +102,59 @@ public class IMC extends JDialog {
 
 	// Método responsável pelo cálculo do IMC
 	void calcular() {
-		// Declaração de variáveis
-		//String nome;
-		double peso, altura, imc;
-		//int idade;
-
-		// Entrada
-		// Armazenando o conteúdo das caixas de texto nas variáveis
-		//nome = txtNome.getText();
-
-		// Armazenando e convertendo o conteúdo das caixas de texto nas variáveis
-		peso = Double.parseDouble(txtPeso.getText());
-		altura = Double.parseDouble(txtAltura.getText());
-		//idade = Integer.parseInt(txtIdade.getText());
-
-		// Processamento
-		// Cálculo do IMC
-		imc = peso / (altura * altura);
-		imc = Math.round(imc * 100.0) / 100.0;
-
-		// Exibir o conteúdo das variáveis em uma caixa de mensagem
-		// JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + "
-		// anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + "
-		// metros!\nO seu IMC é " + Math.round(imc)+"!", "Ficha do Aluno",
-		// JOptionPane.DEFAULT_OPTION);
-
-		// Saída
-		txtResultado.setText(String.valueOf(imc));
-		if (imc < 17) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc1.png")));
-		} else if (imc >= 17.0 && imc < 18.5) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc2.png")));
-		} else if (imc >= 18.5 && imc < 25.0) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc3.png")));
-		} else if (imc >= 25 && imc < 30.0) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc4.png")));
-		} else if (imc >= 30 && imc < 35.0) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc5.png")));
-		} else if (imc >= 35 && imc < 40.0) {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc6.png")));
+		// validação
+		if (txtPeso.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o peso");
+			txtPeso.requestFocus();
+		} else if (txtAltura.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira a altura");
+			txtPeso.requestFocus();
 		} else {
-			lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc7.png")));
+
+			// Declaração de variáveis
+			// String nome;
+			double peso, altura, imc;
+			// int idade;
+
+			// Entrada
+			// Armazenando o conteúdo das caixas de texto nas variáveis
+			// nome = txtNome.getText();
+
+			// Armazenando e convertendo o conteúdo das caixas de texto nas variáveis
+			peso = Double.parseDouble(txtPeso.getText());
+			altura = Double.parseDouble(txtAltura.getText());
+			// idade = Integer.parseInt(txtIdade.getText());
+
+			// Processamento
+			// Cálculo do IMC
+			imc = peso / (altura * altura);
+			imc = Math.round(imc * 100.0) / 100.0;
+
+			// Exibir o conteúdo das variáveis em uma caixa de mensagem
+			// JOptionPane.showMessageDialog(null, nome + ",\nA sua idade é " + idade + "
+			// anos! \nO seu peso é " + peso + " kilos! \nA sua altura é " + altura + "
+			// metros!\nO seu IMC é " + Math.round(imc)+"!", "Ficha do Aluno",
+			// JOptionPane.DEFAULT_OPTION);
+
+			// Saída
+			txtResultado.setText(String.valueOf(imc));
+			if (imc < 17) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc1.png")));
+			} else if (imc >= 17.0 && imc < 18.5) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc2.png")));
+			} else if (imc >= 18.5 && imc < 25.0) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc3.png")));
+			} else if (imc >= 25 && imc < 30.0) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc4.png")));
+			} else if (imc >= 30 && imc < 35.0) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc5.png")));
+			} else if (imc >= 35 && imc < 40.0) {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc6.png")));
+			} else {
+				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc7.png")));
+			}
+
 		}
+
 	}
 }
