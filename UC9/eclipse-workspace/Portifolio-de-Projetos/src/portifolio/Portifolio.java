@@ -185,5 +185,18 @@ public class Portifolio extends JFrame {
 		btnDado.setIcon(new ImageIcon(Portifolio.class.getResource("/img/dado.png")));
 		btnDado.setBounds(328, 88, 64, 64);
 		contentPane.add(btnDado);
+		
+		JButton btnCep = new JButton("");
+		btnCep.setIcon(new ImageIcon(Portifolio.class.getResource("/img/cep.png")));
+		btnCep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Cep cep = new Cep();
+				cep.setVisible(true);
+			}
+		});
+		btnCep.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCep.setToolTipText("Busca CEP");
+		btnCep.setBounds(24, 164, 64, 64);
+		contentPane.add(btnCep);
 	} // fim do construtor
 }

@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Cursor;
 
 public class Dado extends JDialog {
 
@@ -51,6 +52,7 @@ public class Dado extends JDialog {
 		getContentPane().setLayout(null);
 
 		JButton btnLanar = new JButton("Lançar");
+		btnLanar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLanar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lancar();
