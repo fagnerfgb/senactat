@@ -18,3 +18,21 @@ if (txtNome.getText().isEmpty()) {
 } else {
   //lógica principal
 }
+******************************************************************************************
+Estrutura de Controle Condicional
+
+int valor;
+switch (valor){
+	case 1:
+		//código - caso o valor da variável seja 1;
+		break;
+	case 2:
+		//código - caso o valor da variável seja 2;
+		break;
+	case 3:
+		//código - caso o valor da variável seja 3;
+		break;
+	default:
+		//código - caso o valor da variável não seja nenhum;
+		break;
+}

@@ -172,5 +172,18 @@ public class Portifolio extends JFrame {
 		btnEleicao.setIcon(new ImageIcon(Portifolio.class.getResource("/img/eleicao.png")));
 		btnEleicao.setBounds(252, 88, 64, 64);
 		contentPane.add(btnEleicao);
+		
+		JButton btnDado = new JButton("");
+		btnDado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Dado dado = new Dado();
+				dado.setVisible(true);
+			}
+		});
+		btnDado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnDado.setToolTipText("Dado");
+		btnDado.setIcon(new ImageIcon(Portifolio.class.getResource("/img/dado.png")));
+		btnDado.setBounds(328, 88, 64, 64);
+		contentPane.add(btnDado);
 	} // fim do construtor
 }
