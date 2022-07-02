@@ -46,6 +46,7 @@ public class Portifolio extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setToolTipText("Tarot");
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -198,5 +199,16 @@ public class Portifolio extends JFrame {
 		btnCep.setToolTipText("Busca CEP");
 		btnCep.setBounds(24, 164, 64, 64);
 		contentPane.add(btnCep);
+		
+		JButton btnTarot = new JButton("");
+		btnTarot.setIcon(new ImageIcon(Portifolio.class.getResource("/img/tarot.png")));
+		btnTarot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Tarot tarot = new Tarot();
+				tarot.setVisible(true);
+			}
+		});
+		btnTarot.setBounds(100, 164, 64, 64);
+		contentPane.add(btnTarot);
 	} // fim do construtor
 }

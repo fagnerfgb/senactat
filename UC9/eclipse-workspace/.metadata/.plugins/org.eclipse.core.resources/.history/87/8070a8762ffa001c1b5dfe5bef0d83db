@@ -1,0 +1,47 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import java.awt.Rectangle;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+
+public class Tarot extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Tarot dialog = new Tarot();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Tarot() {
+		setTitle("Baralho de Tarot");
+		setResizable(false);
+		setModal(true);
+		setBounds(100, 100, 450, 709);
+		getContentPane().setLayout(null);
+		
+		JLabel lblCarta = new JLabel("");
+		lblCarta.setIcon(new ImageIcon(Tarot.class.getResource("/img/tarot1.png")));
+		lblCarta.setBounds(29, 77, 362, 665);
+		getContentPane().add(lblCarta);
+
+	}
+}
