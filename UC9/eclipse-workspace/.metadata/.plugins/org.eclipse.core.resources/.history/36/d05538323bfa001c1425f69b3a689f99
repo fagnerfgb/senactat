@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Color;
-import java.awt.Cursor;
 
 public class Tarot extends JDialog {
 
@@ -54,7 +53,6 @@ public class Tarot extends JDialog {
 		getContentPane().add(lblCarta);
 		
 		JButton btnJogar = new JButton("Jogar");
-		btnJogar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				jogar();
