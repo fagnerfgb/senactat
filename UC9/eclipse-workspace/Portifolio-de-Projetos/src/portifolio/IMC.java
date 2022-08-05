@@ -115,12 +115,12 @@ public class IMC extends JDialog {
 		getContentPane().add(btnLimpar);
 
 		// Validação Peso
-		RestrictedTextField peso = new RestrictedTextField(txtPeso, "0123456789");
-		peso.setLimit(3);
+		RestrictedTextField peso = new RestrictedTextField(txtPeso, "0123456789.");
+		peso.setLimit(5);
 
 		// Validação Altura
-		RestrictedTextField altura = new RestrictedTextField(txtAltura, "0123456789");
-		altura.setLimit(3);
+		RestrictedTextField altura = new RestrictedTextField(txtAltura, "0123456789.");
+		altura.setLimit(5);
 
 	}// fim do construtor
 

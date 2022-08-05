@@ -65,8 +65,9 @@ public class Dado extends JDialog {
 		getContentPane().add(btnLancar);
 
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/face1.png")));
-		lblNewLabel.setBounds(44, 140, 115, 119);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/dice.png")));
+		lblNewLabel.setBounds(36, 130, 128, 128);
 		getContentPane().add(lblNewLabel);
 
 		txtDado = new JTextField();
@@ -120,7 +121,7 @@ public class Dado extends JDialog {
 	/** Método para Limpar **/
 	void limpar() {
 		txtDado.setText(null);
-		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/face1.png")));
+		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/dice.png")));
 		
 	} // Fim do método limpar
 

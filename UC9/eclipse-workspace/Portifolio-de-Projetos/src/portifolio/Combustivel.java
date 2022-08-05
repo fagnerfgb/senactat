@@ -119,11 +119,11 @@ public class Combustivel extends JDialog {
 
 		// Validação Gasolina
 		RestrictedTextField gasolina = new RestrictedTextField(txtGasolina, "0123456789.");
-		gasolina.setLimit(4);
+		gasolina.setLimit(5);
 
 		// Validação Etanol
 		RestrictedTextField etanol = new RestrictedTextField(txtEtanol, "0123456789.");
-		etanol.setLimit(4);
+		etanol.setLimit(5);
 
 	} // Fim do Construtor
 

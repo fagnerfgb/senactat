@@ -131,7 +131,7 @@ public class Temperatura2 extends JDialog {
 	void limpar() {
 		txtFahrenheit.setText(null);
 		txtCelsius.setText(null);
-		txtFahrenheit.requestFocus();
+		txtCelsius.requestFocus();
 	} // Fim do método limpar
 
 } //Fim do programa

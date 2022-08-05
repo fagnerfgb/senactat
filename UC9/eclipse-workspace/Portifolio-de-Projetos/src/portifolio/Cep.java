@@ -22,6 +22,7 @@ import org.dom4j.io.SAXReader;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
 public class Cep extends JDialog {
@@ -60,7 +61,7 @@ public class Cep extends JDialog {
 		setTitle("Buscar CEP");
 		setResizable(false);
 		setModal(true);
-		setBounds(100, 100, 450, 250);
+		setBounds(100, 100, 450, 283);
 		getContentPane().setLayout(null);
 
 		JLabel lblCep = new JLabel("CEP");
@@ -110,24 +111,28 @@ public class Cep extends JDialog {
 		cboUf.setBounds(357, 130, 64, 19);
 		getContentPane().add(cboUf);
 
-		JButton btnLimpar = new JButton("Limpar");
+		JButton btnLimpar = new JButton("");
+		btnLimpar.setIcon(new ImageIcon(Cep.class.getResource("/img/eraser.png")));
+		btnLimpar.setToolTipText("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				limpar();
 			}
 		});
 		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLimpar.setBounds(12, 160, 117, 19);
+		btnLimpar.setBounds(91, 161, 64, 64);
 		getContentPane().add(btnLimpar);
 
-		JButton btnCep = new JButton("Buscar");
+		JButton btnCep = new JButton("");
+		btnCep.setIcon(new ImageIcon(Cep.class.getResource("/img/buscar-64.png")));
+		btnCep.setToolTipText("Buscar");
 		btnCep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				buscar();
 			}
 		});
 		btnCep.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnCep.setBounds(260, 40, 117, 19);
+		btnCep.setBounds(12, 161, 64, 64);
 		getContentPane().add(btnCep);
 
 		/* Uso da biblioteca Atxy2k para validação do campo txtCep */

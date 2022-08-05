@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -225,6 +226,8 @@ public class HoraServico extends JDialog {
 	double percentualReserva = 0.3;
 	private JTextField txtRendimentoLiquidoServico;
 	private JTextField txtCustoOperacionalServico;
+	// formatador de casas decimais
+	DecimalFormat formatador = new DecimalFormat("R$ 0.00");
 
 	void hora() {
 		// Validação
@@ -253,7 +256,7 @@ public class HoraServico extends JDialog {
 			rendimento = Math.round(rendimento * 100.0) / 100.0;
 
 			// Saída
-			txtRendimento.setText(String.valueOf(rendimento));
+			txtRendimento.setText(String.valueOf(formatador.format(rendimento)));
 		}
 
 	} // Fim do método hora
@@ -287,11 +290,11 @@ public class HoraServico extends JDialog {
 			rendimentoLiquido = Math.round(rendimentoLiquido * 100.0) / 100.0;
 
 			// Saída
-			txtValorServico.setText(String.valueOf(valorServico));
-			txtReservaServico.setText(String.valueOf(reservaServico));
-			txtInvestimentoServico.setText(String.valueOf(investimentoServico));
-			txtRendimentoLiquidoServico.setText(String.valueOf(rendimentoLiquido));
-			txtCustoOperacionalServico.setText(String.valueOf(custoOperacionalServico));
+			txtValorServico.setText(String.valueOf(formatador.format(valorServico)));
+			txtReservaServico.setText(String.valueOf(formatador.format(reservaServico)));
+			txtInvestimentoServico.setText(String.valueOf(formatador.format(investimentoServico)));
+			txtRendimentoLiquidoServico.setText(String.valueOf(formatador.format(rendimentoLiquido)));
+			txtCustoOperacionalServico.setText(String.valueOf(formatador.format(custoOperacionalServico)));
 			JOptionPane.showMessageDialog(null,
 					"Valor do Serviço é R$" + valorServico + "\nO valor da reserva de emergência é R$" + reservaServico
 							+ "\nO valor da reserva para investimento é R$" + investimentoServico

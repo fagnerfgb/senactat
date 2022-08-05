@@ -57,11 +57,11 @@
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="/home/fagner/eclipse-workspace"/>
 		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
-		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="TelaIMC - AppIMC"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="/home/fagner/senactat/UC9/IMC.jar"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Portifolio - Portifolio-de-Projetos"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="/home/fagner/senactat/UC9/Portifolio.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="/home/fagner/senactat/UC9/IMC.jar"/>
 			<item value="/home/fagner/senactat/UC9/Portifolio.jar"/>
+			<item value="/home/fagner/senactat/UC9/IMC.jar"/>
 			<item value="/home/fagner/Área de Trabalho/Portifolio.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">

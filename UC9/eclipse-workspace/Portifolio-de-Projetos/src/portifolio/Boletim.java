@@ -163,15 +163,17 @@ public class Boletim extends JDialog {
 				//Validar nome
 				RestrictedTextField nome = new RestrictedTextField(txtNome);
 				nome.setOnlyText(true);
+				nome.setAcceptSpace(true);
 				nome.setLimit(40);
 				
 				//Validar idade
 				RestrictedTextField idade = new RestrictedTextField(txtIdade, "0123456789");
-				idade.setLimit(3);
+				idade.setLimit(2);
 				
 				//Validar Disciplina
 				RestrictedTextField disciplina = new RestrictedTextField(txtDisciplina);
 				disciplina.setOnlyText(true);
+				disciplina.setAcceptSpace(true);
 				disciplina.setLimit(40);
 				
 				//Validar Nota1
