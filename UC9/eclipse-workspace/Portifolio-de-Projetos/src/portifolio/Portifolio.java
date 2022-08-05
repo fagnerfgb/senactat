@@ -201,6 +201,7 @@ public class Portifolio extends JFrame {
 		contentPane.add(btnCep);
 		
 		JButton btnTarot = new JButton("");
+		btnTarot.setToolTipText("Tarot");
 		btnTarot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTarot.setIcon(new ImageIcon(Portifolio.class.getResource("/img/tarot.png")));
 		btnTarot.addActionListener(new ActionListener() {

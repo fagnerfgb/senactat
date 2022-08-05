@@ -1,19 +1,22 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
-import java.awt.Font;
-import java.awt.Cursor;
 import javax.swing.JPanel;
-import java.awt.Color;
+import javax.swing.JTextField;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class HoraServico extends JDialog {
 
@@ -53,133 +56,165 @@ public class HoraServico extends JDialog {
 		setTitle("Cálculo da Hora de um Serviço");
 		setModal(true);
 		setResizable(false);
-		setBounds(100, 100, 422, 489);
+		setBounds(100, 100, 447, 489);
 		getContentPane().setLayout(null);
 
 		JLabel lblRemuneracao = new JLabel("Remuneração Pretendida");
-		lblRemuneracao.setBounds(12, 45, 184, 15);
+		lblRemuneracao.setBounds(12, 119, 184, 15);
 		getContentPane().add(lblRemuneracao);
 
 		JLabel lblCustoOperacional = new JLabel("Custo Operacional Mensal");
-		lblCustoOperacional.setBounds(12, 76, 192, 15);
+		lblCustoOperacional.setBounds(12, 150, 192, 15);
 		getContentPane().add(lblCustoOperacional);
 
 		JLabel lblHoras = new JLabel("Horas trabalhadas por mês");
-		lblHoras.setBounds(12, 107, 205, 15);
+		lblHoras.setBounds(12, 181, 205, 15);
 		getContentPane().add(lblHoras);
 
 		txtRemuneracao = new JTextField();
-		txtRemuneracao.setBounds(214, 41, 114, 19);
+		txtRemuneracao.setBounds(214, 115, 114, 19);
 		getContentPane().add(txtRemuneracao);
 		txtRemuneracao.setColumns(10);
 
 		txtCustoOperacional = new JTextField();
-		txtCustoOperacional.setBounds(214, 72, 114, 19);
+		txtCustoOperacional.setBounds(214, 146, 114, 19);
 		getContentPane().add(txtCustoOperacional);
 		txtCustoOperacional.setColumns(10);
 
 		txtHoras = new JTextField();
-		txtHoras.setBounds(214, 103, 114, 19);
+		txtHoras.setBounds(214, 177, 114, 19);
 		getContentPane().add(txtHoras);
 		txtHoras.setColumns(10);
 
-		JButton btnCalcular = new JButton("Calcular");
+		JButton btnCalcular = new JButton("");
+		btnCalcular.setIcon(new ImageIcon(HoraServico.class.getResource("/img/hora-trabalho.png")));
+		btnCalcular.setToolTipText("Calcular");
 		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				hora();
 			}
 		});
-		btnCalcular.setBounds(151, 134, 117, 25);
+		btnCalcular.setBounds(336, 134, 64, 64);
 		getContentPane().add(btnCalcular);
 
 		JLabel lblRendimento = new JLabel("Custo da Hora Trabalhada");
-		lblRendimento.setBounds(12, 171, 192, 15);
+		lblRendimento.setBounds(12, 208, 192, 15);
 		getContentPane().add(lblRendimento);
 
 		txtRendimento = new JTextField();
 		txtRendimento.setEditable(false);
-		txtRendimento.setBounds(214, 171, 114, 19);
+		txtRendimento.setBounds(214, 208, 114, 19);
 		getContentPane().add(txtRendimento);
 		txtRendimento.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Custo Hora");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblNewLabel.setBounds(131, 0, 158, 42);
+		lblNewLabel.setBounds(131, 74, 158, 42);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblReserva = new JLabel("Reserva de Emergência");
-		lblReserva.setBounds(12, 309, 170, 15);
+		lblReserva.setBounds(12, 318, 170, 15);
 		getContentPane().add(lblReserva);
 
 		txtReservaServico = new JTextField();
 		txtReservaServico.setEditable(false);
-		txtReservaServico.setBounds(214, 307, 114, 19);
+		txtReservaServico.setBounds(214, 316, 114, 19);
 		getContentPane().add(txtReservaServico);
 		txtReservaServico.setColumns(10);
 
 		JLabel lblInvestimentos = new JLabel("Reserva para Investimentos");
-		lblInvestimentos.setBounds(12, 338, 205, 15);
+		lblInvestimentos.setBounds(12, 347, 205, 15);
 		getContentPane().add(lblInvestimentos);
 
 		txtInvestimentoServico = new JTextField();
 		txtInvestimentoServico.setEditable(false);
-		txtInvestimentoServico.setBounds(214, 336, 114, 19);
+		txtInvestimentoServico.setBounds(214, 345, 114, 19);
 		getContentPane().add(txtInvestimentoServico);
 		txtInvestimentoServico.setColumns(10);
 
 		JLabel lblFaturamentoMensal = new JLabel("Rendimento Líquido");
-		lblFaturamentoMensal.setBounds(12, 395, 152, 15);
+		lblFaturamentoMensal.setBounds(12, 404, 152, 15);
 		getContentPane().add(lblFaturamentoMensal);
 
 		JLabel lblEstimativaDeHoras = new JLabel("Estimativa de Horas");
-		lblEstimativaDeHoras.setBounds(12, 218, 147, 15);
+		lblEstimativaDeHoras.setBounds(12, 259, 147, 15);
 		getContentPane().add(lblEstimativaDeHoras);
 
 		txtEstimativaHoras = new JTextField();
-		txtEstimativaHoras.setBounds(214, 217, 114, 19);
+		txtEstimativaHoras.setBounds(214, 258, 114, 19);
 		getContentPane().add(txtEstimativaHoras);
 		txtEstimativaHoras.setColumns(10);
 
-		JButton btnProcessar = new JButton("Processar");
+		JButton btnProcessar = new JButton("");
+		btnProcessar.setIcon(new ImageIcon(HoraServico.class.getResource("/img/money-64.png")));
+		btnProcessar.setToolTipText("Calcular");
 		btnProcessar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				processar();
 			}
 		});
-		btnProcessar.setBounds(151, 245, 117, 25);
+		btnProcessar.setBounds(336, 310, 64, 64);
 		getContentPane().add(btnProcessar);
 
 		JLabel lblValorCobradoPelo = new JLabel("Valor cobrado pelo serviço");
-		lblValorCobradoPelo.setBounds(12, 280, 192, 15);
+		lblValorCobradoPelo.setBounds(12, 289, 192, 15);
 		getContentPane().add(lblValorCobradoPelo);
 
 		txtValorServico = new JTextField();
 		txtValorServico.setEditable(false);
-		txtValorServico.setBounds(214, 280, 114, 19);
+		txtValorServico.setBounds(214, 289, 114, 19);
 		getContentPane().add(txtValorServico);
 		txtValorServico.setColumns(10);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(30, 198, 360, 5);
+		panel.setBounds(30, 239, 360, 5);
 		getContentPane().add(panel);
 
 		txtRendimentoLiquidoServico = new JTextField();
 		txtRendimentoLiquidoServico.setEditable(false);
-		txtRendimentoLiquidoServico.setBounds(214, 395, 114, 19);
+		txtRendimentoLiquidoServico.setBounds(214, 404, 114, 19);
 		getContentPane().add(txtRendimentoLiquidoServico);
 		txtRendimentoLiquidoServico.setColumns(10);
 
 		JLabel lblReservaCustoOperacional = new JLabel("Reserva Custo Operacional");
-		lblReservaCustoOperacional.setBounds(12, 365, 205, 15);
+		lblReservaCustoOperacional.setBounds(12, 374, 205, 15);
 		getContentPane().add(lblReservaCustoOperacional);
 
 		txtCustoOperacionalServico = new JTextField();
 		txtCustoOperacionalServico.setEditable(false);
-		txtCustoOperacionalServico.setBounds(214, 367, 114, 19);
+		txtCustoOperacionalServico.setBounds(214, 376, 114, 19);
 		getContentPane().add(txtCustoOperacionalServico);
 		txtCustoOperacionalServico.setColumns(10);
+
+		// Validação Remuneração
+		RestrictedTextField remuneracao = new RestrictedTextField(txtRemuneracao, "0123456789");
+		remuneracao.setLimit(6);
+
+		// Validação Custo Operacional
+		RestrictedTextField custoOperacional = new RestrictedTextField(txtCustoOperacional, "0123456789");
+		custoOperacional.setLimit(6);
+
+		// Validação Horas
+		RestrictedTextField horasMes = new RestrictedTextField(txtHoras, "0123456789");
+		horasMes.setLimit(3);
+
+		// Validação Horas
+		RestrictedTextField estimativaHoras = new RestrictedTextField(txtEstimativaHoras, "0123456789");
+
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setIcon(new ImageIcon(HoraServico.class.getResource("/img/eraser.png")));
+		btnLimpar.setBounds(12, 12, 64, 64);
+		getContentPane().add(btnLimpar);
+		estimativaHoras.setLimit(3);
 
 	} // Fim do Construtor
 
@@ -265,4 +300,19 @@ public class HoraServico extends JDialog {
 					"Relatório", JOptionPane.INFORMATION_MESSAGE);
 		}
 	} // Fim do método processar
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtRemuneracao.setText(null);
+		txtCustoOperacional.setText(null);
+		txtHoras.setText(null);
+		txtEstimativaHoras.setText(null);
+		txtReservaServico.setText(null);
+		txtInvestimentoServico.setText(null);
+		txtValorServico.setText(null);
+		txtRendimento.setText(null);
+		txtCustoOperacionalServico.setText(null);
+		txtRendimentoLiquidoServico.setText(null);
+		txtRemuneracao.requestFocus();
+	} // Fim do método limpar
 } // Fim

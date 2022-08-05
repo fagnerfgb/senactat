@@ -1,19 +1,22 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
-import java.awt.Font;
-import java.awt.Cursor;
 import javax.swing.SwingConstants;
-import java.awt.Color;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class Boletim extends JDialog {
 
@@ -53,7 +56,7 @@ public class Boletim extends JDialog {
 		setModal(true);
 		setTitle("Cálculo da Média");
 		setResizable(false);
-		setBounds(100, 100, 450, 343);
+		setBounds(100, 100, 450, 474);
 		getContentPane().setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome");
@@ -119,14 +122,16 @@ public class Boletim extends JDialog {
 		getContentPane().add(txtNota4);
 		txtNota4.setColumns(10);
 
-		JButton btnMedia = new JButton("Média Final");
+		JButton btnMedia = new JButton("");
+		btnMedia.setToolTipText("Calcular média");
+		btnMedia.setIcon(new ImageIcon(Boletim.class.getResource("/img/boletim.png")));
 		btnMedia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMedia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				media();
 			}
 		});
-		btnMedia.setBounds(165, 233, 117, 25);
+		btnMedia.setBounds(160, 256, 64, 64);
 		getContentPane().add(btnMedia);
 
 		JLabel lblMdiaEscolar = new JLabel("Média Escolar");
@@ -137,9 +142,54 @@ public class Boletim extends JDialog {
 		txtMedia = new JTextField();
 		txtMedia.setHorizontalAlignment(SwingConstants.CENTER);
 		txtMedia.setEditable(false);
-		txtMedia.setBounds(167, 270, 114, 19);
+		txtMedia.setBounds(167, 347, 114, 19);
 		getContentPane().add(txtMedia);
 		txtMedia.setColumns(10);
+		
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setIcon(new ImageIcon(Boletim.class.getResource("/img/eraser.png")));
+		btnLimpar.setBounds(249, 256, 64, 64);
+		getContentPane().add(btnLimpar);
+		
+		// Uso da Biblioteca Atxy2k
+				
+				//Validar nome
+				RestrictedTextField nome = new RestrictedTextField(txtNome);
+				nome.setOnlyText(true);
+				nome.setLimit(40);
+				
+				//Validar idade
+				RestrictedTextField idade = new RestrictedTextField(txtIdade, "0123456789");
+				idade.setLimit(3);
+				
+				//Validar Disciplina
+				RestrictedTextField disciplina = new RestrictedTextField(txtDisciplina);
+				disciplina.setOnlyText(true);
+				disciplina.setLimit(40);
+				
+				//Validar Nota1
+				RestrictedTextField nota1 = new RestrictedTextField(txtNota1, "0123456789");
+				nota1.setLimit(2);
+				
+				//Validar Nota2
+				RestrictedTextField nota2 = new RestrictedTextField(txtNota2, "0123456789");
+				nota2.setLimit(2);
+				
+				//Validar Nota3
+				RestrictedTextField nota3 = new RestrictedTextField(txtNota3, "0123456789");
+				nota3.setLimit(2);
+				
+				//Validar Nota4
+				RestrictedTextField nota4 = new RestrictedTextField(txtNota4, "0123456789");
+				nota4.setLimit(2);
+				
 
 	}// Fim do Construtor
 
@@ -196,5 +246,17 @@ public class Boletim extends JDialog {
 				txtMedia.setText(String.valueOf(media));
 			}
 		}
-	}
+	} //fim do método media
+	
+	/** Método para Limpar **/
+	void limpar() {
+		txtNome.setText(null);
+		txtIdade.setText(null);
+		txtDisciplina.setText(null);
+		txtNota1.setText(null);
+		txtNota2.setText(null);
+		txtNota3.setText(null);
+		txtNota4.setText(null);
+		txtNome.requestFocus();
+	} // Fim do método limpar
 }

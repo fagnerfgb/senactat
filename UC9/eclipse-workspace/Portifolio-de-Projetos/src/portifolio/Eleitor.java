@@ -1,19 +1,22 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
-
-import javax.swing.JDialog;
+import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Cursor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Color;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class Eleitor extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +49,7 @@ public class Eleitor extends JDialog {
 		setResizable(false);
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Eleitor.class.getResource("/img/eleicao-48.png")));
-		setBounds(100, 100, 297, 203);
+		setBounds(100, 100, 297, 259);
 		getContentPane().setLayout(null);
 
 		JLabel lblIdade = new JLabel("Idade");
@@ -55,27 +58,45 @@ public class Eleitor extends JDialog {
 
 		txtIdade = new JTextField();
 		txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
-		txtIdade.setBounds(86, 52, 114, 19);
+		txtIdade.setBounds(90, 52, 114, 19);
 		getContentPane().add(txtIdade);
 		txtIdade.setColumns(10);
 
-		JButton btnVerifica = new JButton("Verifica");
+		JButton btnVerifica = new JButton("");
+		btnVerifica.setToolTipText("Verificar");
+		btnVerifica.setIcon(new ImageIcon(Eleitor.class.getResource("/img/eleicao.png")));
 		btnVerifica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verifica();
 			}
 		});
 		btnVerifica.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnVerifica.setBounds(85, 83, 117, 25);
+		btnVerifica.setBounds(85, 83, 64, 64);
 		getContentPane().add(btnVerifica);
 
 		txtResultado = new JTextField();
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setEditable(false);
-		txtResultado.setBounds(51, 120, 184, 19);
+		txtResultado.setBounds(53, 163, 184, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
+
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setIcon(new ImageIcon(Eleitor.class.getResource("/img/eraser.png")));
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setBounds(161, 83, 64, 64);
+		getContentPane().add(btnLimpar);
+		
+		// Uso da Biblioteca Atxy2k
+				RestrictedTextField validar = new RestrictedTextField(txtIdade, "0123456789");
+				validar.setLimit(2);
 
 	} // Fim do Construtor
 
@@ -108,4 +129,11 @@ public class Eleitor extends JDialog {
 			}
 		}
 	} // Fim do método verifica
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtIdade.setText(null);
+		txtResultado.setText(null);
+		txtIdade.requestFocus();
+	} // Fim do método limpar
 }// Fim

@@ -1,18 +1,21 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
-import java.awt.Font;
-import java.awt.Cursor;
-import java.awt.Color;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class Temperatura extends JDialog {
 
@@ -46,7 +49,7 @@ public class Temperatura extends JDialog {
 		setModal(true);
 		setResizable(false);
 		setTitle("Conversão de Fahrenheit para Celsius");
-		setBounds(100, 100, 450, 205);
+		setBounds(100, 100, 450, 253);
 		getContentPane().setLayout(null);
 
 		JLabel lblFahrenheit = new JLabel("Fahrenheit");
@@ -58,14 +61,16 @@ public class Temperatura extends JDialog {
 		getContentPane().add(txtFahrenheit);
 		txtFahrenheit.setColumns(10);
 
-		JButton btnCalcular = new JButton("Converter");
+		JButton btnCalcular = new JButton("");
+		btnCalcular.setIcon(new ImageIcon(Temperatura.class.getResource("/img/celsius.png")));
+		btnCalcular.setToolTipText("Calcular");
 		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		btnCalcular.setBounds(165, 121, 117, 25);
+		btnCalcular.setBounds(164, 129, 64, 64);
 		getContentPane().add(btnCalcular);
 
 		JLabel lblCelsius = new JLabel("Celsius");
@@ -82,6 +87,22 @@ public class Temperatura extends JDialog {
 		lblConverteDeFahrenheit.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblConverteDeFahrenheit.setBounds(59, 12, 330, 30);
 		getContentPane().add(lblConverteDeFahrenheit);
+
+		JButton btnLimpar = new JButton("");
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setIcon(new ImageIcon(Temperatura.class.getResource("/img/eraser.png")));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setBounds(249, 129, 64, 64);
+		getContentPane().add(btnLimpar);
+
+		// Uso da Biblioteca Atxy2k
+		RestrictedTextField validar = new RestrictedTextField(txtFahrenheit, "0123456789");
+		validar.setLimit(5);
 
 	} // Fim do Construtor
 
@@ -111,5 +132,12 @@ public class Temperatura extends JDialog {
 			// "Converte temperatura", JOptionPane.INFORMATION_MESSAGE);
 		}
 
-	}
+	}// fim do método calcular
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtFahrenheit.setText(null);
+		txtCelsius.setText(null);
+		txtFahrenheit.requestFocus();
+	} // Fim do método limpar
 }

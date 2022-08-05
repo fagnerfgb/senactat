@@ -1,26 +1,27 @@
 package portifolio;
 
-import java.awt.EventQueue;
-
-import javax.swing.JDialog;
-import java.awt.Toolkit;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import java.awt.Cursor;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Cursor;
 
 public class Dado extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
 	private JTextField txtDado;
+	private JButton btnLimpar;
 
 	/**
 	 * Launch the application.
@@ -48,31 +49,45 @@ public class Dado extends JDialog {
 		setTitle("Dado");
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Dado.class.getResource("/img/dado-48.png")));
-		setBounds(100, 100, 203, 259);
+		setBounds(100, 100, 203, 381);
 		getContentPane().setLayout(null);
 
-		JButton btnLanar = new JButton("Lançar");
-		btnLanar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLanar.addActionListener(new ActionListener() {
+		JButton btnLancar = new JButton("");
+		btnLancar.setIcon(new ImageIcon(Dado.class.getResource("/img/dado.png")));
+		btnLancar.setToolTipText("Jogar");
+		btnLancar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lancar();
 			}
 		});
-		btnLanar.setBounds(42, 31, 117, 25);
-		getContentPane().add(btnLanar);
+		btnLancar.setBounds(28, 30, 64, 64);
+		getContentPane().add(btnLancar);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/face1.png")));
-		lblNewLabel.setBounds(43, 68, 115, 119);
+		lblNewLabel.setBounds(44, 140, 115, 119);
 		getContentPane().add(lblNewLabel);
 
 		txtDado = new JTextField();
 		txtDado.setEditable(false);
 		txtDado.setFont(new Font("Dialog", Font.BOLD, 12));
 		txtDado.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDado.setBounds(43, 198, 114, 19);
+		txtDado.setBounds(44, 270, 114, 19);
 		getContentPane().add(txtDado);
 		txtDado.setColumns(10);
+
+		btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setIcon(new ImageIcon(Dado.class.getResource("/img/eraser.png")));
+		btnLimpar.setBounds(111, 30, 64, 64);
+		getContentPane().add(btnLimpar);
 
 	} // Fim do Construtor
 
@@ -101,5 +116,12 @@ public class Dado extends JDialog {
 		}
 		txtDado.setText(String.valueOf(face));
 	} // Fim do método lancar
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtDado.setText(null);
+		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/face1.png")));
+		
+	} // Fim do método limpar
 
 } // Fim

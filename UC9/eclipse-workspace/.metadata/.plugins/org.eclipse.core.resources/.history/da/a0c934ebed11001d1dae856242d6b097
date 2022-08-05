@@ -1,0 +1,77 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import java.awt.Font;
+
+public class TelaIMC extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField txtPeso;
+	private JTextField txtAltura;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaIMC frame = new TelaIMC();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaIMC() {
+		setResizable(false);
+		setTitle("Cálculo do IMC");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaIMC.class.getResource("/img/imcfavicon.png")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 413, 497);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaIMC.class.getResource("/img/imc.png")));
+		lblNewLabel.setBounds(0, 12, 213, 425);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblPeso = new JLabel("Peso");
+		lblPeso.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblPeso.setBounds(288, 27, 47, 15);
+		contentPane.add(lblPeso);
+		
+		txtPeso = new JTextField();
+		txtPeso.setBounds(254, 54, 114, 19);
+		contentPane.add(txtPeso);
+		txtPeso.setColumns(10);
+		
+		JLabel lblAltura = new JLabel("Altura");
+		lblAltura.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblAltura.setBounds(284, 102, 55, 15);
+		contentPane.add(lblAltura);
+		
+		txtAltura = new JTextField();
+		txtAltura.setBounds(254, 129, 114, 19);
+		contentPane.add(txtAltura);
+		txtAltura.setColumns(10);
+	} // Fim do construtor
+} // Fim do código

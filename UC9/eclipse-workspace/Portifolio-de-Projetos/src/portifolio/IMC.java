@@ -1,19 +1,21 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
-import java.awt.Cursor;
-import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import java.awt.Color;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class IMC extends JDialog {
 
@@ -49,54 +51,76 @@ public class IMC extends JDialog {
 		setModal(true);
 		setTitle("IMC");
 		setResizable(false);
-		setBounds(100, 100, 309, 636);
+		setBounds(100, 100, 469, 532);
 		getContentPane().setLayout(null);
 
-		JButton btnSalvar = new JButton("Calcular");
+		JButton btnSalvar = new JButton("");
+		btnSalvar.setIcon(new ImageIcon(IMC.class.getResource("/img/bmi.png")));
+		btnSalvar.setToolTipText("Calcular o IMC");
 		btnSalvar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		btnSalvar.setBounds(103, 82, 100, 25);
+		btnSalvar.setBounds(261, 96, 64, 64);
 		getContentPane().add(btnSalvar);
 
 		JLabel lblNewLabel = new JLabel("Peso (Kg)");
-		lblNewLabel.setBounds(12, 24, 70, 15);
+		lblNewLabel.setBounds(232, 27, 70, 15);
 		getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Altura (m)");
-		lblNewLabel_1.setBounds(12, 53, 70, 15);
+		lblNewLabel_1.setBounds(232, 56, 70, 15);
 		getContentPane().add(lblNewLabel_1);
 
 		txtPeso = new JTextField();
 		txtPeso.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPeso.setBounds(103, 22, 100, 19);
+		txtPeso.setBounds(323, 25, 100, 19);
 		getContentPane().add(txtPeso);
 		txtPeso.setColumns(10);
 
 		txtAltura = new JTextField();
 		txtAltura.setHorizontalAlignment(SwingConstants.CENTER);
-		txtAltura.setBounds(103, 51, 100, 19);
+		txtAltura.setBounds(323, 54, 100, 19);
 		getContentPane().add(txtAltura);
 		txtAltura.setColumns(10);
 
 		lblImagem = new JLabel("");
 		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
-		lblImagem.setBounds(74, 148, 159, 425);
+		lblImagem.setBounds(12, 12, 213, 425);
 		getContentPane().add(lblImagem);
 
 		txtResultado = new JTextField();
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setEditable(false);
-		txtResultado.setBounds(103, 117, 100, 19);
+		txtResultado.setBounds(323, 203, 100, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 
 		JLabel lblOSeuImc = new JLabel("O seu IMC é");
-		lblOSeuImc.setBounds(12, 121, 90, 15);
+		lblOSeuImc.setBounds(232, 207, 90, 15);
 		getContentPane().add(lblOSeuImc);
+
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setIcon(new ImageIcon(IMC.class.getResource("/img/eraser.png")));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setBounds(337, 96, 64, 64);
+		getContentPane().add(btnLimpar);
+
+		// Validação Peso
+		RestrictedTextField peso = new RestrictedTextField(txtPeso, "0123456789");
+		peso.setLimit(3);
+
+		// Validação Altura
+		RestrictedTextField altura = new RestrictedTextField(txtAltura, "0123456789");
+		altura.setLimit(3);
 
 	}// fim do construtor
 
@@ -108,7 +132,7 @@ public class IMC extends JDialog {
 			txtPeso.requestFocus();
 		} else if (txtAltura.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a altura");
-			txtPeso.requestFocus();
+			txtAltura.requestFocus();
 		} else {
 
 			// Declaração de variáveis
@@ -156,5 +180,14 @@ public class IMC extends JDialog {
 
 		}
 
-	}
+	}// fim do método calcular
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtPeso.setText(null);
+		txtAltura.setText(null);
+		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
+		txtResultado.setText(null);
+		txtPeso.requestFocus();
+	} // Fim do método limpar
 }

@@ -53,15 +53,29 @@ public class Tarot extends JDialog {
 		lblCarta.setBounds(63, 101, 163, 300);
 		getContentPane().add(lblCarta);
 		
-		JButton btnJogar = new JButton("Jogar");
+		JButton btnJogar = new JButton("");
+		btnJogar.setIcon(new ImageIcon(Tarot.class.getResource("/img/tarot.png")));
+		btnJogar.setToolTipText("Jogar");
 		btnJogar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				jogar();
 			}
 		});
-		btnJogar.setBounds(86, 48, 117, 25);
+		btnJogar.setBounds(77, 25, 64, 64);
 		getContentPane().add(btnJogar);
+		
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setIcon(new ImageIcon(Tarot.class.getResource("/img/eraser.png")));
+		btnLimpar.setBounds(153, 25, 64, 64);
+		getContentPane().add(btnLimpar);
 
 	}// Fim do Construtor
 	void jogar() {
@@ -137,5 +151,10 @@ public class Tarot extends JDialog {
 		}
 		
 	} // Fim do método lancar
+	
+	/** Método para Limpar **/
+	void limpar() {
+		lblCarta.setIcon(new ImageIcon(Tarot.class.getResource("/img/tarot0.png")));
+		} // Fim do método limpar
 	
 } // Fim

@@ -1,19 +1,22 @@
 package portifolio;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.Toolkit;
-import java.awt.Cursor;
-import java.awt.Color;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+import javax.swing.ImageIcon;
 
 public class Porcentagem extends JDialog {
 
@@ -54,135 +57,177 @@ public class Porcentagem extends JDialog {
 		setTitle("Cálculo da Porcentagem");
 		setResizable(false);
 		setModal(true);
-		setBounds(100, 100, 479, 278);
+		setBounds(100, 100, 499, 492);
 		getContentPane().setLayout(null);
 
 		txtPorcentagem = new JTextField();
 		txtPorcentagem.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPorcentagem.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtPorcentagem.setBounds(20, 54, 44, 20);
+		txtPorcentagem.setBounds(22, 129, 44, 20);
 		getContentPane().add(txtPorcentagem);
 		txtPorcentagem.setColumns(10);
 
 		JLabel lbl1 = new JLabel("% de");
-		lbl1.setBounds(74, 54, 44, 20);
+		lbl1.setBounds(76, 129, 44, 20);
 		getContentPane().add(lbl1);
 
 		txtValor = new JTextField();
 		txtValor.setHorizontalAlignment(SwingConstants.CENTER);
 		txtValor.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtValor.setBounds(114, 54, 114, 20);
+		txtValor.setBounds(116, 129, 114, 20);
 		getContentPane().add(txtValor);
 		txtValor.setColumns(10);
 
-		JButton button = new JButton("=");
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button.addActionListener(new ActionListener() {
+		JButton btnPorcentagem = new JButton("");
+		btnPorcentagem.setIcon(new ImageIcon(Porcentagem.class.getResource("/img/percentage-64.png")));
+		btnPorcentagem.setToolTipText("Calcular");
+		btnPorcentagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPorcentagem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				calcular();
 			}
 		});
-		button.setBounds(231, 49, 95, 25);
-		getContentPane().add(button);
+		btnPorcentagem.setBounds(249, 107, 64, 64);
+		getContentPane().add(btnPorcentagem);
 
 		txtResultado = new JTextField();
 		txtResultado.setEditable(false);
 		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtResultado.setFont(new Font("Dialog", Font.BOLD, 14));
-		txtResultado.setBounds(332, 54, 114, 19);
+		txtResultado.setBounds(334, 130, 114, 19);
 		getContentPane().add(txtResultado);
 		txtResultado.setColumns(10);
 
 		txtCusto = new JTextField();
-		txtCusto.setBounds(20, 126, 114, 19);
+		txtCusto.setBounds(22, 256, 114, 19);
 		getContentPane().add(txtCusto);
 		txtCusto.setColumns(10);
 
 		txtLucro = new JTextField();
-		txtLucro.setBounds(166, 126, 44, 20);
+		txtLucro.setBounds(168, 255, 44, 20);
 		getContentPane().add(txtLucro);
 		txtLucro.setColumns(10);
 
 		txtVenda = new JTextField();
 		txtVenda.setEditable(false);
-		txtVenda.setBounds(332, 126, 114, 19);
+		txtVenda.setBounds(334, 256, 114, 19);
 		getContentPane().add(txtVenda);
 		txtVenda.setColumns(10);
 
 		JLabel lblCusto = new JLabel("Custo (R$)");
-		lblCusto.setBounds(34, 106, 87, 15);
+		lblCusto.setBounds(36, 229, 87, 15);
 		getContentPane().add(lblCusto);
 
 		JLabel lblLucro = new JLabel("Lucro (%)");
-		lblLucro.setBounds(146, 106, 70, 15);
+		lblLucro.setBounds(148, 229, 70, 15);
 		getContentPane().add(lblLucro);
 
 		JLabel lblVenda = new JLabel("Venda (R$)");
-		lblVenda.setBounds(339, 106, 84, 15);
+		lblVenda.setBounds(341, 229, 84, 15);
 		getContentPane().add(lblVenda);
 
-		JButton btnCalcular = new JButton("Calcular");
-		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnCalcular.addActionListener(new ActionListener() {
+		JButton btnPVenda = new JButton("");
+		btnPVenda.setIcon(new ImageIcon(Porcentagem.class.getResource("/img/profit-64.png")));
+		btnPVenda.setToolTipText("Calcular");
+		btnPVenda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				lucro();
 			}
 		});
-		btnCalcular.setBounds(231, 120, 95, 25);
-		getContentPane().add(btnCalcular);
+		btnPVenda.setBounds(249, 233, 64, 64);
+		getContentPane().add(btnPVenda);
 
 		txtSubtotal = new JTextField();
-		txtSubtotal.setBounds(20, 210, 114, 19);
+		txtSubtotal.setBounds(22, 388, 114, 19);
 		getContentPane().add(txtSubtotal);
 		txtSubtotal.setColumns(10);
 
 		txtDesconto = new JTextField();
-		txtDesconto.setBounds(166, 210, 44, 19);
+		txtDesconto.setBounds(168, 388, 44, 19);
 		getContentPane().add(txtDesconto);
 		txtDesconto.setColumns(10);
 
-		JButton btnCalcular2 = new JButton("Calcular");
-		btnCalcular2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnCalcular2.addActionListener(new ActionListener() {
+		JButton btnDesconto = new JButton("");
+		btnDesconto.setIcon(new ImageIcon(Porcentagem.class.getResource("/img/discount-64.png")));
+		btnDesconto.setToolTipText("Calcular");
+		btnDesconto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnDesconto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				desconto();
 			}
 		});
-		btnCalcular2.setBounds(231, 204, 95, 25);
-		getContentPane().add(btnCalcular2);
+		btnDesconto.setBounds(249, 365, 64, 64);
+		getContentPane().add(btnDesconto);
 
 		txtTotal = new JTextField();
 		txtTotal.setEditable(false);
-		txtTotal.setBounds(332, 210, 114, 19);
+		txtTotal.setBounds(334, 388, 114, 19);
 		getContentPane().add(txtTotal);
 		txtTotal.setColumns(10);
 
 		JLabel lblSubtotal = new JLabel("Subtotal (R$)");
-		lblSubtotal.setBounds(24, 193, 109, 15);
+		lblSubtotal.setBounds(26, 371, 109, 15);
 		getContentPane().add(lblSubtotal);
 
 		JLabel lblDesconto = new JLabel("Desc (%)");
-		lblDesconto.setBounds(155, 193, 61, 15);
+		lblDesconto.setBounds(157, 371, 61, 15);
 		getContentPane().add(lblDesconto);
 
 		JLabel lblTotal = new JLabel("Total (R$)");
-		lblTotal.setBounds(351, 193, 84, 15);
+		lblTotal.setBounds(353, 371, 84, 15);
 		getContentPane().add(lblTotal);
 
 		JLabel lblPorcentagem = new JLabel("Porcentagem");
 		lblPorcentagem.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblPorcentagem.setBounds(143, 12, 188, 30);
+		lblPorcentagem.setBounds(156, 71, 188, 30);
 		getContentPane().add(lblPorcentagem);
 
 		JLabel lblCustoXVenda = new JLabel("Preço de Venda");
 		lblCustoXVenda.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblCustoXVenda.setBounds(119, 83, 237, 25);
+		lblCustoXVenda.setBounds(128, 196, 237, 25);
 		getContentPane().add(lblCustoXVenda);
 
 		JLabel lblDesconto_1 = new JLabel("Desconto");
 		lblDesconto_1.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblDesconto_1.setBounds(166, 157, 142, 32);
+		lblDesconto_1.setBounds(179, 335, 142, 32);
 		getContentPane().add(lblDesconto_1);
+
+		// Validação Porcentagem
+		RestrictedTextField porcentagem = new RestrictedTextField(txtPorcentagem, "0123456789");
+		porcentagem.setLimit(3);
+
+		// Validação Valor
+		RestrictedTextField valor = new RestrictedTextField(txtValor, "0123456789");
+		valor.setLimit(6);
+
+		// Validação Custo
+		RestrictedTextField custo = new RestrictedTextField(txtCusto, "0123456789");
+		custo.setLimit(6);
+
+		// Validação Lucro
+		RestrictedTextField lucro = new RestrictedTextField(txtLucro, "0123456789");
+		lucro.setLimit(3);
+
+		// Validação SubTotal
+		RestrictedTextField subtotal = new RestrictedTextField(txtSubtotal, "0123456789");
+		subtotal.setLimit(6);
+
+		// Validação Desconto
+		RestrictedTextField desconto = new RestrictedTextField(txtDesconto, "0123456789");
+
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setIcon(new ImageIcon(Porcentagem.class.getResource("/img/eraser.png")));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setBounds(22, 12, 64, 64);
+		getContentPane().add(btnLimpar);
+		desconto.setLimit(3);
 
 	}// Fim do Construtor
 
@@ -258,4 +303,18 @@ public class Porcentagem extends JDialog {
 			txtTotal.setText(String.valueOf(total));
 		}
 	} // Fim do método para calcular o desconto
+
+	/** Método para Limpar **/
+	void limpar() {
+		txtPorcentagem.setText(null);
+		txtValor.setText(null);
+		txtResultado.setText(null);
+		txtCusto.setText(null);
+		txtLucro.setText(null);
+		txtVenda.setText(null);
+		txtSubtotal.setText(null);
+		txtDesconto.setText(null);
+		txtTotal.setText(null);
+		txtPorcentagem.requestFocus();
+	} // Fim do método limpar
 }
