@@ -1,0 +1,28 @@
+/**
+ * Fundamentos do Java
+ * Estruturas de Controle
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class EstruturasControle {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String nome = "Fagner";
+		int idade = 38;
+		System.out.println("Nome: " + nome );
+		System.out.println("Idade: " + idade);
+		if (idade > 18) {
+			System.out.println("Maior de idade");
+		}
+		
+
+	}
+
+}

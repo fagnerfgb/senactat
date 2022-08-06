@@ -1,0 +1,10 @@
+
+public class Fatorial {
+public static void main(String[] args) {
+	int fatorial, j;
+	for (int i=1; i <= 10; i++) {
+		fatorial = i * j;
+		System.out.println(fatorial * i);
+	}
+}
+}

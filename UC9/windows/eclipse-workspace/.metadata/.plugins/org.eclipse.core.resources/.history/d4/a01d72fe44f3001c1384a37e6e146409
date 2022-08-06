@@ -1,0 +1,155 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class Porcentagem extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private JTextField txtPorcentagem;
+	private JTextField txtValor;
+	private JTextField txtResultado;
+	private JTextField txtCusto;
+	private JTextField txtLucro;
+	private JTextField txtVenda;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Porcentagem dialog = new Porcentagem();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Porcentagem() {
+		setTitle("Cálculo da Porcentagem");
+		setResizable(false);
+		setModal(true);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		txtPorcentagem = new JTextField();
+		txtPorcentagem.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPorcentagem.setFont(new Font("Dialog", Font.BOLD, 14));
+		txtPorcentagem.setBounds(12, 39, 44, 20);
+		getContentPane().add(txtPorcentagem);
+		txtPorcentagem.setColumns(10);
+		
+		JLabel lbl1 = new JLabel("% de");
+		lbl1.setBounds(66, 39, 44, 20);
+		getContentPane().add(lbl1);
+		
+		txtValor = new JTextField();
+		txtValor.setHorizontalAlignment(SwingConstants.CENTER);
+		txtValor.setFont(new Font("Dialog", Font.BOLD, 14));
+		txtValor.setBounds(120, 39, 114, 20);
+		getContentPane().add(txtValor);
+		txtValor.setColumns(10);
+		
+		JButton button = new JButton("=");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				calcular();
+			}
+		});
+		button.setBounds(244, 34, 70, 25);
+		getContentPane().add(button);
+		
+		txtResultado = new JTextField();
+		txtResultado.setEditable(false);
+		txtResultado.setHorizontalAlignment(SwingConstants.CENTER);
+		txtResultado.setFont(new Font("Dialog", Font.BOLD, 14));
+		txtResultado.setBounds(324, 39, 114, 20);
+		getContentPane().add(txtResultado);
+		txtResultado.setColumns(10);
+		
+		txtCusto = new JTextField();
+		txtCusto.setBounds(8, 122, 114, 19);
+		getContentPane().add(txtCusto);
+		txtCusto.setColumns(10);
+		
+		txtLucro = new JTextField();
+		txtLucro.setBounds(134, 122, 61, 19);
+		getContentPane().add(txtLucro);
+		txtLucro.setColumns(10);
+		
+		txtVenda = new JTextField();
+		txtVenda.setEditable(false);
+		txtVenda.setBounds(324, 122, 114, 19);
+		getContentPane().add(txtVenda);
+		txtVenda.setColumns(10);
+		
+		JLabel lblCusto = new JLabel("Custo");
+		lblCusto.setBounds(30, 102, 70, 15);
+		getContentPane().add(lblCusto);
+		
+		JLabel lblLucro = new JLabel("Lucro");
+		lblLucro.setBounds(137, 102, 54, 15);
+		getContentPane().add(lblLucro);
+		
+		JLabel lblVenda = new JLabel("Venda");
+		lblVenda.setBounds(346, 102, 70, 15);
+		getContentPane().add(lblVenda);
+		
+		JButton btnCalcular = new JButton("Calcular");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lucro();
+			}
+		});
+		btnCalcular.setBounds(219, 119, 95, 25);
+		getContentPane().add(btnCalcular);
+
+	}// Fim do Construtor
+	
+	void calcular() {
+	// Declaração das variáveis
+	double porcentagem, valor, resultado;
+	
+	// Entrada
+	porcentagem = Double.parseDouble(txtPorcentagem.getText());
+	valor = Double.parseDouble(txtValor.getText());
+	
+	// Processamento
+	resultado = (porcentagem * valor)/ 100;
+	resultado = Math.round(resultado * 100.0) / 100.0;
+	
+	//Saída
+	txtResultado.setText(String.valueOf(resultado));
+	
+	}
+	void lucro() {
+		// Declaração de variáveis
+		double custo, lucro, venda;
+		
+		// Entrada
+		custo = Double.parseDouble(txtCusto.getText());
+		lucro = Double.parseDouble(txtLucro.getText());	
+		
+		// Processamento
+		venda = custo + (custo * lucro)/100;
+		
+		//Saída
+		txtVenda.setText(String.valueOf(venda));
+		}
+}

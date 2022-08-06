@@ -1,0 +1,12 @@
+
+public class Fatorial {
+public static void main(String[] args) {
+	int n = 4;
+	int i = 1;
+	while (i <= n) {
+		j = n * i;
+		i++
+	}
+	System.out.println(j);
+}
+}

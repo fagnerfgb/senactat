@@ -1,0 +1,50 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+@SuppressWarnings("serial")
+public class Cep extends JDialog {
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Cep dialog = new Cep();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Cep() {
+		setTitle("Buscar CEP");
+		setResizable(false);
+		setModal(true);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		JLabel lblCep = new JLabel("CEP");
+		lblCep.setBounds(12, 36, 31, 15);
+		getContentPane().add(lblCep);
+		
+		textField = new JTextField();
+		textField.setBounds(67, 34, 114, 19);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+
+	}
+}
