@@ -183,19 +183,19 @@ public class HoraServico extends JDialog {
 		getContentPane().add(txtCustoOperacionalServico);
 		txtCustoOperacionalServico.setColumns(10);
 
-		// ValidaÃ§Ã£o RemuneraÃ§Ã£o
+		// Validação Remuneração
 		RestrictedTextField remuneracao = new RestrictedTextField(txtRemuneracao, "0123456789");
 		remuneracao.setLimit(6);
 
-		// ValidaÃ§Ã£o Custo Operacional
+		// Validação Custo Operacional
 		RestrictedTextField custoOperacional = new RestrictedTextField(txtCustoOperacional, "0123456789");
 		custoOperacional.setLimit(6);
 
-		// ValidaÃ§Ã£o Horas
+		// Validação Horas
 		RestrictedTextField horasMes = new RestrictedTextField(txtHoras, "0123456789");
 		horasMes.setLimit(3);
 
-		// ValidaÃ§Ã£o Horas
+		// Validação Estimativa Horas
 		RestrictedTextField estimativaHoras = new RestrictedTextField(txtEstimativaHoras, "0123456789");
 
 		JButton btnLimpar = new JButton("");
@@ -213,7 +213,7 @@ public class HoraServico extends JDialog {
 
 	} // Fim do Construtor
 
-	// VariÃ¡veis globais;
+	// Variávies globais;
 	double rendimento, investimentoServico, custoOperacionalServico, reservaServico, rendimentoLiquido, remuneracao,
 			horas, reserva, custoOperacional, investimento;
 	double percentualInvestimento = 0.2;
@@ -224,7 +224,7 @@ public class HoraServico extends JDialog {
 	DecimalFormat formatador = new DecimalFormat("R$ 0.00");
 
 	void hora() {
-		// ValidaÃ§Ã£o
+		// Validação
 		if (txtRemuneracao.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a remuneracao mensal pretendida");
 			txtRemuneracao.requestFocus();
@@ -232,11 +232,11 @@ public class HoraServico extends JDialog {
 			JOptionPane.showMessageDialog(null, "Insira o custo operacional mensal");
 			txtCustoOperacional.requestFocus();
 		} else if (txtHoras.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas trabalhadas por mÃªs");
+			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas trabalhadas por mês");
 			txtHoras.requestFocus();
 		} else {
 
-			// Declarando as variÃ¡veis
+			// Declarando as variáveis
 
 			// Entrada
 			remuneracao = Double.parseDouble(txtRemuneracao.getText());
@@ -249,19 +249,19 @@ public class HoraServico extends JDialog {
 			rendimento = (remuneracao + custoOperacional + reserva + investimento) / horas;
 			rendimento = Math.round(rendimento * 100.0) / 100.0;
 
-			// SaÃ­da
+			// Saída
 			txtRendimento.setText(String.valueOf(formatador.format(rendimento)));
 		}
 
-	} // Fim do mÃ©todo hora
+	} // Fim do método hora
 
 	void processar() {
 		// ValidaÃ§Ã£o
 		if (txtEstimativaHoras.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas para realizar o serviÃ§o");
+			JOptionPane.showMessageDialog(null, "Insira a quantidade de horas para realizar o serviço");
 			txtEstimativaHoras.requestFocus();
 		} else {
-			// Declarando as variÃ¡veis
+			// Declarando as variáveis
 			double estimativaHoras, valorServico;
 
 			// Entrada
@@ -283,22 +283,22 @@ public class HoraServico extends JDialog {
 			rendimentoLiquido = valorServico - reservaServico - investimentoServico - custoOperacionalServico;
 			rendimentoLiquido = Math.round(rendimentoLiquido * 100.0) / 100.0;
 
-			// SaÃ­da
+			// Saída
 			txtValorServico.setText(String.valueOf(formatador.format(valorServico)));
 			txtReservaServico.setText(String.valueOf(formatador.format(reservaServico)));
 			txtInvestimentoServico.setText(String.valueOf(formatador.format(investimentoServico)));
 			txtRendimentoLiquidoServico.setText(String.valueOf(formatador.format(rendimentoLiquido)));
 			txtCustoOperacionalServico.setText(String.valueOf(formatador.format(custoOperacionalServico)));
 			JOptionPane.showMessageDialog(null,
-					"Valor do ServiÃ§o Ã© R$" + valorServico + "\nO valor da reserva de emergÃªncia Ã© R$" + reservaServico
-							+ "\nO valor da reserva para investimento Ã© R$" + investimentoServico
-							+ "\nO valor da reserva de custo operacional Ã© R$" + custoOperacionalServico
-							+ "\nO rendimento lÃ­quido do serviÃ§o Ã© R$" + rendimentoLiquido,
-					"RelatÃ³rio", JOptionPane.INFORMATION_MESSAGE);
+					"Valor do Serviço é R$" + valorServico + "\nO valor da reserva de emergência é R$" + reservaServico
+							+ "\nO valor da reserva para investimento é R$" + investimentoServico
+							+ "\nO valor da reserva de custo operacional é R$" + custoOperacionalServico
+							+ "\nO rendimento líquido do serviço é R$" + rendimentoLiquido,
+					"Relatório", JOptionPane.INFORMATION_MESSAGE);
 		}
-	} // Fim do mÃ©todo processar
+	} // Fim do método processar
 
-	/** MÃ©todo para Limpar **/
+	/** Método para Limpar **/
 	void limpar() {
 		txtRemuneracao.setText(null);
 		txtCustoOperacional.setText(null);
@@ -311,5 +311,5 @@ public class HoraServico extends JDialog {
 		txtCustoOperacionalServico.setText(null);
 		txtRendimentoLiquidoServico.setText(null);
 		txtRemuneracao.requestFocus();
-	} // Fim do mÃ©todo limpar
+	} // Fim do método limpar
 } // Fim

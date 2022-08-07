@@ -150,11 +150,11 @@ public class Tarot extends JDialog {
 			break;
 		}
 		
-	} // Fim do mÃ©todo lancar
+	} // Fim do método lancar
 	
-	/** MÃ©todo para Limpar **/
+	/** método para Limpar **/
 	void limpar() {
 		lblCarta.setIcon(new ImageIcon(Tarot.class.getResource("/img/tarot0.png")));
-		} // Fim do mÃ©todo limpar
+		} // Fim do método limpar
 	
 } // Fim

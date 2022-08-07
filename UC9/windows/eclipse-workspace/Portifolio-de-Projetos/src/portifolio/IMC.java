@@ -114,19 +114,19 @@ public class IMC extends JDialog {
 		btnLimpar.setBounds(359, 260, 64, 64);
 		getContentPane().add(btnLimpar);
 
-		// Valida√ß√£o Peso
+		// ValidaÁ„o Peso
 		RestrictedTextField peso = new RestrictedTextField(txtPeso, "0123456789.");
 		peso.setLimit(5);
 
-		// Valida√ß√£o Altura
+		// ValidaÁ„o Altura
 		RestrictedTextField altura = new RestrictedTextField(txtAltura, "0123456789.");
 		altura.setLimit(5);
 
 	}// fim do construtor
 
-	// M√©todo respons√°vel pelo c√°lculo do IMC
+	// MÈtodo respons·vel pelo c·culo do IMC
 	void calcular() {
-		// valida√ß√£o
+		// validaÁ„oo
 		if (txtPeso.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o peso");
 			txtPeso.requestFocus();
@@ -135,32 +135,32 @@ public class IMC extends JDialog {
 			txtAltura.requestFocus();
 		} else {
 
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			// String nome;
 			double peso, altura, imc;
 			// int idade;
 
 			// Entrada
-			// Armazenando o conte√∫do das caixas de texto nas vari√°veis
+			// Armazenando o conte˙do das caixas de texto nas vari·veis
 			// nome = txtNome.getText();
 
-			// Armazenando e convertendo o conte√∫do das caixas de texto nas vari√°veis
+			// Armazenando e convertendo o conte√∫do das caixas de texto nas vari·veis
 			peso = Double.parseDouble(txtPeso.getText());
 			altura = Double.parseDouble(txtAltura.getText());
 			// idade = Integer.parseInt(txtIdade.getText());
 
 			// Processamento
-			// C√°lculo do IMC
+			// C·lculo do IMC
 			imc = peso / (altura * altura);
 			imc = Math.round(imc * 100.0) / 100.0;
 
-			// Exibir o conte√∫do das vari√°veis em uma caixa de mensagem
-			// JOptionPane.showMessageDialog(null, nome + ",\nA sua idade √© " + idade + "
-			// anos! \nO seu peso √© " + peso + " kilos! \nA sua altura √© " + altura + "
-			// metros!\nO seu IMC √© " + Math.round(imc)+"!", "Ficha do Aluno",
+			// Exibir o conte˙do das vari·veis em uma caixa de mensagem
+			// JOptionPane.showMessageDialog(null, nome + ",\nA sua idade È " + idade + "
+			// anos! \nO seu peso È " + peso + " kilos! \nA sua altura È " + altura + "
+			// metros!\nO seu IMC È " + Math.round(imc)+"!", "Ficha do Aluno",
 			// JOptionPane.DEFAULT_OPTION);
 
-			// Sa√≠da
+			// SaÌda
 			txtResultado.setText(String.valueOf(imc));
 			if (imc < 17) {
 				lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc1.png")));
@@ -180,14 +180,14 @@ public class IMC extends JDialog {
 
 		}
 
-	}// fim do m√©todo calcular
+	}// fim do mÈtodo calcular
 
-	/** M√©todo para Limpar **/
+	/** MÈtodo para Limpar **/
 	void limpar() {
 		txtPeso.setText(null);
 		txtAltura.setText(null);
 		lblImagem.setIcon(new ImageIcon(IMC.class.getResource("/img/imc.png")));
 		txtResultado.setText(null);
 		txtPeso.requestFocus();
-	} // Fim do m√©todo limpar
+	} // Fim do mÈtodo limpar
 }

@@ -107,12 +107,12 @@ public class Temperatura2 extends JDialog {
 	} // Fim do Construtor
 
 	void calcular() {
-		// ValidaÃ§Ã£o
+		// Validação
 		if (txtCelsius.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a temperatura em Celsius");
 			txtCelsius.requestFocus();
 		} else {
-			// DeclaraÃ§Ã£o de VariÃ¡veis
+			// Declaração de variáveis
 			double celsius, fahrenheit;
 
 			// Entrada
@@ -122,16 +122,16 @@ public class Temperatura2 extends JDialog {
 			fahrenheit = 1.8 * celsius + 32;
 			fahrenheit = Math.round(fahrenheit * 100.0) / 100.0;
 
-			// SaÃ­da
+			// Saída
 			txtFahrenheit.setText(String.valueOf(fahrenheit));
 		}
-	}// Fim do mÃ©todo calcular
+	}// Fim do método calcular
 	
-	/** MÃ©todo para Limpar **/
+	/** método para Limpar **/
 	void limpar() {
 		txtFahrenheit.setText(null);
 		txtCelsius.setText(null);
 		txtCelsius.requestFocus();
-	} // Fim do mÃ©todo limpar
+	} // Fim do método limpar
 
 } //Fim do programa

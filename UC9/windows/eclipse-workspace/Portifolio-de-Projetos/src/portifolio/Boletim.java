@@ -196,7 +196,7 @@ public class Boletim extends JDialog {
 	}// Fim do Construtor
 
 	void media() {
-		// Valida√ß√£o
+		// ValidaÁ„o
 		if (txtNome.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome");
 			txtNome.requestFocus();
@@ -219,7 +219,7 @@ public class Boletim extends JDialog {
 			JOptionPane.showMessageDialog(null, "Insira a nota 4");
 			txtNota4.requestFocus();
 		} else {
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			String nome, disciplina;
 			double nota1, nota2, nota3, nota4, media;
 			int idade;
@@ -239,18 +239,18 @@ public class Boletim extends JDialog {
 
 			// Sa√≠da
 			if (media < 5.0) {
-				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade √© " + idade + " anos! \nA sua m√©dia em "
-						+ disciplina + " √© " + media + "!\nREPROVADO", "M√©dia", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade È " + idade + " anos! \nA sua mÈdia em "
+						+ disciplina + " È " + media + "!\nREPROVADO", "MÈdia", JOptionPane.ERROR_MESSAGE);
 				txtMedia.setText(String.valueOf(media));
 			} else {
-				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade √© " + idade + " anos! \nA sua m√©dia em "
-						+ disciplina + " √© " + media + "!\n APROVADO!", "M√©dia", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, nome + ",\nA sua idade È " + idade + " anos! \nA sua mÈdia em "
+						+ disciplina + " È " + media + "!\n APROVADO!", "MÈdia", JOptionPane.INFORMATION_MESSAGE);
 				txtMedia.setText(String.valueOf(media));
 			}
 		}
-	} //fim do m√©todo media
+	} //fim do mÈtodo media
 	
-	/** M√©todo para Limpar **/
+	/** MÈtodo para Limpar **/
 	void limpar() {
 		txtNome.setText(null);
 		txtIdade.setText(null);
@@ -260,5 +260,5 @@ public class Boletim extends JDialog {
 		txtNota3.setText(null);
 		txtNota4.setText(null);
 		txtNome.requestFocus();
-	} // Fim do m√©todo limpar
+	} // Fim do mÈtodo limpar
 }

@@ -117,26 +117,26 @@ public class Combustivel extends JDialog {
 		btnLimpar.setBounds(224, 115, 64, 64);
 		getContentPane().add(btnLimpar);
 
-		// Valida√ß√£o Gasolina
+		// ValidaÁ„o Gasolina
 		RestrictedTextField gasolina = new RestrictedTextField(txtGasolina, "0123456789.");
 		gasolina.setLimit(5);
 
-		// Valida√ß√£o Etanol
+		// ValidaÁ„o Etanol
 		RestrictedTextField etanol = new RestrictedTextField(txtEtanol, "0123456789.");
 		etanol.setLimit(5);
 
 	} // Fim do Construtor
 
 	void calcular() {
-		// Valida√ß√£o
+		// validaÁ„o
 		if (txtGasolina.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o pre√ßo da gasolina");
+			JOptionPane.showMessageDialog(null, "Insira o preÁo da gasolina");
 			txtGasolina.requestFocus();
 		} else if (txtEtanol.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o pre√ßo do etanol");
+			JOptionPane.showMessageDialog(null, "Insira o preÁo do etanol");
 			txtEtanol.requestFocus();
 		} else {
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			double gasolina, etanol;
 			// double percentual;
 
@@ -144,38 +144,38 @@ public class Combustivel extends JDialog {
 			gasolina = Double.parseDouble(txtGasolina.getText());
 			etanol = Double.parseDouble(txtEtanol.getText());
 
-			// Processamento/Sa√≠da
+			// Processamento/SaÌda
 			// percentual = etanol / (gasolina * 0.7) ;
 			// percentual = Math.round(percentual * 100.0) / 100.0;
 			// txtPercentual.setText(String.valueOf(percentual+"%"));
 			if (etanol < 0.7 * gasolina) {
-				txtResultado.setText(String.valueOf("O etanol √© mais vantajoso que a gasolina"));
+				txtResultado.setText(String.valueOf("O etanol È mais vantajoso que a gasolina"));
 				lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/etanol.png")));
 				/*
 				 * JOptionPane.showMessageDialog(null,
-				 * "O etanol √© mais vantajoso que a gasolina", "Vai de Etanol",
+				 * "O etanol È mais vantajoso que a gasolina", "Vai de Etanol",
 				 * JOptionPane.DEFAULT_OPTION);
 				 */
 			} else {
-				txtResultado.setText(String.valueOf("A gasolina √© mais vantajosa que o etanol"));
+				txtResultado.setText(String.valueOf("A gasolina È mais vantajosa que o etanol"));
 				lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/gasolina.png")));
 				/*
 				 * JOptionPane.showMessageDialog(null,
-				 * "A gasolina √© mais vantajosa que o etanol", "Vai de Gasosa",
+				 * "A gasolina È mais vantajosa que o etanol", "Vai de Gasosa",
 				 * JOptionPane.DEFAULT_OPTION);
 				 */
 			}
 		}
 
-	}// Fim do m√©todo Calcular
+	}// Fim do mÈtodo Calcular
 
-	/** M√©todo para Limpar **/
+	/** MÈtodo para Limpar **/
 	void limpar() {
 		txtGasolina.setText(null);
 		txtEtanol.setText(null);
 		txtResultado.setText(null);
 		lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/neutro.png")));
 		txtGasolina.requestFocus();
-	} // Fim do m√©todo limpar
+	} // Fim do mÈtodo limpar
 }
-// Fim do c√≥digo
+// Fim do cÛdigo

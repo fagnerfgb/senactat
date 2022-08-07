@@ -135,7 +135,7 @@ public class Cep extends JDialog {
 		btnCep.setBounds(102, 132, 64, 64);
 		getContentPane().add(btnCep);
 
-		/* Uso da biblioteca Atxy2k para validaÃ§Ã£o do campo txtCep */
+		/* Uso da biblioteca Atxy2k para validação do campo txtCep */
 		RestrictedTextField validar = new RestrictedTextField(txtCep);
 
 		lblStatus = new JLabel("");
@@ -192,7 +192,7 @@ public class Cep extends JDialog {
 
 					}
 				}
-				// setar o campo endereÃ§o
+				// setar o campo endereço
 				txtEndereco.setText(tipoLogradouro + " " + logradouro);
 			} catch (Exception e) {
 				System.out.println(e);

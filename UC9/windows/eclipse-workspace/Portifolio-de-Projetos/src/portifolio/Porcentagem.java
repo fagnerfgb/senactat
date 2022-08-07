@@ -201,27 +201,27 @@ public class Porcentagem extends JDialog {
 		lblDesconto_1.setBounds(206, 269, 109, 32);
 		getContentPane().add(lblDesconto_1);
 
-		// Valida√ß√£o Porcentagem
+		// ValidaÁ„o Porcentagem
 		RestrictedTextField porcentagem = new RestrictedTextField(txtPorcentagem, "0123456789");
 		porcentagem.setLimit(3);
 
-		// Valida√ß√£o Valor
+		// ValidaÁ„o Valor
 		RestrictedTextField valor = new RestrictedTextField(txtValor, "0123456789");
 		valor.setLimit(6);
 
-		// Valida√ß√£o Custo
+		// ValidaÁ„o Custo
 		RestrictedTextField custo = new RestrictedTextField(txtCusto, "0123456789");
 		custo.setLimit(6);
 
-		// Valida√ß√£o Lucro
+		// ValidaÁ„o Lucro
 		RestrictedTextField lucro = new RestrictedTextField(txtLucro, "0123456789");
 		lucro.setLimit(3);
 
-		// Valida√ß√£o SubTotal
+		// ValidaÁ„o SubTotal
 		RestrictedTextField subtotal = new RestrictedTextField(txtSubtotal, "0123456789");
 		subtotal.setLimit(6);
 
-		// Valida√ß√£o Desconto
+		// ValidaÁ„o Desconto
 		RestrictedTextField desconto = new RestrictedTextField(txtDesconto, "0123456789");
 
 		JButton btnLimpar = new JButton("");
@@ -252,7 +252,7 @@ public class Porcentagem extends JDialog {
 	DecimalFormat formatador = new DecimalFormat("R$ 0.00");
 
 	void calcular() {
-		// Valida√ß√£o
+		// ValidaÁ„o
 		if (txtPorcentagem.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a porcentagem");
 			txtPorcentagem.requestFocus();
@@ -260,7 +260,7 @@ public class Porcentagem extends JDialog {
 			JOptionPane.showMessageDialog(null, "Insira o valor a calcular");
 			txtValor.requestFocus();
 		} else {
-			// Declara√ß√£o das vari√°veis
+			// DeclaraÁ„o das vari·veis
 			double porcentagem, valor, resultado;
 
 			// Entrada
@@ -271,22 +271,22 @@ public class Porcentagem extends JDialog {
 			resultado = (porcentagem * valor) / 100;
 			resultado = Math.round(resultado * 100.0) / 100.0;
 
-			// Sa√≠da
+			// SaÌda
 			txtResultado.setText(String.valueOf(formatador.format(resultado)));
 		}
 
-	} // Fim do m√©todo para calcular a porcentagem
+	} // Fim do mÈtodo para calcular a porcentagem
 
 	void lucro() {
-		// Valida√ß√£o
+		// ValidaÁ„o
 		if (txtCusto.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o pre√ßo de custo");
+			JOptionPane.showMessageDialog(null, "Insira o preÁo de custo");
 			txtCusto.requestFocus();
 		} else if (txtLucro.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a margem de lucro");
 			txtLucro.requestFocus();
 		} else {
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			double custo, lucro, venda;
 
 			// Entrada
@@ -296,10 +296,10 @@ public class Porcentagem extends JDialog {
 			// Processamento
 			venda = custo + (custo * lucro) / 100;
 
-			// Sa√≠da
+			// SaÌda
 			txtVenda.setText(String.valueOf(formatador.format(venda)));
 		}
-	} // Fim do m√©todo para calcular o lucro
+	} // Fim do mÈtodo para calcular o lucro
 
 	void desconto() {
 		if (txtSubtotal.getText().isEmpty()) {
@@ -309,7 +309,7 @@ public class Porcentagem extends JDialog {
 			JOptionPane.showMessageDialog(null, "Insira o percentual de desconto");
 			txtDesconto.requestFocus();
 		} else {
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			double subtotal, desconto, total;
 
 			// Entrada
@@ -319,12 +319,12 @@ public class Porcentagem extends JDialog {
 			// Processamento
 			total = subtotal - (subtotal * desconto) / 100;
 
-			// Sa√≠da
+			// SaÌda
 			txtTotal.setText(String.valueOf(formatador.format(total)));
 		}
-	} // Fim do m√©todo para calcular o desconto
+	} // Fim do mÈtodo para calcular o desconto
 
-	/** M√©todo para Limpar **/
+	/** MÈtodo para Limpar **/
 	void limpar() {
 		txtPorcentagem.setText(null);
 		txtValor.setText(null);

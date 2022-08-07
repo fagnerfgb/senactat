@@ -101,39 +101,39 @@ public class Eleitor extends JDialog {
 	} // Fim do Construtor
 
 	void verifica() {
-		// Valida√ß√£o
+		// ValidaÁ„o
 		if (txtIdade.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a idade");
 			txtIdade.requestFocus();
 		} else {
 
-			// Vari√°veis
+			// Vari·veis
 			int idade;
 
 			// Entrada
 			idade = Integer.parseInt(txtIdade.getText());
 
-			// Processamento e Sa√≠da
+			// Processamento e SaÌda
 			if (idade < 16) {
 				txtResultado.setText(String.valueOf("Voto proibido"));
 				JOptionPane.showMessageDialog(null, "Voto proibido", "A sua hora vai chegar",
 						JOptionPane.ERROR_MESSAGE);
 			} else if (idade > 17 && idade < 71) {
-				txtResultado.setText(String.valueOf("Voto obrigat√≥rio"));
-				JOptionPane.showMessageDialog(null, "Voto obrigat√≥rio", "Cumpra com o seu dever c√≠vico!",
+				txtResultado.setText(String.valueOf("Voto obrigatÛrio"));
+				JOptionPane.showMessageDialog(null, "Voto obrigatÛrio", "Cumpra com o seu dever cÌvico!",
 						JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				txtResultado.setText(String.valueOf("Voto facultativo"));
-				JOptionPane.showMessageDialog(null, "Voto facultativo", "A decis√£o √© sua!",
+				JOptionPane.showMessageDialog(null, "Voto facultativo", "A decis„o È sua!",
 						JOptionPane.QUESTION_MESSAGE);
 			}
 		}
-	} // Fim do m√©todo verifica
+	} // Fim do mÈtodo verifica
 
-	/** M√©todo para Limpar **/
+	/** MÈtodo para Limpar **/
 	void limpar() {
 		txtIdade.setText(null);
 		txtResultado.setText(null);
 		txtIdade.requestFocus();
-	} // Fim do m√©todo limpar
+	} // Fim do mÈtodo limpar
 }// Fim

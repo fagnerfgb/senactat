@@ -106,16 +106,16 @@ public class TelaJogo extends JFrame {
 	} // Fim do construtor
 
 	void pow() {
-		// validaÃ§Ã£o
+		// validação
 		if (!rdbtnPedra.isSelected() && !rdbtnPapel.isSelected() && !rdbtnTesoura.isSelected()) {
-			JOptionPane.showMessageDialog(null, "Selecione uma opÃ§Ã£o");
+			JOptionPane.showMessageDialog(null, "Selecione uma opção");
 		} else {
-			// lÃ³gica principal
+			// lógica principal
 			Random random = new Random();
 			int pc = random.nextInt(3);
-			// Dica para verificar o nÃºmero sorteado
+			// Dica para verificar o número sorteado
 			// System.out.println(pc);
-			// Associar o nÃºmero a imagem
+			// Associar o número a imagem
 			switch (pc) {
 			case 0:
 				lblPc.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/pcpapel.png")));
@@ -132,13 +132,13 @@ public class TelaJogo extends JFrame {
 				JOptionPane.showMessageDialog(null, "Empate");
 			} else if (rdbtnPedra.isSelected() && (pc == 2) || rdbtnPapel.isSelected() && (pc == 1)
 					|| rdbtnTesoura.isSelected() && (pc == 0)) {
-				JOptionPane.showMessageDialog(null, "VocÃª venceu");
+				JOptionPane.showMessageDialog(null, "Você venceu");
 			} else {
-				JOptionPane.showMessageDialog(null, "VocÃª perdeu");
+				JOptionPane.showMessageDialog(null, "Você perdeu");
 			}
 			// Limpar os campos
 			lblPc.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/pc.png")));
 			buttonGroup.clearSelection();
 		}
-	} // Fim do mÃ©todo pow
-} // Fim do cÃ³digo
+	} // Fim do método pow
+} // Fim do código

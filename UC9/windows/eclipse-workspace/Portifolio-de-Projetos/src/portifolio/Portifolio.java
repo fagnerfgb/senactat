@@ -212,5 +212,18 @@ public class Portifolio extends JFrame {
 		});
 		btnTarot.setBounds(100, 164, 64, 64);
 		contentPane.add(btnTarot);
+		
+		JButton btnJoKenPo = new JButton("");
+		btnJoKenPo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Jokenpo jokenpo = new Jokenpo();
+				jokenpo.setVisible(true);
+			}
+		});
+		btnJoKenPo.setToolTipText("JoKenPo");
+		btnJoKenPo.setIcon(new ImageIcon(Portifolio.class.getResource("/img/jokenpo2.png")));
+		btnJoKenPo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnJoKenPo.setBounds(176, 163, 64, 64);
+		contentPane.add(btnJoKenPo);
 	} // fim do construtor
 }

@@ -116,13 +116,13 @@ public class Dado extends JDialog {
 			break;
 		}
 		txtDado.setText(String.valueOf(face));
-	} // Fim do mÃ©todo lancar
+	} // Fim do método lancar
 
-	/** MÃ©todo para Limpar **/
+	/** Método para Limpar **/
 	void limpar() {
 		txtDado.setText(null);
 		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/dice.png")));
 		
-	} // Fim do mÃ©todo limpar
+	} // Fim do método limpar
 
 } // Fim

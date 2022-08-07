@@ -50,7 +50,7 @@ public class TelaIMC extends JFrame {
 	 */
 	public TelaIMC() {
 		setResizable(false);
-		setTitle("Cálculo do IMC");
+		setTitle("C\u00E1lculo do IMC");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaIMC.class.getResource("/img/imcfavicon.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 413, 497);
@@ -114,7 +114,8 @@ public class TelaIMC extends JFrame {
 		btnLimpar.setBounds(330, 361, 64, 64);
 		contentPane.add(btnLimpar);
 
-		JLabel lblSeuImc = new JLabel("Seu IMC é:");
+		JLabel lblSeuImc = new JLabel("Seu IMC \u00E9");
+		lblSeuImc.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSeuImc.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblSeuImc.setBounds(255, 168, 114, 32);
 		contentPane.add(lblSeuImc);

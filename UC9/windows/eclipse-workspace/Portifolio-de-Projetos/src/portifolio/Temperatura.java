@@ -113,7 +113,7 @@ public class Temperatura extends JDialog {
 			txtFahrenheit.requestFocus();
 		} else {
 
-			// Declara√ß√£o de vari√°veis
+			// DeclaraÁ„o de vari·veis
 			double fahrenheit, celsius;
 
 			// Entrada
@@ -123,21 +123,21 @@ public class Temperatura extends JDialog {
 			celsius = (5 * fahrenheit - 160) / 9;
 			celsius = Math.round(celsius * 100.0) / 100.0;
 
-			// Sa√≠da
-			// A linha abaixo exibe o conte√∫do da vari√°vel celsius na caixa de texto
+			// SaÌda
+			// A linha abaixo exibe o conte˙do da vari·vel celsius na caixa de texto
 			// txtCelsius
-			// √â necess√°rio converter para String
+			// … necess·rio converter para String
 			txtCelsius.setText(String.valueOf(celsius));
-			// JOptionPane.showMessageDialog(null, "A temperatura em Celsius √© " + celsius,
+			// JOptionPane.showMessageDialog(null, "A temperatura em Celsius È " + celsius,
 			// "Converte temperatura", JOptionPane.INFORMATION_MESSAGE);
 		}
 
-	}// fim do m√©todo calcular
+	}// fim do mÈtodo calcular
 
-	/** M√©todo para Limpar **/
+	/** mÈtodo para Limpar **/
 	void limpar() {
 		txtFahrenheit.setText(null);
 		txtCelsius.setText(null);
 		txtFahrenheit.requestFocus();
-	} // Fim do m√©todo limpar
+	} // Fim do mÈtodo limpar
 }
