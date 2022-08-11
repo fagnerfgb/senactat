@@ -1,8 +1,0 @@
-sudo apt update
-sudo apt install -y openjdk-17-jdk
-java -version
-Download https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2022-03/R/eclipse-jee-2022-03-R-linux-gtk-x86_64.tar.gz&mirror_id=576
-tar xfz eclipse-inst-jre-linux64.tar.gz
-cd eclipse-installer
-./eclipse-inst
-Eclipse IDE for Enterprise Java and Web Developers
