@@ -1,0 +1,99 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 29/06/2022
+#Data de atualização: 29/06/2022
+#Versão: 0.01
+******************************************************************************************
+Criar a classe OperadoresAtribuicao no projeto Fundamentos, package fundamentos
+
+/**
+ * Operadores de Atribuição
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class OperadoresAtribuicao {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		double x = 5;
+		System.out.println("         Operadores Aritméticos");
+		System.out.println("--------------------------------------");
+		System.out.println("| Operador | Exemplo  | Resultado       ");
+		System.out.println("|    =     |  x = 5   | " + x);
+		System.out.println("|    +=    |  x += 5  | " + (x += 5));
+		System.out.println("|    -=    |  x -= 4  | " + (x -= 4));
+		System.out.println("|    *=    |  x *= 3  | " + (x *= 3));
+		System.out.println("|    /=    |  x /= 2  | " + (x /= 2));
+		x++; //soma 1 a variável x (x = x + 1)
+		System.out.println("|    ++    |  x++     | " + (x));
+		x--; //substrai 1 a variável x (x = x - 1)
+		System.out.println("|    --    |  x--     | " + x);
+		System.out.println("-----------------------------------------");
+	}
+}
+******************************************************************************************
+Estudar os tópicos abaixo:
+
+- Operadores aritméticos
+- Operadores de atribuições
+- Operadores comparativos
+- Operadores lógicos
+
+https://www.slideshare.net/josedeassisfilho/java-primeiros-passos
+
+Slides 20, 21, 22, 23 e 24
+
+https://professorjosedeassis.github.io/logical-operators/
+******************************************************************************************
+Estrutura de controle condicional (else if)
+if (condição 1 ){
+	// condição verdadeira
+} else if (condição 2) {
+	// condição 2 verdadeira
+} else if (condição 3) {
+	// condição 3 verdadeira
+} else {
+	// nenhuma das condições anteriores verdadeiras
+}
+******************************************************************************************
+Exemplo: Desenvolver um sistema que verifique a obrigatoriedade de votar de acordo com a idade:
+No Brasil:
+Até 15 anos o voto proibido
+16, 17 ou acima de 70 anos o voto é facultativo
+Entre 18 e 70 o voto é obrigatório
+
+int idade = 71;
+
+System.out.println("Idade: " + idade);
+if (idade < 16) {
+  System.out.println("Proibido votar");
+} else if (idade == 16 || idade == 17 || idade > 70) {
+  System.out.println("Voto facultativo");
+} else {
+  System.out.println("Voto obrigatório");
+}
+--------------------------------------------------
+(idade == 16 || idade == 17 || idade > 70)
+
+(idade > 17 && idade < 71)
+--------------------------------------------------
+
+System.out.println("Idade: " + idade);
+if (idade < 16) {
+  System.out.println("Proibido votar");
+} else if (idade > 17 && idade < 71) {
+  System.out.println("Voto obrigatório");
+} else {
+  System.out.println("Voto facultativo");
+}
+******************************************************************************************
+Atividade:
+Desenvolver este aplicativo no portfólio de projetos
+
+
+

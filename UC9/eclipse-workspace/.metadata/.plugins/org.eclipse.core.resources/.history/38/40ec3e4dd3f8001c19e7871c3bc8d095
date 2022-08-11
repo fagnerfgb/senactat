@@ -1,0 +1,57 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+
+public class Dado extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private JLabel lblNewLabel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Dado dialog = new Dado();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Dado() {
+		setBackground(Color.WHITE);
+		setResizable(false);
+		setTitle("Dado");
+		setModal(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Dado.class.getResource("/img/dado-48.png")));
+		setBounds(100, 100, 203, 259);
+		getContentPane().setLayout(null);
+		
+		JButton btnLanar = new JButton("Lançar");
+		btnLanar.setBounds(42, 31, 117, 25);
+		getContentPane().add(btnLanar);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Dado.class.getResource("/img/face1.png")));
+		lblNewLabel.setBounds(43, 68, 115, 119);
+		getContentPane().add(lblNewLabel);
+
+	}
+}

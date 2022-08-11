@@ -1,0 +1,98 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+
+@SuppressWarnings("serial")
+public class Cep extends JDialog {
+	private JTextField txtCep;
+	private JTextField txtEndereco;
+	private JTextField txtBairro;
+	private JTextField txtCidade;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Cep dialog = new Cep();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Cep() {
+		setTitle("Buscar CEP");
+		setResizable(false);
+		setModal(true);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		JLabel lblCep = new JLabel("CEP");
+		lblCep.setBounds(12, 41, 31, 15);
+		getContentPane().add(lblCep);
+		
+		txtCep = new JTextField();
+		txtCep.setBounds(91, 41, 130, 19);
+		getContentPane().add(txtCep);
+		txtCep.setColumns(10);
+		
+		JLabel lblEndereco = new JLabel("Endereço");
+		lblEndereco.setBounds(12, 97, 70, 15);
+		getContentPane().add(lblEndereco);
+		
+		JLabel lblBairro = new JLabel("Bairro");
+		lblBairro.setBounds(12, 153, 49, 15);
+		getContentPane().add(lblBairro);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setBounds(12, 209, 70, 15);
+		getContentPane().add(lblCidade);
+		
+		txtEndereco = new JTextField();
+		txtEndereco.setBounds(91, 97, 300, 19);
+		getContentPane().add(txtEndereco);
+		txtEndereco.setColumns(10);
+		
+		txtBairro = new JTextField();
+		txtBairro.setBounds(91, 153, 300, 19);
+		getContentPane().add(txtBairro);
+		txtBairro.setColumns(10);
+		
+		txtCidade = new JTextField();
+		txtCidade.setBounds(91, 209, 200, 19);
+		getContentPane().add(txtCidade);
+		txtCidade.setColumns(10);
+		
+		JLabel lblUf = new JLabel("UF");
+		lblUf.setBounds(321, 209, 31, 15);
+		getContentPane().add(lblUf);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(357, 209, 64, 19);
+		getContentPane().add(comboBox);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(12, 236, 117, 25);
+		getContentPane().add(btnLimpar);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(235, 36, 117, 25);
+		getContentPane().add(btnBuscar);
+
+	}
+}

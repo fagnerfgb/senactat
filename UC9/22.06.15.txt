@@ -1,0 +1,19 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 15/06/2022
+#Data de atualização: 15/06/2022
+#Versão: 0.01
+******************************************************************************************
+Variáveis ficam alocadas na memória RAM
+Tipos de variáveis: 
+String (caracteres)
+Numéricas (números inteiros e não inteiros)
+Booleanas (verdadeiro / falso)
+******************************************************************************************
+Dicas Eclipse
+sysout <ctrl><espaço> -> System.out.println()
+Instalar Window Builder
+Help -> Eclipse MarketPlace - Pesquisar (find)
+Window Builder
+******************************************************************************************
+Atividade: Assistir os vídeos (1 a 5):
+https://www.youtube.com/playlist?list=PLbEOwbQR9lqxdW98mY-40IZQ5i8ZZyeQx

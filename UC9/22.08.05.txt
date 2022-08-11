@@ -1,0 +1,23 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 05/08/2022
+#Data de atualização: 05/08/2022
+#Versão: 0.01
+******************************************************************************************
+Algoritmo para Calcular o desconto
+
+Exemplo:
+Total: 200.00
+Desconto: 10%
+Total com desconto: 180.00
+
+//variáveis:
+total, desconto, totaldesc (númericas não inteiras)
+
+//entrada:
+total, desconto
+
+//processamento
+totaldesc = total - (total * desconto) / 100
+
+//saída
+totaldesc

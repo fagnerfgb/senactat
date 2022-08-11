@@ -1,0 +1,39 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 08/08/2022
+#Data de atualização: 08/08/2022
+#Versão: 0.01
+******************************************************************************************
+Estruturas de controle condicional
+
+Estruturas condicionais (if else switch case)
+Laços de repetições (for / while / do-while)
+******************************************************************************************
+for
+a quantidade de repetições é definida
+
+
+for (int i = 1; i < 10; i++) {
+
+}
+permite criar variável dentro da estrutura
+int i = 1 (criar uma variável)
+- variável usada no laço (início)
+- variável também usada no código dentro do laço
+
+i < 10 (condição)
+
+i++ (incremento) | i = i + 1
+******************************************************************************************
+while
+
+while (condição) {
+    //condição verdadeira
+}
+******************************************************************************************
+do while
+
+do (condição) {
+    //condição verdadeira
+} while (condição)
+******************************************************************************************
+

@@ -1,0 +1,43 @@
+/**
+ * Fundamentos do Java
+ * Estruturas de Repetições
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class EstruturasRepeticoes {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// Estrutura For
+		System.out.println("Exemplo 1 - for");
+		for (int i = 0; i < 11; i++) {
+			System.out.println(i);
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 2 - for");
+		for (int j = 10; j > -1; j--) {
+			System.out.println(j);
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 3 - tabuada");
+		int valor = 9;
+		for (int x = 1; x < 11; x++) {
+			System.out.println(valor + " X " + x + " = " + (valor * x));
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 4 - tabuadas");
+		for (int tabuada = 1; tabuada < 11; tabuada++) {
+			for (int y = 0; y <11; y++ ) {
+				System.out.println(tabuada + " X " + y + " = " + (tabuada * y));
+			}
+		}
+
+	} // Fim do método main
+
+} // Fim da classe

@@ -1,0 +1,34 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 01/08/2022
+#Data de atualização: 01/08/2022
+#Versão: 0.01
+******************************************************************************************
+Revisão IMC APP
+
+Validação - somente uso de números em caixas de texto
+
+Framework -> Código pronto para ser usado, facilitando 
+             a resolução de um problema. (Ex: Window Builder)
+
+atxy2k (validações)
+http://atxy2k.github.io/RestrictedTextField/
+
+Para instalar a biblioteca:
+1) Copiar para o pacote
+2) Clicar com o botão direito -> Build Path -> Add to build path
+
+________________________________________________________________
+Formatação de casas decimais
+DecimalFormat
+
+Dica eclipse: <ctrl><shift><o> (importação automática)
+
+alterar imagem:
+lblStatus.setIcon(new ImageIcon(TelaIMC.class.getResource("/img/imc1.png")));
+
+Gerando o executável (.jar)
+Botão direito no projeto
+-> export
+-> java
+-> runnable jar file
+-> escolher a classe e o local de destino

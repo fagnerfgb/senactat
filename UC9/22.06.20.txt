@@ -1,0 +1,35 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 20/06/2022
+#Data de atualização: 20/06/2022
+#Versão: 0.01
+******************************************************************************************
+Backup do Eclipse:
+1) Acessar o workspace: 
+
+2) Copiar a(s) pasta(s) do projeto(s)
+cp -r /home/fagner/eclipse-workspace/ /home/fagner/senactat/UC9
+******************************************************************************************
+Restore no Eclipse:
+
+1) Acessar o workspace
+
+2) Colar a(s) pasta(s) do projeto(s)
+cp -r /home/fagner/senactat/UC9/eclipse-workspace /home/fagner/
+
+3) File -> Import -> General
+4) Selecionar a opção "Existing projects into workspace"
+5) Select root directory [Browse] -> selecionar o workspace
+6) Selecionar o(s) projeto(s)
+
+Obs: Para abrir uma classe no WindowBuilder, selecionar a classe com o botão direito 
+(open with WindowBuilder Editor)
+******************************************************************************************
+Dicas eclipse: 
+ctrl + shift + f = alinhamento de identação
+******************************************************************************************
+Métodos (funções)
+Bloco de código que pode ser reutilizado
+Exemplo:
+void calcular(){
+}
+******************************************************************************************

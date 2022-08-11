@@ -1,0 +1,68 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+
+public class TelaJogo extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaJogo frame = new TelaJogo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaJogo() {
+		setTitle("JoKenPo");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 321, 472);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/pedra.png")));
+		label.setBounds(31, 27, 64, 64);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/papel.png")));
+		label_1.setBounds(126, 27, 64, 64);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/tesoura.png")));
+		label_2.setBounds(221, 27, 64, 64);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/pc.png")));
+		label_3.setBounds(78, 148, 171, 139);
+		contentPane.add(label_3);
+	} // Fim do construtor
+} // Fim do código

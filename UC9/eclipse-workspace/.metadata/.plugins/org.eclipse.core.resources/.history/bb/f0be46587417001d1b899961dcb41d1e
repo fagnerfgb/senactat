@@ -1,0 +1,62 @@
+/**
+ * Fundamentos do Java
+ * Estruturas de Repetições
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class EstruturasRepeticoes {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// Estrutura For
+		System.out.println("Exemplo 1 - for");
+		for (int i = 0; i < 11; i++) {
+			System.out.println(i);
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 2 - for");
+		for (int j = 10; j > -1; j--) {
+			System.out.println(j);
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 3 - tabuada");
+		int valor = 9;
+		for (int x = 1; x < 11; x++) {
+			System.out.println(valor + " X " + x + " = " + (valor * x));
+		}
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 4 - tabuadas");
+		System.out.println("-------------------------------");
+		for (int multiplicador = 1; multiplicador < 11; multiplicador++) {
+			System.out.println("Tabuada do " + multiplicador);
+			for (int multiplicando = 0; multiplicando < 11; multiplicando++) {
+				System.out.println(multiplicador + " X " + multiplicando + " = " + (multiplicador * multiplicando));
+			}
+			System.out.println("-------------------------------");
+		}
+		// Estrutura While
+		System.out.println("Exemplo 5 - while");
+		int z = 0;
+		while (z < 10) {
+			System.out.println(z);
+			z++;
+		}
+		
+		// Estrutura Do While
+		System.out.println("Exemplo 6 - do-while");
+		int y  = 10;
+		do  {
+			System.out.println(y);
+			y--;
+		}
+		while (y<0)
+
+	} // Fim do método main
+
+} // Fim da classe

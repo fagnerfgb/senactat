@@ -1,0 +1,24 @@
+/**
+ * Fundamentos do Java
+ * Estruturas de Repetições
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class EstruturasRepeticoes {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// Estrutura For
+		for (int i = 0; i<=10;i++) {
+			
+		}
+
+	}
+
+}
