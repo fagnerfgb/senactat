@@ -44,6 +44,7 @@ public class Eleitor extends JDialog {
 	 * Create the dialog.
 	 */
 	public Eleitor() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Verifica Status do Eleitor");
 		setResizable(false);

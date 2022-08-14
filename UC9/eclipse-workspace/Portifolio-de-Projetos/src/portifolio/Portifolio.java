@@ -39,12 +39,13 @@ public class Portifolio extends JFrame {
 	 * Create the frame.
 	 */
 	public Portifolio() {
+		setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Portifolio.class.getResource("/img/pc.png")));
 		setForeground(new Color(0, 128, 0));
 		setResizable(false);
 		setTitle("Portif\u00F3lio de Projetos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 351, 361);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
 		contentPane.setBackground(Color.WHITE);
@@ -63,7 +64,7 @@ public class Portifolio extends JFrame {
 				imc.setVisible(true);
 			}
 		});
-		btnImc.setBounds(24, 88, 64, 64);
+		btnImc.setBounds(24, 86, 64, 64);
 		contentPane.add(btnImc);
 
 		JButton btnSobre = new JButton("");
@@ -77,7 +78,7 @@ public class Portifolio extends JFrame {
 				sobre.setVisible(true);
 			}
 		});
-		btnSobre.setBounds(328, 12, 64, 64);
+		btnSobre.setBounds(252, 234, 64, 64);
 		contentPane.add(btnSobre);
 
 		JButton btnBoletim = new JButton("");
@@ -93,33 +94,33 @@ public class Portifolio extends JFrame {
 		btnBoletim.setBounds(176, 12, 64, 64);
 		contentPane.add(btnBoletim);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setToolTipText("Converte para Celsius");
-		btnNewButton.setIcon(new ImageIcon(Portifolio.class.getResource("/img/celsius.png")));
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 12));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCelsius = new JButton("");
+		btnCelsius.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCelsius.setToolTipText("Converte para Celsius");
+		btnCelsius.setIcon(new ImageIcon(Portifolio.class.getResource("/img/celsius.png")));
+		btnCelsius.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnCelsius.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temperatura temperatura = new Temperatura();
 				temperatura.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(24, 12, 64, 64);
-		contentPane.add(btnNewButton);
+		btnCelsius.setBounds(24, 12, 64, 64);
+		contentPane.add(btnCelsius);
 
-		JButton btnTemperatura = new JButton("");
-		btnTemperatura.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnTemperatura.setIcon(new ImageIcon(Portifolio.class.getResource("/img/fahrenheit.png")));
-		btnTemperatura.setToolTipText("Converte para Fahrenheit");
-		btnTemperatura.addActionListener(new ActionListener() {
+		JButton btnFarenheit = new JButton("");
+		btnFarenheit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFarenheit.setIcon(new ImageIcon(Portifolio.class.getResource("/img/fahrenheit.png")));
+		btnFarenheit.setToolTipText("Converte para Fahrenheit");
+		btnFarenheit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temperatura2 temperatura2 = new Temperatura2();
 				temperatura2.setVisible(true);
 			}
 		});
-		btnTemperatura.setFont(new Font("Dialog", Font.BOLD, 12));
-		btnTemperatura.setBounds(100, 12, 64, 64);
-		contentPane.add(btnTemperatura);
+		btnFarenheit.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnFarenheit.setBounds(100, 12, 64, 64);
+		contentPane.add(btnFarenheit);
 
 		JButton btnPorcentagem = new JButton("");
 		btnPorcentagem.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -134,7 +135,7 @@ public class Portifolio extends JFrame {
 		btnPorcentagem.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnPorcentagem.setBounds(252, 12, 64, 64);
 		contentPane.add(btnPorcentagem);
-		
+
 		JButton btnServico = new JButton("");
 		btnServico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnServico.setIcon(new ImageIcon(Portifolio.class.getResource("/img/hora-trabalho.png")));
@@ -145,9 +146,9 @@ public class Portifolio extends JFrame {
 				horaservico.setVisible(true);
 			}
 		});
-		btnServico.setBounds(100, 88, 64, 64);
+		btnServico.setBounds(100, 86, 64, 64);
 		contentPane.add(btnServico);
-		
+
 		JButton btnCombustivel = new JButton("");
 		btnCombustivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCombustivel.addActionListener(new ActionListener() {
@@ -158,9 +159,9 @@ public class Portifolio extends JFrame {
 		});
 		btnCombustivel.setToolTipText("Gasolina ou Etanol ?");
 		btnCombustivel.setIcon(new ImageIcon(Portifolio.class.getResource("/img/combustivel.png")));
-		btnCombustivel.setBounds(176, 88, 64, 64);
+		btnCombustivel.setBounds(176, 86, 64, 64);
 		contentPane.add(btnCombustivel);
-		
+
 		JButton btnEleicao = new JButton("");
 		btnEleicao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -171,9 +172,9 @@ public class Portifolio extends JFrame {
 		btnEleicao.setToolTipText("Elei\u00E7\u00E3o");
 		btnEleicao.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEleicao.setIcon(new ImageIcon(Portifolio.class.getResource("/img/eleicao.png")));
-		btnEleicao.setBounds(252, 88, 64, 64);
+		btnEleicao.setBounds(252, 86, 64, 64);
 		contentPane.add(btnEleicao);
-		
+
 		JButton btnDado = new JButton("");
 		btnDado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -184,11 +185,11 @@ public class Portifolio extends JFrame {
 		btnDado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnDado.setToolTipText("Dado");
 		btnDado.setIcon(new ImageIcon(Portifolio.class.getResource("/img/dado.png")));
-		btnDado.setBounds(328, 88, 64, 64);
+		btnDado.setBounds(24, 160, 64, 64);
 		contentPane.add(btnDado);
-		
+
 		JButton btnCep = new JButton("");
-		btnCep.setIcon(new ImageIcon(Portifolio.class.getResource("/img/cep.png")));
+		btnCep.setIcon(new ImageIcon(Portifolio.class.getResource("/img/correios-64.png")));
 		btnCep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Cep cep = new Cep();
@@ -197,9 +198,9 @@ public class Portifolio extends JFrame {
 		});
 		btnCep.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCep.setToolTipText("Busca CEP");
-		btnCep.setBounds(24, 164, 64, 64);
+		btnCep.setBounds(100, 160, 64, 64);
 		contentPane.add(btnCep);
-		
+
 		JButton btnTarot = new JButton("");
 		btnTarot.setToolTipText("Tarot");
 		btnTarot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -210,9 +211,9 @@ public class Portifolio extends JFrame {
 				tarot.setVisible(true);
 			}
 		});
-		btnTarot.setBounds(100, 164, 64, 64);
+		btnTarot.setBounds(176, 160, 64, 64);
 		contentPane.add(btnTarot);
-		
+
 		JButton btnJoKenPo = new JButton("");
 		btnJoKenPo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -223,9 +224,9 @@ public class Portifolio extends JFrame {
 		btnJoKenPo.setToolTipText("JoKenPo");
 		btnJoKenPo.setIcon(new ImageIcon(Portifolio.class.getResource("/img/jokenpo2.png")));
 		btnJoKenPo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnJoKenPo.setBounds(176, 163, 64, 64);
+		btnJoKenPo.setBounds(252, 160, 64, 64);
 		contentPane.add(btnJoKenPo);
-		
+
 		JButton btnTabuada = new JButton("");
 		btnTabuada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,7 +237,34 @@ public class Portifolio extends JFrame {
 		btnTabuada.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTabuada.setToolTipText("Tabuada");
 		btnTabuada.setIcon(new ImageIcon(Portifolio.class.getResource("/img/tabuada-64.png")));
-		btnTabuada.setBounds(252, 163, 64, 64);
+		btnTabuada.setBounds(24, 234, 64, 64);
 		contentPane.add(btnTabuada);
+
+		JButton btnJurosCompostos = new JButton("");
+		btnJurosCompostos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnJurosCompostos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JurosCompostos jurosCompostos = new JurosCompostos();
+				jurosCompostos.setVisible(true);
+
+			}
+		});
+		btnJurosCompostos.setIcon(new ImageIcon(Portifolio.class.getResource("/img/juros-compostos-64.png")));
+		btnJurosCompostos.setToolTipText("Juros Compostos");
+		btnJurosCompostos.setBounds(100, 234, 64, 64);
+		contentPane.add(btnJurosCompostos);
+
+		JButton btnHolerite = new JButton("");
+		btnHolerite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Holerite holerite = new Holerite();
+				holerite.setVisible(true);
+			}
+		});
+		btnHolerite.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnHolerite.setToolTipText("Holerite");
+		btnHolerite.setIcon(new ImageIcon(Portifolio.class.getResource("/img/holerite-64.png")));
+		btnHolerite.setBounds(176, 234, 64, 64);
+		contentPane.add(btnHolerite);
 	} // fim do construtor
 }

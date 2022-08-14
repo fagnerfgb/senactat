@@ -9,16 +9,17 @@
 	<section name="OptionalMessageDialog.hide.">
 		<item key="RunnableJar.export.ipwarning" value="true"/>
 		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+		<item key="EmptyDefaultAssistCategory" value="false"/>
 	</section>
 	<section name="FatJarPackageWizard">
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\Users\fagne\eclipse-workspace.xml"/>
 		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
 		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Portifolio - Portifolio-de-Projetos"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\fagner.gbraga\eclipse-workspace\Executaveis\Portifolio.jar"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\fagne\eclipse-workspace\Executaveis\Portifolio.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="C:\Users\fagner.gbraga\eclipse-workspace\Executaveis\Portifolio.jar"/>
 			<item value="C:\Users\fagne\eclipse-workspace\Executaveis\Portifolio.jar"/>
+			<item value="C:\Users\fagner.gbraga\eclipse-workspace\Executaveis\Portifolio.jar"/>
 			<item value="Portifolio-de-Projetos\Portifolio.jar"/>
 			<item value="Portifolio-de-Projetos/Portifolio.jar"/>
 		</list>
@@ -30,5 +31,8 @@
 	<section name="NewClassWizardPage">
 		<item key="create_constructor" value="false"/>
 		<item key="create_unimplemented" value="true"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
 	</section>
 </section>

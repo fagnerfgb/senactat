@@ -1,0 +1,37 @@
+/**
+ * Fundamentos do Java
+ * Números Aleatórios
+ */
+package fundamentos;
+import java.util.Scanner;
+import java.util.Random;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class NumerosAleatorios {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// As linhas abaixo geram números aleatórios
+		// O zero sempre é considerado
+
+		char novoJogo = 'n';
+		do {
+			Random random = new Random();
+			int face = random.nextInt(6) + 1;
+			System.out.println("====== JOGO de DADO ======");
+			System.out.println("Face do dado: " + face);
+			System.out.println("");
+			System.out.println("Jogar novamente?");
+			scanner
+			
+			
+		} while (novoJogo == 's');
+
+	}
+
+}

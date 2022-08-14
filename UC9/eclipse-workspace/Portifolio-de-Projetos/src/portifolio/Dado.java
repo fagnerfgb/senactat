@@ -44,6 +44,7 @@ public class Dado extends JDialog {
 	 * Create the dialog.
 	 */
 	public Dado() {
+		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setResizable(false);
 		setTitle("Dado");

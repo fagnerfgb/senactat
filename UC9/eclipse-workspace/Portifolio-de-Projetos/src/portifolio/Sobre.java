@@ -35,6 +35,7 @@ public class Sobre extends JDialog {
 	 * Create the dialog.
 	 */
 	public Sobre() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Sobre.class.getResource("/img/about-48.png")));

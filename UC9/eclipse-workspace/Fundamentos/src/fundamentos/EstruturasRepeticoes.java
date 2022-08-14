@@ -40,7 +40,6 @@ public class EstruturasRepeticoes {
 			}
 			System.out.println("-------------------------------");
 		}
-		// Estrutura While
 		System.out.println("Exemplo 5 - while");
 		int z = 0;
 		while (z < 10) {
@@ -48,13 +47,31 @@ public class EstruturasRepeticoes {
 			z++;
 		}
 
-		// Estrutura Do While
 		System.out.println("-------------------------------");
 		System.out.println("Exemplo 6 - do-while");
 		int y = 10;
 		do {
 			System.out.println("teste");
 		} while (y > 20);
+		
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 7 - tabuada-while");
+		int tabuada = 7;
+		int i = 0;
+		while (i < 11) {
+			System.out.println(tabuada + " X " + i + " = " + (tabuada * i));
+			i++;
+		}
+		
+		System.out.println("-------------------------------");
+		System.out.println("Exemplo 8 - tabuada-do-while");
+		int dotabuada = 8;
+		int k = 0;
+		do {
+			System.out.println(dotabuada + " X " + k + " = " + (dotabuada * k));
+			k++;
+		} while(k < 11);
+		
 
 	} // Fim do método main
 

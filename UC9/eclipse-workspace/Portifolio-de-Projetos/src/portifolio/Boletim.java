@@ -51,6 +51,7 @@ public class Boletim extends JDialog {
 	 * Create the dialog.
 	 */
 	public Boletim() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Boletim.class.getResource("/img/boletim-48.png")));
 		setModal(true);

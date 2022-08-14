@@ -46,6 +46,7 @@ public class IMC extends JDialog {
 	 * Create the dialog.
 	 */
 	public IMC() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(IMC.class.getResource("/img/bmi48.png")));
 		setModal(true);

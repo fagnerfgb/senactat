@@ -45,6 +45,7 @@ public class Temperatura2 extends JDialog {
 	 * Create the dialog.
 	 */
 	public Temperatura2() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Temperatura2.class.getResource("/img/fahrenheit-48.png")));
 		setTitle("Convers\u00E3o de Celsius para Farenheit");

@@ -40,6 +40,7 @@ public class Tarot extends JDialog {
 	 * Create the dialog.
 	 */
 	public Tarot() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Tarot.class.getResource("/img/tarot-48.png")));
 		setTitle("Baralho de Tarot");

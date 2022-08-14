@@ -45,6 +45,7 @@ public class Temperatura extends JDialog {
 	 * Create the dialog.
 	 */
 	public Temperatura() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Temperatura.class.getResource("/img/celsius-48.png")));
 		setModal(true);

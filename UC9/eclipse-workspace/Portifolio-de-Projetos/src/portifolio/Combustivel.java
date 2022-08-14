@@ -47,6 +47,7 @@ public class Combustivel extends JDialog {
 	 * Create the dialog.
 	 */
 	public Combustivel() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setResizable(false);
 		setTitle("Gasolina ou Etanol ?");

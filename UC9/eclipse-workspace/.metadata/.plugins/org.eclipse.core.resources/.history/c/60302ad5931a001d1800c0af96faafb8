@@ -1,0 +1,125 @@
+package portifolio;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class JurosCompostos extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField txtCapital;
+	private JTextField txtJuros;
+	private JTextField txtPeriodo;
+	private JTextField txtMontante;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					JurosCompostos dialog = new JurosCompostos();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public JurosCompostos() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JurosCompostos.class.getResource("/img/juros-48.png")));
+		setResizable(false);
+		setTitle("Juros Compostos");
+		setBounds(100, 100, 348, 271);
+		getContentPane().setLayout(null);
+		
+		JLabel lblCapital = new JLabel("Capital");
+		lblCapital.setBounds(10, 27, 46, 14);
+		getContentPane().add(lblCapital);
+		
+		JLabel lblJuros = new JLabel("Taxa de juros mensal");
+		lblJuros.setBounds(10, 55, 113, 14);
+		getContentPane().add(lblJuros);
+		
+		JLabel lblPeriodo = new JLabel("Per\u00EDodo em meses");
+		lblPeriodo.setBounds(10, 83, 101, 14);
+		getContentPane().add(lblPeriodo);
+		
+		txtCapital = new JTextField();
+		txtCapital.setBounds(147, 24, 171, 20);
+		getContentPane().add(txtCapital);
+		txtCapital.setColumns(10);
+		
+		txtJuros = new JTextField();
+		txtJuros.setBounds(147, 52, 86, 20);
+		getContentPane().add(txtJuros);
+		txtJuros.setColumns(10);
+		
+		txtPeriodo = new JTextField();
+		txtPeriodo.setBounds(147, 80, 86, 20);
+		getContentPane().add(txtPeriodo);
+		txtPeriodo.setColumns(10);
+		
+		JButton btnCalcular = new JButton("");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				calcular();
+			}
+		});
+		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCalcular.setToolTipText("Calcular");
+		btnCalcular.setIcon(new ImageIcon(JurosCompostos.class.getResource("/img/juros-64.png")));
+		btnCalcular.setBounds(68, 108, 64, 64);
+		getContentPane().add(btnCalcular);
+		
+		JButton btnLimpar = new JButton("");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpar();
+			}
+		});
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpar.setToolTipText("Limpar");
+		btnLimpar.setIcon(new ImageIcon(JurosCompostos.class.getResource("/img/eraser.png")));
+		btnLimpar.setBounds(200, 108, 64, 64);
+		getContentPane().add(btnLimpar);
+		
+		txtMontante = new JTextField();
+		txtMontante.setEditable(false);
+		txtMontante.setBounds(147, 193, 171, 20);
+		getContentPane().add(txtMontante);
+		txtMontante.setColumns(10);
+		
+		JLabel lblMontante = new JLabel("Montante");
+		lblMontante.setBounds(10, 196, 46, 14);
+		getContentPane().add(lblMontante);
+
+	} // Fim do Construtor
+	
+	/** Método para Limpar **/
+	void limpar() {
+		txtCapital.setText(null);
+		txtJuros.setText(null);
+		txtPeriodo.setText(null);
+		txtMontante.setText(null);
+		txtCapital.requestFocus();
+	} // Fim do método limpar
+} // Fim do Código

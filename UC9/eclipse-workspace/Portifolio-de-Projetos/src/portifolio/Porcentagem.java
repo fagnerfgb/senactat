@@ -54,6 +54,7 @@ public class Porcentagem extends JDialog {
 	 * Create the dialog.
 	 */
 	public Porcentagem() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Porcentagem.class.getResource("/img/porcentagem-48.png")));
 		setTitle("C\u00E1lculo da Porcentagem");

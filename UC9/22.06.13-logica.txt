@@ -1,0 +1,136 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/06/2022
+#Data de atualização: 13/06/2022
+#Versão: 0.01
+******************************************************************************************
+Lógica de Programação
+******************************************************************************************
+Games
+******************************************************************************************
+Cientista de dados
+Big Data
+Análise de dados
+Ferramentas/Competências
+Banco de dados
+Python
+Power BI
+******************************************************************************************
+App - Mobile 
+Java
+Swift
+JS-React
+******************************************************************************************             
+Front-End: Web 
+Back-End: E-commerce (Dentro do Site)
+FullStack: Front-End, Back-End e Infra
+Front-End: html, css, js
+Back-End: banco de dados, linguagens, php/java, asp.net js+node
+FullStack= html, css, js / banco de dados, linguagens, php/java, asp.net js+node / Infra
+****************************************************************************************** 
+DESKTOP
+-> C#
+-> Java + Banco De Dados
+****************************************************************************************** 
+Robótica, Automação, IOT
+Linguagem C / Arduino
+****************************************************************************************** 
+I.A.
+BlockChain->Criptomoedas
+****************************************************************************************** 
+APinfo (Site para Empregos)
+Tiobe (Rank de Linguagens Mais Usadas, Atualiza Mensalmente)
+******************************************************************************************
+pynative.com (python)
+f12 (console) (javascript)
+Dev C++ (C)
+******************************************************************************************
+Material de apoio (slides)
+https://www.slideshare.net/josedeassisfilho/java-primeiros-passos
+******************************************************************************************
+Preparação do ambiente de desenvolvimento:
+https://www.eclipse.org/downloads/
+1) Instalar o JDK
+2) Instalar o eclipse (Versão Enterprise)
+******************************************************************************************
+Hello World
+******************************************************************************************
+Em phyton
+print ("Hello World")
+******************************************************************************************
+Em JavaScript
+console.log("Hello World!")
+******************************************************************************************
+Em C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	printf ("Hello World!\n");
+	system("pause");
+}
+******************************************************************************************
+No Java
+/**
+ * Hello World
+ */
+package fundamentos;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class Hello {
+
+	/**
+	 * Método principal
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+
+	}
+
+}
+******************************************************************************************
+/**
+ * Hello World
+ */
+package fundamentos;
+
+import javax.swing.JOptionPane;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class Hello {
+
+	/**
+	 * Método principal
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		//System.out.println("Hello World!");
+		JOptionPane.showMessageDialog(null, "Hello World!");
+
+	}
+
+}
+******************************************************************************************
+No Eclipse
+Window, Perspective, Open Perspective, Java
+******************************************************************************************
+Para voltar ao Padrão
+Window, Perspective, Reset Perspective
+******************************************************************************************
+src
+|__ fundamentos
+
+Para gerar o executável, selecionar o projeto com o botão
+direito do mouse -> exportar
+Runnable jar file (executável)
+
+Para executar o Java:
+(console) java -jar hello.jar
+(gráfico) clicar 2x no executável
+******************************************************************************************

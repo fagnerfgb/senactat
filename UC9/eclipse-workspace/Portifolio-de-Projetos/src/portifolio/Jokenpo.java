@@ -50,6 +50,7 @@ public class Jokenpo extends JDialog {
 	 * Create the dialog.
 	 */
 	public Jokenpo() {
+		setBackground(Color.WHITE);
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Jokenpo.class.getResource("/img/pedra.png")));
 		getContentPane().setBackground(Color.WHITE);

@@ -56,6 +56,7 @@ public class Cep extends JDialog {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Cep() {
+		setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cep.class.getResource("/img/cep-48.png")));
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Buscar CEP");

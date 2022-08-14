@@ -26,6 +26,7 @@ public class Tabuada extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JTextField txtTabuada;
 	private JTextArea txtArea;
+	private JButton btnCalcular;
 
 	/**
 	 * Launch the application.
@@ -48,6 +49,7 @@ public class Tabuada extends JDialog {
 	 * Create the dialog.
 	 */
 	public Tabuada() {
+		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Tabuada.class.getResource("/img/tabuada-28.png")));
@@ -65,7 +67,7 @@ public class Tabuada extends JDialog {
 		getContentPane().add(txtTabuada);
 		txtTabuada.setColumns(10);
 
-		JButton btnCalcular = new JButton("");
+		btnCalcular = new JButton("");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				calcular();
@@ -112,6 +114,8 @@ public class Tabuada extends JDialog {
 			for (int i = 0; i < 11; i++) {
 				txtArea.append(" " + String.valueOf(valor) + " x " + i + " = " + valor * i + "\n");
 			}
+			//desabilitar o botão
+			btnCalcular.setEnabled(false);
 		}
 
 	} // Fim do método calcular
@@ -120,6 +124,8 @@ public class Tabuada extends JDialog {
 		txtTabuada.setText(null);
 		txtArea.setText(null);
 		txtTabuada.requestFocus();
+		//Habilitar o botão
+		btnCalcular.setEnabled(true);
 
 	} // Fim do método Limpar
 } // Fim do Código
