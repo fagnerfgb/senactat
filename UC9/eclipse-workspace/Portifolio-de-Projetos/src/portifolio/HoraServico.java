@@ -60,6 +60,7 @@ public class HoraServico extends JDialog {
 		setResizable(false);
 		setBounds(100, 100, 447, 380);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblRemuneracao = new JLabel("Remunera\u00E7\u00E3o Pretendida");
 		lblRemuneracao.setBounds(12, 15, 146, 15);

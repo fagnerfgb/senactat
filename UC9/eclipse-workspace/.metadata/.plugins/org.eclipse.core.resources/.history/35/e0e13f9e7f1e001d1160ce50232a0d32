@@ -1,0 +1,16 @@
+package banco;
+
+public class Cliente {
+
+	public static void main(String[] args) {
+		System.out.println("=======================================");
+		/***********************************
+		 **** ACESSAR OS METODOS E *********
+		 **** VARIAVEIS DE OUTRA CLASSE ****
+		 ***********************************/
+		Agencia agencia = new Agencia();
+		metodoSimples();
+
+	}
+
+}

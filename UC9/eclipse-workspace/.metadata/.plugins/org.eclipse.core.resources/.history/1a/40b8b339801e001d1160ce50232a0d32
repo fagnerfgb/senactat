@@ -1,0 +1,15 @@
+package banco;
+
+public class Agencia {
+	/****************************
+	 **** METODO SIMPLES QUE ****
+	 **** EXECUTA UM CODIGO *****
+	 ***************************/	
+	public void metodoSimples() {
+		System.out.println("===============");
+		System.out.println("Banco do Brasil");
+		System.out.println("Agência Tatuapé");
+		System.out.println("===============");
+	}
+
+}

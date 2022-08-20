@@ -53,6 +53,7 @@ public class Temperatura extends JDialog {
 		setTitle("Convers\u00E3o de Fahrenheit para Celsius");
 		setBounds(100, 100, 326, 253);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblFahrenheit = new JLabel("Fahrenheit");
 		lblFahrenheit.setBounds(46, 57, 64, 15);

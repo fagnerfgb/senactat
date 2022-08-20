@@ -1,0 +1,13 @@
+package main;
+
+import javax.swing.JFrame;
+
+public class Stage {
+
+	public static void main(String[] args) {
+		JFrame janela = new JFrame();
+		janela.setSize(1280,720);
+		janela.setVisible(true);
+	}
+
+}

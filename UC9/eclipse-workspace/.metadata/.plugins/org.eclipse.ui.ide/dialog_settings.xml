@@ -6,6 +6,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\fagner.gbraga\eclipse-workspace\Portifolio-de-Projetos"/>
+			<item value="C:\Users\FagnerB\eclipse-workspace"/>
 			<item value="C:\Users\fagner.gbraga\eclipse-workspace"/>
 			<item value="C:\Users\fagne\eclipse-workspace"/>
 			<item value="E:\Users\fagne\CRFSP\OneDrive - crfsp.org.br\Git\senactat\UC9\eclipse-workspace\Portifolio-de-Projetos"/>
@@ -30,5 +32,10 @@
 		<item key="DIALOG_WIDTH" value="500"/>
 		<item key="DIALOG_HEIGHT" value="389"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
 	</section>
 </section>

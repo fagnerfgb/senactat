@@ -62,6 +62,7 @@ public class Porcentagem extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 538, 419);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		txtPorcentagem = new JTextField();
 		txtPorcentagem.setHorizontalAlignment(SwingConstants.CENTER);

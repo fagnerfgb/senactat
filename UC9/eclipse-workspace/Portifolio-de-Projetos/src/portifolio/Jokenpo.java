@@ -39,7 +39,7 @@ public class Jokenpo extends JDialog {
 					Jokenpo dialog = new Jokenpo();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
-				} catch (Exception e) {
+					} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -55,6 +55,8 @@ public class Jokenpo extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Jokenpo.class.getResource("/img/pedra.png")));
 		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
+		
 		
 		rdbtnPedra = new JRadioButton("");
 		rdbtnPedra.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -119,6 +121,7 @@ public class Jokenpo extends JDialog {
 		setTitle("JoKenPo");
 		setResizable(false);
 		setBounds(100, 100, 320, 400);
+		setLocationRelativeTo(null);
 
 	} // Fim do Construtor
 	

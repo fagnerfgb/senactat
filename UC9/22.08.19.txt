@@ -1,0 +1,16 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 19/08/2022
+#Data de atualização: 19/08/2022
+#Versão: 0.01
+******************************************************************************************
+Adionar data e hora do sistema:
+
+Criar o evento window -> window activated (JFrame)
+
+Date data = new Date();
+DateFormat formatador = DateFormat.getDateInstance(DateFormat.FULL);
+lblStatus.setText(formatador.format(data));
+******************************************************************************************
+
+
+

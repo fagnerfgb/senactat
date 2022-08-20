@@ -57,6 +57,7 @@ public class Tabuada extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 253, 371);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblNewLabel = new JLabel("Tabuada");
 		lblNewLabel.setBounds(35, 24, 65, 14);

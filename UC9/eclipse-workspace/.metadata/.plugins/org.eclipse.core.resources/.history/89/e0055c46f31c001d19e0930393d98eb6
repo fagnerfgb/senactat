@@ -1,0 +1,28 @@
+package main;
+
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class Engine extends JPanel implements Runnable {
+	/********************
+	 **** CONSTRUTOR ****
+	 *********************/
+	public Engine() {
+		/**************************
+		 **** CRIAR UMA THREAD ****
+		 **************************/
+		Thread game = new Thread(this);
+		game.start(); // Iniciar processamento do jogo (run())
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			/**************************
+			 **** MECANICA DO JOGO ****
+			 **************************/
+			
+		}
+		
+	} // Fim do metodo void
+} // Fim da classe Engine

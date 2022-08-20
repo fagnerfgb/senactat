@@ -1,0 +1,9 @@
+package banco;
+
+public class Agencia {
+	
+	public void metodoSimples() {
+		System.out.println("Banco do Brasil");
+	}
+
+}

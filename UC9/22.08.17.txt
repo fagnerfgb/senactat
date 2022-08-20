@@ -1,0 +1,13 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 17/08/2022
+#Data de atualização: 17/08/2022
+#Versão: 0.01
+******************************************************************************************
+Só pode existir um método principal no java
+public static void main(String[] args){
+}
+******************************************************************************************
+
+
+
+

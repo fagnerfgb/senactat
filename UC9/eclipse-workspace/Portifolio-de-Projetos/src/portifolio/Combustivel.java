@@ -55,6 +55,7 @@ public class Combustivel extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 385, 449);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblPreoDaGasolina = new JLabel("Gasolina");
 		lblPreoDaGasolina.setBounds(71, 54, 51, 15);

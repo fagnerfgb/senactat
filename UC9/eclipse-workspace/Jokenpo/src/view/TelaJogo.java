@@ -56,6 +56,7 @@ public class TelaJogo extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaJogo.class.getResource("/img/pedra.png")));

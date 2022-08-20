@@ -1,0 +1,28 @@
+package main;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Backdrop {
+BufferedImage sprite2;
+	
+	/********************
+	 **** CONSTRUTOR ****
+	 *********************/
+	
+	public Backdrop() {
+		try {
+			sprite2 = ImageIO.read(new File("img/background4.png"));
+		}catch (Exception e) {
+			System.out.println("Não foi possível carregar a imagem");
+			System.out.println(e);
+		}
+	}
+	public void exibirFundo(Graphics g) {
+		g.drawImage(sprite2); // x = 600 e y = 550
+	}
+
+}

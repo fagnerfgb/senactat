@@ -58,6 +58,7 @@ public class JurosCompostos extends JDialog {
 		setTitle("Juros Compostos");
 		setBounds(100, 100, 282, 271);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblCapital = new JLabel("Capital");
 		lblCapital.setBounds(10, 27, 127, 14);

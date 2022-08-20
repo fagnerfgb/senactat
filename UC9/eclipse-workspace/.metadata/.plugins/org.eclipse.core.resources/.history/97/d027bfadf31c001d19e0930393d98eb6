@@ -1,0 +1,38 @@
+package main;
+
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class Engine extends JPanel implements Runnable {
+	/********************
+	 **** CONSTRUTOR ****
+	 *********************/
+	public Engine() {
+		/**************************
+		 **** CRIAR UMA THREAD ****
+		 **************************/
+		Thread game = new Thread(this);
+		game.start(); // Iniciar processamento do jogo (run())
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			/**************************
+			 **** MECANICA DO JOGO ****
+			 **************************/
+			refresh(); // Atualizar o JPanel -> JFrame
+			repaint(); // Redesenhar os assets
+			delay(); // Tempo antes do refresh (ajustes UX)
+			
+		}
+		
+		public void refresh() {
+			
+		}
+		
+		public void paintComponent(Graphics g) {
+			
+		}
+	} // Fim do metodo void
+} // Fim da classe Engine

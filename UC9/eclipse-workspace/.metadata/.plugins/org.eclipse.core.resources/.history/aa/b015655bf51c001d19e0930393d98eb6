@@ -1,0 +1,23 @@
+package sprites;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Nave {
+	BufferedImage sprite1;
+	
+	/********************
+	 **** CONSTRUTOR ****
+	 *********************/
+	
+	public Nave() {
+		try {
+			sprite1 = ImageIO.read(new File("img/nave2.png"));
+		}catch (Exception e) {
+			System.out.println();
+			System.out.println();
+		}
+	}
+}

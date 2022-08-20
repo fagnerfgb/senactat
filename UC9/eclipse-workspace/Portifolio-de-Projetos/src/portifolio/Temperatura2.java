@@ -53,6 +53,7 @@ public class Temperatura2 extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 303, 225);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblCelsius = new JLabel("Celsius");
 		lblCelsius.setBounds(46, 53, 49, 15);

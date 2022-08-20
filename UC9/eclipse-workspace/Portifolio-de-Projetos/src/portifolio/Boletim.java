@@ -40,7 +40,7 @@ public class Boletim extends JDialog {
 					Boletim dialog = new Boletim();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
-				} catch (Exception e) {
+					} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -59,6 +59,7 @@ public class Boletim extends JDialog {
 		setResizable(false);
 		setBounds(100, 100, 450, 431);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setBounds(12, 70, 70, 15);

@@ -1,0 +1,23 @@
+package banco;
+
+public class Agencia {
+	public double saldo = 2000;
+	
+	
+	
+	/****************************
+	 **** METODO SIMPLES QUE ****
+	 **** EXECUTA UM CODIGO *****
+	 ***************************/	
+	
+	/************************
+	 **** METODO SIMPLES ****
+	 ************************/
+	public void metodoSimples() {
+		System.out.println("===============");
+		System.out.println("Banco do Brasil");
+		System.out.println("Agência Tatuapé");
+		System.out.println("===============");
+	}
+
+}

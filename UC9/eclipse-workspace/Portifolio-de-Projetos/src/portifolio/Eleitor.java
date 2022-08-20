@@ -52,6 +52,7 @@ public class Eleitor extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Eleitor.class.getResource("/img/eleicao-48.png")));
 		setBounds(100, 100, 297, 200);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblIdade = new JLabel("Idade");
 		lblIdade.setBounds(51, 14, 39, 15);

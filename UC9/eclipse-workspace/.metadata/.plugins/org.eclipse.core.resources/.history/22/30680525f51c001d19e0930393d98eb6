@@ -1,0 +1,10 @@
+package sprites;
+
+import java.awt.image.BufferedImage;
+
+public class Nave {
+	BufferedImage sprite1;
+	
+	
+
+}

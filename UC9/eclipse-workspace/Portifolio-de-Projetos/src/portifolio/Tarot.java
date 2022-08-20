@@ -48,6 +48,7 @@ public class Tarot extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 291, 479);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		lblCarta = new JLabel("");
 		lblCarta.setIcon(new ImageIcon(Tarot.class.getResource("/img/tarot0.png")));

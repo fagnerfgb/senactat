@@ -1,0 +1,9 @@
+package main;
+
+import java.awt.image.BufferedImage;
+
+public class Backdrop {
+	BufferedImage background;
+	
+
+}

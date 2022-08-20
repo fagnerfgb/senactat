@@ -54,6 +54,7 @@ public class IMC extends JDialog {
 		setResizable(false);
 		setBounds(100, 100, 469, 498);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JButton btnSalvar = new JButton("");
 		btnSalvar.setIcon(new ImageIcon(IMC.class.getResource("/img/bmi.png")));

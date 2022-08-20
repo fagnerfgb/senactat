@@ -43,6 +43,7 @@ public class Sobre extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 450, 418);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JTextPane txtpnSobre = new JTextPane();
 		txtpnSobre.setEditable(false);

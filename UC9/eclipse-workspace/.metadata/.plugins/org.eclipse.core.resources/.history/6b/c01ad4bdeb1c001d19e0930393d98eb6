@@ -1,0 +1,17 @@
+package main;
+
+import javax.swing.JFrame;
+
+public class Stage {
+
+	public static void main(String[] args) {
+		JFrame janela = new JFrame("Space Invaders");
+		janela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//janela.setSize(1280,720);
+		janela.setUndecorated(false);
+		janela.setVisible(true);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	}
+
+}

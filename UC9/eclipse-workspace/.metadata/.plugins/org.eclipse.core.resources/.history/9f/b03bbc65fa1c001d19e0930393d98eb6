@@ -1,0 +1,27 @@
+package sprites;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Nave {
+	BufferedImage sprite1;
+	
+	/********************
+	 **** CONSTRUTOR ****
+	 *********************/
+	
+	public Nave() {
+		try {
+			sprite1 = ImageIO.read(new File("img/nave2.png"));
+		}catch (Exception e) {
+			System.out.println("Não foi possível carregar a imagem");
+			System.out.println(e);
+		}
+	}
+	public void exibirNave(Graphics g) {
+		g.drawImage(sprite1,600,500,null); // x = 600 e y = 550
+	}
+}

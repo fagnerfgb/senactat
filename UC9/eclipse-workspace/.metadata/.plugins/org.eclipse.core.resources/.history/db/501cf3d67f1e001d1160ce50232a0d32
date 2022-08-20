@@ -1,0 +1,12 @@
+package banco;
+
+public class Agencia {
+	/****************************
+	 **** METODO SIMPLES QUE ****
+	 **** EXECUTA UM CODIGO *****
+	 ***************************/	
+	public void metodoSimples() {
+		System.out.println("Banco do Brasil");
+	}
+
+}

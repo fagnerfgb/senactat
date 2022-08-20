@@ -1,0 +1,78 @@
+package sprites;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Nave {
+	/**************************************************
+	 **** CRIAR UM SPRITE COM UMA IMAGEM EXISTENTE ****
+	 **************************************************/
+	BufferedImage sprite1;
+
+	/*******************
+	 **** VARIAVEIS ****
+	 *******************/
+	int posX = 600;
+	int velocidade = 3;
+
+	/********************
+	 **** CONSTRUTOR ****
+	 ********************/
+
+	public Nave() {
+		/********************************
+		 **** TRATAMENTO DE EXCECOES ****
+		 ********************************/
+		try {
+			/***************************
+			 **** CARREGAR A IMAGEM ****
+			 ***************************/
+			sprite1 = ImageIO.read(new File("img/nave2.png"));
+		} catch (Exception e) {
+			System.out.println("Não foi possível carregar a imagem");
+			System.out.println(e);
+		}
+	}
+
+	/************************************************
+	 **** METODO RESPONSAVEL POR DESENHAR A NAVE ****
+	 ************************************************/
+	public void exibirNave(Graphics g) {
+		g.drawImage(sprite1, posX, 500, null); // x = 600 e y = 550
+		// posX += velocidade;
+	}
+
+	/*****************************************************************************
+	 **** METODO QUE AO SER EXECUTADO RECEBE UM VALOR PARA A VARIAVEL SENTIDO ****
+	 *****************************************************************************/
+	public void moverNave(int sentido) {
+		/******************
+		 **** POSITIVO ****
+		 ******************/
+
+		/******************
+		 **** NEGATIVO ****
+		 ******************/
+
+		if (sentido == 1) {
+			posX += velocidade;
+			/****************************************
+			 **** EVITAR QUE A NAVE SAIA DA TELA ****
+			 ****************************************/
+			if (posX >= 1175) {
+				posX = 1175;
+			}
+		} else if (sentido == -1) {
+			posX -= velocidade;
+			/****************************************
+			 **** EVITAR QUE A NAVE SAIA DA TELA ****
+			 ****************************************/
+			if (posX <= 0) {
+				posX = 0;
+			}
+		}
+	}
+}

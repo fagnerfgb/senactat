@@ -52,6 +52,7 @@ public class Dado extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Dado.class.getResource("/img/dado-48.png")));
 		setBounds(100, 100, 203, 318);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JButton btnLancar = new JButton("");
 		btnLancar.setIcon(new ImageIcon(Dado.class.getResource("/img/dado.png")));

@@ -64,6 +64,7 @@ public class Cep extends JDialog {
 		setModal(true);
 		setBounds(100, 100, 450, 248);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblCep = new JLabel("CEP");
 		lblCep.setBounds(10, 11, 31, 15);

@@ -82,6 +82,7 @@ public class Holerite extends JDialog {
 		setTitle("Holerite");
 		setBounds(100, 100, 504, 582);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblSalarioBruto = new JLabel("Sal\u00E1rio Bruto");
 		lblSalarioBruto.setBounds(10, 39, 88, 14);
@@ -335,6 +336,10 @@ public class Holerite extends JDialog {
 		getContentPane().add(txtPensao);
 		txtPensao.setColumns(10);
 
+		/********************
+		 **** VALIDAÇÕES ****
+		 *********************/
+
 		// Validação Salário Bruto
 		RestrictedTextField salarioBruto = new RestrictedTextField(txtSalarioBruto, "0123456789.");
 		salarioBruto.setLimit(12);
@@ -379,23 +384,88 @@ public class Holerite extends JDialog {
 
 	}// Fim do Construtor
 
+	/******************
+	 **** CALCULAR ****
+	 *******************/
+
 	void calcular() {
-		// Declaração de Variáveis
-		double salarioBruto, horasTrabalhadasMes, valorHoraTrabalhada, salarioLiquido, totalDeDescontos, horaExtra50,
-				totalHoraExtra50, horaExtra100, totalHoraExtra100, totalDiarioValeTransporte, TotalMensalValeTransporte,
-				pensao, descontoValeTransporte;
+
+		/*********************************
+		 **** DECLARACAO DE VARIAVEIS ****
+		 **********************************/
+
+		/**************
+		 **** INSS ****
+		 ***************/
 		double inss1, inss2, inss3, inss4, inssSoma;
-		double irpf, baseDeCalculo;
+
+		/**************
+		 **** IRPF ****
+		 ***************/
+		double irpf;
+
+		/********************
+		 **** BENEFICIOS ****
+		 *********************/
 		double proventoVr, descontoVr, descontoVa;
 		double assistenciaMedica, assistenciaOdontologica;
+		double totalDiarioValeTransporte, TotalMensalValeTransporte, descontoValeTransporte;
 		double valorVr = 52.5;
 		double valorVa = 300.0;
+		double faixa1Piso = 1783.62;
+		double faixa1Teto = faixa1Piso * 1.5;
+		//double faixa2Piso = faixa1Piso * 1.51;
+		double faixa2Teto = faixa1Piso * 2.5;
+		//double faixa3Piso = faixa1Piso * 2.51;
+		double faixa3Teto = faixa1Piso * 5;
+		//double faixa4Piso = faixa1Piso * 5.1;
+		//double faixa4Teto = faixa1Piso * 7.5;
+		//double faixa5Piso = faixa1Piso * 7.51;
+		//double faixa5Teto = faixa1Piso * 10;
+		//double faixa6Piso = faixa1Piso * 10.1;
+		double aliquotaFaixa1Vr = 0.002;
+		double aliquotaFaixa2Vr = 0.08;
+		double aliquotaFaixa3Vr = 0.125;
+		double aliquotaFaixa4Vr = 0.17;
+		double aliquotaFaixa1Va = 0.002;
+		double aliquotaFaixa2Va = 0.06;
+		double aliquotaFaixa3Va = 0.14;
+		double aliquotaFaixa4Va = 0.19;
+
+		/*****************
+		 **** SALARIO ****
+		 *****************/
+		double salarioBruto, salarioLiquido, totalDeDescontos, baseDeCalculo;
+
+		/*********************
+		 **** DEPENDENTES ****
+		 *********************/
 		double valorPorDependente = 189.59;
 		int quantidadeDeDependentes, diasTrabalhadosMes;
 
-		// formatador de casas decimais
+		/**********************
+		 **** HORAS EXTRAS ****
+		 **********************/
+		double horaExtra50, totalHoraExtra50, horaExtra100, totalHoraExtra100;
+
+		/***************************
+		 **** HORAS TRABALHADAS ****
+		 ***************************/
+		double horasTrabalhadasMes, valorHoraTrabalhada;
+		
+		/****************************
+		 **** PENSAO ALIMENTICIA ****
+		 ****************************/
+		double pensao;
+
+		/**************************************
+		 **** FORMATACAO DE CASAS DECIMAIS ****
+		 ***************************************/
 		DecimalFormat formatador = new DecimalFormat("R$ 0.00");
 
+		/*************************************
+		 **** NAO DEIXAR CAMPOS EM BRANCO ****
+		 **************************************/
 		if (txtSalarioBruto.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o salário bruto");
 			txtSalarioBruto.requestFocus();
@@ -427,7 +497,13 @@ public class Holerite extends JDialog {
 			JOptionPane.showMessageDialog(null, "Insira o valor pago para utilizar a assistência odontológica");
 			txtAssistenciaOdontologica.requestFocus();
 		} else {
-			// Entrada
+			/**************************
+			 **** CODIGO PRINCIPAL ****
+			 ***************************/
+
+			/*****************
+			 **** ENTRADA ****
+			 ******************/
 			salarioBruto = Double.parseDouble(txtSalarioBruto.getText());
 			horasTrabalhadasMes = Double.parseDouble(txtHorasTrabalhadasMes.getText());
 			quantidadeDeDependentes = Integer.parseInt(txtDependentes.getText());
@@ -439,22 +515,39 @@ public class Holerite extends JDialog {
 			totalDiarioValeTransporte = Double.parseDouble(txtTotalDiarioValeTransporte.getText());
 			pensao = Double.parseDouble(txtPensao.getText());
 
-			// Cálculo da Hora Trabalhada
-			// Processamento
+			/************************************
+			 **** CALCULO DA HORA TRABALHADA ****
+			 *************************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			valorHoraTrabalhada = salarioBruto / horasTrabalhadasMes;
-			// Saída
+
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtHoraTrabalhada.setText(String.valueOf(formatador.format(valorHoraTrabalhada)));
 
 			// Horas Extras
-			// Processamento
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			totalHoraExtra50 = horaExtra50 * valorHoraTrabalhada * 1.5;
 			totalHoraExtra100 = horaExtra100 * valorHoraTrabalhada * 2;
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtProventoHoraExtra50.setText(String.valueOf(formatador.format(totalHoraExtra50)));
 			txtProventoHoraExtra100.setText(String.valueOf(formatador.format(totalHoraExtra100)));
 
-			// Cálculo do INSS
-			// Processamento
+			/*************************
+			 **** CALCULO DO INSS ****
+			 *************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			if (salarioBruto < 1212.01) {
 				inssSoma = salarioBruto * 0.075;
 			} else if (salarioBruto > 1212 && salarioBruto < 2427.36) {
@@ -480,13 +573,23 @@ public class Holerite extends JDialog {
 				inssSoma = inss1 + inss2 + inss3 + inss4;
 
 			}
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtInss.setText(String.valueOf(formatador.format(inssSoma)));
 
-			// Cálculo Vale Transporte
-			// Processamento
+			/*********************************
+			 **** CALCULO VALE TRANSPORTE ****
+			 **********************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			TotalMensalValeTransporte = totalDiarioValeTransporte * diasTrabalhadosMes;
-			// Saída
+
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			if (salarioBruto * 0.06 > TotalMensalValeTransporte) {
 				descontoValeTransporte = TotalMensalValeTransporte;
 			} else {
@@ -495,72 +598,104 @@ public class Holerite extends JDialog {
 			txtDescontoValeTransporte.setText(String.valueOf(formatador.format(descontoValeTransporte)));
 			txtTotalMensalValeTransporte.setText(String.valueOf(formatador.format(TotalMensalValeTransporte)));
 
-			// Cálculo do Imposto de renda
-			// Processamento
+			/*************************************
+			 **** CALCULO DO IMPOSTO DE RENDA ****
+			 **************************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			baseDeCalculo = salarioBruto + totalHoraExtra50 + totalHoraExtra100;
 			if (baseDeCalculo < 1903.99) {
 				irpf = 0;
 			} else if (baseDeCalculo > 1903.98 && baseDeCalculo < 2826.66) {
-				irpf = (baseDeCalculo - inssSoma) * 0.075 - 142.8 - (quantidadeDeDependentes * valorPorDependente)
-						- pensao;
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.075
+						- 142.8;
 			} else if (baseDeCalculo > 2826.65 && baseDeCalculo < 3751.06) {
-				irpf = (baseDeCalculo - inssSoma) * 0.15 - 354.8 - (quantidadeDeDependentes * valorPorDependente)
-						- pensao;
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.15
+						- 354.8;
 			} else if (baseDeCalculo > 3751.07 && baseDeCalculo < 4664.69) {
-				irpf = (baseDeCalculo - inssSoma) * 0.225 - 636.13 - (quantidadeDeDependentes * valorPorDependente)
-						- pensao;
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.225
+						- 636.13;
 			} else {
-				irpf = (baseDeCalculo - inssSoma) * 0.275 - 869.36 - (quantidadeDeDependentes * valorPorDependente)
-						- pensao;
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.275
+						- 869.36;
 			}
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtIrpf.setText(String.valueOf(formatador.format(irpf)));
 
-			// Cálculo do Vale Refeição
-			// Processamento
-			proventoVr = valorVr * diasTrabalhadosMes;
-			if (salarioBruto < 2675.44) {
-				descontoVr = proventoVr * 0.002;
+			/**********************************
+			 **** CALCULO DO VALE REFEICAO ****
+			 ***********************************/
 
-			} else if (salarioBruto > 2675.43 && salarioBruto < 4459.06) {
-				descontoVr = proventoVr * 0.08;
-			} else if (salarioBruto > 4459.05 && salarioBruto < 8918.2) {
-				descontoVr = proventoVr * 0.125;
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
+			proventoVr = valorVr * diasTrabalhadosMes;
+			if (salarioBruto <= faixa1Teto) {
+				descontoVr = proventoVr * aliquotaFaixa1Vr;
+
+			} else if (salarioBruto > faixa1Teto && salarioBruto <= faixa2Teto) {
+				descontoVr = proventoVr * aliquotaFaixa2Vr;
+			} else if (salarioBruto > faixa2Teto && salarioBruto <= faixa3Teto) {
+				descontoVr = proventoVr * aliquotaFaixa3Vr;
 			} else {
-				descontoVr = proventoVr * 0.17;
+				descontoVr = proventoVr * aliquotaFaixa4Vr;
 			}
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtProventoValeRefeicao.setText(String.valueOf(formatador.format(proventoVr)));
 			txtDescontoValeRefeicao.setText(String.valueOf(formatador.format(descontoVr)));
 
-			// Cálculo do Vale Alimentação
-			// Processamento
-			if (salarioBruto < 2675.44) {
-				descontoVa = valorVa * 0.002;
+			/*************************************
+			 **** CALCULO DO VALE ALIMENTACAO ****
+			 **************************************/
 
-			} else if (salarioBruto > 2675.43 && salarioBruto < 4459.06) {
-				descontoVa = valorVa * 0.06;
-			} else if (salarioBruto > 4459.05 && salarioBruto < 8918.2) {
-				descontoVa = valorVa * 0.14;
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
+			if (salarioBruto <= faixa1Teto) {
+				descontoVa = valorVa * aliquotaFaixa1Va;
+
+			} else if (salarioBruto > faixa1Teto && salarioBruto <= faixa2Teto) {
+				descontoVa = valorVa * aliquotaFaixa2Va;
+			} else if (salarioBruto > faixa2Teto && salarioBruto <= faixa3Teto) {
+				descontoVa = valorVa * aliquotaFaixa3Va;
 			} else {
-				descontoVa = valorVa * 0.19;
+				descontoVa = valorVa * aliquotaFaixa4Va;
 			}
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtProventoValeAlimentacao.setText(String.valueOf(formatador.format(valorVa)));
 			txtDescontoValeAlimentacao.setText(String.valueOf(formatador.format(descontoVa)));
 
-			// Salário Líquido
-			// Processamento
+			/*************************
+			 **** SALARIO LIQUIDO ****
+			 **************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
 			salarioLiquido = salarioBruto - inssSoma - irpf - descontoVr - descontoVa - assistenciaMedica
 					- assistenciaOdontologica - descontoValeTransporte - pensao;
 			totalDeDescontos = inssSoma + irpf + descontoVr + descontoVa + assistenciaMedica + assistenciaOdontologica
 					+ descontoValeTransporte + pensao;
-			// Saída
+			/***************
+			 **** SAIDA ****
+			 ****************/
 			txtSalarioLiquido.setText(String.valueOf(formatador.format(salarioLiquido)));
 			txtTotalDeDescontos.setText(String.valueOf(formatador.format(totalDeDescontos)));
 		} // Fim da programação principal
 
 	} // Fim do método Calcular
+
+	/***********************
+	 **** METODO LIMPAR ****
+	 ************************/
 
 	void limpar() {
 		txtSalarioBruto.setText(null);
