@@ -34,7 +34,7 @@ public class Backdrop {
 		if (posBackY > 720) {
 			posBackY = 0;
 		} else {
-			posBackY+=2;
+			posBackY++;
 		}
 
 	}

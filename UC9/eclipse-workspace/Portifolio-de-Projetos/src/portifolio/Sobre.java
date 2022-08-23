@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class Sobre extends JDialog {
 
@@ -53,6 +54,7 @@ public class Sobre extends JDialog {
 		getContentPane().add(txtpnSobre);
 		
 		JLabel lblSobALicena = new JLabel("Sob a licen\u00E7a MIT");
+		lblSobALicena.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSobALicena.setBounds(295, 207, 131, 15);
 		getContentPane().add(lblSobALicena);
 		
@@ -66,7 +68,8 @@ public class Sobre extends JDialog {
 		lblSobre.setBounds(182, 12, 84, 28);
 		getContentPane().add(lblSobre);
 		
-		JLabel lblVersao = new JLabel("Vers\u00E3o 5.0");
+		JLabel lblVersao = new JLabel("Vers\u00E3o 6.0");
+		lblVersao.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVersao.setBounds(315, 234, 91, 15);
 		getContentPane().add(lblVersao);
 

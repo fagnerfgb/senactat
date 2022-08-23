@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class Portifolio extends JFrame {
 
@@ -60,11 +61,11 @@ public class Portifolio extends JFrame {
 		});
 		setBackground(Color.WHITE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Portifolio.class.getResource("/img/pc.png")));
-		setForeground(new Color(0, 128, 0));
+		setForeground(SystemColor.activeCaption);
 		setResizable(false);
 		setTitle("Portif\u00F3lio de Projetos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 351, 398);
+		setBounds(100, 100, 351, 471);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
 		contentPane.setBackground(Color.WHITE);
@@ -288,16 +289,30 @@ public class Portifolio extends JFrame {
 		contentPane.add(btnHolerite);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.textHighlight);
-		panel.setBounds(0, 309, 335, 39);
+		panel.setBackground(SystemColor.activeCaption);
+		panel.setBounds(0, 383, 335, 39);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
 		lblStatus = new JLabel("");
-		lblStatus.setHorizontalAlignment(SwingConstants.CENTER);
-		lblStatus.setBounds(10, 5, 315, 31);
-		lblStatus.setForeground(Color.WHITE);
-		lblStatus.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblStatus.setBounds(10, 0, 315, 39);
 		panel.add(lblStatus);
+		lblStatus.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+		lblStatus.setHorizontalAlignment(SwingConstants.CENTER);
+		lblStatus.setForeground(SystemColor.desktop);
+		lblStatus.setFont(new Font("Verdana", Font.BOLD, 16));
+
+		JButton btnCarta = new JButton("");
+		btnCarta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Carta carta = new Carta();
+				carta.setVisible(true);
+			}
+		});
+		btnCarta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCarta.setToolTipText("Carta");
+		btnCarta.setIcon(new ImageIcon(Portifolio.class.getResource("/img/baralho-64.png")));
+		btnCarta.setBounds(24, 308, 64, 64);
+		contentPane.add(btnCarta);
 	} // fim do construtor
 }

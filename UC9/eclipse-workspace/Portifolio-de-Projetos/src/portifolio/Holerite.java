@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Color;
+import javax.swing.JCheckBox;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class Holerite extends JDialog {
 
@@ -52,6 +55,11 @@ public class Holerite extends JDialog {
 	private JTextField txtTotalMensalValeTransporte;
 	private JTextField txtDescontoValeTransporte;
 	private JTextField txtPensao;
+	private JCheckBox chckbxValeTransporte;
+	private JCheckBox chckbxPensao;
+	private JCheckBox chckbxAssistenciaMedica;
+	private JCheckBox chckbxAssistenciaOdontologica;
+	private JTextField txtFgts;
 
 	/**
 	 * Launch the application.
@@ -80,7 +88,7 @@ public class Holerite extends JDialog {
 		setResizable(false);
 		setModal(true);
 		setTitle("Holerite");
-		setBounds(100, 100, 504, 582);
+		setBounds(100, 100, 504, 700);
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 
@@ -93,19 +101,19 @@ public class Holerite extends JDialog {
 		getContentPane().add(lblHorasTrabalhadasMes);
 
 		JLabel lblInss = new JLabel("INSS");
-		lblInss.setBounds(10, 385, 88, 14);
+		lblInss.setBounds(10, 468, 88, 14);
 		getContentPane().add(lblInss);
 
 		JLabel lblIrpf = new JLabel("Imposto de Renda");
-		lblIrpf.setBounds(10, 410, 164, 14);
+		lblIrpf.setBounds(10, 493, 164, 14);
 		getContentPane().add(lblIrpf);
 
 		JLabel lblDescVr = new JLabel("Vale Refei\u00E7\u00E3o");
-		lblDescVr.setBounds(10, 435, 136, 14);
+		lblDescVr.setBounds(10, 543, 136, 14);
 		getContentPane().add(lblDescVr);
 
 		JLabel lblValeAlimentacao = new JLabel("Vale Alimenta\u00E7\u00E3o");
-		lblValeAlimentacao.setBounds(10, 460, 136, 14);
+		lblValeAlimentacao.setBounds(10, 568, 136, 14);
 		getContentPane().add(lblValeAlimentacao);
 
 		JLabel lblProvento = new JLabel("Provento");
@@ -129,44 +137,50 @@ public class Holerite extends JDialog {
 		txtHorasTrabalhadasMes.setColumns(10);
 
 		txtInss = new JTextField();
+		txtInss.setFocusable(false);
 		txtInss.setHorizontalAlignment(SwingConstants.CENTER);
 		txtInss.setEditable(false);
-		txtInss.setBounds(360, 379, 115, 20);
+		txtInss.setBounds(360, 462, 115, 20);
 		getContentPane().add(txtInss);
 		txtInss.setColumns(10);
 
 		txtIrpf = new JTextField();
+		txtIrpf.setFocusable(false);
 		txtIrpf.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIrpf.setEditable(false);
-		txtIrpf.setBounds(360, 404, 115, 20);
+		txtIrpf.setBounds(360, 487, 115, 20);
 		getContentPane().add(txtIrpf);
 		txtIrpf.setColumns(10);
 
 		txtProventoValeRefeicao = new JTextField();
+		txtProventoValeRefeicao.setFocusable(false);
 		txtProventoValeRefeicao.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProventoValeRefeicao.setEditable(false);
-		txtProventoValeRefeicao.setBounds(240, 429, 115, 20);
+		txtProventoValeRefeicao.setBounds(240, 537, 115, 20);
 		getContentPane().add(txtProventoValeRefeicao);
 		txtProventoValeRefeicao.setColumns(10);
 
 		txtDescontoValeRefeicao = new JTextField();
+		txtDescontoValeRefeicao.setFocusable(false);
 		txtDescontoValeRefeicao.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDescontoValeRefeicao.setEditable(false);
-		txtDescontoValeRefeicao.setBounds(360, 429, 115, 20);
+		txtDescontoValeRefeicao.setBounds(360, 537, 115, 20);
 		getContentPane().add(txtDescontoValeRefeicao);
 		txtDescontoValeRefeicao.setColumns(10);
 
 		txtProventoValeAlimentacao = new JTextField();
+		txtProventoValeAlimentacao.setFocusable(false);
 		txtProventoValeAlimentacao.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProventoValeAlimentacao.setEditable(false);
-		txtProventoValeAlimentacao.setBounds(240, 454, 115, 20);
+		txtProventoValeAlimentacao.setBounds(240, 562, 115, 20);
 		getContentPane().add(txtProventoValeAlimentacao);
 		txtProventoValeAlimentacao.setColumns(10);
 
 		txtDescontoValeAlimentacao = new JTextField();
+		txtDescontoValeAlimentacao.setFocusable(false);
 		txtDescontoValeAlimentacao.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDescontoValeAlimentacao.setEditable(false);
-		txtDescontoValeAlimentacao.setBounds(360, 454, 115, 20);
+		txtDescontoValeAlimentacao.setBounds(360, 562, 115, 20);
 		getContentPane().add(txtDescontoValeAlimentacao);
 		txtDescontoValeAlimentacao.setColumns(10);
 
@@ -175,6 +189,7 @@ public class Holerite extends JDialog {
 		getContentPane().add(lblAssistenciaMedica);
 
 		txtAssistenciaMedica = new JTextField();
+		txtAssistenciaMedica.setEnabled(false);
 		txtAssistenciaMedica.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAssistenciaMedica.setBounds(360, 264, 115, 20);
 		getContentPane().add(txtAssistenciaMedica);
@@ -185,6 +200,7 @@ public class Holerite extends JDialog {
 		getContentPane().add(lblAssistenciaOdontologica);
 
 		txtAssistenciaOdontologica = new JTextField();
+		txtAssistenciaOdontologica.setEnabled(false);
 		txtAssistenciaOdontologica.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAssistenciaOdontologica.setBounds(360, 289, 115, 20);
 		getContentPane().add(txtAssistenciaOdontologica);
@@ -199,7 +215,7 @@ public class Holerite extends JDialog {
 		btnCalcular.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCalcular.setIcon(new ImageIcon(Holerite.class.getResource("/img/holerite-64.png")));
 		btnCalcular.setToolTipText("Calcular");
-		btnCalcular.setBounds(172, 314, 64, 64);
+		btnCalcular.setBounds(172, 393, 64, 64);
 		getContentPane().add(btnCalcular);
 
 		JButton btnLimpar = new JButton("");
@@ -212,28 +228,30 @@ public class Holerite extends JDialog {
 		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpar.setIcon(new ImageIcon(Holerite.class.getResource("/img/eraser.png")));
 		btnLimpar.setToolTipText("Limpar");
-		btnLimpar.setBounds(252, 314, 64, 64);
+		btnLimpar.setBounds(252, 393, 64, 64);
 		getContentPane().add(btnLimpar);
 
 		JLabel lblHoraTrabalhada = new JLabel("Valor da Hora Trabalhada");
-		lblHoraTrabalhada.setBounds(10, 485, 186, 14);
+		lblHoraTrabalhada.setBounds(10, 593, 186, 14);
 		getContentPane().add(lblHoraTrabalhada);
 
 		JLabel lblSalarioLiquido = new JLabel("Sal\u00E1rio L\u00EDquido");
-		lblSalarioLiquido.setBounds(10, 510, 115, 14);
+		lblSalarioLiquido.setBounds(10, 618, 115, 14);
 		getContentPane().add(lblSalarioLiquido);
 
 		txtHoraTrabalhada = new JTextField();
+		txtHoraTrabalhada.setFocusable(false);
 		txtHoraTrabalhada.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHoraTrabalhada.setEditable(false);
-		txtHoraTrabalhada.setBounds(240, 479, 115, 20);
+		txtHoraTrabalhada.setBounds(240, 587, 115, 20);
 		getContentPane().add(txtHoraTrabalhada);
 		txtHoraTrabalhada.setColumns(10);
 
 		txtSalarioLiquido = new JTextField();
+		txtSalarioLiquido.setFocusable(false);
 		txtSalarioLiquido.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSalarioLiquido.setEditable(false);
-		txtSalarioLiquido.setBounds(240, 504, 115, 20);
+		txtSalarioLiquido.setBounds(240, 612, 115, 20);
 		getContentPane().add(txtSalarioLiquido);
 		txtSalarioLiquido.setColumns(10);
 
@@ -286,6 +304,7 @@ public class Holerite extends JDialog {
 		getContentPane().add(lblPensao);
 
 		txtProventoHoraExtra50 = new JTextField();
+		txtProventoHoraExtra50.setFocusable(false);
 		txtProventoHoraExtra50.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProventoHoraExtra50.setEditable(false);
 		txtProventoHoraExtra50.setBounds(240, 133, 115, 20);
@@ -293,6 +312,7 @@ public class Holerite extends JDialog {
 		txtProventoHoraExtra50.setColumns(10);
 
 		txtProventoHoraExtra100 = new JTextField();
+		txtProventoHoraExtra100.setFocusable(false);
 		txtProventoHoraExtra100.setEditable(false);
 		txtProventoHoraExtra100.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProventoHoraExtra100.setBounds(240, 158, 115, 20);
@@ -300,9 +320,10 @@ public class Holerite extends JDialog {
 		txtProventoHoraExtra100.setColumns(10);
 
 		txtTotalDeDescontos = new JTextField();
+		txtTotalDeDescontos.setFocusable(false);
 		txtTotalDeDescontos.setEditable(false);
 		txtTotalDeDescontos.setHorizontalAlignment(SwingConstants.CENTER);
-		txtTotalDeDescontos.setBounds(360, 504, 115, 20);
+		txtTotalDeDescontos.setBounds(360, 612, 115, 20);
 		getContentPane().add(txtTotalDeDescontos);
 		txtTotalDeDescontos.setColumns(10);
 
@@ -311,12 +332,14 @@ public class Holerite extends JDialog {
 		getContentPane().add(lblTotalDiarioValeTransporte);
 
 		txtTotalDiarioValeTransporte = new JTextField();
+		txtTotalDiarioValeTransporte.setEnabled(false);
 		txtTotalDiarioValeTransporte.setHorizontalAlignment(SwingConstants.CENTER);
 		txtTotalDiarioValeTransporte.setBounds(186, 214, 50, 20);
 		getContentPane().add(txtTotalDiarioValeTransporte);
 		txtTotalDiarioValeTransporte.setColumns(10);
 
 		txtTotalMensalValeTransporte = new JTextField();
+		txtTotalMensalValeTransporte.setFocusable(false);
 		txtTotalMensalValeTransporte.setEditable(false);
 		txtTotalMensalValeTransporte.setHorizontalAlignment(SwingConstants.CENTER);
 		txtTotalMensalValeTransporte.setBounds(240, 214, 115, 20);
@@ -324,6 +347,7 @@ public class Holerite extends JDialog {
 		txtTotalMensalValeTransporte.setColumns(10);
 
 		txtDescontoValeTransporte = new JTextField();
+		txtDescontoValeTransporte.setFocusable(false);
 		txtDescontoValeTransporte.setEditable(false);
 		txtDescontoValeTransporte.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDescontoValeTransporte.setBounds(360, 214, 115, 20);
@@ -331,10 +355,81 @@ public class Holerite extends JDialog {
 		txtDescontoValeTransporte.setColumns(10);
 
 		txtPensao = new JTextField();
+		txtPensao.setEnabled(false);
 		txtPensao.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPensao.setBounds(360, 239, 115, 20);
 		getContentPane().add(txtPensao);
 		txtPensao.setColumns(10);
+		chckbxValeTransporte = new JCheckBox("Sim");
+		chckbxValeTransporte.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (chckbxValeTransporte.isSelected()) {
+					txtTotalDiarioValeTransporte.setEnabled(true);
+					txtTotalDiarioValeTransporte.requestFocus();
+				} else {
+					txtTotalDiarioValeTransporte.setEnabled(false);
+
+				}
+			}
+		});
+		chckbxValeTransporte.setBounds(186, 188, 50, 23);
+		getContentPane().add(chckbxValeTransporte);
+
+		chckbxPensao = new JCheckBox("Sim");
+		chckbxPensao.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (chckbxPensao.isSelected()) {
+					txtPensao.setEnabled(true);
+					txtPensao.requestFocus();
+
+				} else {
+					txtPensao.setEnabled(false);
+				}
+			}
+
+		});
+		chckbxPensao.setBounds(186, 241, 50, 23);
+		getContentPane().add(chckbxPensao);
+
+		chckbxAssistenciaMedica = new JCheckBox("Sim");
+		chckbxAssistenciaMedica.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (chckbxAssistenciaMedica.isSelected()) {
+					txtAssistenciaMedica.setEnabled(true);
+					txtAssistenciaMedica.requestFocus();
+				} else {
+					txtAssistenciaMedica.setEnabled(false);
+				}
+			}
+		});
+		chckbxAssistenciaMedica.setBounds(186, 266, 50, 23);
+		getContentPane().add(chckbxAssistenciaMedica);
+
+		chckbxAssistenciaOdontologica = new JCheckBox("Sim");
+		chckbxAssistenciaOdontologica.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (chckbxAssistenciaOdontologica.isSelected()) {
+					txtAssistenciaOdontologica.setEnabled(true);
+					txtAssistenciaOdontologica.requestFocus();
+
+				} else {
+					txtAssistenciaOdontologica.setEnabled(false);
+				}
+			}
+		});
+		chckbxAssistenciaOdontologica.setBounds(186, 291, 50, 23);
+		getContentPane().add(chckbxAssistenciaOdontologica);
+
+		JLabel lblNewLabel = new JLabel("FGTS");
+		lblNewLabel.setBounds(10, 518, 88, 14);
+		getContentPane().add(lblNewLabel);
+
+		txtFgts = new JTextField();
+		txtFgts.setFocusable(false);
+		txtFgts.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFgts.setEditable(false);
+		txtFgts.setBounds(240, 512, 115, 20);
+		getContentPane().add(txtFgts);
 
 		/********************
 		 **** VALIDAÇÕES ****
@@ -373,7 +468,7 @@ public class Holerite extends JDialog {
 				"0123456789.");
 		assistenciaOdontologica.setLimit(12);
 
-		// Validação Vale Trasnporte
+		// Validação Vale Transporte
 		RestrictedTextField totalDiarioValeTransporte = new RestrictedTextField(txtTotalDiarioValeTransporte,
 				"0123456789.");
 		totalDiarioValeTransporte.setLimit(6);
@@ -384,9 +479,9 @@ public class Holerite extends JDialog {
 
 	}// Fim do Construtor
 
-	/******************
-	 **** CALCULAR ****
-	 *******************/
+	/*************************
+	 **** METODO CALCULAR ****
+	 *************************/
 
 	void calcular() {
 
@@ -398,11 +493,41 @@ public class Holerite extends JDialog {
 		 **** INSS ****
 		 ***************/
 		double inss1, inss2, inss3, inss4, inssSoma;
+		double faixa1TetoInss = 1212.0;
+		double faixa2PisoInss = 1212.01;
+		double faixa2TetoInss = 2427.35;
+		double faixa3PisoInss = 2427.36;
+		double faixa3TetoInss = 3641.03;
+		double faixa4PisoInss = 3641.04;
+		double faixa4TetoInss = 7087.22;
+		double aliquotaFaixa1Inss = 0.075;
+		double aliquotaFaixa2Inss = 0.09;
+		double aliquotaFaixa3Inss = 0.12;
+		double aliquotaFaixa4Inss = 0.14;
+		double diferencaFaixa2Inss = faixa2TetoInss - faixa2PisoInss;
+		double diferencaFaixa3Inss = faixa3TetoInss - faixa3PisoInss;
+		double diferencaFaixa4Inss = faixa4TetoInss - faixa4PisoInss;
 
 		/**************
 		 **** IRPF ****
 		 ***************/
 		double irpf;
+		double faixa1TetoIrpf = 1903.98;
+		double faixa2PisoIrpf = 1903.99;
+		double faixa2TetoIrpf = 2826.65;
+		double faixa3PisoIrpf = 2826.66;
+		double faixa3TetoIrpf = 3751.05;
+		double faixa4PisoIrpf = 3751.06;
+		double faixa4TetoIrpf = 4664.68;
+		double aliquotaFaixa2Irpf = 0.075;
+		double aliquotaFaixa3Irpf = 0.15;
+		double aliquotaFaixa4Irpf = 0.225;
+		double aliquotaFaixa5Irpf = 0.275;
+		double deducaoFaixa1Irpf = 0.0;
+		double deducaoFaixa2Irpf = 142.8;
+		double deducaoFaixa3Irpf = 354.80;
+		double deducaoFaixa4Irpf = 636.13;
+		double deducaoFaixa5Irpf = 869.36;
 
 		/********************
 		 **** BENEFICIOS ****
@@ -412,17 +537,18 @@ public class Holerite extends JDialog {
 		double totalDiarioValeTransporte, TotalMensalValeTransporte, descontoValeTransporte;
 		double valorVr = 52.5;
 		double valorVa = 300.0;
-		double faixa1Piso = 1783.62;
-		double faixa1Teto = faixa1Piso * 1.5;
-		//double faixa2Piso = faixa1Piso * 1.51;
-		double faixa2Teto = faixa1Piso * 2.5;
-		//double faixa3Piso = faixa1Piso * 2.51;
-		double faixa3Teto = faixa1Piso * 5;
-		//double faixa4Piso = faixa1Piso * 5.1;
-		//double faixa4Teto = faixa1Piso * 7.5;
-		//double faixa5Piso = faixa1Piso * 7.51;
-		//double faixa5Teto = faixa1Piso * 10;
-		//double faixa6Piso = faixa1Piso * 10.1;
+		double faixa1PisoVaVr = 1783.62;
+		double faixa1TetoVaVr = faixa1PisoVaVr * 1.5;
+		// double faixa2Piso = faixa1PisoVaVr * 1.51;
+		double faixa2TetoVaVr = faixa1PisoVaVr * 2.5;
+		// double faixa3Piso = faixa1PisoVaVr * 2.51;
+		double faixa3TetoVaVr = faixa1PisoVaVr * 5;
+		// double faixa4Piso = faixa1PisoVaVr * 5.1;
+		// double faixa4Teto = faixa1PisoVaVr * 7.5;
+		// double faixa5Piso = faixa1PisoVaVr * 7.51;
+		// double faixa5Teto = faixa1PisoVaVr * 10;
+		// double faixa6Piso = faixa1PisoVaVr * 10.1;
+
 		double aliquotaFaixa1Vr = 0.002;
 		double aliquotaFaixa2Vr = 0.08;
 		double aliquotaFaixa3Vr = 0.125;
@@ -431,6 +557,27 @@ public class Holerite extends JDialog {
 		double aliquotaFaixa2Va = 0.06;
 		double aliquotaFaixa3Va = 0.14;
 		double aliquotaFaixa4Va = 0.19;
+
+		/**
+		 * double amCompacto = 470.30; double amEfetivo = 562.25; double amCompleto =
+		 * 633.32; double amSuperior = 721.12;
+		 * 
+		 * double aliquotaFaixa1AmTitular = 0.02; double aliquotaFaixa2AmTitular =
+		 * 0.045; double aliquotaFaixa3AmTitular = 0.07; double aliquotaFaixa4AmTitular
+		 * = 0.09; double aliquotaFaixa5AmTitular = 0.145; double
+		 * aliquotaFaixa6AmTitular = 0.195; double aliquotaFaixa1AmFilho = 0.025; double
+		 * aliquotaFaixa2AmFilho = 0.05; double aliquotaFaixa3AmFilho = 0.075; double
+		 * aliquotaFaixa4AmFilho = 0.1; double aliquotaFaixa5AmFilho = 0.15; double
+		 * aliquotaFaixa6AmFilho = 0.20; double aliquotaFaixa1AmConjuge = 0.2; double
+		 * aliquotaFaixa2AmConjuge = 0.3; double aliquotaFaixa3AmConjuge = 0.4; double
+		 * aliquotaFaixa4AmConjuge = 0.6; double aliquotaFaixa5AmConjuge = 0.8; double
+		 * aliquotaFaixa6AmConjuge = 1; double aliquotaFaixa1Ao = 0.1; double
+		 * aliquotaFaixa2Ao = 0.2; double aliquotaFaixa3Ao = 0.35; double
+		 * aliquotaFaixa4Ao = 0.5; double aliquotaFaixa5Ao = 0.6;
+		 **/
+
+		double aliquotaFgts = 0.08;
+		double proventoFgts;
 
 		/*****************
 		 **** SALARIO ****
@@ -452,7 +599,7 @@ public class Holerite extends JDialog {
 		 **** HORAS TRABALHADAS ****
 		 ***************************/
 		double horasTrabalhadasMes, valorHoraTrabalhada;
-		
+
 		/****************************
 		 **** PENSAO ALIMENTICIA ****
 		 ****************************/
@@ -484,22 +631,40 @@ public class Holerite extends JDialog {
 		} else if (txtHoraExtra100.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a quantidade horas extras 100% realizadas no mês");
 			txtHoraExtra100.requestFocus();
-		} else if (txtTotalDiarioValeTransporte.getText().isEmpty()) {
+		} else if (chckbxValeTransporte.isSelected() && txtTotalDiarioValeTransporte.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o valor total diário gasto com transporte");
 			txtTotalDiarioValeTransporte.requestFocus();
-		} else if (txtPensao.getText().isEmpty()) {
+		} else if (chckbxPensao.isSelected() && txtPensao.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o valor pago com pensão alimentícia");
 			txtPensao.requestFocus();
-		} else if (txtAssistenciaMedica.getText().isEmpty()) {
+		} else if (chckbxAssistenciaMedica.isSelected() && txtAssistenciaMedica.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o valor pago para utilizar a assistência médica");
 			txtAssistenciaMedica.requestFocus();
-		} else if (txtAssistenciaOdontologica.getText().isEmpty()) {
+		} else if (chckbxAssistenciaOdontologica.isSelected() && txtAssistenciaOdontologica.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o valor pago para utilizar a assistência odontológica");
 			txtAssistenciaOdontologica.requestFocus();
 		} else {
 			/**************************
 			 **** CODIGO PRINCIPAL ****
 			 ***************************/
+
+			/***********************************************************************
+			 **** CASO O CHECKBOX NAO SEJA MARCADO, ATRIBUI O PARA O JTEXTFIELD ****
+			 ***********************************************************************/
+
+			if (txtTotalDiarioValeTransporte.getText().isEmpty()) {
+				txtTotalDiarioValeTransporte.setText(String.valueOf(0));
+			}
+
+			if (txtAssistenciaMedica.getText().isEmpty()) {
+				txtAssistenciaMedica.setText(String.valueOf(0));
+			}
+			if (txtAssistenciaOdontologica.getText().isEmpty()) {
+				txtAssistenciaOdontologica.setText(String.valueOf(0));
+			}
+			if (txtPensao.getText().isEmpty()) {
+				txtPensao.setText(String.valueOf(0));
+			}
 
 			/*****************
 			 **** ENTRADA ****
@@ -541,6 +706,10 @@ public class Holerite extends JDialog {
 			txtProventoHoraExtra50.setText(String.valueOf(formatador.format(totalHoraExtra50)));
 			txtProventoHoraExtra100.setText(String.valueOf(formatador.format(totalHoraExtra100)));
 
+			/*******************************************
+			 **** FIM DO CALCULO DA HORA TRABALHADA ****
+			 *******************************************/
+
 			/*************************
 			 **** CALCULO DO INSS ****
 			 *************************/
@@ -548,27 +717,28 @@ public class Holerite extends JDialog {
 			/***********************
 			 **** PROCESSAMENTO ****
 			 ************************/
-			if (salarioBruto < 1212.01) {
-				inssSoma = salarioBruto * 0.075;
-			} else if (salarioBruto > 1212 && salarioBruto < 2427.36) {
-				inss1 = 1212 * 0.075;
-				inss2 = (salarioBruto - 1212) * 0.09;
+			if (salarioBruto <= faixa1TetoInss) {
+				inssSoma = salarioBruto * aliquotaFaixa1Inss;
+			} else if (salarioBruto >= faixa2PisoInss && salarioBruto <= faixa2TetoInss) {
+				inss1 = faixa1TetoInss * aliquotaFaixa1Inss;
+				inss2 = (salarioBruto - faixa1TetoInss) * aliquotaFaixa2Inss;
 				inssSoma = inss1 + inss2;
-			} else if (salarioBruto > 2427.35 && salarioBruto < 3641.04) {
-				inss1 = 1212 * 0.075;
-				inss2 = 1215.34 * 0.09;
-				inss3 = (salarioBruto - 1212 - 1215.34) * 0.12;
+			} else if (salarioBruto >= faixa3PisoInss && salarioBruto <= faixa3TetoInss) {
+				inss1 = faixa1TetoInss * aliquotaFaixa1Inss;
+				inss2 = diferencaFaixa2Inss * aliquotaFaixa2Inss;
+				inss3 = (salarioBruto - faixa1TetoInss - diferencaFaixa2Inss) * aliquotaFaixa3Inss;
 				inssSoma = inss1 + inss2 + inss3;
 
 			} else {
-				inss1 = 1212 * 0.075;
-				inss2 = 1215.34 * 0.09;
-				inss3 = 1213.67 * 0.12;
+				inss1 = faixa1TetoInss * aliquotaFaixa1Inss;
+				inss2 = diferencaFaixa2Inss * aliquotaFaixa2Inss;
+				inss3 = diferencaFaixa3Inss * aliquotaFaixa3Inss;
 				inssSoma = inss1 + inss2 + inss3;
-				if (salarioBruto - 1212 - 1215.34 - 1213.67 > 3446.17) {
-					inss4 = 3446.18 * 0.14;
+				if (salarioBruto - faixa1TetoInss - diferencaFaixa2Inss - diferencaFaixa3Inss >= diferencaFaixa4Inss) {
+					inss4 = diferencaFaixa4Inss * aliquotaFaixa4Inss;
 				} else {
-					inss4 = (salarioBruto - 1212 - 1215.34 - 1213.67) * 0.14;
+					inss4 = (salarioBruto - faixa1TetoInss - diferencaFaixa2Inss - diferencaFaixa3Inss)
+							* aliquotaFaixa4Inss;
 				}
 				inssSoma = inss1 + inss2 + inss3 + inss4;
 
@@ -578,13 +748,21 @@ public class Holerite extends JDialog {
 			 ****************/
 			txtInss.setText(String.valueOf(formatador.format(inssSoma)));
 
+			/********************************
+			 **** FIM DO CALCULO DO INSS ****
+			 ********************************/
+
 			/*********************************
 			 **** CALCULO VALE TRANSPORTE ****
-			 **********************************/
+			 *********************************/
 
 			/***********************
 			 **** PROCESSAMENTO ****
 			 ************************/
+			// if (txtTotalDiarioValeTransporte.getText().isEmpty()) {
+			// totalDiarioValeTransporte = 0.0;
+			// }
+
 			TotalMensalValeTransporte = totalDiarioValeTransporte * diasTrabalhadosMes;
 
 			/***************
@@ -598,33 +776,41 @@ public class Holerite extends JDialog {
 			txtDescontoValeTransporte.setText(String.valueOf(formatador.format(descontoValeTransporte)));
 			txtTotalMensalValeTransporte.setText(String.valueOf(formatador.format(TotalMensalValeTransporte)));
 
+			/****************************************
+			 **** FIM DO CALCULO VALE TRANSPORTE ****
+			 ****************************************/
+
 			/*************************************
 			 **** CALCULO DO IMPOSTO DE RENDA ****
-			 **************************************/
+			 *************************************/
 
 			/***********************
 			 **** PROCESSAMENTO ****
 			 ************************/
 			baseDeCalculo = salarioBruto + totalHoraExtra50 + totalHoraExtra100;
-			if (baseDeCalculo < 1903.99) {
-				irpf = 0;
-			} else if (baseDeCalculo > 1903.98 && baseDeCalculo < 2826.66) {
-				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.075
-						- 142.8;
-			} else if (baseDeCalculo > 2826.65 && baseDeCalculo < 3751.06) {
-				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.15
-						- 354.8;
-			} else if (baseDeCalculo > 3751.07 && baseDeCalculo < 4664.69) {
-				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.225
-						- 636.13;
+			if (baseDeCalculo <= faixa1TetoIrpf) {
+				irpf = deducaoFaixa1Irpf;
+			} else if (baseDeCalculo >= faixa2PisoIrpf && baseDeCalculo <= faixa2TetoIrpf) {
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao)
+						* aliquotaFaixa2Irpf - deducaoFaixa2Irpf;
+			} else if (baseDeCalculo >= faixa3PisoIrpf && baseDeCalculo <= faixa3TetoIrpf) {
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao)
+						* aliquotaFaixa3Irpf - deducaoFaixa3Irpf;
+			} else if (baseDeCalculo >= faixa4PisoIrpf && baseDeCalculo <= faixa4TetoIrpf) {
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao)
+						* aliquotaFaixa4Irpf - deducaoFaixa4Irpf;
 			} else {
-				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao) * 0.275
-						- 869.36;
+				irpf = (baseDeCalculo - inssSoma - (quantidadeDeDependentes * valorPorDependente) - pensao)
+						* aliquotaFaixa5Irpf - deducaoFaixa5Irpf;
 			}
 			/***************
 			 **** SAIDA ****
 			 ****************/
 			txtIrpf.setText(String.valueOf(formatador.format(irpf)));
+
+			/********************************************
+			 **** FIM DO CALCULO DO IMPOSTO DE RENDA ****
+			 ********************************************/
 
 			/**********************************
 			 **** CALCULO DO VALE REFEICAO ****
@@ -634,12 +820,12 @@ public class Holerite extends JDialog {
 			 **** PROCESSAMENTO ****
 			 ************************/
 			proventoVr = valorVr * diasTrabalhadosMes;
-			if (salarioBruto <= faixa1Teto) {
+			if (salarioBruto <= faixa1TetoVaVr) {
 				descontoVr = proventoVr * aliquotaFaixa1Vr;
 
-			} else if (salarioBruto > faixa1Teto && salarioBruto <= faixa2Teto) {
+			} else if (salarioBruto > faixa1TetoVaVr && salarioBruto <= faixa2TetoVaVr) {
 				descontoVr = proventoVr * aliquotaFaixa2Vr;
-			} else if (salarioBruto > faixa2Teto && salarioBruto <= faixa3Teto) {
+			} else if (salarioBruto > faixa2TetoVaVr && salarioBruto <= faixa3TetoVaVr) {
 				descontoVr = proventoVr * aliquotaFaixa3Vr;
 			} else {
 				descontoVr = proventoVr * aliquotaFaixa4Vr;
@@ -650,6 +836,10 @@ public class Holerite extends JDialog {
 			txtProventoValeRefeicao.setText(String.valueOf(formatador.format(proventoVr)));
 			txtDescontoValeRefeicao.setText(String.valueOf(formatador.format(descontoVr)));
 
+			/*****************************************
+			 **** FIM DO CALCULO DO VALE REFEICAO ****
+			 *****************************************/
+
 			/*************************************
 			 **** CALCULO DO VALE ALIMENTACAO ****
 			 **************************************/
@@ -657,12 +847,12 @@ public class Holerite extends JDialog {
 			/***********************
 			 **** PROCESSAMENTO ****
 			 ************************/
-			if (salarioBruto <= faixa1Teto) {
+			if (salarioBruto <= faixa1TetoVaVr) {
 				descontoVa = valorVa * aliquotaFaixa1Va;
 
-			} else if (salarioBruto > faixa1Teto && salarioBruto <= faixa2Teto) {
+			} else if (salarioBruto > faixa1TetoVaVr && salarioBruto <= faixa2TetoVaVr) {
 				descontoVa = valorVa * aliquotaFaixa2Va;
-			} else if (salarioBruto > faixa2Teto && salarioBruto <= faixa3Teto) {
+			} else if (salarioBruto > faixa2TetoVaVr && salarioBruto <= faixa3TetoVaVr) {
 				descontoVa = valorVa * aliquotaFaixa3Va;
 			} else {
 				descontoVa = valorVa * aliquotaFaixa4Va;
@@ -673,9 +863,31 @@ public class Holerite extends JDialog {
 			txtProventoValeAlimentacao.setText(String.valueOf(formatador.format(valorVa)));
 			txtDescontoValeAlimentacao.setText(String.valueOf(formatador.format(descontoVa)));
 
+			/********************************************
+			 **** FIM DO CALCULO DO VALE ALIMENTACAO ****
+			 ********************************************/
+
 			/*************************
-			 **** SALARIO LIQUIDO ****
-			 **************************/
+			 **** CALCULO DO FGTS ****
+			 *************************/
+
+			/***********************
+			 **** PROCESSAMENTO ****
+			 ************************/
+			proventoFgts = baseDeCalculo * aliquotaFgts;
+
+			/***************
+			 **** SAIDA ****
+			 ****************/
+			txtFgts.setText(String.valueOf(formatador.format(proventoFgts)));
+
+			/********************************
+			 **** FIM DO CALCULO DO FGTS ****
+			 ********************************/
+
+			/************************************
+			 **** CALCULO DO SALARIO LIQUIDO ****
+			 ************************************/
 
 			/***********************
 			 **** PROCESSAMENTO ****
@@ -689,9 +901,19 @@ public class Holerite extends JDialog {
 			 ****************/
 			txtSalarioLiquido.setText(String.valueOf(formatador.format(salarioLiquido)));
 			txtTotalDeDescontos.setText(String.valueOf(formatador.format(totalDeDescontos)));
-		} // Fim da programação principal
 
-	} // Fim do método Calcular
+			/*******************************************
+			 **** FIM DO CALCULO DO SALARIO LIQUIDO ****
+			 *******************************************/
+		}
+		/*********************************
+		 **** FIM DO CODIGO PRINCIPAL ****
+		 *********************************/
+	}
+
+	/********************************
+	 **** FIM DO METODO CALCULAR ****
+	 ********************************/
 
 	/***********************
 	 **** METODO LIMPAR ****
@@ -721,7 +943,11 @@ public class Holerite extends JDialog {
 		txtDescontoValeTransporte.setText(null);
 		txtTotalDeDescontos.setText(null);
 		txtPensao.setText(null);
+		txtFgts.setText(null);
 		txtSalarioBruto.requestFocus();
-
-	} // Fim do método Limpar
+		chckbxValeTransporte.setSelected(false);
+		chckbxPensao.setSelected(false);
+		chckbxAssistenciaMedica.setSelected(false);
+		chckbxAssistenciaOdontologica.setSelected(false);
+	}
 } // Fim do Código
