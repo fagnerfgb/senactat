@@ -1,0 +1,111 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 22/08/2022
+#Data de atualização: 22/08/2022
+#Versão: 0.01
+******************************************************************************************
+ARRAY é uma estrutura de dados indexada que permite armazenar múltiplos valores.
+
+ARRAY - Vetor (estático)
+ARRAY LIST - Vetor (dinâmico)
+ARRAY MULTIDIMENSIONAL - Matriz
+
+String[ ] carros = { "ferrari", "fusca", "camaro", "uno" };
+char[ ] controle = { 'w', 'a', 's', 'd' };
+int[ ] pares = { 2, 4, 6, 8 };
+double[ ] imc = { 18.5, 24.9, 26, 29.1 };
+******************************************************************************************
+/**
+ * Estudo do array
+ * Exemplo 1 - Array simples (vetor)
+ */
+package array;
+
+/**
+ * @author Fagner Geraldes Braga
+ *
+ */
+public class Array1 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		/*******************************
+		 **** ARRAY SIMPLES (VETOR) ****
+		 *******************************/
+		String[] times = { "Corinthians", "São Paulo", "Palmeiras", "Santos" };
+
+		/************************************
+		 **** RECUPERA O VALOR DO INDICE ****
+		 ************************************/
+		System.out.println(times[0]);
+
+		/************************************
+		 **** INFORMA O TAMANHO DO ARRAY ****
+		 ************************************/
+		System.out.println("Tamanho do array: " + times.length);
+
+		/**********************************************
+		 **** LAÇO FOR PARA PERCORRER TODO O ARRAY ****
+		 **********************************************/
+		System.out.println("===========================");
+		System.out.println("Times");
+		System.out.println("===========================");
+		for (int i = 0; i < times.length; i++) {
+			System.out.println(times[i]);
+		}
+	}
+}
+******************************************************************************************
+/**
+ * Array Simples
+ * Exemplo 2 - Sorteio de uma carta
+ */
+package array;
+
+import java.util.Random;
+
+public class Array2 {
+
+	public static void main(String[] args) {
+
+		/**************************************************
+		 **** LEFT ALT + 3, 4, 5, 6 (TECLADO NUMERICO) ****
+		 **************************************************/
+		String[] naipes = { "♥", "♦", "♣", "♠" };
+		String[] faces = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+		System.out.println(faces[0] + naipes[1]);
+		System.out.println(faces[11] + naipes[0]);
+
+		/**
+		for (int i = 0; i < faces.length; i++) {
+			for (int j = 0; j < naipes.length; j++) {
+				System.out.println(faces[i] + naipes[j]);
+			}
+		} 
+		**/
+		System.out.println("===========================");
+		System.out.println("Carta sorteada:");
+		/**********************************************************************
+		 **** CRIAR UM OBJETO DE NOME CARTA PARA GERAR UM NUMERO ALEATORIO ****
+		 **********************************************************************/
+		Random carta = new Random();
+		
+		/***************************************************************************************************************
+		 **** CRIAR UMA VARIAVEL DO TIPO INTEIRO QUE RECEBE UM NUMERO ALEATORIO ENTRE 0 E O TAMANHO MAXIMO DO VETOR ****
+		 ***************************************************************************************************************/
+		int indiceFace = carta.nextInt(faces.length);
+		int indiceNaipe = carta.nextInt(naipes.length);
+		
+		/****************************
+		 **** EXIBIR O RESULTADO ****
+		 ****************************/
+		System.out.println(faces[indiceFace]+ naipes[indiceNaipe]);
+		
+	}
+}
+
+
+
+
+

@@ -31,9 +31,10 @@ public class Nave {
 			/***************************
 			 **** CARREGAR A IMAGEM ****
 			 ***************************/
-			sprite1 = ImageIO.read(new File("img/nave2.png"));
+			sprite1 = ImageIO.read(new File("./img/nave2.png"));
+
 		} catch (Exception e) {
-			System.out.println("Não foi possível carregar a imagem");
+			System.out.println("Não foi possível carregar a imagem da nave");
 			System.out.println(e);
 		}
 	}
@@ -99,5 +100,17 @@ public class Nave {
 		if (posY <= 0) {
 			posY = 0;
 		}
-	}
+	} // Fim do metodo moverNave
+
+	/***********************
+	 **** METODO ATIRAR ****
+	 ***********************/
+	// Cria o tiro passando a posicao x da nave para a classe Laser
+	// Retornar o tiro para a Engine
+	public Laser atirar() {
+		Laser tiro = new Laser(posX + 42, posY);
+		return tiro;
+
+	} // Fim do metodo atirar
+
 }

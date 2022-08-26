@@ -3,9 +3,11 @@ package main;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import sprites.Laser;
 import sprites.Nave;
 
 @SuppressWarnings("serial")
@@ -21,6 +23,12 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 	 *******************************/
 	Backdrop backdrop = new Backdrop();
 	//public int movimenta;
+
+	/**************************************************
+	 **** VINCULAR O TIRO USANDO UM VETOR DINAMICO ****
+	 **************************************************/
+	// Laser laser = new Laser();
+	public ArrayList<Laser> laser = new ArrayList<Laser>();
 
 	/********************
 	 **** CONSTRUTOR ****
@@ -47,9 +55,14 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void refresh() {
-
+		// nave
 		nave.moverNave(sentido);
-
+		// laser
+		for (int i = 0; i < laser.size(); i++) {
+			laser.get(i).moverLaser();
+		}
+		// Entendimento da logica do tiro
+		//System.out.println(laser.size());
 	}
 
 	/***************************************************
@@ -58,6 +71,10 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		backdrop.exibirFundo(g);
+		// laser
+		for (int i = 0; i < laser.size(); i++) {
+			laser.get(i).exibirLaser(g);
+		}
 		nave.exibirNave(g);
 
 	}
@@ -67,7 +84,7 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 		 **** TRATAMENTO DE EXCECOES ****
 		 ********************************/
 		try {
-			Thread.sleep(5); // milissegundos
+			Thread.sleep(6); // milissegundos
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -101,16 +118,22 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 			sentido = -1;
 		}
 		/******************************
-		 **** SE PRESSIONA TECLA > ****
+		 **** SE PRESSIONA TECLA ^ ****
 		 ******************************/
 		if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
-			sentido = 2;
+			 sentido = 2;
 		}
 		/******************************
-		 **** SE PRESSIONA TECLA < ****
+		 **** SE PRESSIONA TECLA v ****
 		 ******************************/
 		if (e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_X) {
-			sentido = -2;
+			 sentido = -2;
+		}
+		/****************
+		 **** ATIRAR ****
+		 ****************/
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			laser.add(nave.atirar());
 		}
 
 	}
@@ -120,7 +143,24 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 	 **************************/
 	@Override
 	public void keyReleased(KeyEvent e) {
-		nave.moverNave(sentido = 0);
+		// se soltar a tecla seta direita
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			sentido = 0;
+		}
 
+		// se soltar a tecla seta esquerda
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			sentido = 0;
+		}
+
+		// se soltar a tecla seta acima
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			sentido = 0;
+		}
+
+		// se soltar a tecla seta abaixo
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			sentido = 0;
+		}
 	}
 } // Fim da classe Engine

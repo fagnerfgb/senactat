@@ -18,9 +18,10 @@ public class Backdrop {
 			/***************************
 			 **** CARREGAR A IMAGEM ****
 			 ***************************/
-			background = ImageIO.read(new File("img/background.jpg"));
+			background = ImageIO.read(new File("./img/background.jpg"));
+
 		} catch (Exception e) {
-			System.out.println("Não foi possível carregar a imagem");
+			System.out.println("Não foi possível carregar a imagem do background");
 			System.out.println(e);
 		}
 	}

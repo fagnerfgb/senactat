@@ -1,0 +1,21 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 24/08/2022
+#Data de atualização: 24/08/2022
+#Versão: 0.01
+******************************************************************************************
+ArrayList é um vetor cujo tamanho pode variar de forma dinâmica de acordo com o tempo
+O ArrayList aceita o tipo String ou uma classe
+
+// importação
+import java.util.ArrayList;
+******************************************************************************************
+//sintaxe
+ArrayList<String> contatos = new ArrayList<>();
+******************************************************************************************
+contatos.add("Fagner Geraldes Braga");
+contatos.size();
+contatos.get(2);
+contatos.remove(4);
+
+
+
