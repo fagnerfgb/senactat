@@ -35,6 +35,19 @@ public class Laser {
 	 ****************************/
 	public void moverLaser() {
 		posYL -= 6; // ajuste da velocidade do tiro laser
+		// apoio ao entendimento da logica do tiro
+		 //System.out.println(posYL);
 	} // Fim do metodo moverLaser
+
+	/******************************
+	 **** METODO REMOVER LASER ****
+	 ******************************/
+	public boolean removerLaser() {
+		if (posYL < 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 } // Fim da Classe Laser

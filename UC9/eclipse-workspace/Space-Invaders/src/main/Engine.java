@@ -22,13 +22,20 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 	 **** VINCULAR O BACKDROP ******
 	 *******************************/
 	Backdrop backdrop = new Backdrop();
-	//public int movimenta;
+	// public int movimenta;
 
 	/**************************************************
 	 **** VINCULAR O TIRO USANDO UM VETOR DINAMICO ****
 	 **************************************************/
 	// Laser laser = new Laser();
 	public ArrayList<Laser> laser = new ArrayList<Laser>();
+	
+	/**************************
+	 **** VINCULAR O AUDIO ****
+	 **************************/
+	Sound somLaser = new Sound();
+	
+	
 
 	/********************
 	 **** CONSTRUTOR ****
@@ -60,6 +67,10 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 		// laser
 		for (int i = 0; i < laser.size(); i++) {
 			laser.get(i).moverLaser();
+			// se o laser chegar ao fim da tela (posYL < 0 )
+			if (laser.get(i).removerLaser() == true) {
+				laser.remove(i);
+			}
 		}
 		// Entendimento da logica do tiro
 		//System.out.println(laser.size());
@@ -121,19 +132,21 @@ public class Engine extends JPanel implements Runnable, KeyListener {
 		 **** SE PRESSIONA TECLA ^ ****
 		 ******************************/
 		if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
-			 sentido = 2;
+			sentido = 2;
 		}
 		/******************************
 		 **** SE PRESSIONA TECLA v ****
 		 ******************************/
 		if (e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_X) {
-			 sentido = -2;
+			sentido = -2;
 		}
 		/****************
 		 **** ATIRAR ****
 		 ****************/
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			laser.add(nave.atirar());
+			somLaser.play();
+			
 		}
 
 	}
