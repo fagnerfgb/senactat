@@ -1,0 +1,34 @@
+A História do Linux    
+
+[Aqui entra uma imagem - tuxbatman]
+
+UBUNTU 
+OpenSUSI
+RED HAT
+DEBIAN<
+
+linha vazia
+
+[Aqui entra uma imagem - ubuntu
+
+UBUNTU
+RED HAT
+OpenSUSI
+
+linha vazia
+
+RODAPÉ
+
+Desenvolvido para curso livre
+
+
+______________________________________________________________
+
+LINKS
+
+link da imagem tuxbatman - http://www.vivaolinux.com.br/linux/
+
+UBUNTU - http://ubuntu-br.org
+OpenSUSI - https://www.opensuse.org/
+RED HAT - http://br.redhat.com 
+DEBIAN - <https://www.debian.org
