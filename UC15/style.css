@@ -25,9 +25,6 @@ border-left: 1px solid white;
 border-top: 1px solid white;
 border-bottom: 1px solid white;
 }
-td {
-    /*border: 1px solid white;*/
-}
 .menu a:link{
   color: darkgray;
   background-color: transparent;
