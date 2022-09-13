@@ -13,7 +13,7 @@ table{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
 }
-#menu{
+.menu{
     background-color: rgb(7, 247, 227);
     font-size: 12px;
     font-family:fantasy;
@@ -24,8 +24,7 @@ td {
 
 .rodape{
     font-size: 20px;
-    font-weight: bold;
-    
+    font-weight: bold;    
 }
 
 
