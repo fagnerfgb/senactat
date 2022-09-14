@@ -104,12 +104,19 @@ body{
 }
 
 /* FIM BANNER */
-#content{
 
+/* CONTEUDO */
+#content{
+    position: relative;
+    max-width: 1200px;
+    height: auto;
 }
 
 .console{
-    
+    float: left;
+    width: 300px;
+    margin: 10px 20px;
+
 }
 
 #footer{
