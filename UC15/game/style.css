@@ -38,7 +38,7 @@ body{
 
 #menu li{
     float: left;
-    background: #ccc;
+    background: black;
 }
 
 #menu li a{
@@ -53,6 +53,13 @@ body{
     background: #FFF;
     color: #000;
     text-decoration: underline;
+}
+
+/*SUB MENU*/
+#menu li ul{
+    display: none;
+    font-size: 1em;
+    
 }
 
 #banner-anime{
