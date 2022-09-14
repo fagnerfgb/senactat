@@ -71,6 +71,8 @@ body{
     float: none;
 }
 /*FIM DO SUB MENU*/
+
+/* BANNER */
 #banner-anime{
     position: relative;
     display: inline-block;
@@ -90,6 +92,7 @@ body{
     transition-property: opacity;
     transition-duration: 1s;
     transition-timing-function: linear;
+    /*ease, ease-in, ease-out, aliviar-in-out, cubico-bezier*/
 }
 
 #anime1, #anime2:hover{
@@ -99,8 +102,14 @@ body{
 #anime1:hover, #anime2{
     opacity: 0;
 }
-#article{
 
+/* FIM BANNER */
+#content{
+
+}
+
+.console{
+    
 }
 
 #footer{
