@@ -130,8 +130,20 @@ p {
     color: white;
     font-size: 1.1em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px 15px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+span{
+    font-size: 1.2em;
+    text-decoration: none;
 }
 
+span a:hover{
+    
+}
 
 #footer{
 
