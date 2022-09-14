@@ -110,11 +110,12 @@ body{
     position: relative;
     max-width: 1200px;
     height: auto;
+    left:5px;
 }
 
 .console{
     float: left;
-    width: 300px;
+    width: 360px;
     margin: 10px 20px;
 
 }
