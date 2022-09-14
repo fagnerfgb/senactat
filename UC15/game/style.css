@@ -152,13 +152,15 @@ span a{
 }
 
 span a:hover{
-    background-color: black;
-    
-    
+    background-color: black;    
 }
 
 #footer{
     clear: both;
     border-top: 2px solid darkgrey;
     padding: 5px;
+}
+
+#footer p{
+    text-align: center;
 }
