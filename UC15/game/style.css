@@ -163,6 +163,44 @@ span a:hover{
     text-align: center;
 }
 
+/* XBOX */
 #principal{
-    
+    display: block;
+    width: 800px;
+    float: left;
+    border-right: 2px solid darkgrey;
+}
+
+h1{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 2em;
+}
+
+table{
+    margin: 0px auto;
+    border: none;    
+}
+td{
+    padding: 3px;
+}
+
+table img{
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+#wing{
+    display:block;
+    float: right;
+    margin: 5px 0px;
+    width: 380px;    
+}
+
+#youtube{
+
 }
