@@ -119,6 +119,19 @@ body{
     margin: 10px 20px;
 
 }
+h2{
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p {
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 #footer{
 
