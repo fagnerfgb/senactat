@@ -290,10 +290,20 @@ table img {
     background-size: 700px 500px;
 }
 
+#photo-album li.pix01:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
 #photo-album li.pix02{
     background: url(img/galeria2.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
+}
+
+#photo-album li.pix02:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
 }
 
 #photo-album li.pix03{
@@ -302,10 +312,20 @@ table img {
     background-size: 700px 500px;
 }
 
+#photo-album li.pix03:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
 #photo-album li.pix04{
     background: url(img/galeria4.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
+}
+
+#photo-album li.pix04:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
 }
 
 #photo-album li.pix05{
@@ -314,8 +334,18 @@ table img {
     background-size: 700px 500px;
 }
 
+#photo-album li.pix05:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
 #photo-album li.pix06{
     background: url(img/galeria6.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
+}
+
+#photo-album li.pix06:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
 }
