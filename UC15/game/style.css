@@ -262,13 +262,14 @@ table img {
     width: 28%;
     height: 200px;
     margin: 10px;
-    border: 5px solid black;
+    border: 5px solid darkslategrey;
     background: white;
 }
-
-.pix01, .pix02, .pix03, .pix04, .pix05, .pix06{
-
-}
-#gallery2{
-
+#photo-album li .gallery{
+    opacity: 0;
+    color: white;
+    background: rgba(0, 0, 0, .5);
+    font: 0.9em verdana;
+    line-height: 370px;
+    padding: 5px;
 }
