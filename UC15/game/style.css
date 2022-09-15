@@ -281,6 +281,7 @@ table img {
 
 #photo-album li:hover{
     -webkit-transform: scale(1.5);
+    transform: scale(1.5);
 }
 
 #photo-album li.pix01{
