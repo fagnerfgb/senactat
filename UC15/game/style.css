@@ -170,7 +170,7 @@ span a:hover {
 }
 
 /* XBOX */
-#principal {
+#principal-xbox {
     display: block;
     width: 800px;
     float: left;
@@ -201,14 +201,14 @@ table img {
     height: auto;
 }
 
-#wing {
+#wing-xbox {
     display: block;
     float: right;
     margin: 5px 0px;
     width: 380px;
 }
 
-#wing h2, h3 {
+#wing-box h2, h3 {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5em;
@@ -219,4 +219,29 @@ table img {
 #youtube {
     margin: 10px 0px;
 
+}
+
+/*XBOX*/
+#principal-playstation {
+    display: block;
+    width: 800px;
+    float: right;
+    border-left: 2px solid darkgrey;
+}
+
+#wing-playstation {
+    display: block;
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 380px;
+}
+
+#wing-playstation h2, h3 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5em;
+    color: white;
+    margin: 10px 0px;
 }
