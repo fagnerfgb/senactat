@@ -250,3 +250,25 @@ table img {
 
 /* PAGINA DE FOTOS */
 
+#photo-album{
+    width: 60%;
+    margin: 0px auto;
+    padding: 50px;
+    list-style: none;
+}
+
+#photo-album li{
+    float: left;
+    width: 28%;
+    height: 200px;
+    margin: 10px;
+    border: 5px solid black;
+    background: white;
+}
+
+.pix01, .pix02, .pix03, .pix04, .pix05, .pix06{
+
+}
+#gallery2{
+
+}
