@@ -1,33 +1,35 @@
 @charset "UTF-8";
+
 /* css reset */
-*{
+* {
     margin: 0;
     border: 0;
     padding: 0;
 }
 
-body{
-    background-color: rgb(100, 100, 100);    
+body {
+    background-color: rgb(100, 100, 100);
 }
 
-#interface{
+#interface {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-#top{
+#top {
     height: 130px;
 }
 
-#menu{
+#menu {
     display: block;
-    position:absolute;
+    position: absolute;
     width: 800px;
     top: 98px;
     margin-left: 300px;
-    z-index:1;
+    z-index: 1;
 }
-#menu ul{
+
+#menu ul {
     text-decoration: none;
     list-style: none;
     margin: 0px;
@@ -36,12 +38,12 @@ body{
     font-size: 1.1em;
 }
 
-#menu li{
+#menu li {
     float: left;
     background: black;
 }
 
-#menu li a{
+#menu li a {
     color: #FFF;
     text-decoration: none;
     margin: 0px;
@@ -49,30 +51,31 @@ body{
     display: block;
 }
 
-#menu li a:hover{
+#menu li a:hover {
     background: #FFF;
     color: #000;
     text-decoration: underline;
 }
 
 /*SUB MENU*/
-#menu li ul{
+#menu li ul {
     display: none;
     font-size: 1em;
 }
 
-#menu li:hover ul{
+#menu li:hover ul {
     display: block;
     position: relative;
 }
 
-#menu li:hover li{
+#menu li:hover li {
     float: none;
 }
+
 /*FIM DO SUB MENU*/
 
 /* BANNER */
-#banner-anime{
+#banner-anime {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -80,12 +83,12 @@ body{
     margin: 0px;
 }
 
-#anime1, #anime2{
+#anime1, #anime2 {
     max-width: 100%;
     height: auto;
 }
 
-#banner-anime img{
+#banner-anime img {
     position: absolute;
     transition-property: opacity;
     transition-duration: 1s;
@@ -93,37 +96,38 @@ body{
     /*ease, ease-in, ease-out, aliviar-in-out, cubico-bezier*/
 }
 
-#anime1, #anime2:hover{
+#anime1, #anime2:hover {
     opacity: 1;
 }
 
-#anime1:hover, #anime2{
+#anime1:hover, #anime2 {
     opacity: 0;
 }
 
 /* FIM BANNER */
 
 /* CONTEUDO */
-#content{
+#content {
     position: relative;
     max-width: 1200px;
     height: auto;
-    left:5px;
+    left: 5px;
     text-align: center;
 }
 
-.console{
+.console {
     float: left;
     width: 360px;
     margin: 10px 20px;
 }
 
-h2{
+h2 {
     color: white;
     font-size: 1.3em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-top: 10px;
 }
+
 p {
     text-align: justify;
     color: white;
@@ -131,47 +135,49 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px 15px;
 }
-img{
+
+img {
     max-width: 100%;
     height: auto;
 }
-span{
+
+span {
     font-size: 1.2em;
     text-decoration: none;
 }
 
-span a{
+span a {
     font-size: 1.2em;
     text-decoration: none;
-    color:white;
+    color: white;
     background: darkgrey;
     padding: 5px 10px;
     border-radius: 30px;
 }
 
-span a:hover{
-    background-color: black;    
+span a:hover {
+    background-color: black;
 }
 
-#footer{
+#footer {
     clear: both;
     border-top: 2px solid darkgrey;
     padding: 5px;
 }
 
-#footer p{
+#footer p {
     text-align: center;
 }
 
 /* XBOX */
-#principal{
+#principal {
     display: block;
     width: 800px;
     float: left;
     border-right: 2px solid darkgrey;
 }
 
-h1{
+h1 {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
@@ -179,29 +185,30 @@ h1{
     font-size: 2em;
 }
 
-table{
+table {
     margin: 0px auto;
-    border: none;    
+    border: none;
 }
-td{
+
+td {
     padding: 3px;
 }
 
-table img{
+table img {
     display: block;
     margin: auto;
     width: auto;
     height: auto;
 }
 
-#wing{
-    display:block;
+#wing {
+    display: block;
     float: right;
     margin: 5px 0px;
-    width: 380px;    
+    width: 380px;
 }
 
-#wing h2,h3{
+#wing h2, h3 {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5em;
@@ -209,6 +216,7 @@ table img{
     margin: 10px 0px;
 }
 
-#youtube{
+#youtube {
+    margin: 10px 0px;
 
 }
