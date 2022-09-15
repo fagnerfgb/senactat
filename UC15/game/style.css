@@ -373,7 +373,7 @@ table img {
 
 #photo-gallery img{
     background: white;
-    border: 2px solid darkslategrey;
+    border: 5px solid darkslategrey;
     width: 200px;
     height: 165px;
 }
