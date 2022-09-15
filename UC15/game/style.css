@@ -274,3 +274,47 @@ table img {
     line-height: 370px;
     padding: 5px;
 }
+
+#photo-album li:hover .gallery{
+    opacity: 1;
+}
+
+#photo-album li:hover{
+    -webkit-transform: scale(1.5);
+}
+
+#photo-album li.pix01{
+    background: url(img/galeria1.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix02{
+    background: url(img/galeria2.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix03{
+    background: url(img/galeria3.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix04{
+    background: url(img/galeria4.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix05{
+    background: url(img/galeria5.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix06{
+    background: url(img/galeria6.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
