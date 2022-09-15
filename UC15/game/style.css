@@ -349,3 +349,32 @@ table img {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
+
+/* SEGUNDA GALERIA */
+
+#gallery2{
+    width: 800px;
+    height: 480px;
+    margin: 0 auto;
+}
+
+#photo-gallery{
+    list-style: none;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+#photo-gallery li{
+    display:block;
+    float: left;
+    margin: 3px;
+    position: relative;
+}
+
+#photo-gallery img{
+    background: white;
+    border: 2px solid darkslategrey;
+    width: 200px;
+    height: 165px;
+}
+
