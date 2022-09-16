@@ -220,6 +220,7 @@ table img {
     margin: 10px 0px;
 
 }
+
 /* FIM XBOX */
 
 /* PLAYSTATION */
@@ -246,18 +247,19 @@ table img {
     color: white;
     margin: 10px 0px;
 }
+
 /* FIM PLAYSTATION */
 
 /* PAGINA DE FOTOS */
 
-#photo-album{
+#photo-album {
     width: 60%;
     margin: 0px auto;
-    padding: 50px;
+    padding: 10px;
     list-style: none;
 }
 
-#photo-album li{
+#photo-album li {
     float: left;
     width: 28%;
     height: 200px;
@@ -266,7 +268,7 @@ table img {
     background: white;
 }
 
-#photo-album li .gallery{
+#photo-album li .gallery {
     opacity: 0;
     color: white;
     background: rgba(0, 0, 0, .5);
@@ -275,114 +277,131 @@ table img {
     padding: 5px;
 }
 
-#photo-album li:hover .gallery{
+#photo-album li:hover .gallery {
     opacity: 1;
 }
 
-#photo-album li:hover{
+#photo-album li:hover {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
 
-#photo-album li.pix01{
+#photo-album li.pix01 {
     background: url(img/galeria1.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix01:hover{
+#photo-album li.pix01:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
-#photo-album li.pix02{
+#photo-album li.pix02 {
     background: url(img/galeria2.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix02:hover{
+#photo-album li.pix02:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
-#photo-album li.pix03{
+#photo-album li.pix03 {
     background: url(img/galeria3.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix03:hover{
+#photo-album li.pix03:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
-#photo-album li.pix04{
+#photo-album li.pix04 {
     background: url(img/galeria4.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix04:hover{
+#photo-album li.pix04:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
-#photo-album li.pix05{
+#photo-album li.pix05 {
     background: url(img/galeria5.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix05:hover{
+#photo-album li.pix05:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
-#photo-album li.pix06{
+#photo-album li.pix06 {
     background: url(img/galeria6.jpg) no-repeat;
     background-position: 50% 50%;
     background-size: 700px 500px;
 }
 
-#photo-album li.pix06:hover{
+#photo-album li.pix06:hover {
     background-position: 0% 0%;
     background-size: 200px 200px;
 }
 
 /* SEGUNDA GALERIA */
 
-#gallery2{
+#gallery2 {
     width: 800px;
     height: 480px;
     margin: 0 auto;
 }
 
-#photo-gallery{
+#photo-gallery {
     list-style: none;
     margin: 0 auto;
     padding: 50px;
 }
 
-#photo-gallery li{
-    display:block;
+#photo-gallery li {
+    display: block;
     float: left;
     margin: 3px;
     position: relative;
 }
 
-#photo-gallery img{
+#photo-gallery img {
     background: white;
     border: 5px solid darkslategrey;
     width: 200px;
     height: 165px;
 }
 
-.magnify:hover{
+.magnify:hover {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
     z-index: 5;
 }
 
+#paragraph{
+    text-align: center;
+    font-size: 1.6em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#footer-photo{
+    clear: both;
+    border-top: 2px solid darkgrey;
+    margin-top: 500px;
+}
+
+#footer-photo p {
+    text-align: center;
+}
+
 /* FIM DA PAGINA DE FOTOS */
 
+/* PAGINA DE VIDEOS */
