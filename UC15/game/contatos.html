@@ -1,16 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Let's play video game!">
-    <meta name="keywords" content="atari, nintendo, master system, mega drive, snes, nintendo64, playstation, playstation 2, playstation 3, playstation 4, playstation 5, xbox, xbox 360, xbox one, xbox series, arcade, retrogames, wii, wii-u">
-    <title>Fagner's Games</title>
+    <meta name="keywords"
+        content="atari, nintendo, master system, mega drive, snes, nintendo64, playstation, playstation 2, playstation 3, playstation 4, playstation 5, xbox, xbox 360, xbox one, xbox series, arcade, retrogames, wii, wii-u">
+    <title>Contacts</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div id="interface">
+        <header id="top">
+            <img src="img/banner-topo.jpg" alt="Game Over" title="Game Over">
+            <nav id="menu">
+                <!-- ul>li*4>a -->
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">CONSOLES</a>
+                        <!-- ul>li*2>a -->
+                        <ul>
+                            <li><a href="ps.html">PLAY</a></li>
+                            <li><a href="xbox.html">XBOX</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">MEDIAS</a>
+                        <!-- ul>li*2>a -->
+                        <ul>
+                            <li><a href="fotos.html">PIX</a></li>
+                            <li><a href="videos.html">VIDEOS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contatos.html">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="banner-anime">
+            <img id="anime1" src="img/banner1.jpg" alt="God of War" title="God of War">
+            <img id="anime2" src="img/banner2.jpg" alt="God of War" title="God of War">
+        </section>
+        <form action="" id="contact">
+            <fieldset id="user">
+                <legend>User Identification</legend>
+                <p>
+                    <label for="cname">Name</label>
+                    <input type="text" name="name" id="cname" size="30" maxlength="30" placeholder="Full Name" required
+                        autofocus>
+                </p>
+                <p>
+                    <label for="cpassword">Password</label>
+                    <input type="password" name="password" id="cpassword" size="8" maxlength="8" placeholder="8 digits"
+                        required>
+                </p>
+                <p>
+                    <label for="cmail">E-mail</label>
+                    <input type="text" name="email" id="cmail" size="30" maxlength="30"
+                        placeholder="Your e-mail address" required>
+                </p>
+                <p>
+                    <label for="cbirth">Date of birth</label>
+                    <input type="date" name="birthday" id="cbirth">
+                </p>
+            </fieldset>
+            <fieldset id="address">
+                <legend>User address</legend>
+                <p>
+                    <label for="caddress">Address</label>
+                    <input type="text" name="address" id="caddress" size="50" maxlength="50"
+                        placeholder="Street, Avenue, Square, ..." required>
+                </p>
+                <p>
+                    <label for="cnumber">Number</label>
+                    <input type="number" name="number" id="cnumber" min="0" max="99999">
+                </p>
+                <p>
+                    <label for="cstate">State</label>
+                    <select name="state" id="cstate">
+                        <optgroup label="South East Region">
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="ES">Espírito Santo</option>
+                        </optgroup>
+                        <optgroup label="South Region">
+                            <option value="PR" selected>Paraná</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                        </optgroup>
+                    </select>
+                    <p>
+                        <label for="ccity">City</label>
+                        <input type="text" name="city" id="ccity" size="30" maxlength="30" placeholder="Your city" required>
+                    </p>
+                </p>
+            </fieldset>
+            <fieldset id="message">
+                <legend>User message</legend>
+                <p>
+                    <label for="cmsg">Message</label>
+                </p>
+                <p>
+                    <textarea name="msg" id="cmsg" cols="30" rows="7" placeholder="Insert your message"></textarea>
+                </p>
+            </fieldset>
+            <input type="submit" name="send" class="btn" value="Send">
+            <input type="reset" name="clean" class="btn" value="Clean">
+        </form>
+
+        <footer id="footer">
+            <p>Only For Educational Purposes. Made by Fagner Geraldes Braga.</p>
+            <p>
+                <a href="https://pt-br.facebook.com/" target="_blank"><img src="img/logo-face.png" alt="Facebook"
+                        title="Facebook"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="img/logo-instagram.png" alt="Instagram"
+                        title="Instagram"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="img/logo-twitter.png" alt="Twitter"
+                        title="Instagram"></a>
+            </p>
+        </footer>
+    </div>
 </body>
 </html>

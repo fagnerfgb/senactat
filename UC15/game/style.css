@@ -386,13 +386,13 @@ table img {
     z-index: 5;
 }
 
-#paragraph{
+#paragraph {
     text-align: center;
     font-size: 1.6em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#footer-photo{
+#footer-photo {
     clear: both;
     border-top: 2px solid darkgrey;
     margin-top: 500px;
@@ -405,3 +405,73 @@ table img {
 /* FIM DA PAGINA DE FOTOS */
 
 /* PAGINA DE VIDEOS */
+#radio-tv {
+    width: 75%;
+    height: 580px;
+    background: url("img/radio-tv.png") no-repeat;
+    margin: 5px auto;
+}
+
+#musica {
+    display: block;
+    position: relative;
+    width: 33%;
+    top: 490px;
+    left: 575px;
+}
+
+#filme {
+    display: block;
+    position: relative;
+    width: 49%;
+    height: 320px;
+    top: 20px;
+    left: 90px;
+}
+
+/* PAGINA DE CONTATOS*/
+
+form {
+    width: 1000px;
+    margin: auto;
+}
+
+input, textarea {
+    background: white;
+    font: 1.1em verdana;
+}
+
+legend {
+    color: black;
+    font: 1.5em verdana;
+    font-weight: bold;
+}
+
+fieldset {
+    border: rgb(45, 171, 245);
+    margin: 20px;
+}
+
+#user {
+    background: url("img/icon-contato.png") no-repeat 95% 95%;
+}
+
+#address {
+    background: url("img/icon-endereco.png") no-repeat 95% 95%;
+}
+
+#message {
+    background: url("img/icon-mensagem.png") no-repeat 95% 95%;
+}
+.btn{
+    background: darkgrey;
+    padding: 7px;
+    margin: 5px;
+    font: 1.2em verdana;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    background: white;
+    color: black;
+}
