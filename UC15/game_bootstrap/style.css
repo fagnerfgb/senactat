@@ -1,3 +1,12 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 }
+
+.card-title{
+	text-align: center;
+	font-weight: bold;
+}
+
+.card-text{
+	text-align: justify;
+}
