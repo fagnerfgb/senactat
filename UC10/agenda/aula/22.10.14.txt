@@ -1,0 +1,19 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 14/10/2022
+#Data de atualização: 14/10/2022
+#Versão: 0.01
+******************************************************************************************
+Encapsulamento
+O principal objetivo do encapsulamento é refinar a segurança do sistema limitando o acesso
+as variáveis e também impedindo que valores inapropriados sejam atribuídos.
+
+Modificadores de Acesso
+private: Acesso permitido somente na própria classe.
+
+"nenhum modificador definido": acesso permitido a todas as classes que pertençam ao mesmo 
+pacote.
+
+protected: Acesso permitido a todas as classes que pertençam ao mesmo pacote.
+Acesso permitido a classes de outros pacotes em caso de herança.
+
+public: Acesso permitido a todas as classes de qualquer pacote.

@@ -1,0 +1,21 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/10/2022
+#Data de atualização: 13/10/2022
+#Versão: 0.01
+******************************************************************************************
+CRUD
+Create (Insert)
+Read (Select)
+Update (Update)
+Delete (Delete)
+******************************************************************************************
+4 operações básicas (banco de dados - sistema)
+******************************************************************************************
+Herança
+Na herança criamos uma subclasse da classe modelo estendendo seus atributos e métodos com
+o objetivo de criar outros tipos de objetos reutilizando atributos e métodos da classe 
+modelo.
+******************************************************************************************
+Polimorfismo
+É a modificação do comportamento de um método existente na classe modelo.
+******************************************************************************************

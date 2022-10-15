@@ -1,0 +1,48 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 10/10/2022
+#Data de atualização: 10/10/2022
+#Versão: 0.01
+******************************************************************************************
+Desenvolvimento de sistemas desktop
+Ex: "loja física de rua"
+PC (Windows / Linux)
+Rede Local
+******************************************************************************************
+Banco de dados
+Linguagem de programação para desktop
+	POO (Programação orientada a objetos)
+******************************************************************************************
+Banco de dados
+	Relacionais (MySQL)
+	Não Relacionais (MongoDB)
+******************************************************************************************
+Linguagem de programação
+	Java
+******************************************************************************************
+Projeto 1 - Simples agenda de contatos
+
+Briefing:
+	Nome do contato (obrigatório)
+	Telefone (obrigatório)
+	E-mail (obrigatório)
+
+Ações:
+	Cadastrar contato
+	Alterar contato
+	Pesquisar contato
+	Excluir contato
+******************************************************************************************
+https://github.com/professorjosedeassis/mysql
+******************************************************************************************
+Configurando IP da VM do WebServer
+cat /etc/issue
+cd /etc/netplan
+vim 00-installer-config.yaml
+	ip: 10.26.49.110
+	gateway: 10.26.49.1
+netplan --debug apply
+ip a
+******************************************************************************************
+No servidor Linux
+mysql -u root -p
+quit

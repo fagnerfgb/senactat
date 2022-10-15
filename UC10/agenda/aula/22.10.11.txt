@@ -1,0 +1,38 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 11/10/2022
+#Data de atualização: 11/10/2022
+#Versão: 0.01
+******************************************************************************************
+POO - Programação Orientada a objeto
+Objeto (substantivo)
+******************************************************************************************
+Abstração
+A abstração é usada para definir um modelo para a criação dos objetos.
+Na linguagem Java usamos uma classe para criar um modelo.
+******************************************************************************************
+Classe Modelo
+Para explicar uma classe modelo vamos fazer uma analogia com a patente da Lego que descreve
+as características de um bloco além de mostrar que é possível encaixar um bloco no outro.
+Este modelo será usado para criar os objetos (blocos).
+Características (adjetivos)
+Métodos ou funções (verbos)
+Não poder ser do tipo public static void main
+******************************************************************************************
+Objetos
+Objetos são criados à partir da classe modelo. Percebam na imagem que temos blocos de 
+diferentes cores e tamanhos, porém todos foram criados a partir de um modelo.
+
+new (criar / instanciar) um objeto
+******************************************************************************************
+Construtores
+Usados para automatizar a criação de um objeto
+O construtor precisa ter o mesmo nome da classe
+******************************************************************************************
+Abrir o Workbench
+use agenda;
+
+******************************************************************************************
+img - imagens e ícones
+model - banco de dados
+view - interface gráfica
+
