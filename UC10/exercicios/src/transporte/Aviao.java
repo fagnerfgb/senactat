@@ -1,4 +1,4 @@
-package exercicios;
+package transporte;
 
 public class Aviao extends Carro {
 	
@@ -6,7 +6,7 @@ public class Aviao extends Carro {
 	double envergadura;
 	
 	
-	// Métodos
+	// Mï¿½todos
 	void aterrisar() {
 		System.out.println("Aterrisando...");
 	}

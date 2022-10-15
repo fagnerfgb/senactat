@@ -1,4 +1,4 @@
-package exercicios;
+package transporte;
 
 public class Garagem {
 

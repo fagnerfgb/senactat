@@ -1,4 +1,4 @@
-package exercicios;
+package transporte;
 
 public class Hangar {
 
@@ -8,7 +8,7 @@ public class Hangar {
 		a380.ano = 2019;
 		a380.envergadura = 80;
 
-		System.out.println("Avião: Airbus A380");
+		System.out.println("Aviï¿½o: Airbus A380");
 		System.out.println("Cor: " + a380.cor);
 		System.out.println("Ano: " + a380.ano);
 		System.out.println("Envergadura: " + a380.envergadura + " metros");
@@ -23,7 +23,7 @@ public class Hangar {
 		cessna152.ano = 2008;
 		cessna152.envergadura = 10;
 
-		System.out.println("Avião: Cessna 152");
+		System.out.println("Aviï¿½o: Cessna 152");
 		System.out.println("Cor: " + cessna152.cor);
 		System.out.println("Ano: " + cessna152.ano);
 		System.out.println("Envergadura: " + cessna152.envergadura + " metros");
