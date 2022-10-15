@@ -1,0 +1,24 @@
+body{
+    background-color: #5c599e; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.corDeFundo{
+    background-color: #04021b;
+}
+
+.corDaFonteBranca{
+    color: #ffffff;
+}
+
+.corDaFonteAmarela{
+    color: #f19b2c;
+}
+
+.fundoRodape{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.lista{
+    margin-top: 3em;
+}
