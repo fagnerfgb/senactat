@@ -1,0 +1,25 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 16/10/2022
+#Data de atualização: 16/10/2022
+#Versão: 0.01
+******************************************************************************************
+cd /etc/apache2/sites-available
+
+sudo vim 000-default.conf
+
+<Directory /var/www/html/game>
+Options Indexes FollowSymLinks MultiViews
+AllowOverride All
+Order allow,deny
+allow from all
+</Directory>
+
+sudo a2ensite game.conf
+sudo systemctl restart apache2
+
+cd /var/www/html/game
+sudo chmod 644 .htaccess
+
+fonte: https://br.wordpress.org/support/topic/a-resposta-nao-e-um-json-valido-2/
+
+
