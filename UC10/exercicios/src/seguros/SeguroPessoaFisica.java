@@ -1,4 +1,4 @@
-package seguro;
+package seguros;
 
 import contas.Conta;
 
