@@ -17,3 +17,9 @@ protected: Acesso permitido a todas as classes que pertençam ao mesmo pacote.
 Acesso permitido a classes de outros pacotes em caso de herança.
 
 public: Acesso permitido a todas as classes de qualquer pacote.
+******************************************************************************************
+Encapsulamento
+Deixar as variáveis como private
+Criar os "getters e setters" para acesso as variáveis protegidas.
+Botão direito do mouse, source, generate, getters and setters
+******************************************************************************************

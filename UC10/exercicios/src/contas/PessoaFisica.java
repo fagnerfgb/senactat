@@ -6,6 +6,7 @@ public class PessoaFisica {
 		
 		// Objeto 1
 		Conta cc1 = new Conta();
+		cc1.setCliente("Fagner Geraldes Braga");
 		cc1.setSaldo(10000);
 		System.out.println("Cliente: " + cc1.getCliente());
 		cc1.exibirSaldo();
