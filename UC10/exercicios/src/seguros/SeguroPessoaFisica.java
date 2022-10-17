@@ -10,6 +10,7 @@ public class SeguroPessoaFisica extends Conta {
 		cc3.setSaldo(1000000);
 		System.out.println("Cliente: " + cc3.getCliente());
 		cc3.exibirSaldo();
+		//cc3.getSaldo();
 	}
 
 }

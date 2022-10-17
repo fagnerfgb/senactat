@@ -12,8 +12,31 @@ public class Conta {
 
 	}
 
-	// metodos
+	// Criar metodos publicos para "usar" as variaveis
 
+	public String getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+
+	public double getSaldo() {
+		//System.out.println("Saldo:  R$ " + saldo);
+		return saldo;
+		
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	/* Metodos */
+
+	/**
+	 * Metodo simples para exibir o saldo
+	 */
 	protected void exibirSaldo() {
 		System.out.println("Saldo:  R$ " + saldo);
 	}
@@ -37,22 +60,6 @@ public class Conta {
 	double soma(double cc1, double cc2) {
 		double total = cc1 + cc2;
 		return total;
-	}
-
-	public String getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
 	}
 
 }
