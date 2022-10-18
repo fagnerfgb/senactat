@@ -23,3 +23,18 @@ Deixar as variáveis como private
 Criar os "getters e setters" para acesso as variáveis protegidas.
 Botão direito do mouse, source, generate, getters and setters
 ******************************************************************************************
+JDBC (Java Database Connector)
+4 classes modelo responsáveis pela conexão com o banco de dados
+******************************************************************************************
+Classe 1
+Driver manager (tipo de banco de dados)
+"baixar um driver do fabricante"
+https://dev.mysql.com/downloads/connector/j/
+
+No Eclipse
+Copiar o driver para o pacote model
+Clicar com o botão direito no driver e selecionar Build path, Add to build path
+******************************************************************************************
+Classe 2 - Connection (abrir e fechar uma conexão)
+
+
