@@ -4,6 +4,13 @@
 #Versão: 0.01
 ******************************************************************************************
 Clique com o botão direito em JFrame - Add event handler - window - window activated
+******************************************************************************************
+JDBC
+ DriverManager (driver do banco)
+ Connection (abrir e fechar uma conexão)
+ PreparedStatement (Executar SQL (query) no Java)
+ ResultSet (Trazer as informações do banco) - resultado
+******************************************************************************************
 
 
 
