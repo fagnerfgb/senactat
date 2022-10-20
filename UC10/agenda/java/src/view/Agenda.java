@@ -150,7 +150,7 @@ public class Agenda extends JFrame {
 		btnUpdate.setBounds(160, 137, 64, 64);
 		contentPane.add(btnUpdate);
 
-		JButton btnRead = new JButton("");
+		btnRead = new JButton("");
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pesquisarContato();
@@ -211,6 +211,7 @@ public class Agenda extends JFrame {
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	private JButton btnCreate;
+	private JButton btnRead;
 
 	/**
 	 * Metodo responsavel por verificar o status da conexao com o banco
@@ -275,6 +276,7 @@ public class Agenda extends JFrame {
 					txtEmail.setText(null);
 					txtFone.requestFocus();
 					btnCreate.setEnabled(true);
+					btnRead.setEnabled(false);
 				}
 				// Fechar a conexao
 				con.close();
@@ -338,5 +340,6 @@ public class Agenda extends JFrame {
 		btnCreate.setEnabled(false);
 		btnUpdate.setEnabled(false);
 		btnDelete.setEnabled(false);
+		btnRead.setEnabled(true);
 	} // Fim do metodo limpar
 } // Fim do codigo

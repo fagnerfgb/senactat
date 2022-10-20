@@ -1,6 +1,6 @@
 #Autor: Fagner Geraldes Braga
-#Data de criação: 18/10/2022
-#Data de atualização: 18/10/2022
+#Data de criação: 20/10/2022
+#Data de atualização: 20/10/2022
 #Versão: 0.01
 ******************************************************************************************
 
