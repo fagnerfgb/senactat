@@ -120,6 +120,8 @@ update contatos set email = 'isabel@gmail.com' where id = 7;
 -- Alterar todos os campos do id 3
 update contatos set nome = 'Fabio Vaz Medeiros', fone = '66666-77777', email = 'fabio.medeiros@gmail.com' where id = 3;
 
+update contatos set nome = 'Allan Richard Gomes', fone = '12345-6789', email = 'allan.gomesti@outlook.com' where id = 13; 
+
 -- Delete (Delete)
 -- Usar where
 delete from contatos where id = 3;

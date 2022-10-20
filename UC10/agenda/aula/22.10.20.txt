@@ -3,6 +3,24 @@
 #Data de atualização: 20/10/2022
 #Versão: 0.01
 ******************************************************************************************
+Template usado na validação de campos obrigatórios
+if (Jtext1.getText.isEmpty){
+  // mensagem
+  Jtext1.requestFocus();
+} else if (Jtext2.getText.isEmpty){
+ // mensagem
+ Jtext2.requestFocus();
+} else {
+  // lógica principal do CRUD
+}
+******************************************************************************************
+JDBC
+ Driver Manager (tipo de banco - DAO)
+ Connection (abrir e fechar conexão)
+ PreparedStatement (preparar a query (?,?,?,?))
+ ResultSet (obter o resultado do banco) - SELECT
+
+  
 
 
 

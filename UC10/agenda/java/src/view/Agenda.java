@@ -141,6 +141,11 @@ public class Agenda extends JFrame {
 		contentPane.add(btnDelete);
 
 		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				alterarContato();
+			}
+		});
 		btnUpdate.setEnabled(false);
 		btnUpdate.setContentAreaFilled(false);
 		btnUpdate.setToolTipText("Atualizar contato");
@@ -327,6 +332,47 @@ public class Agenda extends JFrame {
 			}
 		}
 	} // Fim do Metodo adicionarContato
+
+	/**
+	 * Metodo responsavel por alterar informacoes do contato
+	 */
+
+	private void alterarContato() {
+		// Validacao
+		if (txtNome.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o nome");
+			txtNome.requestFocus();
+		} else if (txtFone.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o telefone");
+			txtFone.requestFocus();
+		} else {
+			// System.out.println("Alterado");
+			String update = "update contatos set nome = ?, fone = ?, email = ? where id = ? ";
+			try {
+				// Estabelecer a conexao
+				Connection con = dao.conectar();
+				// Prepara o codigo sql para execucao
+				PreparedStatement pst = con.prepareStatement(update);
+				pst.setString(1, txtNome.getText());
+				pst.setString(2, txtFone.getText());
+				pst.setString(3, txtEmail.getText());
+				pst.setString(4, txtId.getText());
+				// Executar a query e confirmar a alteracao
+				int confirma = pst.executeUpdate();
+				// System.out.println(confirma);
+				if (confirma == 1) {
+					JOptionPane.showMessageDialog(null, "Contato atualizado com sucesso!");
+					limpar();
+				}
+				// Encerrar a conexao
+				con.close();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+
+	} // Fim do metodo alterarContato
 
 	/**
 	 * Metodo usado para limpar os campos
