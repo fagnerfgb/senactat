@@ -131,6 +131,11 @@ public class Agenda extends JFrame {
 		contentPane.add(btnCreate);
 
 		btnDelete = new JButton("");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				excluirContato();
+			}
+		});
 		btnDelete.setEnabled(false);
 		btnDelete.setContentAreaFilled(false);
 		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -373,6 +378,34 @@ public class Agenda extends JFrame {
 		}
 
 	} // Fim do metodo alterarContato
+
+	/**
+	 * Metodo responsavel por excluir um contato
+	 */
+	private void excluirContato() {
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão deste contato ?", "ATENÇÃO",
+				JOptionPane.YES_NO_OPTION);
+		if (confirma == JOptionPane.YES_OPTION) {
+			String delete = "delete from contatos where id = ?";
+			try {
+				// Estabelecer a conexao
+				Connection con = dao.conectar();
+				// Prepara o codigo sql para execucao
+				PreparedStatement pst = con.prepareStatement(delete);
+				pst.setString(1, txtId.getText());
+				// Executar a query e confirmar a exclusao
+				int exclui = pst.executeUpdate();
+				if (exclui == 1) {
+					limpar();
+					JOptionPane.showMessageDialog(null, "Contato excluído com sucesso!");					
+				}
+				// Encerrar a conexao
+				con.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+	} // Fim do metodo excluirContato
 
 	/**
 	 * Metodo usado para limpar os campos

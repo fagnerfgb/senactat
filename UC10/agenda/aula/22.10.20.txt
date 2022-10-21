@@ -19,6 +19,12 @@ JDBC
  Connection (abrir e fechar conexão)
  PreparedStatement (preparar a query (?,?,?,?))
  ResultSet (obter o resultado do banco) - SELECT
+******************************************************************************************
+Publicando um projeto Java
+- documentação (javadoc)
+- release (.jar)
+******************************************************************************************
+
 
   
 
