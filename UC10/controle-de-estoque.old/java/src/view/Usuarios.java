@@ -3,8 +3,6 @@ package view;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
@@ -18,8 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Usuarios extends JDialog {
 
@@ -27,12 +26,11 @@ public class Usuarios extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel lblStatusBanco;
+	private JLabel lblSenha;
 	private JTextField txtId;
 	private JTextField txtUsuario;
 	private JTextField txtLogin;
 	private JTextField txtSenha;
-	// Criar um objeto para acessar o metodo conectar() da classe DAO
 
 	/**
 	 * Launch the application.
@@ -63,56 +61,56 @@ public class Usuarios extends JDialog {
 		});
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/user.png")));
 		setResizable(false);
-		setTitle("Usuários");
-		setBounds(100, 100, 450, 261);
+		setTitle("Usu\u00E1rios");
+		setBounds(100, 100, 371, 300);
 		getContentPane().setLayout(null);
 
 		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(10, 20, 46, 14);
+		lblId.setBounds(10, 32, 46, 14);
 		getContentPane().add(lblId);
 
-		JLabel lblUsuario = new JLabel("Usuário");
-		lblUsuario.setBounds(10, 50, 46, 14);
+		JLabel lblUsuario = new JLabel("Usu\u00E1rio");
+		lblUsuario.setBounds(10, 72, 46, 14);
 		getContentPane().add(lblUsuario);
 
 		JLabel lblLogin = new JLabel("Login");
-		lblLogin.setBounds(10, 80, 46, 14);
+		lblLogin.setBounds(10, 112, 46, 14);
 		getContentPane().add(lblLogin);
 
-		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setBounds(10, 110, 46, 14);
+		lblSenha = new JLabel("Senha");
+		lblSenha.setBounds(10, 152, 46, 14);
 		getContentPane().add(lblSenha);
 
-		lblStatusBanco = new JLabel("");
-		lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
-		lblStatusBanco.setToolTipText("Informa se o banco de dados está conectado");
-		lblStatusBanco.setBounds(346, 50, 64, 64);
-		getContentPane().add(lblStatusBanco);
-
 		txtId = new JTextField();
-		txtId.setBounds(76, 17, 100, 20);
+		txtId.setBounds(93, 32, 80, 20);
 		getContentPane().add(txtId);
 		txtId.setColumns(10);
 
 		txtUsuario = new JTextField();
-		txtUsuario.setToolTipText("Insira o nome completo do usuário");
-		txtUsuario.setBounds(76, 47, 250, 20);
+		txtUsuario.setToolTipText("Insira o nome completo do usu\u00E1rio");
+		txtUsuario.setBounds(93, 72, 250, 20);
 		getContentPane().add(txtUsuario);
 		txtUsuario.setColumns(10);
 
 		txtLogin = new JTextField();
-		txtLogin.setToolTipText("primeironome.últimonome");
-		txtLogin.setBounds(76, 77, 250, 20);
+		txtLogin.setToolTipText("Insira o login do usu\u00E1rio");
+		txtLogin.setBounds(93, 112, 250, 20);
 		getContentPane().add(txtLogin);
 		txtLogin.setColumns(10);
 
 		txtSenha = new JTextField();
-		txtSenha.setToolTipText("Insira a senha do usuário");
-		txtSenha.setBounds(75, 107, 250, 20);
+		txtSenha.setToolTipText("Insira a senha do usu\u00E1rio");
+		txtSenha.setBounds(93, 152, 250, 20);
 		getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 
-		btnCreate = new JButton("");
+		lblStatus = new JLabel("");
+		lblStatus.setToolTipText("Status da conex\u00E3o com o banco de dados");
+		lblStatus.setIcon(new ImageIcon(Usuarios.class.getResource("/img/offdb.png")));
+		lblStatus.setBounds(279, 5, 64, 64);
+		getContentPane().add(lblStatus);
+
+		JButton btnCreate = new JButton("");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				adicionar();
@@ -123,9 +121,22 @@ public class Usuarios extends JDialog {
 		btnCreate.setContentAreaFilled(false);
 		btnCreate.setBorderPainted(false);
 		btnCreate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/create.png")));
-		btnCreate.setToolTipText("Adicionar um novo funcionário");
-		btnCreate.setBounds(60, 140, 64, 64);
+		btnCreate.setToolTipText("Clique para cadastrar um funcion\u00E1rio");
+		btnCreate.setBounds(40, 186, 64, 64);
 		getContentPane().add(btnCreate);
+
+		JButton btnRead = new JButton("");
+		btnRead.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pesquisar();
+			}
+		});
+		btnRead.setIcon(new ImageIcon(Usuarios.class.getResource("/img/search.png")));
+		btnRead.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRead.setContentAreaFilled(false);
+		btnRead.setBorderPainted(false);
+		btnRead.setBounds(175, 28, 24, 24);
+		getContentPane().add(btnRead);
 
 		btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
@@ -134,86 +145,49 @@ public class Usuarios extends JDialog {
 			}
 		});
 		btnUpdate.setEnabled(false);
-		btnUpdate.setToolTipText("Atualizar dados do funcionário");
-		btnUpdate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/update.png")));
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnUpdate.setContentAreaFilled(false);
 		btnUpdate.setBorderPainted(false);
-		btnUpdate.setBounds(184, 140, 64, 64);
+		btnUpdate.setContentAreaFilled(false);
+		btnUpdate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/atualizar.png")));
+		btnUpdate.setToolTipText("Atualizar os dados do funcion\u00E1rio");
+		btnUpdate.setBounds(144, 186, 64, 64);
 		getContentPane().add(btnUpdate);
-
-		btnDelete = new JButton("");
-		btnDelete.addActionListener(new ActionListener() {
+		
+		btnExcluir = new JButton("");
+		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				excluir();
 			}
 		});
-		btnDelete.setEnabled(false);
-		btnDelete.setIcon(new ImageIcon(Usuarios.class.getResource("/img/delete.png")));
-		btnDelete.setToolTipText("Excluir um funcionário");
-		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnDelete.setContentAreaFilled(false);
-		btnDelete.setBorderPainted(false);
-		btnDelete.setBounds(308, 140, 64, 64);
-		getContentPane().add(btnDelete);
-
-		btnRead = new JButton("");
-		btnRead.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pesquisar();
-			}
-		});
-		btnRead.setToolTipText("Pesquisar");
-		btnRead.setIcon(new ImageIcon(Usuarios.class.getResource("/img/search.png")));
-		btnRead.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnRead.setContentAreaFilled(false);
-		btnRead.setBorderPainted(false);
-		btnRead.setBounds(336, 17, 24, 24);
-		getContentPane().add(btnRead);
-
-		// Uso da tecla <Enter> junto com um botao
-		getRootPane().setDefaultButton(btnRead);
-		
-		// Uso da biblioteca atxy2k para restringir o maximo de caracteres
-		
-		// txtUsuario
-		RestrictedTextField nome = new RestrictedTextField(txtUsuario);
-		nome.setOnlyText(true);
-		nome.setAcceptSpace(true);
-		nome.setLimit(50);
-		
-		// txtLogin
-		RestrictedTextField login = new RestrictedTextField(txtLogin);
-		login.setLimit(50);
-		
-		// txtSenha
-		RestrictedTextField senha = new RestrictedTextField(txtSenha);
-		senha.setLimit(250);
-		nome.setAcceptSpace(false);		
+		btnExcluir.setToolTipText("Excluir os dados do funcionário");
+		btnExcluir.setIcon(new ImageIcon(Usuarios.class.getResource("/img/delete.png")));
+		btnExcluir.setEnabled(false);
+		btnExcluir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnExcluir.setBounds(248, 186, 64, 64);
+		getContentPane().add(btnExcluir);
 
 	} // Fim do construtor
 
+	// Criar um objeto para acessar o metodo conectar() da classe DAO
 	DAO dao = new DAO();
+	private JLabel lblStatus;
 	private JButton btnCreate;
-	private JButton btnUpdate;
-	private JButton btnDelete;
 	private JButton btnRead;
-
+	private JButton btnUpdate;
+	private JButton btnExcluir;
+	
+	
 	/**
 	 * Metodo responsavel por verificar o status da conexao com o banco
 	 */
 	private void status() {
 		try {
-			// Uso da classe Connection (JDBC) para estabelecer a conexao
 			Connection con = dao.conectar();
 			if (con == null) {
-				// System.out.println("Erro de conexão");
-				lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
+				lblStatus.setIcon(new ImageIcon(Usuarios.class.getResource("/img/offdb.png")));
 			} else {
-				// System.out.println("Banco conectado!");
-				lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dbon.png")));
+				lblStatus.setIcon(new ImageIcon(Usuarios.class.getResource("/img/ondb.png")));
 			}
-			// Nunca esquecer de encerrar a conexao
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -224,7 +198,6 @@ public class Usuarios extends JDialog {
 	 * Metodo responsavel pela pesquisa (Select)
 	 */
 	private void pesquisar() {
-
 		// validacao
 		if (txtId.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o ID do funcionário");
@@ -243,7 +216,6 @@ public class Usuarios extends JDialog {
 				ResultSet rs = pst.executeQuery();
 				// Verificar se existe um contato cadastrado
 				// rs.next() significa ter um contato correspondente ao ID
-
 				if (rs.next()) {
 					txtUsuario.setText(rs.getString(2));
 					txtLogin.setText(rs.getString(3));
@@ -251,17 +223,18 @@ public class Usuarios extends JDialog {
 
 					// Habilitar botoes alterar e excluir
 					btnUpdate.setEnabled(true);
-					btnDelete.setEnabled(true);
+					btnExcluir.setEnabled(true);
+					
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Id inexistente");
+					JOptionPane.showMessageDialog(null, "ID inexistente");
 					txtId.setText(null);
 					txtUsuario.setText(null);
 					txtLogin.setText(null);
 					txtSenha.setText(null);
-					txtUsuario.requestFocus();
+					txtId.requestFocus();
 					btnCreate.setEnabled(true);
 					btnRead.setEnabled(false);
-					txtId.setEnabled(false);
 				}
 				// Fechar a conexao
 				con.close();
@@ -270,10 +243,6 @@ public class Usuarios extends JDialog {
 			}
 		}
 	} // Fim do metodo pesquisar
-
-	/**
-	 * Metodo responsavel pelo cadastro de um novo funcionario
-	 */
 
 	void adicionar() {
 		// Validacao
@@ -313,10 +282,6 @@ public class Usuarios extends JDialog {
 		}
 	} // Fim do Metodo adicionar
 
-	/**
-	 * Metodo responsavel por alterar informacoes do funcionario
-	 */
-
 	private void alterar() {
 		// Validacao
 		if (txtUsuario.getText().isEmpty()) {
@@ -328,20 +293,21 @@ public class Usuarios extends JDialog {
 		} else if (txtSenha.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a senha");
 		} else {
-			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ?";
+			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ? ";
 			try {
 				// Estabelecer a conexao
 				Connection con = dao.conectar();
 				// Prepara o codigo sql para execucao
 				PreparedStatement pst = con.prepareStatement(update);
-				pst.setString(1, txtUsuario.getText());
-				pst.setString(2, txtLogin.getText());
-				pst.setString(3, txtSenha.getText());
-				pst.setString(4, txtId.getText());
+				pst.setString(1, txtId.getText());
+				pst.setString(2, txtUsuario.getText());
+				pst.setString(3, txtLogin.getText());
+				pst.setString(4, txtSenha.getText());
+				// Executar a query e confirmar a alteracao
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
-					JOptionPane.showMessageDialog(null, "Dados do funcionário atualizados com sucesso!");
+					JOptionPane.showMessageDialog(null, "Dados do funcion�rio atualizados com sucesso!");
 					limpar();
 				}
 				// Encerrar a conexao
@@ -357,7 +323,6 @@ public class Usuarios extends JDialog {
 	/**
 	 * Metodo responsavel por excluir um contato
 	 */
-	
 	private void excluir() {
 		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do funcionário ?", "ATENÇÃO",
 				JOptionPane.YES_NO_OPTION);
@@ -388,14 +353,13 @@ public class Usuarios extends JDialog {
 	 */
 	private void limpar() {
 		txtId.setText(null);
-		txtId.setEnabled(true);
 		txtUsuario.setText(null);
 		txtLogin.setText(null);
 		txtSenha.setText(null);
 		txtId.requestFocus();
 		btnCreate.setEnabled(false);
 		btnUpdate.setEnabled(false);
+		
 		btnRead.setEnabled(true);
-		btnDelete.setEnabled(false);
 	} // Fim do metodo limpar
 } // Fim do codigo

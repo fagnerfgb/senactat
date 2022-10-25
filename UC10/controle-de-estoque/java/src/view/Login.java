@@ -1,18 +1,25 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.ImageIcon;
 import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
-import Atxy2k.CustomTextField.RestrictedTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
 import model.DAO;
+
 
 public class Login extends JFrame {
 
@@ -22,10 +29,7 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtLogin;
-	private JTextField txtSenha;
-	private JTextField txtId;
-	private JTextField txtUsuario;
-	private JLabel lblStatus;
+	private JLabel lblStatusBanco;
 
 	/**
 	 * Launch the application.
@@ -47,10 +51,16 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				status();
+			}
+		});
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/login.png")));
-		setTitle("Login");
+		setTitle("Sistema de Controle de Estoque - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 306, 303);
+		setBounds(100, 100, 521, 186);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,57 +71,60 @@ public class Login extends JFrame {
 		btnAcessar.setContentAreaFilled(false);
 		btnAcessar.setBorderPainted(false);
 		btnAcessar.setIcon(new ImageIcon(Login.class.getResource("/img/acessar.png")));
-		btnAcessar.setToolTipText("Clique para acessar");
-		btnAcessar.setBounds(113, 190, 64, 64);
+		btnAcessar.setToolTipText("Clique para fazer logon no sistema");
+		btnAcessar.setBounds(433, 53, 64, 64);
 		contentPane.add(btnAcessar);
 		
 		JLabel lblLogin = new JLabel("Login");
-		lblLogin.setBounds(10, 110, 46, 14);
+		lblLogin.setBounds(148, 60, 46, 14);
 		contentPane.add(lblLogin);
 		
 		txtLogin = new JTextField();
-		txtLogin.setToolTipText("Insira o seu login");
-		txtLogin.setBounds(66, 110, 211, 20);
+		txtLogin.setToolTipText("Insira o login");
+		txtLogin.setBounds(204, 57, 211, 20);
 		contentPane.add(txtLogin);
 		txtLogin.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setBounds(10, 150, 46, 14);
+		lblSenha.setBounds(148, 100, 46, 14);
 		contentPane.add(lblSenha);
 		
-		txtSenha = new JTextField();
-		txtSenha.setToolTipText("Insira a senha");
-		txtSenha.setBounds(66, 150, 211, 20);
-		contentPane.add(txtSenha);
-		txtSenha.setColumns(10);
+		lblStatusBanco = new JLabel("");
+		lblStatusBanco.setIcon(new ImageIcon(Login.class.getResource("/img/dboff24.png")));
+		lblStatusBanco.setBounds(471, 11, 24, 24);
+		contentPane.add(lblStatusBanco);
 		
-		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(10, 30, 46, 14);
-		contentPane.add(lblId);
+		lblAcesso = new JLabel("");
+		lblAcesso.setIcon(new ImageIcon(Login.class.getResource("/img/logon.png")));
+		lblAcesso.setBounds(10, 11, 128, 128);
+		contentPane.add(lblAcesso);
 		
-		txtId = new JTextField();
-		txtId.setEnabled(false);
-		txtId.setBounds(66, 30, 86, 20);
-		contentPane.add(txtId);
-		txtId.setColumns(10);
+		txtSenha = new JPasswordField();
 		
-		JLabel lblUsuario = new JLabel("Usu\u00E1rio");
-		lblUsuario.setBounds(10, 70, 46, 14);
-		contentPane.add(lblUsuario);
-		
-		txtUsuario = new JTextField();
-		txtUsuario.setEnabled(false);
-		txtUsuario.setBounds(66, 70, 211, 20);
-		contentPane.add(txtUsuario);
-		txtUsuario.setColumns(10);
-		
-		lblStatus = new JLabel("");
-		lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/offdb.png")));
-		lblStatus.setBounds(213, 5, 64, 64);
-		contentPane.add(lblStatus);
 	} // Fim do Construtor
 	
+	DAO dao = new DAO();
+	private JLabel lblAcesso;
+	private JPasswordField txtSenha;
 	
-	
-	
+	/**
+	 * Metodo responsavel por verificar o status da conexao com o banco
+	 */
+	private void status() {
+		try {
+			// Uso da classe Connection (JDBC) para estabelecer a conexao
+			Connection con = dao.conectar();
+			if (con == null) {
+				// System.out.println("Erro de conexão");
+				lblStatusBanco.setIcon(new ImageIcon(Login.class.getResource("/img/dboff24.png")));
+			} else {
+				// System.out.println("Banco conectado!");
+				lblStatusBanco.setIcon(new ImageIcon(Login.class.getResource("/img/dbon24.png")));
+			}
+			// Nunca esquecer de encerrar a conexao
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	} // Fim do metodo status
 } // Fim do codigo
