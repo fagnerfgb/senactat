@@ -1,0 +1,19 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 24/10/2022
+#Data de atualização: 24/10/2022
+#Versão: 0.01
+******************************************************************************************
+Atividade de avaliação:
+
+1) Banco de dados (completar o script estoque.sql) - OK
+2) Desenvolver no eclipse a tela de usuários (semelhante a agenda de contatos), com JDBC e CRUD completo.
+Observações:
+ - Ícones, acessibilidade e design completo
+ - Validação completa (campos obrigatórios, número máximo de caracteres e botões)
+ - Usar o id para o CRUD (pesquisa, alteração e exclusão)
+
+  
+
+
+
+
