@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
+import java.awt.SystemColor;
 
 public class Usuarios extends JDialog {
 
@@ -55,6 +56,8 @@ public class Usuarios extends JDialog {
 	 * Create the dialog.
 	 */
 	public Usuarios() {
+		setBackground(SystemColor.textHighlight);
+		setForeground(SystemColor.textHighlight);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -63,15 +66,16 @@ public class Usuarios extends JDialog {
 		});
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/user.png")));
 		setResizable(false);
-		setTitle("Usu√°rios");
+		setTitle("Controle de Estoque - Usu\u00E1rios");
 		setBounds(100, 100, 450, 261);
 		getContentPane().setLayout(null);
 
 		JLabel lblId = new JLabel("ID");
+		lblId.setForeground(SystemColor.desktop);
 		lblId.setBounds(10, 20, 46, 14);
 		getContentPane().add(lblId);
 
-		JLabel lblUsuario = new JLabel("Usu√°rio");
+		JLabel lblUsuario = new JLabel("Usu\u00E1rio");
 		lblUsuario.setBounds(10, 50, 46, 14);
 		getContentPane().add(lblUsuario);
 
@@ -85,7 +89,7 @@ public class Usuarios extends JDialog {
 
 		lblStatusBanco = new JLabel("");
 		lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
-		lblStatusBanco.setToolTipText("Informa se o banco de dados est√° conectado");
+		lblStatusBanco.setToolTipText("Informa se o banco de dados est· conectado");
 		lblStatusBanco.setBounds(346, 50, 64, 64);
 		getContentPane().add(lblStatusBanco);
 
@@ -95,19 +99,19 @@ public class Usuarios extends JDialog {
 		txtId.setColumns(10);
 
 		txtUsuario = new JTextField();
-		txtUsuario.setToolTipText("Insira o nome completo do usu√°rio");
+		txtUsuario.setToolTipText("Insira o nome completo do usu·rio");
 		txtUsuario.setBounds(76, 47, 250, 20);
 		getContentPane().add(txtUsuario);
 		txtUsuario.setColumns(10);
 
 		txtLogin = new JTextField();
-		txtLogin.setToolTipText("primeironome.√∫ltimonome");
+		txtLogin.setToolTipText("primeironome.˙ltimonome");
 		txtLogin.setBounds(76, 77, 250, 20);
 		getContentPane().add(txtLogin);
 		txtLogin.setColumns(10);
 
 		txtSenha = new JTextField();
-		txtSenha.setToolTipText("Insira a senha do usu√°rio");
+		txtSenha.setToolTipText("Insira a senha do usu·rio");
 		txtSenha.setBounds(75, 107, 250, 20);
 		getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
@@ -134,7 +138,7 @@ public class Usuarios extends JDialog {
 			}
 		});
 		btnUpdate.setEnabled(false);
-		btnUpdate.setToolTipText("Atualizar dados do funcion√°rio");
+		btnUpdate.setToolTipText("Atualizar dados do funcion·rio");
 		btnUpdate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/update.png")));
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUpdate.setContentAreaFilled(false);
@@ -150,7 +154,7 @@ public class Usuarios extends JDialog {
 		});
 		btnDelete.setEnabled(false);
 		btnDelete.setIcon(new ImageIcon(Usuarios.class.getResource("/img/delete.png")));
-		btnDelete.setToolTipText("Excluir um funcion√°rio");
+		btnDelete.setToolTipText("Excluir um funcion·rio");
 		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnDelete.setContentAreaFilled(false);
 		btnDelete.setBorderPainted(false);
@@ -168,28 +172,38 @@ public class Usuarios extends JDialog {
 		btnRead.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRead.setContentAreaFilled(false);
 		btnRead.setBorderPainted(false);
-		btnRead.setBounds(336, 17, 24, 24);
+		btnRead.setBounds(184, 14, 24, 24);
 		getContentPane().add(btnRead);
 
-		// Uso da tecla <Enter> junto com um botao
+		/**
+		 * Uso da tecla <Enter> junto com um botao
+		 */
 		getRootPane().setDefaultButton(btnRead);
-		
-		// Uso da biblioteca atxy2k para restringir o maximo de caracteres
-		
-		// txtUsuario
-		RestrictedTextField nome = new RestrictedTextField(txtUsuario);
-		nome.setOnlyText(true);
-		nome.setAcceptSpace(true);
-		nome.setLimit(50);
-		
-		// txtLogin
+
+		/**
+		 * Uso da biblioteca atxy2k para restringir o maximo de caracteres
+		 */
+
+		/**
+		 * txtUsuario
+		 */
+		RestrictedTextField usuario = new RestrictedTextField(txtUsuario);
+		usuario.setOnlyText(true);
+		usuario.setAcceptSpace(true);
+		usuario.setLimit(50);
+
+		/**
+		 * txtLogin
+		 */
 		RestrictedTextField login = new RestrictedTextField(txtLogin);
 		login.setLimit(50);
-		
-		// txtSenha
+
+		/**
+		 * txtSenha
+		 */
 		RestrictedTextField senha = new RestrictedTextField(txtSenha);
 		senha.setLimit(250);
-		nome.setAcceptSpace(false);		
+		senha.setAcceptSpace(false);
 
 	} // Fim do construtor
 
@@ -207,7 +221,7 @@ public class Usuarios extends JDialog {
 			// Uso da classe Connection (JDBC) para estabelecer a conexao
 			Connection con = dao.conectar();
 			if (con == null) {
-				// System.out.println("Erro de conex√£o");
+				// System.out.println("Erro de conex„o");
 				lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
 			} else {
 				// System.out.println("Banco conectado!");
@@ -221,39 +235,53 @@ public class Usuarios extends JDialog {
 	} // Fim do metodo status
 
 	/**
-	 * Metodo responsavel pela pesquisa (Select)
+	 * Metodo responsavel pela pesquisa por ID(Select)
 	 */
 	private void pesquisar() {
 
-		// validacao
+		/**
+		 * validacao
+		 */
 		if (txtId.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o ID do funcion√°rio");
+			JOptionPane.showMessageDialog(null, "Insira o ID do funcion·rio");
 			txtId.requestFocus();
 		} else {
 			String read = "select * from usuarios where id = ?";
 			try {
-				// Estabelecer a conexao
+				/**
+				 * Estabelecer a conexao
+				 */
 				Connection con = dao.conectar();
-				// Prepara o codigo sql para execucao
+				/**
+				 * Prepara o codigo sql para execucao
+				 */
 				PreparedStatement pst = con.prepareStatement(read);
-				// A linha abaixo substitui o ? pelo conteudo da caixa de texto txtId;
-				// o 1 faz referencia a interrogacao
+				/**
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtId; o 1 faz
+				 * referencia a interrogacao
+				 */
 				pst.setString(1, txtId.getText());
-				// Obter os dados do funcionario
+				/**
+				 * Obter os dados do funcionario
+				 */
 				ResultSet rs = pst.executeQuery();
-				// Verificar se existe um contato cadastrado
-				// rs.next() significa ter um contato correspondente ao ID
-
+				/**
+				 * Verificar se existe um funcionario cadastrado rs.next() significa ter um
+				 * funcionario correspondente ao ID
+				 */
 				if (rs.next()) {
+					txtId.setEnabled(false);
 					txtUsuario.setText(rs.getString(2));
 					txtLogin.setText(rs.getString(3));
 					txtSenha.setText(rs.getString(4));
 
-					// Habilitar botoes alterar e excluir
+					/**
+					 * Habilitar botoes alterar e excluir
+					 */
 					btnUpdate.setEnabled(true);
 					btnDelete.setEnabled(true);
 				} else {
-					JOptionPane.showMessageDialog(null, "Id inexistente");
+					JOptionPane.showMessageDialog(null, "Usu·rio n„o cadastrado");
 					txtId.setText(null);
 					txtUsuario.setText(null);
 					txtLogin.setText(null);
@@ -263,7 +291,9 @@ public class Usuarios extends JDialog {
 					btnRead.setEnabled(false);
 					txtId.setEnabled(false);
 				}
-				// Fechar a conexao
+				/**
+				 * Fechar a conexao
+				 */
 				con.close();
 			} catch (Exception e) {
 				System.out.println(e);
@@ -276,7 +306,9 @@ public class Usuarios extends JDialog {
 	 */
 
 	void adicionar() {
-		// Validacao
+		/**
+		 * Validacao
+		 */
 		if (txtUsuario.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome completo");
 			txtUsuario.requestFocus();
@@ -288,24 +320,33 @@ public class Usuarios extends JDialog {
 		} else {
 			String create = "insert into usuarios (usuario, login, senha) values (?, ?, ?)";
 			try {
-				// Estabelecer a conexao
+				/**
+				 * Estabelecer a conexao
+				 */
 				Connection con = dao.conectar();
-				// Prepara o codigo sql para execucao
+				/**
+				 * Prepara o codigo sql para execucao
+				 */
 				PreparedStatement pst = con.prepareStatement(create);
-				// A linha abaixo substitui o ? pelo conteudo da caixa de texto txtNome, txtFone
-				// e txtEmail;
-				// o 1, 2, 3 faz referencia a interrogacao
+				/**
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtNome, txtFone
+				 * e txtEmail; o 1, 2, 3 faz referencia a interrogacao
+				 */
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
 				pst.setString(3, txtSenha.getText());
-				// Executar a query e confirmar a insercao
+				/**
+				 * Executar a query e confirmar a insercao
+				 */
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
-					JOptionPane.showMessageDialog(null, "Funcion√°rio cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(null, "Funcion·rio cadastrado com sucesso!");
 					limpar();
 				}
-				// Encerrar a conexao
+				/**
+				 * Encerrar a conexao
+				 */
 				con.close();
 			} catch (Exception e) {
 				System.out.println(e);
@@ -318,7 +359,9 @@ public class Usuarios extends JDialog {
 	 */
 
 	private void alterar() {
-		// Validacao
+		/**
+		 * Validacao
+		 */
 		if (txtUsuario.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome completo");
 			txtUsuario.requestFocus();
@@ -330,9 +373,13 @@ public class Usuarios extends JDialog {
 		} else {
 			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ?";
 			try {
-				// Estabelecer a conexao
+				/**
+				 * Estabelecer a conexao
+				 */
 				Connection con = dao.conectar();
-				// Prepara o codigo sql para execucao
+				/**
+				 * Prepara o codigo sql para execucao
+				 */
 				PreparedStatement pst = con.prepareStatement(update);
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
@@ -341,10 +388,12 @@ public class Usuarios extends JDialog {
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
-					JOptionPane.showMessageDialog(null, "Dados do funcion√°rio atualizados com sucesso!");
+					JOptionPane.showMessageDialog(null, "Dados do funcion·rio atualizados com sucesso!");
 					limpar();
 				}
-				// Encerrar a conexao
+				/**
+				 * Encerrar a conexao
+				 */
 				con.close();
 
 			} catch (Exception e) {
@@ -353,29 +402,37 @@ public class Usuarios extends JDialog {
 		}
 
 	} // Fim do metodo alterar
-	
+
 	/**
 	 * Metodo responsavel por excluir um contato
 	 */
-	
+
 	private void excluir() {
-		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclus√£o do funcion√°rio ?", "ATEN√á√ÉO",
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclus„o do funcion·rio ?", "ATEN«√O",
 				JOptionPane.YES_NO_OPTION);
 		if (confirma == JOptionPane.YES_OPTION) {
 			String delete = "delete from usuarios where id = ?";
 			try {
-				// Estabelecer a conexao
+				/**
+				 * Estabelecer a conexao
+				 */
 				Connection con = dao.conectar();
-				// Prepara o codigo sql para execucao
+				/**
+				 * Prepara o codigo sql para execucao
+				 */
 				PreparedStatement pst = con.prepareStatement(delete);
 				pst.setString(1, txtId.getText());
-				// Executar a query e confirmar a exclusao
+				/**
+				 * Executar a query e confirmar a exclusao
+				 */
 				int exclui = pst.executeUpdate();
 				if (exclui == 1) {
 					limpar();
-					JOptionPane.showMessageDialog(null, "Funcion√°rio exclu√≠do com sucesso!");					
+					JOptionPane.showMessageDialog(null, "Funcion·rio excluÌdo com sucesso!");
 				}
-				// Encerrar a conexao
+				/**
+				 * Encerrar a conexao
+				 */
 				con.close();
 			} catch (Exception e) {
 				System.out.println(e);
