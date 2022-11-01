@@ -1,0 +1,61 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 31/10/2022
+#Data de atualização: 31/10/2022
+#Versão: 0.01
+******************************************************************************************
+Login -> main (principal) -> usuários
+	 		  -> fornecedores
+			  -> produtos
+			  -> relatórios
+
+// Uso da tecla <Enter> junto com um botão (construtor)
+getRootPane().setDefaultButton(btnAcessar);
+
+private void status() {
+	try {
+		// abrir a conexão
+		Connection con = dao.conectar();
+		if (con == null) {
+			// escolher a imagem dboff
+			lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dboff.png")));
+		} else {
+		// escolher a imagem dbon
+		lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dbon.png")));
+		}
+		// Não esquecer de fechar a conexão
+		con.close();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+_________________________________________________________
+Atividade 2:
+- Criar o fluxo:
+Login -> Principal OK
+Principal -> Usuários
+- Personalizar os botões da tela de usuários OK
+- Personalizar os botões da tela principal (ícones e  acessibilidade) OK
+- Inserir data no rodapé OK
+- Criar o botão sobre (Autor, versão e licença MIT) OK
+- Criar o fluxo:
+Principal -> Sobre
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+

@@ -3,8 +3,6 @@ package view;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
@@ -19,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.DAO;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -64,8 +64,14 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JButton btnAcessar = new JButton("");
+		btnAcessar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				logar();
+			}
+		});
 		btnAcessar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAcessar.setContentAreaFilled(false);
 		btnAcessar.setBorderPainted(false);
@@ -102,6 +108,8 @@ public class Login extends JFrame {
 		txtSenha.setBounds(204, 97, 211, 20);
 		contentPane.add(txtSenha);
 
+		// tecla enter associada ao botao
+		getRootPane().setDefaultButton(btnAcessar);
 	} // Fim do Construtor
 
 	DAO dao = new DAO();
@@ -116,7 +124,6 @@ public class Login extends JFrame {
 			// Uso da classe Connection (JDBC) para estabelecer a conexao
 			Connection con = dao.conectar();
 			if (con == null) {
-				// System.out.println("Erro de conexão");
 				lblStatusBanco.setIcon(new ImageIcon(Login.class.getResource("/img/dboff24.png")));
 			} else {
 				// System.out.println("Banco conectado!");
@@ -128,4 +135,13 @@ public class Login extends JFrame {
 			System.out.println(e);
 		}
 	} // Fim do metodo status
+
+	private void logar() {
+		// System.out.println("teste do botao acessar");
+		Main main = new Main();
+		main.setVisible(true);
+		// fechar o JFrame
+		this.dispose();
+
+	}
 } // Fim do codigo

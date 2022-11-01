@@ -28,7 +28,6 @@ public class Usuarios extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel lblStatusBanco;
 	private JTextField txtId;
 	private JTextField txtUsuario;
 	private JTextField txtLogin;
@@ -56,12 +55,13 @@ public class Usuarios extends JDialog {
 	 * Create the dialog.
 	 */
 	public Usuarios() {
+		setModal(true);
 		setBackground(SystemColor.textHighlight);
 		setForeground(SystemColor.textHighlight);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				status();
+
 			}
 		});
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/user.png")));
@@ -69,6 +69,7 @@ public class Usuarios extends JDialog {
 		setTitle("Controle de Estoque - Usu\u00E1rios");
 		setBounds(100, 100, 450, 261);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblId = new JLabel("ID");
 		lblId.setForeground(SystemColor.desktop);
@@ -86,12 +87,6 @@ public class Usuarios extends JDialog {
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setBounds(10, 110, 46, 14);
 		getContentPane().add(lblSenha);
-
-		lblStatusBanco = new JLabel("");
-		lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
-		lblStatusBanco.setToolTipText("Informa se o banco de dados está conectado");
-		lblStatusBanco.setBounds(346, 50, 64, 64);
-		getContentPane().add(lblStatusBanco);
 
 		txtId = new JTextField();
 		txtId.setBounds(76, 17, 100, 20);
@@ -212,27 +207,6 @@ public class Usuarios extends JDialog {
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	private JButton btnRead;
-
-	/**
-	 * Metodo responsavel por verificar o status da conexao com o banco
-	 */
-	private void status() {
-		try {
-			// Uso da classe Connection (JDBC) para estabelecer a conexao
-			Connection con = dao.conectar();
-			if (con == null) {
-				// System.out.println("Erro de conexão");
-				lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dboff.png")));
-			} else {
-				// System.out.println("Banco conectado!");
-				lblStatusBanco.setIcon(new ImageIcon(Usuarios.class.getResource("/img/dbon.png")));
-			}
-			// Nunca esquecer de encerrar a conexao
-			con.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	} // Fim do metodo status
 
 	/**
 	 * Metodo responsavel pela pesquisa por ID(Select)
