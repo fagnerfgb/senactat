@@ -39,7 +39,7 @@ Principal -> Usuários
 - Inserir data no rodapé OK
 - Criar o botão sobre (Autor, versão e licença MIT) OK
 - Criar o fluxo:
-Principal -> Sobre
+Principal -> Sobre OK
 
 
 
