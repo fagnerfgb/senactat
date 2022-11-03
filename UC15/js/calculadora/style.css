@@ -1,0 +1,15 @@
+body{
+    background: rgb(160,236, 241);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+div {
+    background: #fff;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px 0px;
+    border-radius: 30px;
+}
