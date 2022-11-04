@@ -1,0 +1,3 @@
+laranja #f19b2c 
+roxo #5c599e
+roxo-escuro #04021b

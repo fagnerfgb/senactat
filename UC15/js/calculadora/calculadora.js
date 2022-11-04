@@ -14,7 +14,4 @@ function calcular() {
 function resetar() {
     document.getElementById("status").src = "img/neutro.png";
     frmFlex.reset();
-
-
-
 }

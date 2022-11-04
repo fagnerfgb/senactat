@@ -1,0 +1,102 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 02/11/2022
+#Data de atualização: 02/11/2022
+#Versão: 0.01
+**********************************************************
+Sistema Operacional: Ubuntu Server 22.04
+
+Banco de dados: MySQL
+Versão do servidor: 8.0.31 - MySQL Community Server - GPL 
+
+Servidor Web
+Apache/2.4.52 (Ubuntu) 
+versão do PHP: 8.1.2-1ubuntu2.6 
+
+phpMyAdmin
+Base de dados: db_astrojupiter
+Collation: utf8mb4_general_ci
+**********************************************************
+WordPress versão 6.1
+
+/var/www/html/astrojupiter
+Change ownership
+User name: www-data
+Group name: www-data
+Recursive
+
+Change permissions
+Mode: 0750
+**********************************************************
+/etc/apache2/sites-available
+astrojupiter.conf
+	<VirtualHost *:80>
+		<Directory /var/www/html/astrojupiter/>
+			AllowOverride All
+		</Directory>
+	</VirtualHost>
+
+Change permissions
+Mode: 0644
+**********************************************************
+/etc/apache2/sites-available
+000-default.conf
+<Directory /var/www/html/astrojupiter>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+</Directory>
+
+Change permissions
+Mode: 0644
+**********************************************************
+sudo a2ensite astrojupiter.conf
+systemctl restart apache2
+**********************************************************
+/var/www/html/astrojupiter
+.htaccess
+# BEGIN WordPress
+# As diretrizes (linhas) entre "BEGIN WordPress" e "END WordPress" são
+# geradas dinamicamente e só devem ser modificadas através de filtros do WordPress.
+# Quaisquer alterações nas diretivas entre esses marcadores serão sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /astrojupiter/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /astrojupiter/index.php [L]
+</IfModule>
+# END WordPress
+
+Change permissions
+Mode: 0644
+**********************************************************
+Configuração do WordPress
+
+Nome do banco de dados: db_astrojupiter
+Nome de usuário: root
+Senha: 123@senac
+Servidor do banco de dados: localhost
+Prefixo da tabela: wp_
+**********************************************************
+Título do Site: Astro Júpiter
+Nome de usuário: fagner
+Senha: !@#Fagner01
+E-mail: fagner.fgb@gmail.com
+**********************************************************
+Tema: Astra
+Plugins: 
+	Elementor
+	Essential Addons for Elementor
+	Image Hover Effects - Elementor Addons
+	Joinchat
+	Polylang
+	Smart Slider 3
+
+Fonte:
+Montserrat Regular 400
+
+
+

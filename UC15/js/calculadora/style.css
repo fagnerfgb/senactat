@@ -1,11 +1,11 @@
 body {
-    background: rgb(160, 236, 241);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    background: #5c599e;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
 }
 
 div {
-    background: #fff;
+    background: #04021b;
     width: 400px;
     height: 300px;
     text-align: center;
