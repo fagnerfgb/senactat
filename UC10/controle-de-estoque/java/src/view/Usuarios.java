@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,16 +12,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
-import java.awt.SystemColor;
 
 public class Usuarios extends JDialog {
 
@@ -31,7 +34,6 @@ public class Usuarios extends JDialog {
 	private JTextField txtId;
 	private JTextField txtUsuario;
 	private JTextField txtLogin;
-	private JTextField txtSenha;
 	// Criar um objeto para acessar o metodo conectar() da classe DAO
 
 	/**
@@ -67,7 +69,7 @@ public class Usuarios extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/user.png")));
 		setResizable(false);
 		setTitle("Controle de Estoque - Usu\u00E1rios");
-		setBounds(100, 100, 450, 261);
+		setBounds(100, 100, 450, 329);
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 
@@ -105,12 +107,6 @@ public class Usuarios extends JDialog {
 		getContentPane().add(txtLogin);
 		txtLogin.setColumns(10);
 
-		txtSenha = new JTextField();
-		txtSenha.setToolTipText("Insira a senha do usu·rio");
-		txtSenha.setBounds(75, 107, 250, 20);
-		getContentPane().add(txtSenha);
-		txtSenha.setColumns(10);
-
 		btnCreate = new JButton("");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,7 +119,7 @@ public class Usuarios extends JDialog {
 		btnCreate.setBorderPainted(false);
 		btnCreate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/create.png")));
 		btnCreate.setToolTipText("Adicionar um novo funcion√°rio");
-		btnCreate.setBounds(60, 140, 64, 64);
+		btnCreate.setBounds(61, 184, 64, 64);
 		getContentPane().add(btnCreate);
 
 		btnUpdate = new JButton("");
@@ -138,7 +134,7 @@ public class Usuarios extends JDialog {
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUpdate.setContentAreaFilled(false);
 		btnUpdate.setBorderPainted(false);
-		btnUpdate.setBounds(184, 140, 64, 64);
+		btnUpdate.setBounds(185, 184, 64, 64);
 		getContentPane().add(btnUpdate);
 
 		btnDelete = new JButton("");
@@ -153,7 +149,7 @@ public class Usuarios extends JDialog {
 		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnDelete.setContentAreaFilled(false);
 		btnDelete.setBorderPainted(false);
-		btnDelete.setBounds(308, 140, 64, 64);
+		btnDelete.setBounds(309, 184, 64, 64);
 		getContentPane().add(btnDelete);
 
 		btnRead = new JButton("");
@@ -192,13 +188,22 @@ public class Usuarios extends JDialog {
 		 */
 		RestrictedTextField login = new RestrictedTextField(txtLogin);
 		login.setLimit(50);
-
-		/**
-		 * txtSenha
-		 */
-		RestrictedTextField senha = new RestrictedTextField(txtSenha);
-		senha.setLimit(250);
-		senha.setAcceptSpace(false);
+		
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setBounds(76, 107, 250, 20);
+		getContentPane().add(txtPassword);
+		
+		JLabel lblPerfil = new JLabel("Perfil");
+		lblPerfil.setBounds(10, 140, 46, 14);
+		getContentPane().add(lblPerfil);
+		
+		cboPerfil = new JComboBox();
+		cboPerfil.setModel(new DefaultComboBoxModel(new String[] {"", "admin", "user"}));
+		cboPerfil.setBounds(76, 140, 80, 22);
+		getContentPane().add(cboPerfil);
+		
+		
 
 	} // Fim do construtor
 
@@ -207,6 +212,8 @@ public class Usuarios extends JDialog {
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	private JButton btnRead;
+	private JPasswordField txtPassword;
+	private JComboBox cboPerfil;
 
 	/**
 	 * Metodo responsavel pela pesquisa por ID(Select)
@@ -247,7 +254,8 @@ public class Usuarios extends JDialog {
 					txtId.setEnabled(false);
 					txtUsuario.setText(rs.getString(2));
 					txtLogin.setText(rs.getString(3));
-					txtSenha.setText(rs.getString(4));
+					txtPassword.setText(rs.getString(4));
+					cboPerfil.setSelectedItem(rs.getString(5));
 
 					/**
 					 * Habilitar botoes alterar e excluir
@@ -259,7 +267,7 @@ public class Usuarios extends JDialog {
 					txtId.setText(null);
 					txtUsuario.setText(null);
 					txtLogin.setText(null);
-					txtSenha.setText(null);
+					txtPassword.setText(null);
 					txtUsuario.requestFocus();
 					btnCreate.setEnabled(true);
 					btnRead.setEnabled(false);
@@ -275,6 +283,8 @@ public class Usuarios extends JDialog {
 		}
 	} // Fim do metodo pesquisar
 
+	
+	
 	/**
 	 * Metodo responsavel pelo cadastro de um novo funcionario
 	 */
@@ -289,7 +299,7 @@ public class Usuarios extends JDialog {
 		} else if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o login");
 			txtLogin.requestFocus();
-		} else if (txtSenha.getText().isEmpty()) {
+		} else if (txtPassword.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a senha");
 		} else {
 			String create = "insert into usuarios (usuario, login, senha) values (?, ?, ?)";
@@ -308,7 +318,7 @@ public class Usuarios extends JDialog {
 				 */
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, txtSenha.getText());
+				pst.setString(3, txtPassword.getText());
 				/**
 				 * Executar a query e confirmar a insercao
 				 */
@@ -342,7 +352,7 @@ public class Usuarios extends JDialog {
 		} else if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o login");
 			txtLogin.requestFocus();
-		} else if (txtSenha.getText().isEmpty()) {
+		} else if (txtPassword.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a senha");
 		} else {
 			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ?";
@@ -357,7 +367,7 @@ public class Usuarios extends JDialog {
 				PreparedStatement pst = con.prepareStatement(update);
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, txtSenha.getText());
+				pst.setString(3, txtPassword.getText());
 				pst.setString(4, txtId.getText());
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
@@ -422,7 +432,7 @@ public class Usuarios extends JDialog {
 		txtId.setEnabled(true);
 		txtUsuario.setText(null);
 		txtLogin.setText(null);
-		txtSenha.setText(null);
+		txtPassword.setText(null);
 		txtId.requestFocus();
 		btnCreate.setEnabled(false);
 		btnUpdate.setEnabled(false);

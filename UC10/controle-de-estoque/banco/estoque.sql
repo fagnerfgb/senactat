@@ -50,6 +50,6 @@ drop table usuarios;
 -- Adicionar novo campo no final da tabela
 alter table usuarios add column perfil varchar(250);
 
-
-
-
+-- login (usuario e senha correspondente)
+select * from usuarios where login='fagner.braga' and senha = 'fad5f295ee1b464a6b4bc5b3a01b3c5f';
+select * from usuarios where login='fagner.braga' and senha = md5('123456');

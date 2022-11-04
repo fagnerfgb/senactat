@@ -6,6 +6,22 @@
 Login - Questões de segurança
 Senha - Criptografar (md5) - hash
 
+Inserir senha criptografada com md5
+insert into usuarios (usuario, login, senha)
+values('Robson Vaamonde','vaamonde',md5('123@senac'));
+
+create table usuarios(
+	id int primary key auto_increment,
+    usuario varchar(50) not null,
+    -- unique - nao permite valores duplicados
+    login varchar(20) not null unique,
+    senha varchar(250) not null,
+    perfil varchar(50) not null
+);
+
+login (usuario e senha correspondente)
+select * from usuarios where login='fagner.braga' and senha = 'fad5f295ee1b464a6b4bc5b3a01b3c5f';
+select * from usuarios where login='fagner.braga' and senha = md5('123456');
 
 
 

@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -137,11 +138,18 @@ public class Login extends JFrame {
 	} // Fim do metodo status
 
 	private void logar() {
-		// System.out.println("teste do botao acessar");
-		Main main = new Main();
-		main.setVisible(true);
-		// fechar o JFrame
-		this.dispose();
+		// validacao da senha (captura segura)
+		String capturaSenha = new String(txtSenha.getPassword());
+		if (txtLogin.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Informe o seu login");
+			txtLogin.requestFocus();
+		} else {
+			// System.out.println("teste do botao acessar");
+			Main main = new Main();
+			main.setVisible(true);
+			// fechar o JFrame
+			this.dispose();
+		}
 
 	}
 } // Fim do codigo
