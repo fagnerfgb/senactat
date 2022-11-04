@@ -3,6 +3,8 @@
 #Data de atualização: 04/11/2022
 #Versão: 0.01
 ******************************************************************************************
+Login - Questões de segurança
+Senha - Criptografar (md5) - hash
 
 
 

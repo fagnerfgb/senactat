@@ -10,20 +10,22 @@ use db_estoque;
 create table usuarios(
 	id int primary key auto_increment,
     usuario varchar(50) not null,
-    login varchar(20) not null,
-    senha varchar(250) not null    
+    -- unique - nao permite valores duplicados
+    login varchar(20) not null unique,
+    senha varchar(250) not null,
+    perfil varchar(50) not null
 );
 show tables;
 describe usuarios;
 
 -- CRUD
 -- CREATE (Inserir 5 usuários)
-insert into usuarios (usuario, login, senha) values ('Fagner Geraldes Braga', 'fagner.braga', '123@senac');
-insert into usuarios (usuario, login, senha) values ('Allan Gomes', 'allan.gomes', '123@senac');
-insert into usuarios (usuario, login, senha) values ('Felipe Cachufi', 'felipe.cachufi', '123@senac');
-insert into usuarios (usuario, login, senha) values ('Higor Ribeiro', 'higor.ribeiro', '123@senac');
-insert into usuarios (usuario, login, senha) values ('Giovana Gio', 'giovana.gio', '1234@senac');
-insert into usuarios (usuario, login, senha) values ('Pedro Henrique', 'pedro.henrique', '123@senac');
+insert into usuarios (usuario, login, senha, perfil) values ('Fagner Geraldes Braga', 'fagner.braga', md5('123@senac'), 'admin');
+insert into usuarios (usuario, login, senha, perfil) values ('Allan Gomes', 'allan.gomes', md5('123@senac'), 'user');
+insert into usuarios (usuario, login, senha, perfil) values ('Felipe Cachufi', 'felipe.cachufi',md5('123@senac'), 'user');
+insert into usuarios (usuario, login, senha, perfil) values ('Higor Ribeiro', 'higor.ribeiro', md5('123@senac'),'user');
+insert into usuarios (usuario, login, senha, perfil) values ('Giovana Gio', 'giovana.gio', md5('123@senac'),'user');
+insert into usuarios (usuario, login, senha, perfil) values ('Pedro Henrique', 'pedro.henrique', md5('123@senac'),'user');
 
 -- READ1 (Selecionar todos os usuários)
 select * from usuarios;
@@ -37,3 +39,17 @@ update usuarios set usuario = 'Higor Ribeiro', login = 'higor.ribeiro', senha = 
 
 -- DELETE (Excluir um usuário específico)
 delete from usuarios where id = 6;
+
+-- Inserir senha criptografada com md5
+insert into usuarios (usuario, login, senha)
+values('Robson Vaamonde','vaamonde',md5('123@senac'));
+
+-- Excluir tabela
+drop table usuarios;
+
+-- Adicionar novo campo no final da tabela
+alter table usuarios add column perfil varchar(250);
+
+
+
+
