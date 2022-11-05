@@ -160,8 +160,8 @@ public class Login extends JFrame {
 				 */
 				PreparedStatement pst = con.prepareStatement(read);
 				/**
-				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtLogin; o 1 faz
-				 * referencia a interrogacao
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtLogin; o 1
+				 * faz referencia a interrogacao
 				 */
 				pst.setString(1, txtLogin.getText());
 				pst.setString(2, capturaSenha);
@@ -169,21 +169,23 @@ public class Login extends JFrame {
 				 * Obter os dados do funcionario
 				 */
 				ResultSet rs = pst.executeQuery();
-				rs.isBeforeFirst();
-				
+				if (rs.next()) {
+					// System.out.println("teste do botao acessar");
+					Main main = new Main();
+					main.setVisible(true);
+					// fechar o JFrame
+					this.dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido(s)");
+				}
 				/**
 				 * Fechar a conexao
 				 */
 				con.close();
-
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			// System.out.println("teste do botao acessar");
-			Main main = new Main();
-			main.setVisible(true);
-			// fechar o JFrame
-			this.dispose();
+
 		}
 
 	}
