@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -143,7 +145,40 @@ public class Login extends JFrame {
 		if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Informe o seu login");
 			txtLogin.requestFocus();
+		} else if (capturaSenha.length() == 0) {
+			JOptionPane.showMessageDialog(null, "Informe a sua senha");
+			txtSenha.requestFocus();
 		} else {
+			String read = "select * from usuarios where login = ? and senha = md5(?)";
+			try {
+				/**
+				 * Estabelecer a conexao
+				 */
+				Connection con = dao.conectar();
+				/**
+				 * Prepara o codigo sql para execucao
+				 */
+				PreparedStatement pst = con.prepareStatement(read);
+				/**
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtLogin; o 1 faz
+				 * referencia a interrogacao
+				 */
+				pst.setString(1, txtLogin.getText());
+				pst.setString(2, capturaSenha);
+				/**
+				 * Obter os dados do funcionario
+				 */
+				ResultSet rs = pst.executeQuery();
+				rs.isBeforeFirst();
+				
+				/**
+				 * Fechar a conexao
+				 */
+				con.close();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 			// System.out.println("teste do botao acessar");
 			Main main = new Main();
 			main.setVisible(true);

@@ -188,22 +188,19 @@ public class Usuarios extends JDialog {
 		 */
 		RestrictedTextField login = new RestrictedTextField(txtLogin);
 		login.setLimit(50);
-		
-		
+
 		txtPassword = new JPasswordField();
 		txtPassword.setBounds(76, 107, 250, 20);
 		getContentPane().add(txtPassword);
-		
+
 		JLabel lblPerfil = new JLabel("Perfil");
 		lblPerfil.setBounds(10, 140, 46, 14);
 		getContentPane().add(lblPerfil);
-		
+
 		cboPerfil = new JComboBox();
-		cboPerfil.setModel(new DefaultComboBoxModel(new String[] {"", "admin", "user"}));
+		cboPerfil.setModel(new DefaultComboBoxModel(new String[] { "", "admin", "user" }));
 		cboPerfil.setBounds(76, 140, 80, 22);
 		getContentPane().add(cboPerfil);
-		
-		
 
 	} // Fim do construtor
 
@@ -223,6 +220,7 @@ public class Usuarios extends JDialog {
 		/**
 		 * validacao
 		 */
+
 		if (txtId.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o ID do funcionário");
 			txtId.requestFocus();
@@ -283,8 +281,6 @@ public class Usuarios extends JDialog {
 		}
 	} // Fim do metodo pesquisar
 
-	
-	
 	/**
 	 * Metodo responsavel pelo cadastro de um novo funcionario
 	 */
@@ -293,14 +289,16 @@ public class Usuarios extends JDialog {
 		/**
 		 * Validacao
 		 */
+		String capturaSenha = new String(txtPassword.getPassword());
 		if (txtUsuario.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome completo");
 			txtUsuario.requestFocus();
 		} else if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o login");
 			txtLogin.requestFocus();
-		} else if (txtPassword.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira a senha");
+		} else if (capturaSenha.length() == 0) {
+			JOptionPane.showMessageDialog(null, "Informe a sua senha");
+			txtPassword.requestFocus();
 		} else {
 			String create = "insert into usuarios (usuario, login, senha) values (?, ?, ?)";
 			try {
@@ -318,7 +316,7 @@ public class Usuarios extends JDialog {
 				 */
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, txtPassword.getText());
+				pst.setString(3, new String(txtPassword.getPassword()));
 				/**
 				 * Executar a query e confirmar a insercao
 				 */
@@ -346,14 +344,16 @@ public class Usuarios extends JDialog {
 		/**
 		 * Validacao
 		 */
+		String capturaSenha = new String(txtPassword.getPassword());
 		if (txtUsuario.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome completo");
 			txtUsuario.requestFocus();
 		} else if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o login");
 			txtLogin.requestFocus();
-		} else if (txtPassword.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira a senha");
+		} else if (capturaSenha.length() == 0) {
+			JOptionPane.showMessageDialog(null, "Informe a sua senha");
+			txtPassword.requestFocus();
 		} else {
 			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ?";
 			try {
@@ -367,7 +367,7 @@ public class Usuarios extends JDialog {
 				PreparedStatement pst = con.prepareStatement(update);
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, txtPassword.getText());
+				pst.setString(3, new String(txtPassword.getPassword()));
 				pst.setString(4, txtId.getText());
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
