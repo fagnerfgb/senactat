@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -172,7 +173,23 @@ public class Login extends JFrame {
 				if (rs.next()) {
 					// System.out.println("teste do botao acessar");
 					Main main = new Main();
+
+					// Captura o perfil do usuario
+					String perfil = rs.getString(5);
+
+					if (perfil.equals("admin")) {
+						// Habilitar os botoes
+						main.btnUsuarios.setEnabled(true);
+						main.btnRelatorios.setEnabled(true);
+
+						// Trocar a cor do rodape
+						main.panelUsuario.setBackground(Color.RED);
+					}
 					main.setVisible(true);
+					// Alterar a label da tela principal (inserir nome do usuario no rodape)
+					// System.out.println(rs.getString(5));
+					main.lblUsuario.setText(rs.getString(2));
+
 					// fechar o JFrame
 					this.dispose();
 				} else {

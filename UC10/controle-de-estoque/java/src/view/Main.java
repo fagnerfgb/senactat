@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Color;
 
 public class Main extends JFrame {
 
@@ -27,7 +28,14 @@ public class Main extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel lblRodape;
+	
+	//os objetos abaixo serao manipulados pela tela de login
+	JLabel lblRodape;
+	JButton btnUsuarios;
+	JButton btnRelatorios;
+	JLabel lblUser;
+	JLabel lblUsuario;
+	JPanel panelUsuario;
 
 	/**
 	 * Launch the application.
@@ -53,7 +61,7 @@ public class Main extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent e) {
 				Date data = new Date();
-				DateFormat formatador = DateFormat.getDateInstance(DateFormat.FULL);
+				DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
 				lblRodape.setText(formatador.format(data));
 			}
 		});
@@ -67,7 +75,8 @@ public class Main extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 
-		JButton btnUsuarios = new JButton("");
+		btnUsuarios = new JButton("");
+		btnUsuarios.setEnabled(false);
 		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUsuarios.setContentAreaFilled(false);
 		btnUsuarios.setBorderPainted(false);
@@ -109,7 +118,8 @@ public class Main extends JFrame {
 		btnClientes.setBounds(10, 173, 128, 128);
 		contentPane.add(btnClientes);
 
-		JButton btnRelatorios = new JButton("");
+		btnRelatorios = new JButton("");
+		btnRelatorios.setEnabled(false);
 		btnRelatorios.setToolTipText("Relat\u00F3rios");
 		btnRelatorios.setIcon(new ImageIcon(Main.class.getResource("/img/report.png")));
 		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -133,15 +143,29 @@ public class Main extends JFrame {
 		btnSobre.setBounds(286, 173, 128, 128);
 		contentPane.add(btnSobre);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.textHighlight);
-		panel.setBounds(0, 316, 427, 40);
-		contentPane.add(panel);
+		panelUsuario = new JPanel();
+		panelUsuario.setBackground(SystemColor.textHighlight);
+		panelUsuario.setBounds(0, 316, 427, 40);
+		contentPane.add(panelUsuario);
+		panelUsuario.setLayout(null);
 
 		lblRodape = new JLabel("");
-		lblRodape.setFont(new Font("Verdana", Font.BOLD, 14));
-		panel.add(lblRodape);
-		lblRodape.setForeground(SystemColor.desktop);
+		lblRodape.setBounds(339, 0, 88, 39);
+		lblRodape.setFont(new Font("Verdana", Font.PLAIN, 12));
+		panelUsuario.add(lblRodape);
+		lblRodape.setForeground(Color.WHITE);
 		lblRodape.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		lblUser = new JLabel("Usu\u00E1rio: ");
+		lblUser.setForeground(Color.WHITE);
+		lblUser.setFont(new Font("Verdana", Font.PLAIN, 12));
+		lblUser.setBounds(5, 0, 60, 39);
+		panelUsuario.add(lblUser);
+		
+		lblUsuario = new JLabel("");
+		lblUsuario.setForeground(Color.WHITE);
+		lblUsuario.setFont(new Font("Verdana", Font.BOLD, 14));
+		lblUsuario.setBounds(65, 0, 219, 39);
+		panelUsuario.add(lblUsuario);
 	} // Fim do construtor
 } // Fim do codigo
