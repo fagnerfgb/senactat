@@ -262,14 +262,9 @@ public class Usuarios extends JDialog {
 					btnDelete.setEnabled(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário não cadastrado");
-					txtId.setText(null);
-					txtUsuario.setText(null);
-					txtLogin.setText(null);
-					txtPassword.setText(null);
-					txtUsuario.requestFocus();
+					limpar();
 					btnCreate.setEnabled(true);
-					btnRead.setEnabled(false);
-					txtId.setEnabled(false);
+					txtUsuario.requestFocus();
 				}
 				/**
 				 * Fechar a conexao
@@ -300,7 +295,7 @@ public class Usuarios extends JDialog {
 			JOptionPane.showMessageDialog(null, "Informe a sua senha");
 			txtPassword.requestFocus();
 		} else {
-			String create = "insert into usuarios (usuario, login, senha) values (?, ?, ?)";
+			String create = "insert into usuarios (usuario, login, senha, perfil) values (?, ?, md5(?), ?)";
 			try {
 				/**
 				 * Estabelecer a conexao
@@ -311,12 +306,13 @@ public class Usuarios extends JDialog {
 				 */
 				PreparedStatement pst = con.prepareStatement(create);
 				/**
-				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtNome, txtFone
-				 * e txtEmail; o 1, 2, 3 faz referencia a interrogacao
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtUsuario, txtLogin
+				 * e txtSenha e cboPerfil
 				 */
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, new String(txtPassword.getPassword()));
+				pst.setString(3, capturaSenha);
+				pst.setString(4, cboPerfil.getSelectedItem().toString());
 				/**
 				 * Executar a query e confirmar a insercao
 				 */
@@ -355,7 +351,7 @@ public class Usuarios extends JDialog {
 			JOptionPane.showMessageDialog(null, "Informe a sua senha");
 			txtPassword.requestFocus();
 		} else {
-			String update = "update usuarios set usuario = ?, login = ?, senha = ? where id = ?";
+			String update = "update usuarios set usuario = ?, login = ?, senha = ? , perfil = ? where id = ?";
 			try {
 				/**
 				 * Estabelecer a conexao
@@ -367,8 +363,9 @@ public class Usuarios extends JDialog {
 				PreparedStatement pst = con.prepareStatement(update);
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
-				pst.setString(3, new String(txtPassword.getPassword()));
-				pst.setString(4, txtId.getText());
+				pst.setString(3, capturaSenha);
+				pst.setString(4, cboPerfil.getSelectedItem().toString());
+				pst.setString(5, txtId.getText());
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
@@ -438,5 +435,7 @@ public class Usuarios extends JDialog {
 		btnUpdate.setEnabled(false);
 		btnRead.setEnabled(true);
 		btnDelete.setEnabled(false);
+		cboPerfil.setSelectedItem("");
+		
 	} // Fim do metodo limpar
 } // Fim do codigo

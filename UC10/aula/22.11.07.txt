@@ -12,6 +12,9 @@ Login -> tela principal -> usuários
 Sistema de gestão de estoque
 fornecedor -> produto -> cliente
 ******************************************************************************************
+Tipos de dados (Banco)
+char (string de caracteres de comprimento fixo)
+varchar (string de caracteres de comprimento variável)
 
 
 
