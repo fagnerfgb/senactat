@@ -197,8 +197,8 @@ public class Usuarios extends JDialog {
 		lblPerfil.setBounds(10, 140, 46, 14);
 		getContentPane().add(lblPerfil);
 
-		cboPerfil = new JComboBox();
-		cboPerfil.setModel(new DefaultComboBoxModel(new String[] { "", "admin", "user" }));
+		cboPerfil = new JComboBox<Object>();
+		cboPerfil.setModel(new DefaultComboBoxModel<Object>(new String[] { "", "admin", "user" }));
 		cboPerfil.setBounds(76, 140, 80, 22);
 		getContentPane().add(cboPerfil);
 
@@ -210,7 +210,7 @@ public class Usuarios extends JDialog {
 	private JButton btnDelete;
 	private JButton btnRead;
 	private JPasswordField txtPassword;
-	private JComboBox cboPerfil;
+	private JComboBox<Object> cboPerfil;
 
 	/**
 	 * Metodo responsavel pela pesquisa por ID(Select)
@@ -306,8 +306,8 @@ public class Usuarios extends JDialog {
 				 */
 				PreparedStatement pst = con.prepareStatement(create);
 				/**
-				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtUsuario, txtLogin
-				 * e txtSenha e cboPerfil
+				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtUsuario,
+				 * txtLogin e txtSenha e cboPerfil
 				 */
 				pst.setString(1, txtUsuario.getText());
 				pst.setString(2, txtLogin.getText());
@@ -337,10 +337,10 @@ public class Usuarios extends JDialog {
 	 */
 
 	private void alterar() {
+		String capturaSenha = new String(txtPassword.getPassword());
 		/**
 		 * Validacao
 		 */
-		String capturaSenha = new String(txtPassword.getPassword());
 		if (txtUsuario.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome completo");
 			txtUsuario.requestFocus();
@@ -351,7 +351,7 @@ public class Usuarios extends JDialog {
 			JOptionPane.showMessageDialog(null, "Informe a sua senha");
 			txtPassword.requestFocus();
 		} else {
-			String update = "update usuarios set usuario = ?, login = ?, senha = ? , perfil = ? where id = ?";
+			String update = "update usuarios set usuario = ?, login = ?, senha = md5(?) , perfil = ? where id = ?";
 			try {
 				/**
 				 * Estabelecer a conexao
@@ -436,6 +436,6 @@ public class Usuarios extends JDialog {
 		btnRead.setEnabled(true);
 		btnDelete.setEnabled(false);
 		cboPerfil.setSelectedItem("");
-		
+
 	} // Fim do metodo limpar
 } // Fim do codigo

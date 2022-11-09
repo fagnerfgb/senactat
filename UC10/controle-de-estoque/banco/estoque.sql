@@ -83,3 +83,6 @@ insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero
 insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero, complemento, bairro, cidade, uf, nomeContato, fone1, fone2, email, site, obs) values ('Fusca', 'Fusca', '47.283.811/0059-76', '206292929113', '90711-000', 'Rua dos carros', '5000', '', 'Fuscão Preto', 'Rocinha', 'RJ', 'Zé Pequeno', '7777-0000', '8888-0000', 'ze.pequeno@fusca.com.br', 'www.fusca.com.br', 'Vrum');
 
 select * from fornecedores;
+
+select * from usuarios;
+update usuarios set usuario = 'Allan Gomes', login = 'allan.gomes', senha = md5('1234@senac'), perfil = 'admin' where id = 2;
