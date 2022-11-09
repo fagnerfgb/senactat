@@ -193,7 +193,7 @@ public class Login extends JFrame {
 					// fechar o JFrame
 					this.dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Usu·rio e/ou senha inv·lido(s)");
+					JOptionPane.showMessageDialog(null, "Usu√°rio e/ou senha inv√°lido(s)");
 				}
 				/**
 				 * Fechar a conexao
