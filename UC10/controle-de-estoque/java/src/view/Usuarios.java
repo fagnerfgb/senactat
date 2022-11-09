@@ -128,11 +128,12 @@ public class Usuarios extends JDialog {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Verificar se o checkbox esta selecionado
-				if(chckSenha.isSelected()) {
+				if (chckSenha.isSelected()) {
 					alterarUsuarioSenha();
+					System.out.println("Senha alterada");
 				} else {
 					alterar();
-				}				
+				}
 			}
 		});
 		btnUpdate.setEnabled(false);
@@ -353,9 +354,14 @@ public class Usuarios extends JDialog {
 				 * Encerrar a conexao
 				 */
 				con.close();
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			} catch (java.sql.SQLIntegrityConstraintViolationException e1) {
+				JOptionPane.showMessageDialog(null, "Usuario existente - Usuario nao adicionado");
+				txtLogin.setText(null);
+				txtLogin.requestFocus();
+			} 
+			catch (Exception e2) {
+				System.out.println(e2);
+			} 
 		}
 	} // Fim do Metodo adicionar
 
@@ -411,7 +417,7 @@ public class Usuarios extends JDialog {
 		}
 
 	} // Fim do metodo alterar
-	
+
 	private void alterarUsuarioSenha() {
 		/**
 		 * Validacao
@@ -455,8 +461,6 @@ public class Usuarios extends JDialog {
 		}
 
 	}
-	
-	
 
 	/**
 	 * Metodo responsavel por excluir um contato
@@ -504,13 +508,16 @@ public class Usuarios extends JDialog {
 		txtUsuario.setText(null);
 		txtLogin.setText(null);
 		txtPassword.setText(null);
+		txtPassword.setEditable(true);
 		txtId.requestFocus();
 		btnCreate.setEnabled(false);
 		btnUpdate.setEnabled(false);
 		btnRead.setEnabled(true);
 		btnDelete.setEnabled(false);
 		cboPerfil.setSelectedItem("");
-		chckSenha.setBackground(Color.WHITE);
+		txtPassword.setBackground(Color.WHITE);
+		chckSenha.setSelected(false);
+		chckSenha.setVisible(false);
 
 	} // Fim do metodo limpar
 } // Fim do codigo
