@@ -1,0 +1,33 @@
+body {
+    background: #5c599e;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+}
+
+.container {
+    font-family: 'Montserrat', sans-serif;
+    background: #f19b2c;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px 0;
+    border-radius: 30px;
+}
+
+.botao{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+
+#resp{
+    padding: 20px 0px;
+}
+
+.input{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
