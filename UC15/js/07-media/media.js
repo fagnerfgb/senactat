@@ -18,9 +18,9 @@ function media() {
     resp.innerHTML = `Média = <strong> ${mediaf} </strong>`
 
     if (mediaf >= 7) {
-        resp.innerHTML += `<p>Parabéns, <strong> ${aluno.value} </strong>! <br> Você está aprovado. </p>`
+        resp.innerHTML += `<p>Parabéns, <strong> ${aluno.value} </strong>! <br> Você está aprovado(a). </p>`
     } else {
-        resp.innerHTML += `<p> <strong>${aluno.value} </strong>, você está reprovado! <br> Esforce-se mais no ano que vem.</p>`
+        resp.innerHTML += `<p> <strong>${aluno.value} </strong>, você está reprovado(a)! <br> Esforce-se mais no ano que vem.</p>`
     }
 
 }

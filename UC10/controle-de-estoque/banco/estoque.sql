@@ -14,6 +14,7 @@ create table usuarios(
     senha varchar(250) not null,
     perfil varchar(50) not null
 );
+use db_estoque;
 show tables;
 describe usuarios;
 describe fornecedores;
