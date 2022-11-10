@@ -93,6 +93,7 @@ public class Usuarios extends JDialog {
 		getContentPane().add(lblSenha);
 
 		txtId = new JTextField();
+		txtId.setEnabled(false);
 		txtId.setBounds(76, 17, 100, 20);
 		getContentPane().add(txtId);
 		txtId.setColumns(10);
@@ -171,9 +172,10 @@ public class Usuarios extends JDialog {
 		btnRead.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRead.setContentAreaFilled(false);
 		btnRead.setBorderPainted(false);
-		btnRead.setBounds(184, 14, 24, 24);
+		btnRead.setBounds(334, 75, 24, 24);
 		getContentPane().add(btnRead);
-
+		
+		
 		/**
 		 * Uso da tecla <Enter> junto com um botao
 		 */
@@ -243,11 +245,11 @@ public class Usuarios extends JDialog {
 		/**
 		 * validacao
 		 */
-		if (txtId.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o ID do funcion�rio");
-			txtId.requestFocus();
+		if (txtLogin.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Insira o Login do usuário");
+			txtLogin.requestFocus();
 		} else {
-			String read = "select * from usuarios where id = ?";
+			String read = "select * from usuarios where login = ?";
 			try {
 				/**
 				 * Estabelecer a conexao
@@ -261,7 +263,7 @@ public class Usuarios extends JDialog {
 				 * A linha abaixo substitui o ? pelo conteudo da caixa de texto txtId; o 1 faz
 				 * referencia a interrogacao
 				 */
-				pst.setString(1, txtId.getText());
+				pst.setString(1, txtLogin.getText());
 				/**
 				 * Obter os dados do funcionario
 				 */
@@ -271,7 +273,8 @@ public class Usuarios extends JDialog {
 				 * funcionario correspondente ao ID
 				 */
 				if (rs.next()) {
-					txtId.setEnabled(false);
+					//txtId.setEnabled(false);
+					txtId.setText(rs.getString(1));
 					txtUsuario.setText(rs.getString(2));
 					txtLogin.setText(rs.getString(3));
 					txtPassword.setText(rs.getString(4));
@@ -289,7 +292,7 @@ public class Usuarios extends JDialog {
 					// Desativar a edição da senha
 					txtPassword.setEditable(false);
 				} else {
-					JOptionPane.showMessageDialog(null, "Usu�rio n�o cadastrado");
+					JOptionPane.showMessageDialog(null, "Usuário não cadastrado");
 					limpar();
 					btnCreate.setEnabled(true);
 					txtUsuario.requestFocus();
@@ -504,12 +507,12 @@ public class Usuarios extends JDialog {
 	 */
 	private void limpar() {
 		txtId.setText(null);
-		txtId.setEnabled(true);
+		//txtId.setEnabled(true);
 		txtUsuario.setText(null);
 		txtLogin.setText(null);
 		txtPassword.setText(null);
 		txtPassword.setEditable(true);
-		txtId.requestFocus();
+		txtLogin.requestFocus();
 		btnCreate.setEnabled(false);
 		btnUpdate.setEnabled(false);
 		btnRead.setEnabled(true);
