@@ -129,15 +129,15 @@ public class Usuarios extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				// Verificar se o checkbox esta selecionado
 				if (chckSenha.isSelected()) {
-					alterarUsuarioSenha();
-					System.out.println("Senha alterada");
-				} else {
 					alterar();
+					//System.out.println("Senha alterada");
+				} else {
+					alterarUsuarioSenha();
 				}
 			}
 		});
 		btnUpdate.setEnabled(false);
-		btnUpdate.setToolTipText("Atualizar dados do funcion�rio");
+		btnUpdate.setToolTipText("Atualizar dados do funcionário");
 		btnUpdate.setIcon(new ImageIcon(Usuarios.class.getResource("/img/update.png")));
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUpdate.setContentAreaFilled(false);
