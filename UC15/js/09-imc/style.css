@@ -1,0 +1,39 @@
+body {
+	background: #5c599e;
+	font-family: 'Montserrat', sans-serif;
+	color: whitesmoke;
+}
+
+
+header {
+	text-align: center;
+	color: white;
+}
+
+section {
+	background: #f19b2c;
+	border-radius: 10px;
+	padding: 10px;
+	width: 500px;
+	margin: auto;
+	font-size: 15pt;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.384);
+}
+
+div {
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+img {
+	height: 20%;
+	width: 20%;
+}
+
+footer {
+	text-align: center;
+	color: white;
+	font-size: 13pt;
+	font-style: italic;
+
+}

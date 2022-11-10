@@ -19,6 +19,7 @@
             <p>
                 Ano de nascimento:
                 <input type="number" name="tano" id="tano" min="0">
+				<script>document.querySelector("#tano").focus()</script>
             </p>
             <p>
                 Sexo:
@@ -29,6 +30,7 @@
             </p>
             <p>
                 <input type="button" value="Verificar" onclick="verificar()">
+				<input type="reset" value="Limpar" onclick="limpar()">
             </p>
         </div>
         <div id="resp">
@@ -38,9 +40,6 @@
     <footer>
         <p> Senac Tatuapé</p>
     </footer>
-
-
-
     <script src="idade.js"></script>
 </body>
 
