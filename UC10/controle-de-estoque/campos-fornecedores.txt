@@ -1,0 +1,65 @@
+txtFornecedor
+txtId
+txtCnpj
+txtIe
+txtRazaoSocial
+txtNomeFantasia
+txtCep
+txtEndereco
+txtNumero
+*txtComplemento
+txtBairro
+txtCidade
+cboUf
+txtContato
+txtFone
+*txtWhatsapp
+*txtSite
+txtEmail
+*txtObservacao
+btnBuscar
+btnCep
+btnCreate
+btnUpdate
+btnDelete
+
+
+txtId
+txtRazaoSocial
+txtNomeFantasia
+txtCnpj
+txtIe
+txtCep
+txtEndereco
+txtNumero
+txtComplemento
+txtBairro
+txtCidade
+cboUf
+txtContato
+txtFone
+txtWhatsapp
+txtEmail
+txtSite
+txtObservacao
+
+
+pst.setString(1, txtRazaoSocial.getText());
+pst.setString(2, txtNomeFantasia.getText());
+pst.setString(3, txtCnpj.getText());
+pst.setString(4, txtIe.getText());
+pst.setString(5, txtCep.getText());
+pst.setString(6, txtEndereco.getText());
+pst.setString(7, txtNumero.getText());
+pst.setString(8, txtComplemento.getText());
+pst.setString(9, txtBairro.getText());
+pst.setString(10, txtCidade.getText());
+pst.setString(11, cboUf.getSelectedItem().toString());
+pst.setString(12, txtContato.getText());
+pst.setString(13, txtFone.getText());
+pst.setString(14, txtWhatsapp.getText());
+pst.setString(15, txtEmail.getText());
+pst.setString(16, txtSite.getText());
+pst.setString(17, txtObservacao.getText());
+
+

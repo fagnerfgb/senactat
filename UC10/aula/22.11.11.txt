@@ -1,0 +1,31 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 11/11/2022
+#Data de atualização: 11/11/2022
+#Versão: 0.01
+******************************************************************************************
+Atividade de avaliação:
+
+Desenvolvimento da tela de fornecedores
+
+1) Criar o JDialog e fazer o link com a tela principal OK
+2) Desenhar a tela de acordo com a tabela, inserindo ícones nos botões com acessibilidade OK
+3) Usar a biblioteca Atxy2k e fazer as validações de campos.
+4) No Java fazer a validação de campos obrigatórios, botões, limpeza de campos etc.
+5) Criar um método para pesquisar fornecedores, usando o id do fornecedor (idFor). OK
+6) Fazer a busca automática de CEP
+7) Desenvolver os demais métodos do CRUD
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+

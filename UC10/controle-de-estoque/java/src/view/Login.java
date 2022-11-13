@@ -202,8 +202,6 @@ public class Login extends JFrame {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-
 		}
-
 	}
 } // Fim do codigo

@@ -350,7 +350,7 @@ public class Usuarios extends JDialog {
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
-					JOptionPane.showMessageDialog(null, "Funcion�rio cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso!");
 					limpar();
 				}
 				/**

@@ -92,6 +92,12 @@ public class Main extends JFrame {
 		contentPane.add(btnUsuarios);
 
 		JButton btnFornecedores = new JButton("");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedores fornecedores = new Fornecedores();
+				fornecedores.setVisible(true);
+			}
+		});
 		btnFornecedores.setToolTipText("Fornecedores");
 		btnFornecedores.setIcon(new ImageIcon(Main.class.getResource("/img/supliers.png")));
 		btnFornecedores.setBorderPainted(false);
