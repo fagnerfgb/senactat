@@ -1,0 +1,45 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 13/11/2022
+#Data de atualização: 13/11/2022
+#Versão: 0.01
+********************************
+1. Informações Gerais
+Sistema Operacional: Ubuntu Linux 22.04.1
+Banco de dados: MySQL Server 8.0.31
+Aplicação: Java 
+
+2. Banco de dados
+A documentação encontra-se em estoque\banco\controle-de-estoque.sql
+
+a. Criação do Banco
+Nome do banco: estoque
+Tabelas:
+usuarios
+fornecedores
+
+Foi criada massa de dados de testes para todas as tabelas acima
+
+3. Java
+
+Projeto: controle-de-estoque
+
+Pacotes:
+img
+model
+view
+
+img: Copiar as imagens selecionadas
+
+model: Criar a classe DAO para conexão com o banco de dados
+
+view:
+JFrame: Main, Login
+JDialog: Sobre, Usuarios, fornecedores
+
+
+
+
+
+
+
+
