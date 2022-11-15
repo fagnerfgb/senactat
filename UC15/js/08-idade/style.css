@@ -27,6 +27,11 @@ div{
 	text-align: center;
 }
 
+img {
+	height: 40%;
+	width: 40%;
+}
+
 footer{
    text-align: center;
    color: white;
