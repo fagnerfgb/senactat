@@ -49,7 +49,6 @@ public class Login extends JFrame {
 		});
 	}
 
-	
 	/**
 	 * Create the frame.
 	 */
@@ -206,12 +205,16 @@ public class Login extends JFrame {
 					this.dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário e/ou senha não confere(m)");
+					txtLogin.setText(null);
+					txtSenha.setText(null);
+					txtLogin.requestFocus();
+
 				}
 
 				con.close();
 
 			} catch (Exception e) {
-				// TODO: handle exception
+				System.out.println(e);
 			}
 
 		}

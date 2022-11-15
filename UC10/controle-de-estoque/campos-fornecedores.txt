@@ -62,4 +62,23 @@ pst.setString(15, txtEmail.getText());
 pst.setString(16, txtSite.getText());
 pst.setString(17, txtObservacao.getText());
 
+txtCnpj.setEnabled(false);
+txtIe.setEnabled(false);
+txtRazaoSocial.setEnabled(false);
+txtNomeFantasia.setEnabled(false);
+txtCep.setEnabled(false);
+txtEndereco.setEnabled(false);
+txtNumero.setEnabled(false);
+txtComplemento.setEnabled(false);
+txtBairro.setEnabled(false);
+txtCidade.setEnabled(false);
+cboUf.setEnabled(false);
+txtContato.setEnabled(false);
+txtFone.setEnabled(false);
+txtWhatsapp.setEnabled(false);
+txtSite.setEnabled(false);
+txtEmail.setEnabled(false);
+txtObservacao.setEnabled(false);
+
+
 

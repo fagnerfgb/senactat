@@ -132,7 +132,20 @@ insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero
 -- Fornecedores
 -- insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero, complemento, bairro, cidade, uf, nomeContato, fone1, fone2, email, site, obs) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) where idFor = ?; 
 
+-- Update
+-- Usuarios
+-- update usuarios set usuario = ?, login =?, senha = md5(?), perfil = ? where id = ?;
 
+-- Fornecedores
+-- update fornecedores set razaoSocial = ? , fantasia = ?, cnpj = ?, ie = ?, cep = ?, endereco = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, uf = ?, nomeContato = ?, fone1 = ?, fone2 = ?, email = ?, site = ?, obs = ? where idFor = ?
+
+-- Delete
+
+-- Usuarios
+-- delete from usuarios where id = ?
+
+-- Fornecedores
+-- delete from fornecedores where idFor = ?
 
 
 

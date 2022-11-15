@@ -67,6 +67,8 @@ public class Main extends JFrame {
 		btnUsuarios = new JButton("");
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Usuarios usuarios = new Usuarios();
+				usuarios.setVisible(true);
 			}
 		});
 		btnUsuarios.setEnabled(false);
@@ -80,6 +82,13 @@ public class Main extends JFrame {
 		getContentPane().add(btnUsuarios);
 		
 		JButton btnFornecedores = new JButton("");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedores fornecedores = new Fornecedores();
+				fornecedores.setVisible(true);
+			}
+		});
+		btnFornecedores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFornecedores.setToolTipText("Fornecedores");
 		btnFornecedores.setIcon(new ImageIcon(Main.class.getResource("/img/supliers.png")));
 		btnFornecedores.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -89,6 +98,7 @@ public class Main extends JFrame {
 		getContentPane().add(btnFornecedores);
 		
 		JButton btnProdutos = new JButton("");
+		btnProdutos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProdutos.setToolTipText("Produtos");
 		btnProdutos.setIcon(new ImageIcon(Main.class.getResource("/img/products.png")));
 		btnProdutos.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -98,6 +108,7 @@ public class Main extends JFrame {
 		getContentPane().add(btnProdutos);
 		
 		JButton btnClientes = new JButton("");
+		btnClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnClientes.setToolTipText("Clientes");
 		btnClientes.setIcon(new ImageIcon(Main.class.getResource("/img/clientes.png")));
 		btnClientes.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -107,6 +118,7 @@ public class Main extends JFrame {
 		getContentPane().add(btnClientes);
 		
 		btnRelatorios = new JButton("");
+		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRelatorios.setEnabled(false);
 		btnRelatorios.setToolTipText("Relatórios");
 		btnRelatorios.setIcon(new ImageIcon(Main.class.getResource("/img/report.png")));
@@ -117,6 +129,13 @@ public class Main extends JFrame {
 		getContentPane().add(btnRelatorios);
 		
 		JButton btnSobre = new JButton("");
+		btnSobre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sobre = new Sobre();
+				sobre.setVisible(true);
+			}
+		});
+		btnSobre.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSobre.setToolTipText("Sobre");
 		btnSobre.setIcon(new ImageIcon(Main.class.getResource("/img/about.png")));
 		btnSobre.setFont(new Font("Verdana", Font.PLAIN, 11));
