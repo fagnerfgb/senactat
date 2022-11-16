@@ -18,9 +18,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login extends JFrame {
 
@@ -84,6 +87,16 @@ public class Login extends JFrame {
 		getContentPane().add(lblSenha);
 
 		txtLogin = new JTextField();
+		txtLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "abcdefghijklmnopqrstuvwywz1234567890.";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtLogin.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtLogin.setToolTipText("Insira o login");
 		txtLogin.setColumns(10);
@@ -118,7 +131,23 @@ public class Login extends JFrame {
 		 * AO PRESSIONAR A TECLA ENTER O BOTAO PARA FAZER LOGON E ACESSADO
 		 */
 		getRootPane().setDefaultButton(btnAcessar);
-	} // Fim do construtor
+		
+		/**
+		 * BIBLIOTECA ATXY2K
+		 */
+		
+		/**
+		 * txtLogin
+		 */
+		RestrictedTextField login = new RestrictedTextField(txtLogin);
+		login.setLimit(20);		
+		
+		/**
+		 * txtUsuario
+		 */
+		RestrictedTextField usuario = new RestrictedTextField(txtSenha);
+		usuario.setLimit(50);
+	} // FIM DO CONSTRUTOR
 
 	/**
 	 * VERIFICAR STATUS DA CONEXAO COM O BANCO DE DADOS
@@ -220,4 +249,4 @@ public class Login extends JFrame {
 		}
 	}
 
-} // Fim do codigo
+} // FIM DO CODIGO

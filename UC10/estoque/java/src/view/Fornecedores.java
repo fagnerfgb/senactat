@@ -1005,6 +1005,7 @@ public class Fornecedores extends JDialog {
 		btnPesquisarId.setEnabled(true);
 		btnPesquisarCep.setEnabled(false);
 		btnCreate.setEnabled(false);
+		lblStatusCep.setIcon(null);
 
 	} // FIM LIMPAR
 } // FIM CODIGO
