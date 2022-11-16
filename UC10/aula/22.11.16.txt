@@ -1,0 +1,13 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 16/11/2022
+#Data de atualização: 16/11/2022
+#Versão: 0.01
+******************************************************************************************
+
+public void keyTyped(KeyEvent e) {
+	// validação (aceita somente os caracteres da String)
+	String caracteres = "0987654321.";
+	if (!caracteres.contains(e.getKeyChar() + "")) {
+		e.consume();
+	}
+}

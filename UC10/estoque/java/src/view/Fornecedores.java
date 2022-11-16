@@ -30,6 +30,8 @@ import org.dom4j.io.SAXReader;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Fornecedores extends JDialog {
 
@@ -160,6 +162,16 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(txtNomeFantasia);
 
 		txtCnpj = new JTextField();
+		txtCnpj.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "1234567890.-/";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtCnpj.setEnabled(false);
 		txtCnpj.setToolTipText("Digite o CNPJ do fornecedor");
 		txtCnpj.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -173,6 +185,16 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblIe);
 
 		txtIe = new JTextField();
+		txtIe.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "1234567890.-/";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtIe.setEnabled(false);
 		txtIe.setToolTipText("Digite o número de Inscricação Estadual do fornecedor");
 		txtIe.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -186,6 +208,16 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblObservacao);
 
 		txtCep = new JTextField();
+		txtCep.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "1234567890-";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtCep.setEnabled(false);
 		txtCep.setToolTipText("Digite o CEP do fornecedor");
 		txtCep.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -307,6 +339,16 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblFone);
 
 		txtFone = new JTextField();
+		txtFone.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "1234567890-()";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtFone.setEnabled(false);
 		txtFone.setToolTipText("Digite o telefone do Fornecedor");
 		txtFone.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -320,6 +362,16 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblWhatsapp);
 
 		txtWhatsapp = new JTextField();
+		txtWhatsapp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "1234567890-()";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtWhatsapp.setEnabled(false);
 		txtWhatsapp.setToolTipText("Digite o Whatsapp do fornecedor");
 		txtWhatsapp.setFont(new Font("Verdana", Font.PLAIN, 11));
@@ -433,14 +485,12 @@ public class Fornecedores extends JDialog {
 		 * txtCnpj
 		 */
 		RestrictedTextField cnpj = new RestrictedTextField(txtCnpj);
-		cnpj = new RestrictedTextField(txtCnpj, "1234567890.-");
 		cnpj.setLimit(20);
 
 		/**
 		 * txtIe
 		 */
 		RestrictedTextField ie = new RestrictedTextField(txtIe);
-		ie = new RestrictedTextField(txtIe, "1234567890.-");
 		ie.setLimit(20);
 
 		/**
@@ -459,7 +509,6 @@ public class Fornecedores extends JDialog {
 		 * txtCep
 		 */
 		RestrictedTextField cep = new RestrictedTextField(txtCep);
-		cep = new RestrictedTextField(txtCep, "1234567890-");
 		cep.setLimit(10);
 
 		/**
@@ -502,14 +551,12 @@ public class Fornecedores extends JDialog {
 		 * txtFone
 		 */
 		RestrictedTextField fone = new RestrictedTextField(txtFone);
-		fone = new RestrictedTextField(txtFone, "1234567890-()");
 		fone.setLimit(15);
 
 		/**
 		 * txtWhatsapp
 		 */
 		RestrictedTextField whatsapp = new RestrictedTextField(txtWhatsapp);
-		whatsapp = new RestrictedTextField(txtWhatsapp, "1234567890-()");
 		whatsapp.setLimit(15);
 
 		/**
@@ -522,11 +569,12 @@ public class Fornecedores extends JDialog {
 		 * txtEmail
 		 */
 		RestrictedTextField site = new RestrictedTextField(txtSite);
+		site.setLimit(50);
 
 		lblStatusCep = new JLabel("");
 		lblStatusCep.setBounds(249, 280, 20, 20);
 		getContentPane().add(lblStatusCep);
-		site.setLimit(50);
+		
 	} // FIM CONSTRUTOR
 
 	DAO dao = new DAO();
@@ -543,7 +591,7 @@ public class Fornecedores extends JDialog {
 		 * VALIDACAO
 		 */
 		if (txtId.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o Id do fornecedor");
+			JOptionPane.showMessageDialog(null, "Insira o ID do fornecedor");
 			txtId.requestFocus();
 		} else {
 			String read = "select * from fornecedores where idFor = ?";
@@ -675,6 +723,9 @@ public class Fornecedores extends JDialog {
 		} else if (txtCidade.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a cidade");
 			txtCidade.requestFocus();
+		} else if (cboUf.getSelectedItem() == "") {
+			JOptionPane.showMessageDialog(null, "Selecione o estado");
+			cboUf.requestFocus();
 		} else if (txtContato.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome do contato");
 			txtContato.requestFocus();
@@ -755,6 +806,9 @@ public class Fornecedores extends JDialog {
 		} else if (txtCidade.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira a cidade");
 			txtCidade.requestFocus();
+		} else if (cboUf.getSelectedItem() == "") {
+			JOptionPane.showMessageDialog(null, "Selecione o estado");
+			cboUf.requestFocus();
 		} else if (txtContato.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o nome do contato");
 			txtContato.requestFocus();

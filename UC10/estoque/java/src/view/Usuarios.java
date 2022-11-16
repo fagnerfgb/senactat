@@ -24,6 +24,8 @@ import javax.swing.JTextField;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Usuarios extends JDialog {
 
@@ -113,6 +115,16 @@ public class Usuarios extends JDialog {
 		getContentPane().add(txtUsuario);
 
 		txtLogin = new JTextField();
+		txtLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// validação (aceita somente os caracteres da String)
+				String caracteres = "abcdefghijklmnopqrstuvwywz1234567890.";
+				if (!caracteres.contains(e.getKeyChar() + "")) {
+					e.consume();
+				}
+			}
+		});
 		txtLogin.setToolTipText("Digite o login do usuário");
 		txtLogin.setFont(new Font("Verdana", Font.PLAIN, 12));
 		txtLogin.setColumns(10);
@@ -227,7 +239,6 @@ public class Usuarios extends JDialog {
 		 * txtLogin
 		 */
 		RestrictedTextField login = new RestrictedTextField(txtLogin);
-		login = new RestrictedTextField(txtLogin,"abcdefghijklmnopqrstuvwywz1234567890.");
 		login.setLimit(20);		
 		
 		/**
@@ -314,9 +325,7 @@ public class Usuarios extends JDialog {
 					 * HABILITAR CAMPOS
 					 */
 					txtUsuario.setEnabled(true);
-					cboPerfil.setEnabled(true);
-					
-					
+					cboPerfil.setEnabled(true);	
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário não cadastrado");
 					/**
@@ -361,6 +370,9 @@ public class Usuarios extends JDialog {
 		} else if (capturaSenha.length() == 0) {
 			JOptionPane.showMessageDialog(null, "Informe a sua senha");
 			txtSenha.requestFocus();
+		} else if (cboPerfil.getSelectedItem() == "") {
+			JOptionPane.showMessageDialog(null, "Selecione o perfil do usuario");
+			cboPerfil.requestFocus();
 		} else {
 			String create = "insert into usuarios (usuario, login, senha, perfil) values (?, ?, md5(?), ?)";
 			try {
@@ -424,6 +436,9 @@ public class Usuarios extends JDialog {
 		} else if (capturaSenha.length() == 0) {
 			JOptionPane.showMessageDialog(null, "Informe a sua senha");
 			txtSenha.requestFocus();
+		} else if (cboPerfil.getSelectedItem() == "") {
+			JOptionPane.showMessageDialog(null, "Selecione o perfil do usuario");
+			cboPerfil.requestFocus();
 		} else {
 			String update = "update usuarios set usuario = ?, login = ?, senha = md5(?) , perfil = ? where id = ?";
 			try {
@@ -473,6 +488,9 @@ public class Usuarios extends JDialog {
 		} else if (txtLogin.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o login");
 			txtLogin.requestFocus();
+		} else if (cboPerfil.getSelectedItem() == "") {
+			JOptionPane.showMessageDialog(null, "Selecione o perfil do usuario");
+			cboPerfil.requestFocus();
 		} else {
 			String update = "update usuarios set usuario = ?, login = ?, perfil = ? where id = ?";
 			try {
