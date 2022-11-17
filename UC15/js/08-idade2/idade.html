@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDADE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                Ano de nascimento:
+                <input type="number" name="tano" id="tano" min="0">
+				<script>document.querySelector("#tano").focus()</script>
+            </p>
+            <p>
+                Sexo:
+                <input type="radio" name="sexo" id="masc">
+                <label for="sexo">Masculino</label>
+                <input type="radio" name="sexo" id="fem">
+                <label for="sexo">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" onclick="verificar()">
+				<input type="reset" value="Limpar" onclick="limpar()">
+            </p>
+        </div>
+        <div id="resp">
+            Preencha os dados acima para ver o resultado!
+        </div>
+    </section>
+    <footer>
+        <p> Senac Tatuapé</p>
+    </footer>
+    <script src="idade.js"></script>
+</body>
+
+</html>
