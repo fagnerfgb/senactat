@@ -34,6 +34,7 @@ import org.dom4j.io.SAXReader;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
+import net.proteanit.sql.DbUtils;
 
 public class Fornecedores extends JDialog {
 
@@ -110,6 +111,12 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblCep);
 
 		txtFornecedor = new JTextField();
+		txtFornecedor.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				pesquisarComFiltro();
+			}
+		});
 		txtFornecedor.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtFornecedor.setToolTipText("Digite o nome do fornecedor");
 		txtFornecedor.setColumns(10);
@@ -576,14 +583,14 @@ public class Fornecedores extends JDialog {
 		lblStatusCep = new JLabel("");
 		lblStatusCep.setBounds(249, 280, 20, 20);
 		getContentPane().add(lblStatusCep);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(5, 40, 910, 170);
 		getContentPane().add(scrollPane);
-		
+
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
+
 	} // FIM CONSTRUTOR
 
 	DAO dao = new DAO();
@@ -594,22 +601,26 @@ public class Fornecedores extends JDialog {
 	/**
 	 * PESQUISA AVANCADA COM FILTRO
 	 */
-	
+
 	private void pesquisarComFiltro() {
-		String read = "select idFor, fantasia, fone1, fone2, nomeContato, email from fornecedores where fantasia like ('?%')";
+		String read2 = "select idFor as ID, fantasia as Fornecedor, fone1 as Telefone, fone2 as Whatsapp, nomeContato as Contato, email as Email from fornecedores where fantasia like ?";
 		try {
 			Connection con = dao.conectar();
-			PreparedStatement pst = con.prepareStatement(read);
-			pst.setString(1, txtFornecedor.getText());
+			PreparedStatement pst = con.prepareStatement(read2);
+			pst.setString(1, txtFornecedor.getText() + "%"); // ATENCAO AO "%"
 			ResultSet rs = pst.executeQuery();
-		
+
+			/**
+			 * USO DA BIBLIOTECA RS2XML PARA POPULAR A TABELA
+			 */
+			table.setModel(DbUtils.resultSetToTableModel(rs));
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-	}
-	
+
+	} // FIM PESQUISAR COM FILTRO
+
 	/**
 	 * PESQUISAR
 	 */
