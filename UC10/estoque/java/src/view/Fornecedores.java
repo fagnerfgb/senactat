@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +22,8 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -30,8 +34,6 @@ import org.dom4j.io.SAXReader;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class Fornecedores extends JDialog {
 
@@ -575,12 +577,39 @@ public class Fornecedores extends JDialog {
 		lblStatusCep.setBounds(249, 280, 20, 20);
 		getContentPane().add(lblStatusCep);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(5, 40, 910, 170);
+		getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
 	} // FIM CONSTRUTOR
 
 	DAO dao = new DAO();
 	private JTextArea txtObservacao;
 	private JLabel lblStatusCep;
+	private JTable table;
 
+	/**
+	 * PESQUISA AVANCADA COM FILTRO
+	 */
+	
+	private void pesquisarComFiltro() {
+		String read = "select idFor, fantasia, fone1, fone2, nomeContato, email from fornecedores where fantasia like ('?%')";
+		try {
+			Connection con = dao.conectar();
+			PreparedStatement pst = con.prepareStatement(read);
+			pst.setString(1, txtFornecedor.getText());
+			ResultSet rs = pst.executeQuery();
+		
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+	
 	/**
 	 * PESQUISAR
 	 */

@@ -147,6 +147,9 @@ insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero
 -- Fornecedores
 -- delete from fornecedores where idFor = ?
 
+-- Busca avançada filtrando letras
+select idFor, fantasia, fone1, fone2, nomeContato, email from fornecedores where fantasia like ('3%');
+
 
 
 

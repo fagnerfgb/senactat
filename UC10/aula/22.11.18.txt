@@ -1,0 +1,9 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 18/11/2022
+#Data de atualização: 18/11/2022
+#Versão: 0.01
+******************************************************************************************
+Biblioteca rs2xml.jar: Para fazer pesquisa em tabela
+
+Adicionar um JScrollPane
+Adicionar um JTable dentro do viewport do JScrollPane
