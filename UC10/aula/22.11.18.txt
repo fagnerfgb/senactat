@@ -3,7 +3,29 @@
 #Data de atualização: 18/11/2022
 #Versão: 0.01
 ******************************************************************************************
+Pesquisar em tabela
+
 Biblioteca rs2xml.jar: Para fazer pesquisa em tabela
 
 Adicionar um JScrollPane
 Adicionar um JTable dentro do viewport do JScrollPane
+******************************************************************************************
+Ao clicar em algum registro da tabela, pegar o ID e colocar o txtId
+
+Criar evento na tabela (Mouse Clicked)
+int setar = table.getSelectedRow();
+txtId.setText(table.getModel().getValueAt(setar, 0).toString());
+******************************************************************************************
+Limpar a tabela
+((DefaultTableModel) table.getModel()).setRowCount(0);
+******************************************************************************************
+
+Atividade de avaliação 4:
+
+Desenvolvimento da tela de clientes
+
+1) Criar a tabela de clientes (livre escolha dos campos)
+2) Criar o JDialog e fazer o link com a tela principal
+3) Desenhar a tela de acordo com a tabela, inserindo ícones nos botões com acessibilidade. 
+4) Fazer as validações de campos e botões.
+5) Fazer o CRUD completo (livre escolha da pesquisa)

@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +29,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -589,6 +592,13 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(scrollPane);
 
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int setar = table.getSelectedRow();
+				txtId.setText(table.getModel().getValueAt(setar, 0).toString());
+			}
+		});
 		scrollPane.setViewportView(table);
 
 	} // FIM CONSTRUTOR
@@ -603,7 +613,7 @@ public class Fornecedores extends JDialog {
 	 */
 
 	private void pesquisarComFiltro() {
-		String read2 = "select idFor as ID, fantasia as Fornecedor, fone1 as Telefone, fone2 as Whatsapp, nomeContato as Contato, email as Email from fornecedores where fantasia like ?";
+		String read2 = "select idFor as ID, fantasia as Fornecedor, fone1 as Telefone, fone2 as Whatsapp, nomeContato as Contato from fornecedores where fantasia like ?";
 		try {
 			Connection con = dao.conectar();
 			PreparedStatement pst = con.prepareStatement(read2);
@@ -1046,6 +1056,7 @@ public class Fornecedores extends JDialog {
 		btnPesquisarCep.setEnabled(false);
 		btnCreate.setEnabled(false);
 		lblStatusCep.setIcon(null);
+		((DefaultTableModel) table.getModel()).setRowCount(0);
 
 	} // FIM LIMPAR
 } // FIM CODIGO
