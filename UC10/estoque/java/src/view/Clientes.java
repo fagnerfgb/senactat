@@ -175,6 +175,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblAtividadeProfissao);
 
 		txtCliente = new JTextField();
+		txtCliente.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCliente.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -186,6 +187,7 @@ public class Clientes extends JDialog {
 		txtCliente.setColumns(10);
 
 		txtId = new JTextField();
+		txtId.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtId.setBounds(95, 200, 80, 20);
 		getContentPane().add(txtId);
 		txtId.setColumns(10);
@@ -204,12 +206,14 @@ public class Clientes extends JDialog {
 		getContentPane().add(btnPesquisarId);
 
 		txtNomeCliente = new JTextField();
+		txtNomeCliente.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtNomeCliente.setEnabled(false);
 		txtNomeCliente.setBounds(315, 200, 445, 20);
 		getContentPane().add(txtNomeCliente);
 		txtNomeCliente.setColumns(10);
 
 		txtCnpjCpf = new JTextField();
+		txtCnpjCpf.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCnpjCpf.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -226,6 +230,7 @@ public class Clientes extends JDialog {
 		txtCnpjCpf.setColumns(10);
 
 		txtIeRg = new JTextField();
+		txtIeRg.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtIeRg.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -242,6 +247,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(txtIeRg);
 
 		txtCep = new JTextField();
+		txtCep.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCep.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -277,48 +283,56 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblEmail);
 
 		txtEndereco = new JTextField();
+		txtEndereco.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtEndereco.setEnabled(false);
 		txtEndereco.setBounds(340, 261, 420, 20);
 		getContentPane().add(txtEndereco);
 		txtEndereco.setColumns(10);
 
 		txtBairro = new JTextField();
+		txtBairro.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtBairro.setEnabled(false);
 		txtBairro.setColumns(10);
 		txtBairro.setBounds(95, 320, 250, 20);
 		getContentPane().add(txtBairro);
 
 		txtEmail = new JTextField();
+		txtEmail.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtEmail.setEnabled(false);
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(95, 350, 250, 20);
 		getContentPane().add(txtEmail);
 
 		txtNumero = new JTextField();
+		txtNumero.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtNumero.setEnabled(false);
 		txtNumero.setColumns(10);
 		txtNumero.setBounds(95, 290, 120, 20);
 		getContentPane().add(txtNumero);
 
 		txtComplemento = new JTextField();
+		txtComplemento.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtComplemento.setEnabled(false);
 		txtComplemento.setColumns(10);
 		txtComplemento.setBounds(325, 290, 185, 20);
 		getContentPane().add(txtComplemento);
 
 		txtCidade = new JTextField();
+		txtCidade.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCidade.setEnabled(false);
 		txtCidade.setColumns(10);
 		txtCidade.setBounds(410, 320, 250, 20);
 		getContentPane().add(txtCidade);
 
 		txtAtividadeProfissao = new JTextField();
+		txtAtividadeProfissao.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtAtividadeProfissao.setEnabled(false);
 		txtAtividadeProfissao.setBounds(505, 350, 255, 20);
 		getContentPane().add(txtAtividadeProfissao);
 		txtAtividadeProfissao.setColumns(10);
 
 		cboUf = new JComboBox<Object>();
+		cboUf.setFont(new Font("Verdana", Font.PLAIN, 11));
 		cboUf.setEnabled(false);
 		cboUf.setModel(new DefaultComboBoxModel<Object>(
 				new String[] { "", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA",
@@ -327,6 +341,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(cboUf);
 
 		txtNascimento = new JTextField();
+		txtNascimento.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtNascimento.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -343,6 +358,7 @@ public class Clientes extends JDialog {
 		txtNascimento.setColumns(10);
 
 		txtTelefone = new JTextField();
+		txtTelefone.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtTelefone.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -359,6 +375,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(txtTelefone);
 
 		txtWhatsapp = new JTextField();
+		txtWhatsapp.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtWhatsapp.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
