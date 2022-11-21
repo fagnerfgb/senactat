@@ -158,8 +158,8 @@ select idFor, fantasia, fone1, fone2, nomeContato, email from fornecedores where
 create table clientes (
 idCli int primary key auto_increment,
 nomeCliente varchar(60) not null,
-cnpjCpf varchar(20) unique not null,
-ieRG varchar(20) unique not null,
+cnpjCpf varchar(20) unique,
+ieRG varchar(20) unique,
 cep varchar(10) not null,
 endereco varchar(50) not null,
 numero varchar(6) not null,
@@ -187,6 +187,9 @@ insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complem
 insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Nair Emanuelly Marli Fernandes', '95668753808', '459645444', '13457078', 'Rua Adolphino Camargo', '234', '', 'Jardim Santa Rita de Cássia', 'Santa Bárbara D´Oeste', 'SP', '1935215349', '19998524581', 'nair.emanuelly.fernandes@rabelloadvogados.com.br', '26/03/1982', 'Advogada');
 
 insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Benjamin Manoel Antonio Souza', '93374329861', '206189990', '12235501', 'Rua Nova Guine', '467', '', 'Jardim América', 'São José dos Campos', 'SP', '1225631809', '12984967928', 'benjaminmanoelsouza@baltico.com.br', '04/07/1982', 'Padeiro');
+
+use estoque;
+drop table clientes;
 
 
 
