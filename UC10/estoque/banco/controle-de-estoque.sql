@@ -10,8 +10,10 @@ use estoque;
 show tables;
 describe usuarios;
 describe fornecedores;
+describe clientes;
 select * from usuarios;
 select * from fornecedores;
+select * from clientes;
 
 -- Criação do banco de dados
 create database estoque;
@@ -53,6 +55,7 @@ delete from usuarios where id = 6;
 
 -- Excluir tabela
 drop table usuarios;
+
 
 -- Adicionar novo campo no final da tabela
 alter table usuarios add column perfil varchar(250);
@@ -149,6 +152,45 @@ insert into fornecedores (razaoSocial, fantasia, cnpj, ie, cep, endereco, numero
 
 -- Busca avançada filtrando letras
 select idFor, fantasia, fone1, fone2, nomeContato, email from fornecedores where fantasia like ('3%');
+
+-- Tabela de Clientes
+
+create table clientes (
+idCli int primary key auto_increment,
+nomeCliente varchar(60) not null,
+cnpjCpf varchar(20) unique not null,
+ieRG varchar(20) unique not null,
+cep varchar(10) not null,
+endereco varchar(50) not null,
+numero varchar(6) not null,
+complemento varchar(20),
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+uf char(2) not null,
+fone1 varchar(15) not null,
+fone2 varchar(15),
+email varchar(50) not null,
+nascimento varchar(11) not null,
+atividadeProfissao varchar(50) not null
+);
+
+-- CREATE
+-- insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ();
+
+
+insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Isabella Patrícia Alves', '87249594800', '262533844', '17523300', 'Rua Hermano José da Silva', '238', '', 'Jardim Nacional', 'Marília', 'SP', '1435446618', '14984626029', 'isabella_alves@depotit.com.br', '18/09/1982', 'Esteticista');
+
+insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Kaique Manoel da Rosa', '25543526822', '367447678', '04821300','Rua João Francisco de Abreu', '619', '', 'Jardim Colonial', 'São Paulo', 'SP', '1137392769', '11983812484', 'kaique_darosa@ppe.ufrj.br', '01/01/1982', 'Engenheiro');
+
+insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Tomás Benício da Luz', '54015398866', '158530378', '08472780', 'Travessa Barão Ferraz de Uruguaiana', '353', '', 'Conjunto Habitacional Inácio Monteiro', 'São Paulo', 'SP', '1128218735', '11981574691', 'tomas.benicio.daluz@multieventos.art.br', '27/03/1982', 'Marceneiro');
+
+insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Nair Emanuelly Marli Fernandes', '95668753808', '459645444', '13457078', 'Rua Adolphino Camargo', '234', '', 'Jardim Santa Rita de Cássia', 'Santa Bárbara D´Oeste', 'SP', '1935215349', '19998524581', 'nair.emanuelly.fernandes@rabelloadvogados.com.br', '26/03/1982', 'Advogada');
+
+insert into clientes (nomeCliente, cnpjCpf, ieRg, cep, endereco, numero, complemento, bairro, cidade, uf, fone1, fone2, email, nascimento, atividadeProfissao) values ('Benjamin Manoel Antonio Souza', '93374329861', '206189990', '12235501', 'Rua Nova Guine', '467', '', 'Jardim América', 'São José dos Campos', 'SP', '1225631809', '12984967928', 'benjaminmanoelsouza@baltico.com.br', '04/07/1982', 'Padeiro');
+
+
+
+
 
 
 

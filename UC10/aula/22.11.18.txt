@@ -19,7 +19,6 @@ txtId.setText(table.getModel().getValueAt(setar, 0).toString());
 Limpar a tabela
 ((DefaultTableModel) table.getModel()).setRowCount(0);
 ******************************************************************************************
-
 Atividade de avaliação 4:
 
 Desenvolvimento da tela de clientes
