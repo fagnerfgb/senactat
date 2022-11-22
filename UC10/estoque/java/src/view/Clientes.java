@@ -751,12 +751,22 @@ public class Clientes extends JDialog {
 
 				int confirma = pst.executeUpdate();
 				if (confirma == 1) {
-					JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
 					limpar();
 					con.close();
 				}
-			} catch (Exception e) {
-				System.out.println(e);
+
+			} catch (java.sql.SQLIntegrityConstraintViolationException e1) {
+
+				JOptionPane.showMessageDialog(null, "CNPJ ou CPF duplicado");
+				txtCnpjCpf.setText(null);
+				txtCnpjCpf.requestFocus();
+
+				JOptionPane.showMessageDialog(null, "RG ou IE duplicado");
+				txtIeRg.setText(null);
+				txtIeRg.requestFocus();
+			} catch (Exception e2) {
+				System.out.println(e2);
 			}
 		}
 	} // FIM ADICIONAR
