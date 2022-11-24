@@ -98,6 +98,12 @@ public class Main extends JFrame {
 		getContentPane().add(btnFornecedores);
 		
 		JButton btnProdutos = new JButton("");
+		btnProdutos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Produtos produtos = new Produtos();
+				produtos.setVisible(true);
+			}
+		});
 		btnProdutos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProdutos.setToolTipText("Produtos");
 		btnProdutos.setIcon(new ImageIcon(Main.class.getResource("/img/products.png")));
