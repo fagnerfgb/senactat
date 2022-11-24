@@ -1,0 +1,36 @@
+txtFornecedor
+txtIdFor
+txtCodigoDeBarras
+txtId
+txtProduto
+txtDescricao
+txtFabricante
+txtEstoque
+txtEstoqueMinimo
+dateEntrada
+dateValidade
+cboUnidade
+txtLocalizacao
+txtCusto
+txtLucro
+
+
+Verificações
+Pesquisa com Filtro - OK
+Pesquisar - OK
+Adicionar 
+	Testar as validações
+	dateEntrada
+	dateValidade
+Alterar
+	Testar as validações
+	dateEntrada
+	dateValidade
+Excluir
+	Testar
+Limpar
+	dateEntrada
+	dateEntrada
+	Verificar se algum campo está incompleto
+	
+

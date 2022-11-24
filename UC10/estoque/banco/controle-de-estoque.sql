@@ -256,6 +256,9 @@ date_format(dataval, '%d/%m/%Y') as Data_Validade,
 datediff(dataval,curdate()) as Dias_Vencidos
 from produtos where datediff(dataval,curdate()) < 0;
 
+use estoque;
+select * from produtos;
+
 
 
 
