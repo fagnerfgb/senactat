@@ -32,5 +32,7 @@ Limpar
 	dateEntrada
 	dateEntrada
 	Verificar se algum campo está incompleto
+
+Validar Lucro (não pode colocar símbolo de porcentagem) OK
 	
 

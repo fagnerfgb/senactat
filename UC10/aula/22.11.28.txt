@@ -1,0 +1,21 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 28/11/2022
+#Data de atualização: 28/11/2022
+#Versão: 0.01
+******************************************************************************************
+Formatação de data para compatibilizar MySQL <-> JCalendar
+
+// JCalendar - formatação para exibição
+String setarData = rs.getString(x); //x -> número do campo da tabela
+//apoio a lógica
+//System.out.println(setarData);
+Date dataFormatada = new SimpleDateFormat("yyyy-MM-dd").parse(setarData);
+dateChooser.setDate(dataFormatada);
+
+// Formatar o valor do JCalendar para inserção correta no banco
+SimpleDateFormat formatador = new SimpleDateFormat("yyyyMMdd");
+String dataFormatada = formatador.format(dateChooser.getDate());
+pst.setString(x, dataFormatada); //x -> parâmetro do componente dateChooser
+
+7896572022785
+

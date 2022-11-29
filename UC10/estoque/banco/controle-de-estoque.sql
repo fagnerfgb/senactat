@@ -1,12 +1,12 @@
 /**
  * Projeto de um sistema para gestão de estoque
  * @author Fagner Geraldes Braga
- * @version 1.0
+ * @version 1.3
 */
 
 -- Comandos de verificação
 show databases;
-use estoque;produtos
+use estoque;
 show tables;
 describe usuarios;
 describe fornecedores;
@@ -223,6 +223,8 @@ insert produtos (barcode,produto,descricao,fabricante,dataval,estoque,estoquemin
 values ('77777777','Mouse Logitech','Mouse Logitech para uso de escritorio','Logitech',20271122,5,5,'UN','Prateleira 7',25,30,3);
 insert produtos (barcode,produto,descricao,fabricante,dataval,estoque,estoquemin,unidade,localizacao,custo,lucro,idFor)
 values ('88888888','Régua 30cm','Régua de acrílico 30cm','Faber-Castell',20251122,5,5,'UN','Prateleira 8',2.50,30,14);
+insert into produtos (barcode, produto, descricao, fabricante, dataval, estoque, estoquemin, unidade, localizacao, custo, lucro, idFor)
+values ('7896572022785', 'Computador', 'Computador Positivo', 'Positivo', 20301128, 30, 2, 'UN', 'Prateleira 20', 3500, 30, 2);
 
 -- Relatorio 1 - Unificar tabela de produtos e de fornecedores
 select * from produtos inner join fornecedores
@@ -257,6 +259,7 @@ datediff(dataval,curdate()) as Dias_Vencidos
 from produtos where datediff(dataval,curdate()) < 0;
 
 use estoque;
+describe produtos;
 select * from produtos;
 
 

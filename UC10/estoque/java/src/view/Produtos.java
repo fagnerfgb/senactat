@@ -13,24 +13,29 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.toedter.calendar.JDateChooser;
+
 import Atxy2k.CustomTextField.RestrictedTextField;
 import model.DAO;
 import net.proteanit.sql.DbUtils;
-import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import com.toedter.calendar.JDateChooser;
+import javax.swing.border.TitledBorder;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Produtos extends JDialog {
 
@@ -71,6 +76,12 @@ public class Produtos extends JDialog {
 	 * Create the dialog.
 	 */
 	public Produtos() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				txtCodigoDeBarras.requestFocus();
+			}
+		});
 		getContentPane().setFont(new Font("Verdana", Font.PLAIN, 11));
 		setModal(true);
 		setResizable(false);
@@ -135,7 +146,7 @@ public class Produtos extends JDialog {
 
 		lblLucro = new JLabel("Lucro");
 		lblLucro.setFont(new Font("Verdana", Font.BOLD, 12));
-		lblLucro.setBounds(291, 520, 40, 20);
+		lblLucro.setBounds(245, 520, 40, 20);
 		getContentPane().add(lblLucro);
 
 		txtId = new JTextField();
@@ -157,15 +168,23 @@ public class Produtos extends JDialog {
 
 		txtProduto = new JTextField();
 		txtProduto.setToolTipText("Insira o nome do produto");
-		txtProduto.setEnabled(false);
 		txtProduto.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtProduto.setColumns(10);
 		txtProduto.setBounds(135, 280, 325, 20);
 		getContentPane().add(txtProduto);
 
 		txtCodigoDeBarras = new JTextField();
+		txtCodigoDeBarras.addKeyListener(new KeyAdapter() {
+			// leitor de codigo de barras
+			// evento ao pressionar tecla enter
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					pesquisarBarcode();
+				}
+			}
+		});
 		txtCodigoDeBarras.setToolTipText("Insira o código de barras do produto");
-		txtCodigoDeBarras.setEnabled(false);
 		txtCodigoDeBarras.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCodigoDeBarras.setColumns(10);
 		txtCodigoDeBarras.setBounds(135, 220, 325, 20);
@@ -173,7 +192,6 @@ public class Produtos extends JDialog {
 
 		txtDescricao = new JTextField();
 		txtDescricao.setToolTipText("Insira a descrição do produto");
-		txtDescricao.setEnabled(false);
 		txtDescricao.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtDescricao.setColumns(10);
 		txtDescricao.setBounds(135, 310, 325, 20);
@@ -181,7 +199,6 @@ public class Produtos extends JDialog {
 
 		txtFabricante = new JTextField();
 		txtFabricante.setToolTipText("Insira o fabricante do produto");
-		txtFabricante.setEnabled(false);
 		txtFabricante.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtFabricante.setColumns(10);
 		txtFabricante.setBounds(135, 340, 325, 20);
@@ -198,7 +215,6 @@ public class Produtos extends JDialog {
 				}
 			}
 		});
-		txtEstoque.setEnabled(false);
 		txtEstoque.setToolTipText("Insira o estoque do produto");
 		txtEstoque.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtEstoque.setColumns(10);
@@ -216,7 +232,6 @@ public class Produtos extends JDialog {
 				}
 			}
 		});
-		txtEstoqueMinimo.setEnabled(false);
 		txtEstoqueMinimo.setToolTipText("Insira o estoque mínimo do produto");
 		txtEstoqueMinimo.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtEstoqueMinimo.setColumns(10);
@@ -225,7 +240,6 @@ public class Produtos extends JDialog {
 
 		txtLocalizacao = new JTextField();
 		txtLocalizacao.setToolTipText("Insira a localização do produto");
-		txtLocalizacao.setEnabled(false);
 		txtLocalizacao.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtLocalizacao.setColumns(10);
 		txtLocalizacao.setBounds(135, 490, 325, 20);
@@ -242,7 +256,6 @@ public class Produtos extends JDialog {
 				}
 			}
 		});
-		txtCusto.setEnabled(false);
 		txtCusto.setToolTipText("Insira o preço de custo do produto");
 		txtCusto.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtCusto.setColumns(10);
@@ -260,11 +273,10 @@ public class Produtos extends JDialog {
 				}
 			}
 		});
-		txtLucro.setEnabled(false);
 		txtLucro.setToolTipText("Insira o lucro do produto");
 		txtLucro.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtLucro.setColumns(10);
-		txtLucro.setBounds(360, 520, 100, 20);
+		txtLucro.setBounds(295, 520, 100, 20);
 		getContentPane().add(txtLucro);
 
 		btnCreate = new JButton("");
@@ -330,20 +342,20 @@ public class Produtos extends JDialog {
 		setLocationRelativeTo(null);
 
 		panel = new JPanel();
+		panel.setBorder(new TitledBorder(null, "Fornecedor", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(5, 10, 455, 200);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		txtIdFor = new JTextField();
-		txtIdFor.setEnabled(false);
-		txtIdFor.setBounds(314, 10, 80, 20);
+		txtIdFor.setBounds(314, 15, 80, 20);
 		panel.add(txtIdFor);
 		txtIdFor.setToolTipText("ID do Fornecedor");
 		txtIdFor.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtIdFor.setColumns(10);
 
 		JLabel lblIdFor = new JLabel("ID");
-		lblIdFor.setBounds(284, 10, 20, 20);
+		lblIdFor.setBounds(284, 15, 20, 20);
 		panel.add(lblIdFor);
 		lblIdFor.setFont(new Font("Verdana", Font.BOLD, 12));
 
@@ -357,7 +369,7 @@ public class Produtos extends JDialog {
 		txtFornecedor.setToolTipText("");
 		txtFornecedor.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtFornecedor.setColumns(10);
-		txtFornecedor.setBounds(5, 10, 234, 20);
+		txtFornecedor.setBounds(5, 15, 234, 20);
 		panel.add(txtFornecedor);
 
 		scrollPane = new JScrollPane();
@@ -380,13 +392,12 @@ public class Produtos extends JDialog {
 		btnPesquisarIdFornecedor.setFont(new Font("Verdana", Font.PLAIN, 11));
 		btnPesquisarIdFornecedor.setContentAreaFilled(false);
 		btnPesquisarIdFornecedor.setBorderPainted(false);
-		btnPesquisarIdFornecedor.setBounds(249, 8, 24, 24);
+		btnPesquisarIdFornecedor.setBounds(249, 13, 24, 24);
 		panel.add(btnPesquisarIdFornecedor);
 
 		cboUnidade = new JComboBox<Object>();
-		cboUnidade.setEnabled(false);
 		cboUnidade.setToolTipText("Selecione a unidade do produto");
-		cboUnidade.setModel(new DefaultComboBoxModel<Object>(new String[] {"", "CX", "PÇ", "UN"}));
+		cboUnidade.setModel(new DefaultComboBoxModel<Object>(new String[] { "", "CX", "PÇ", "UN" }));
 		cboUnidade.setFont(new Font("Arial", Font.PLAIN, 11));
 		cboUnidade.setBounds(135, 460, 115, 20);
 		getContentPane().add(cboUnidade);
@@ -397,14 +408,12 @@ public class Produtos extends JDialog {
 		getContentPane().add(lblEntrada);
 
 		dateEntrada = new JDateChooser();
-		dateEntrada.setEnabled(false);
 		dateEntrada.setDateFormatString("d/M/y");
 		dateEntrada.setToolTipText("Insira a data de entrada do produto");
 		dateEntrada.setBounds(135, 400, 200, 20);
 		getContentPane().add(dateEntrada);
 
 		dateValidade = new JDateChooser();
-		dateValidade.setEnabled(false);
 		dateValidade.setDateFormatString("d/M/ y");
 		dateValidade.setToolTipText("Insira o prazo de validade do produto");
 		dateValidade.setBounds(135, 430, 200, 20);
@@ -413,7 +422,7 @@ public class Produtos extends JDialog {
 		/**
 		 * AO PRESSIONAR A TECLA ENTER O BOTAO PESQUISAR E ACIONADO
 		 */
-		getRootPane().setDefaultButton(btnPesquisarId);
+		// getRootPane().setDefaultButton(btnPesquisarId);
 
 		/**
 		 * BIBLIOTECA ATXY2K
@@ -466,13 +475,18 @@ public class Produtos extends JDialog {
 		 */
 		RestrictedTextField custo = new RestrictedTextField(txtCusto);
 		custo.setLimit(11);
-		
+
 		/**
 		 * txtLucro
 		 */
 		RestrictedTextField lucro = new RestrictedTextField(txtLucro);
+
+		JLabel lblPorcentagem = new JLabel("%");
+		lblPorcentagem.setFont(new Font("Verdana", Font.BOLD, 12));
+		lblPorcentagem.setBounds(405, 520, 20, 20);
+		getContentPane().add(lblPorcentagem);
 		lucro.setLimit(11);
-		
+
 	} // FIM DO CONSTRUTOR
 
 	DAO dao = new DAO();
@@ -518,24 +532,33 @@ public class Produtos extends JDialog {
 		/**
 		 * VALIDACAO
 		 */
-		if (txtId.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Insira o ID do produto");
-			txtId.requestFocus();
-		} else {
+		//if (txtId.getText().isEmpty()) {
+			//JOptionPane.showMessageDialog(null, "Insira o ID do produto");
+			//txtId.requestFocus();
+		//} else {
 			String read = "select * from produtos where codigo = ?";
 			try {
 				Connection con = dao.conectar();
 				PreparedStatement pst = con.prepareStatement(read);
 				pst.setString(1, txtId.getText());
 				ResultSet rs = pst.executeQuery();
+
 				if (rs.next()) {
 					txtId.setText(rs.getString(1));
 					txtCodigoDeBarras.setText(rs.getString(2));
 					txtProduto.setText(rs.getString(3));
 					txtDescricao.setText(rs.getString(4));
 					txtFabricante.setText(rs.getString(5));
-					dateEntrada.setDate(rs.getDate(6));
-					dateValidade.setDate(rs.getDate(7));
+					// dateEntrada.setDate(rs.getDate(6));
+					String setarDataEntrada = rs.getString(6);
+					java.util.Date dataEntrada = new SimpleDateFormat("yyyy-MM-dd").parse(setarDataEntrada);
+					dateEntrada.setDate(dataEntrada);
+
+					// dateValidade.setDate(rs.getDate(7));
+					String setarDataValidade = rs.getString(7);
+					java.util.Date dataValidade = new SimpleDateFormat("yyyy-MM-dd").parse(setarDataValidade);
+					dateValidade.setDate(dataValidade);
+
 					txtEstoque.setText(rs.getString(8));
 					txtEstoqueMinimo.setText(rs.getString(9));
 					cboUnidade.setSelectedItem(rs.getString(10));
@@ -598,8 +621,109 @@ public class Produtos extends JDialog {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-		}
+		//}
 	} // FIM PESQUISAR
+
+	/**
+	 * PESQUISAR USANDO CODIGO DE BARRAS
+	 */
+
+	private void pesquisarBarcode() {
+
+		/**
+		 * VALIDACAO
+		 */
+		//if (txtId.getText().isEmpty()) {
+			//JOptionPane.showMessageDialog(null, "Insira o ID do produto");
+			//txtId.requestFocus();
+		//} else {
+			String read = "select * from produtos where barcode = ?";
+			try {
+				Connection con = dao.conectar();
+				PreparedStatement pst = con.prepareStatement(read);
+				pst.setString(1, txtCodigoDeBarras.getText());
+				ResultSet rs = pst.executeQuery();
+
+				if (rs.next()) {
+					txtId.setText(rs.getString(1));
+					txtCodigoDeBarras.setText(rs.getString(2));
+					txtProduto.setText(rs.getString(3));
+					txtDescricao.setText(rs.getString(4));
+					txtFabricante.setText(rs.getString(5));
+					// dateEntrada.setDate(rs.getDate(6));
+					String setarDataEntrada = rs.getString(6);
+					java.util.Date dataEntrada = new SimpleDateFormat("yyyy-MM-dd").parse(setarDataEntrada);
+					dateEntrada.setDate(dataEntrada);
+
+					// dateValidade.setDate(rs.getDate(7));
+					String setarDataValidade = rs.getString(7);
+					java.util.Date dataValidade = new SimpleDateFormat("yyyy-MM-dd").parse(setarDataValidade);
+					dateValidade.setDate(dataValidade);
+
+					txtEstoque.setText(rs.getString(8));
+					txtEstoqueMinimo.setText(rs.getString(9));
+					cboUnidade.setSelectedItem(rs.getString(10));
+					txtLocalizacao.setText(rs.getString(11));
+					txtCusto.setText(rs.getString(12));
+					txtLucro.setText(rs.getString(13));
+					txtIdFor.setText(rs.getString(14));
+
+					/**
+					 * HABILITAR BOTOES
+					 */
+					btnUpdate.setEnabled(true);
+					btnDelete.setEnabled(true);
+					btnPesquisarId.setEnabled(false);
+
+					/**
+					 * HABILITAR CAMPOS
+					 */
+					txtCodigoDeBarras.setEnabled(true);
+					txtCodigoDeBarras.requestFocus();
+					txtProduto.setEnabled(true);
+					txtDescricao.setEnabled(true);
+					txtFabricante.setEnabled(true);
+					txtEstoque.setEnabled(true);
+					txtEstoqueMinimo.setEnabled(true);
+					dateValidade.setEnabled(true);
+					dateEntrada.setEnabled(true);
+					cboUnidade.setEnabled(true);
+					txtLocalizacao.setEnabled(true);
+					txtCusto.setEnabled(true);
+					txtLucro.setEnabled(true);
+					txtId.setEnabled(false);
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Produto não cadastrado");
+					/**
+					 * HABILITAR CAMPOS E BOTOES
+					 */
+					txtCodigoDeBarras.setEnabled(true);
+					txtProduto.setEnabled(true);
+					txtDescricao.setEnabled(true);
+					txtFabricante.setEnabled(true);
+					txtEstoque.setEnabled(true);
+					txtEstoqueMinimo.setEnabled(true);
+					dateEntrada.setEnabled(true);
+					dateValidade.setEnabled(true);
+					cboUnidade.setEnabled(true);
+					txtLocalizacao.setEnabled(true);
+					txtCusto.setEnabled(true);
+					txtLucro.setEnabled(true);
+					txtId.setEnabled(false);
+					btnCreate.setEnabled(true);
+					btnPesquisarId.setEnabled(false);
+					txtCodigoDeBarras.requestFocus();
+					txtId.setEnabled(false);
+					txtId.setText(null);
+
+				}
+				con.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		//}
+	} // FIM PESQUISAR USANDO CODIGO DE BARRAS
 
 	/**
 	 * ADICIONAR
@@ -715,7 +839,7 @@ public class Produtos extends JDialog {
 				pst.setString(2, txtProduto.getText());
 				pst.setString(3, txtDescricao.getText());
 				pst.setString(4, txtFabricante.getText());
-				//pst.setDate(5, dateValidade.getDate());
+				// pst.setDate(5, dateValidade.getDate());
 				pst.setString(6, txtEstoque.getText());
 				pst.setString(7, txtEstoqueMinimo.getText());
 				pst.setString(8, cboUnidade.getSelectedItem().toString());
@@ -784,7 +908,7 @@ public class Produtos extends JDialog {
 		}
 
 	} // FIM EXCLUIR
-	
+
 	/**
 	 * LIMPAR
 	 */

@@ -1,0 +1,12 @@
+// JCalendar - formatação da data para exibição no componente
+String setarData = rs.getString(x); //x -> valor do campo
+Date dataFormatada = new SimpleDateFormat("yyyy-MM-dd").parse(setarData);
+dateChooser.setDate(dataFormatada);
+
+//Formatar o valor do JCalendar para inserção correta no MySQL
+SimpleDateFormat formatador = new SimpleDateFormat("yyyyMMdd");
+String dataFormatada = formatador.format(dateChooser.getDate());
+pst.setString(x, dataFormatada); //x -> valor do campo
+
+//Limpar a data:
+dateChooser.setDate(null);

@@ -1,0 +1,9 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 23/11/2022
+#Data de atualização: 23/11/2022
+#Versão: 0.01
+******************************************************************************************
+Adicionar componentes no window builder (JCalendar)
+- tutorial disponível na pasta pública
+
+Desenvolvimento da tela de produtos (layout)
