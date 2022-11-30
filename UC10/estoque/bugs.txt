@@ -1,0 +1,16 @@
+Pesquisar por ID
+-- Pesquisa por ID válido - OK
+-- Pesquisa por ID inválido - OK
+
+Campos Estoque, Estoque Mínimo, Custo e Lucro aceita texto ao dar Control + V OK
+Campo Validade - Criar máscara ou permitir usar somente o calendário
+Window Builder - tem bug para alterar tabulação (Joguei fornecedor para o final do formulário)
+
+Campos Custo e Lucro:
+-- Deixar só ponto ou converter vírgula e ponto ?
+-- Criar máscara de entrada
+
+Data de validade precisa ser maior que data de entrada
+
+Pesquisar por Barcode
+

@@ -1,0 +1,33 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 29/11/2022
+#Data de atualização: 29/11/2022
+#Versão: 0.01
+******************************************************************************************
+Sistema de gestão de estoque - Java <-> MySQL
+
+Atividade 5 (avaliação)
+
+Tela de produtos
+- Fazer validações de campos OK
+- Melhorar a UX (Experiência do usuário), inserindo ícones nos botões, limpando os campos, habilitar/desabilitar campos e botões etc. OK
+- Desenvolver os métodos update e delete OK
+- Testes (testar exaustivamente o sistema antes da validação com o professor)
+  Dicas:
+  - Verificar campos obrigatórios e número máximo de caracteres
+  - Verificar tipos de dados (ex: somente números)
+  - Verificar datas erradas
+  - Verificar o cadastro de 2 barcode idênticos
+  - Verificar o cadastro de um produto com um fornecedor que não existe
+
+
+Dica 1: Validar o componente JDateChooser (preenchimento obrigatório)
+if (dateValidade.getDate() == null) {
+  //código
+}
+
+Dica 2: Limpar o campo do componente JDateChooser
+dateValidade.setDate(null);
+dateEntrada.setDate(null);
+
+
+
