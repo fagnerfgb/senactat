@@ -277,7 +277,7 @@ public class Produtos extends JDialog {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// validação (aceita somente os caracteres da String)
-				String caracteres = "1234567890.";
+				String caracteres = "1234567890.,";
 				if (!caracteres.contains(e.getKeyChar() + "")) {
 					e.consume();
 				}
@@ -305,7 +305,7 @@ public class Produtos extends JDialog {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// validação (aceita somente os caracteres da String)
-				String caracteres = "1234567890.";
+				String caracteres = "1234567890.,";
 				if (!caracteres.contains(e.getKeyChar() + "")) {
 					e.consume();
 				}
@@ -417,15 +417,30 @@ public class Produtos extends JDialog {
 		panel.add(txtFornecedor);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(5, 40, 440, 150);
+		scrollPane.setBounds(5, 50, 440, 135);
 		panel.add(scrollPane);
 
 		table = new JTable();
+		table.setFont(new Font("Verdana", Font.PLAIN, 11));
+		table.setModel(
+				new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"ID", "Fornecedor"
+			}
+		));
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int setar = table.getSelectedRow();
-				txtIdFor.setText(table.getModel().getValueAt(setar, 0).toString());
+				setarCampos();
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -616,8 +631,10 @@ public class Produtos extends JDialog {
 					 */
 					btnUpdate.setEnabled(true);
 					btnDelete.setEnabled(true);
+					btnPesquisarId.setEnabled(false);
+					txtId.setEnabled(false);
 					dateValidade.setEnabled(false);
-
+					txtCodigoDeBarras.setEnabled(false);
 				} else {
 					JOptionPane.showMessageDialog(null, "Produto não cadastrado");
 					/**
@@ -688,6 +705,7 @@ public class Produtos extends JDialog {
 				btnPesquisarId.setEnabled(false);
 				txtId.setEnabled(false);
 				dateValidade.setEnabled(false);
+				txtCodigoDeBarras.setEnabled(false);
 
 			} else {
 				JOptionPane.showMessageDialog(null, "Produto não cadastrado");
@@ -743,7 +761,6 @@ public class Produtos extends JDialog {
 		} else if (txtIdFor.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o ID do Fornecedor");
 			txtFornecedor.requestFocus();
-
 		} else {
 			String insert = "insert into produtos (barcode, produto, descricao, fabricante, dataval, estoque, estoquemin, unidade, localizacao, custo, lucro, idFor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			try {
@@ -766,8 +783,8 @@ public class Produtos extends JDialog {
 				pst.setString(7, txtEstoqueMinimo.getText());
 				pst.setString(8, cboUnidade.getSelectedItem().toString());
 				pst.setString(9, txtLocalizacao.getText());
-				pst.setString(10, txtCusto.getText());
-				pst.setString(11, txtLucro.getText());
+				pst.setString(10, txtCusto.getText().replace(",", "."));
+				pst.setString(11, txtLucro.getText().replace(",", "."));
 				pst.setString(12, txtIdFor.getText());
 				int confirma = pst.executeUpdate();
 				if (confirma == 1) {
@@ -775,8 +792,13 @@ public class Produtos extends JDialog {
 					limpar();
 					con.close();
 				}
-			} catch (Exception e) {
-				System.out.println(e);
+			} catch (java.sql.SQLIntegrityConstraintViolationException e1) {
+
+				JOptionPane.showMessageDialog(null, "Código de Barras Duplicado! Cadastre o código de barras correto");
+				txtCodigoDeBarras.setText(null);
+				txtCodigoDeBarras.requestFocus();
+			} catch (Exception e2) {
+				System.out.println(e2);
 			}
 		}
 	} // FIM ADICIONAR
@@ -833,7 +855,7 @@ public class Produtos extends JDialog {
 				pst.setString(2, txtProduto.getText());
 				pst.setString(3, txtDescricao.getText());
 				pst.setString(4, txtFabricante.getText());
-				
+
 				/**
 				 * FORMATAR O VALOR DO JCALENDAR PARA INSERCAO CORRETA NO BANCO
 				 */
@@ -844,8 +866,8 @@ public class Produtos extends JDialog {
 				pst.setString(7, txtEstoqueMinimo.getText());
 				pst.setString(8, cboUnidade.getSelectedItem().toString());
 				pst.setString(9, txtLocalizacao.getText());
-				pst.setString(10, txtCusto.getText());
-				pst.setString(11, txtLucro.getText());
+				pst.setString(10, txtCusto.getText().replace(",", "."));
+				pst.setString(11, txtLucro.getText().replace(",", "."));
 				pst.setString(12, txtIdFor.getText());
 				pst.setString(13, txtId.getText());
 				int confirma = pst.executeUpdate();
@@ -862,8 +884,13 @@ public class Produtos extends JDialog {
 				 */
 				con.close();
 
-			} catch (Exception e) {
-				System.out.println(e);
+			} catch (java.sql.SQLIntegrityConstraintViolationException e1) {
+
+				JOptionPane.showMessageDialog(null, "Código de Barras Duplicado! Cadastre o código correto");
+				txtCodigoDeBarras.setText(null);
+				txtCodigoDeBarras.requestFocus();
+			} catch (Exception e2) {
+				System.out.println(e2);
 			}
 		}
 
@@ -924,6 +951,7 @@ public class Produtos extends JDialog {
 		txtEstoque.setText(null);
 		txtEstoqueMinimo.setText(null);
 		dateValidade.setDate(null);
+		dateValidade.setEnabled(true);
 		dateEntrada.setDate(null);
 		cboUnidade.setSelectedItem("");
 		txtLocalizacao.setText(null);
@@ -932,6 +960,7 @@ public class Produtos extends JDialog {
 		txtIdFor.setText(null);
 		txtFornecedor.setText(null);
 		txtId.setEnabled(true);
+		txtCodigoDeBarras.setEnabled(true);
 		txtCodigoDeBarras.requestFocus();
 		btnPesquisarId.setEnabled(true);
 		btnCreate.setEnabled(false);
@@ -940,4 +969,14 @@ public class Produtos extends JDialog {
 		dateEntrada.setDate(null);
 
 	} // FIM LIMPAR
+
+	
+	/**
+	 * SETAR CAMPOS DO FORMULARIO COM OS DADOS DA TABELA
+	 */
+	private void setarCampos() {
+		int setar = table.getSelectedRow();
+		txtIdFor.setText(table.getModel().getValueAt(setar, 0).toString());
+	} // FIM SETAR CAMPOS
+
 } // FIM DO CODIGO

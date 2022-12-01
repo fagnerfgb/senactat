@@ -7,10 +7,10 @@ Campo Validade - Criar máscara ou permitir usar somente o calendário
 Window Builder - tem bug para alterar tabulação (Joguei fornecedor para o final do formulário)
 
 Campos Custo e Lucro:
--- Deixar só ponto ou converter vírgula e ponto ?
+-- Deixar só ponto ou converter vírgula e ponto OK
 -- Criar máscara de entrada
 
 Data de validade precisa ser maior que data de entrada
 
-Pesquisar por Barcode
+Pesquisar por Barcode - OK
 

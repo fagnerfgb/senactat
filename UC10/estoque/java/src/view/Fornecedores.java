@@ -595,8 +595,7 @@ public class Fornecedores extends JDialog {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int setar = table.getSelectedRow();
-				txtId.setText(table.getModel().getValueAt(setar, 0).toString());
+				setarCampos();
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -1059,4 +1058,12 @@ public class Fornecedores extends JDialog {
 		((DefaultTableModel) table.getModel()).setRowCount(0);
 
 	} // FIM LIMPAR
+	
+	/**
+	 * SETAR CAMPOS DO FORMULARIO COM OS DADOS DA TABELA
+	 */
+	private void setarCampos() {
+		int setar = table.getSelectedRow();
+		txtFornecedor.setText(table.getModel().getValueAt(setar, 0).toString());
+	} // FIM SETAR CAMPOS
 } // FIM CODIGO

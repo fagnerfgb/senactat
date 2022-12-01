@@ -16,7 +16,7 @@ Tela de produtos
   - Verificar campos obrigatórios e número máximo de caracteres
   - Verificar tipos de dados (ex: somente números)
   - Verificar datas erradas
-  - Verificar o cadastro de 2 barcode idênticos
+  - Verificar o cadastro de 2 barcode idênticos OK
   - Verificar o cadastro de um produto com um fornecedor que não existe
 
 
