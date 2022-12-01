@@ -9,15 +9,7 @@
 	<classpathentry kind="lib" path="src/model/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="lib" path="src/view/Atxy2k.jar"/>
 	<classpathentry kind="lib" path="src/view/dom4j-2.1.3.jar"/>
-	<classpathentry kind="lib" path="src/view/rs2xml.jar"/>
 	<classpathentry kind="lib" path="src/view/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-castor-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-chart-customizers-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-chart-themes-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-fonts-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-functions-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/jasperreports-metadata-6.20.0.jar"/>
-	<classpathentry kind="lib" path="src/view/js-extra-classes.jar"/>
+	<classpathentry kind="lib" path="src/view/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
