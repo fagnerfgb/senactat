@@ -251,6 +251,12 @@ date_format(dataval,'%d/%m/%Y') as Data_Validade, -- Y Grande ano com 4 digitos 
 estoque as Estoque, estoquemin as Estoque_Minimo
 from produtos where estoque < estoquemin;
 
+-- Relatorio 5.1 - Reposicao de Estoque (versão impressão)
+select codigo, produto,
+date_format(dataval,'%d/%m/%Y')
+estoque, estoquemin
+from produtos where estoque < estoquemin;
+
 -- Relatorio 6 - Produtos Vencidos
 -- datediff() (calcula a diferença de datas)
 select codigo as Código, produto as Produto, localizacao as Localização,

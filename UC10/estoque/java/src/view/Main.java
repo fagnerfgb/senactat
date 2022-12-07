@@ -130,6 +130,12 @@ public class Main extends JFrame {
 		getContentPane().add(btnClientes);
 		
 		btnRelatorios = new JButton("");
+		btnRelatorios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Relatorios relatorios = new Relatorios();
+				relatorios.setVisible(true);
+			}
+		});
 		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRelatorios.setEnabled(false);
 		btnRelatorios.setToolTipText("Relatórios");
