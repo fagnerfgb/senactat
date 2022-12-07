@@ -151,6 +151,8 @@ public class Relatorios extends JDialog {
 		btnUsuarios.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnUsuarios.setBounds(286, 25, 128, 128);
 		getContentPane().add(btnUsuarios);
+		
+		setLocationRelativeTo(null);
 
 	} // FIM DO CONSTRUTOR
 

@@ -66,24 +66,19 @@ public class Login extends JFrame {
 		setFont(new Font("Verdana", Font.PLAIN, 12));
 		setResizable(false);
 		setTitle("Controle de Estoque | Login");
-		setBounds(100, 100, 520, 175);
+		setBounds(100, 100, 280, 216);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 
-		JLabel lblAcesso = new JLabel("");
-		lblAcesso.setIcon(new ImageIcon(Login.class.getResource("/img/logon.png")));
-		lblAcesso.setBounds(5, 4, 128, 128);
-		getContentPane().add(lblAcesso);
-
 		JLabel lblLogin = new JLabel("Login");
 		lblLogin.setFont(new Font("Verdana", Font.PLAIN, 12));
-		lblLogin.setBounds(143, 45, 40, 20);
+		lblLogin.setBounds(5, 45, 40, 20);
 		getContentPane().add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Verdana", Font.PLAIN, 12));
-		lblSenha.setBounds(143, 75, 40, 20);
+		lblSenha.setBounds(5, 75, 40, 20);
 		getContentPane().add(lblSenha);
 
 		txtLogin = new JTextField();
@@ -100,7 +95,7 @@ public class Login extends JFrame {
 		txtLogin.setFont(new Font("Verdana", Font.PLAIN, 11));
 		txtLogin.setToolTipText("Insira o login");
 		txtLogin.setColumns(10);
-		txtLogin.setBounds(193, 45, 200, 20);
+		txtLogin.setBounds(55, 45, 200, 20);
 		getContentPane().add(txtLogin);
 
 		JButton btnAcessar = new JButton("");
@@ -113,18 +108,18 @@ public class Login extends JFrame {
 		btnAcessar.setToolTipText("Clique para fazer logon no sistema");
 		btnAcessar.setContentAreaFilled(false);
 		btnAcessar.setBorderPainted(false);
-		btnAcessar.setBounds(413, 36, 64, 64);
+		btnAcessar.setBounds(100, 107, 64, 64);
 		getContentPane().add(btnAcessar);
 
 		lblStatusBanco = new JLabel("");
 		lblStatusBanco.setIcon(new ImageIcon(Login.class.getResource("/img/dboff24.png")));
-		lblStatusBanco.setBounds(470, 4, 24, 24);
+		lblStatusBanco.setBounds(5, 11, 24, 24);
 		getContentPane().add(lblStatusBanco);
 
 		txtSenha = new JPasswordField();
 		txtSenha.setToolTipText("Insira a senha");
 		txtSenha.setFont(new Font("Verdana", Font.PLAIN, 11));
-		txtSenha.setBounds(193, 76, 200, 20);
+		txtSenha.setBounds(55, 76, 200, 20);
 		getContentPane().add(txtSenha);
 
 		/**
