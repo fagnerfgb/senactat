@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -14,6 +15,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 
@@ -25,8 +27,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import model.DAO;
-import javax.swing.ImageIcon;
-import java.awt.Cursor;
 
 public class Relatorios extends JDialog {
 
@@ -59,7 +59,7 @@ public class Relatorios extends JDialog {
 		setTitle("Relatórios");
 		setResizable(false);
 		setModal(true);
-		setBounds(100, 100, 448, 352);
+		setBounds(100, 100, 579, 486);
 		getContentPane().setLayout(null);
 
 		JButton btnReposicao = new JButton("");
@@ -151,7 +151,16 @@ public class Relatorios extends JDialog {
 		btnUsuarios.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnUsuarios.setBounds(286, 25, 128, 128);
 		getContentPane().add(btnUsuarios);
-		
+
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setBounds(26, 355, 89, 23);
+		getContentPane().add(btnNewButton);
+
 		setLocationRelativeTo(null);
 
 	} // FIM DO CONSTRUTOR
